@@ -2,8 +2,8 @@
 Contributors: bosathemes, kanchha-kaji-prajapati
 Tags: elementor addons, woocommerce, elementor widgets, elementor templates, one click template import
 Requires at least: 4.0
-Tested up to: 6.6
-Stable tag: 1.0.16
+Tested up to: 6.7
+Stable tag: 1.0.17
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,7 +12,7 @@ Elementor Addon with widgets and templates for WooCommerce.
 
 == Description ==
 
-A collection of 30+ Free Elementor Templates specially designed for your Shop or Marketplace. It comes with Free WooCommerce based Elementor Widgets Including Product Grid, Product Categories, Product Carousel, Contact Form 7, Post Grid and many more. Please visit <a href="https://bosathemes.com/bosa-elementor-for-woocommerce">Plugin Homepage</a> for more information.
+A collection of 30+ Free Elementor Templates specially designed for your Shop or Marketplace. It comes with Free WooCommerce based Elementor Widgets Including Product Grid, Product Categories, Product Carousel, Contact Form 7, Post Grid, Product List, Product Category List and many more. Please visit <a href="https://bosathemes.com/bosa-elementor-for-woocommerce">Plugin Homepage</a> for more information.
 
 == 30+ ELEMENTOR WOOCOMMERCE TEMPLATES ==
 
@@ -27,6 +27,7 @@ You can view all <a href="https://bosathemes.com/bosa-elementor-for-woocommerce/
 
 == ELEMENTOR WIDGETS FOR WOOCOMMERCE ==
 
+* WooCommerce Categories List – WooCommerce categories in list mode <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-categories-list-widget/">Live Demo</a>
 * Site Logo Widget – Show your site logo <a href="https://demo.bosathemes.com/elementor-for-woocommerce/site-logo-widget/">Live Demo</a>
 * WooCommerce Products List Widget – WooCommerce products in list mode <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-products-list-widget/">Live Demo</a>
 * WooCommerce Carousel Widget – WooCommerce products in carousel mode <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-carousel-widget/">Live Demo</a>
@@ -88,6 +89,10 @@ No, Elementor PRO or any other PRO addon is not required.
 10. WooCommerce Elementor Widgets
 
 == Changelog ==
+
+= 1.0.17 =
+= Add =
+* Categories List widget added.
 
 = 1.0.16 =
 = Add =

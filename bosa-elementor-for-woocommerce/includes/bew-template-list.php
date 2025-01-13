@@ -1,5 +1,5 @@
 <?php
-$bew_elmentor_templates_list = array(
+$bew_elmentor_templates_list = apply_filters( 'bew_templates_list', array(
 
     array(
         'template_id' => 'home-1',
@@ -19,6 +19,15 @@ $bew_elmentor_templates_list = array(
                 'title' => esc_html__('Contact Form 7', 'bosa-elementor-for-woocommerce'),
             ),
         )
+    ),
+
+    'home-11' => array(
+        'template_id' => 'home-11',
+        'title' => 'Home 11',
+        'image' => BEW_URL . 'includes/admin/screenshot/home-11.jpg',
+        'preview' => 'https://demo.bosathemes.com/elementor-for-woocommerce/home-11/',
+        'pro' => true,
+        'buy_link' => 'https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing',
     ),
 
     array(
@@ -529,4 +538,4 @@ $bew_elmentor_templates_list = array(
         )
     ),
 
-);
+) );

@@ -153,14 +153,16 @@
   transition: background-color 0.4s;
 }
 .bew-admin-import .card .btn-primary {
-  background-color: #2271b1;
+  background-color: #b2b2b2;
 }
 .bew-admin-import .card .btn-secondary {
-  background-color: #F66C5E;
+  background-color: #8a8989;
 }
 .bew-admin-import .card .btn:hover,
 .bew-admin-import .card .btn:focus {
   background-color: #135e96;
+  color: #fff;
+  box-shadow: none;
 }
 .bew-admin-import .card .card-body .dashicons {
   margin-right: 5px;
@@ -345,6 +347,15 @@
 .mr-auto {
   margin-right: auto !important;
 }
+.bew-plugins-upgrade-pro {
+  color: #93003f;
+  font-weight: 700;
+}
+.bew-plugins-upgrade-pro:hover,
+.bew-plugins-upgrade-pro:focus {
+  color: #c60055;
+}
+
 @media only screen and (min-width: 768px) {
   .col-md-auto {
     -webkit-box-flex: 0;

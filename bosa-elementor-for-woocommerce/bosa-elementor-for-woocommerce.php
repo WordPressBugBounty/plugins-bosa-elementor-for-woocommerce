@@ -2,8 +2,8 @@
 /*
 Plugin Name: Bosa Elementor for WooCommerce
 Plugin URI: https://bosathemes.com/bosa-elementor-for-woocommerce
-Description: A collection of 30+ Free Elementor Templates specially designed for your Shop or Marketplace. It comes with Free WooCommerce based Elementor Widgets Including Product Grid, Product Categories, Product Carousel, Contact Form 7, Post Grid and many more.
-Version:     1.0.16
+Description: A collection of 30+ Free Elementor Templates specially designed for your Shop or Marketplace. It comes with Free WooCommerce based Elementor Widgets Including Product Grid, Product Categories, Product Carousel, Contact Form 7, Post Grid, Product List, Product Category List and many more.
+Version:     1.0.17
 Author:      Bosa Themes
 Author URI:  https://bosathemes.com
 License:     GPLv3 or later
@@ -54,6 +54,8 @@ if (!class_exists('BEW')) {
             // This uri & dir
             $this->this_uri = BEW_URL;
             $this->this_dir = BEW_PATH;
+
+            require_once ( BEW_PATH . 'includes/plugin-info/plugin-info.php' );
             
             if (!did_action('elementor/loaded')) {
                 add_action( 'admin_notices', array($this, 'admin_notice__error_ele') );
@@ -74,6 +76,7 @@ if (!class_exists('BEW')) {
                 add_action( 'admin_action_elementor', [ $this, 'register_wc_hooks' ], 9);
             }
 
+            add_action( 'admin_menu', [ $this, 'bew_addons_add_admin_menu' ] ); 
         }
 
         public function elementor_panel_css() {
@@ -178,6 +181,7 @@ if (!class_exists('BEW')) {
             require_once $this->this_dir . 'widgets/bew-elements-blog.php';
             require_once $this->this_dir . 'widgets/bew-elements-contact-form-7.php';
             require_once $this->this_dir . 'widgets/bew-elements-site-logo.php';
+            require_once $this->this_dir . 'widgets/bew-elements-categories-list.php';
             
             // // Register Featured Service Widget
             $widgets_manager->register( new \Elementor\BEW_Products() );
@@ -187,6 +191,7 @@ if (!class_exists('BEW')) {
             $widgets_manager->register( new \Elementor\BEW_Blog() );
             $widgets_manager->register( new \ELementor\BEW_Contact_Form_7() );
             $widgets_manager->register( new \ELementor\BEW_Site_Logo() );
+            $widgets_manager->register( new \Elementor\BEW_Categories_List() );
             
         }
 
@@ -201,6 +206,7 @@ if (!class_exists('BEW')) {
             wp_enqueue_script('bew-elementor-kit-script', $this->this_uri . 'assets/js/bew-admin-script.js', array( 'jquery' ));
             wp_enqueue_style('bew-elementor-kit-owl-css', $this->this_uri . 'assets/css/owl-carousel-min.css');
             wp_enqueue_style('bew-elementor-kit-owl-default', $this->this_uri . 'assets/css/owl.theme.default.min.css');
+            wp_enqueue_style( 'bew-elementor-kit-global-style', $this->this_uri . 'assets/css/bew-global.css' );
             wp_enqueue_style('bew-elementor-kit-style', $this->this_uri . 'assets/style.css' );
         }
 
@@ -261,6 +267,24 @@ if (!class_exists('BEW')) {
                 'p',
             ];
             return in_array( strtolower( $tag ), $allowed_tags ) ? $tag : 'h2';
+        }
+
+        // Add Docs page link to plugins screen
+        function insert_plugin_links( $links ){
+            // Docs
+            $links[] = sprintf('<a href="https://bosathemes.com/docs/bosa-elementor-for-woocommerce/">' . __('Docs', 'bosa-elementor-for-woocommerce') . '</a>');
+
+            // Go Pro
+            $pro = 'bew-pro/bew-pro.php';
+            // if ( !$this->_is_plugin_installed( $pro ) ) {
+                $links['upgrade-pro'] = sprintf('<a href="https://bosathemes.com/bosa-elementor-for-woocommerce-pro/#pricing" target="_blank" class="bew-plugins-upgrade-pro">' . __('Upgrade to Pro', 'bosa-elementor-for-woocommerce') . '</a>');
+            // }    
+
+            return $links;
+        }
+
+        function bew_addons_add_admin_menu() {
+            add_filter( 'plugin_action_links_'. BEW_PLUGIN_BASENAME, [ $this, 'insert_plugin_links' ] );
         }
     }
 }

@@ -30,6 +30,7 @@
                         <select>
                             <option value="*"><?php esc_html_e('All', 'bosa-elementor-for-woocommerce'); ?></option>
                             <option value=".bew-template-free"><?php esc_html_e('Free', 'bosa-elementor-for-woocommerce'); ?></option>
+                            <option value=".bew-template-pro"><?php esc_html_e('Pro', 'bosa-elementor-for-woocommerce'); ?></option>
                         </select>
                     </div>
                 </div>
@@ -50,10 +51,11 @@
                         'plugins' => array(),
                         'pro' => false,
                         'buy_link' => '',
+                        'pro-path' => false,
 
                     );
-                    
                     $template = array_merge($defaults, $template);
+                    $is_pro = $template['pro-path'] ? 'true' : 'false';
 
                     $plugins = $template['plugins'];
                     $plugin_list = "";
@@ -91,6 +93,7 @@
                                             data-title="<?php echo esc_attr($template['title']); ?>" 
                                             data-freeplugin="<?php echo esc_attr($plugin_list); ?>"
                                             data-theme="<?php echo esc_attr($template['theme']); ?>"
+                                            data-is_pro="<?php echo esc_attr($is_pro); ?>"
                                             >
                                             <span class="dashicons dashicons-plus"></span><?php esc_html_e('Import', 'bosa-elementor-for-woocommerce'); ?>
                                         </a>

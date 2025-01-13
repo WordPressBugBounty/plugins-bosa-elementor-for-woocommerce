@@ -100,9 +100,10 @@ Class BEW_Ajax_Import_Template {
             $page_template      = sanitize_text_field(wp_unslash($_REQUEST['pagetemplate']));
             $page_status        = sanitize_text_field(wp_unslash($_REQUEST['status']));
             $action             = sanitize_text_field(wp_unslash($_REQUEST['page']));
+            $is_pro             = sanitize_text_field(wp_unslash($_REQUEST['templateIsPro']));
 
 
-            $response_data  = $this->_get_content_remote_request( $template_id );
+            $response_data  = $this->_get_content_remote_request( $template_id, $is_pro );
             
             $args = [
                 'post_type'    => $action,
@@ -335,8 +336,15 @@ Class BEW_Ajax_Import_Template {
      * 
      * @since Bosa Elementor Addons and Templates for WooCommerce 1.0.0
      */
-    function _get_content_remote_request( $template_id ){
+    function _get_content_remote_request( $template_id , $is_pro ){
         $url    = sprintf( self::$template_path_path, $template_id );
+        if( $is_pro == 'true' ){
+            if( class_exists( 'BEW_Pro' ) ){
+               $template_pro_path = BEW_PRO_URL . 'includes/admin/json/%s.json';
+               $url    = sprintf( $template_pro_path, $template_id );
+            }
+            
+        }
         
         $response = wp_remote_get( $url, array(
             'timeout'   => 60,

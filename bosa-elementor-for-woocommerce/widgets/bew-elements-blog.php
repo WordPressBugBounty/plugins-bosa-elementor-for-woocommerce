@@ -1086,7 +1086,7 @@ class BEW_Blog extends BEW_Settings {
 
 		?>
 
-		<section class="bew-elements-widgets display-grid bew-elements-container <?php echo esc_attr($wrapper_classes); ?>" <?php echo $this->get_column_attr($settings); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<section class="bew-elements-widgets display-grid bew-display-grid bew-elements-container <?php echo esc_attr($wrapper_classes); ?>" <?php echo $this->get_column_attr($settings); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
             <?php
                 $query = new \WP_Query( $args );
                 if($query->have_posts()) {

@@ -9,13 +9,14 @@ jQuery(document).ready(function($){
         var theme = $(this).data('theme');
         var tpltitle = $(this).data('title');
         var templateid = $(this).data('templateid');
+        var isPro = $(this).data('is_pro');
 
 
         var htbtnMarkuplibrary = `<a href="#" class="button button-primary wp-bew-templata-imp-btn" 
-                data-btnattr='{"templateid":"${templateid}","templpattitle":"${tpltitle}", "page": "elementor_library", "plugins": "${freeplugins}", "theme": "${theme}"}'
+                data-btnattr='{"isPro":"${isPro}","templateid":"${templateid}","templpattitle":"${tpltitle}", "page": "elementor_library", "plugins": "${freeplugins}", "theme": "${theme}"}'
                 >Import to Library</a>`;
         var htbtnMarkuppage = `<a href="#" class="button button-primary wp-bew-templata-imp-btn" 
-                data-btnattr='{"templateid":"${templateid}","templpattitle":"${tpltitle}", "page": "page", "plugins": "${freeplugins}", "theme": "${theme}"}'
+                data-btnattr='{"isPro":"${isPro}","templateid":"${templateid}","templpattitle":"${tpltitle}", "page": "page", "plugins": "${freeplugins}", "theme": "${theme}"}'
                 >Import to Page</a>`;
 
 
@@ -75,6 +76,7 @@ jQuery(document).ready(function($){
                 'theme'        : databtnattr.theme,
                 'page'         : databtnattr.page,
                 'status'       : pagestatus,
+                'templateIsPro': databtnattr.isPro,
                 'nonce'        : BEW.import_nonce
             },
             dataType: 'JSON',

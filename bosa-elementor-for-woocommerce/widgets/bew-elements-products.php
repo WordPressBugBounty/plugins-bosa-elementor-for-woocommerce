@@ -548,7 +548,7 @@ class BEW_Products extends BEW_Settings {
 
 		$this->get_normal_color( 'price_hover_color', esc_html__( 'Hover Color', 'bosa-elementor-for-woocommerce' ), '.woocommerce ul.products li.product a:hover .price', 'color' );
 
-		$this->get_title_typography( 'price_typography', '.woocommerce ul.products li.product .price .amount' );
+		$this->get_title_typography( 'price_typography', '.woocommerce ul.products li.product .price' );
 
 		$this->add_control(
 			'hr_price',
@@ -559,7 +559,7 @@ class BEW_Products extends BEW_Settings {
 
 		$this->get_normal_color( 'del_price_color', esc_html__( 'Del Price Color', 'bosa-elementor-for-woocommerce' ), '.woocommerce ul.products li.product .price del', 'color' );
 
-		$this->get_title_typography( 'del_price_typography', '.woocommerce ul.products li.product .price del .amount' );
+		$this->get_title_typography( 'del_price_typography', '.woocommerce ul.products li.product .price del ' );
 
 		$this->get_margin( 'price_margin', '.woocommerce ul.products li.product .price' );
 
@@ -646,7 +646,7 @@ class BEW_Products extends BEW_Settings {
 			]
 		);
 
-		$this->get_normal_color( 'btn_txt_color', esc_html__( 'Text Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-products a.button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external', 'color' );
+		$this->get_normal_color( 'btn_txt_color', esc_html__( 'Text Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-products .product-inner-contents a.button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external', 'color' );
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Background::get_type(),
@@ -655,7 +655,7 @@ class BEW_Products extends BEW_Settings {
 				'label' => esc_html__( 'Background', 'bosa-elementor-for-woocommerce' ),
 				'types' => [ 'classic', 'gradient' ],
 				'exclude' => [ 'image' ],
-				'selector' => '{{WRAPPER}} .bew-elements-products a.button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external',
+				'selector' => '{{WRAPPER}} .bew-elements-products .product-inner-contents a.button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external',
 			]
 		);
 
@@ -668,7 +668,7 @@ class BEW_Products extends BEW_Settings {
 			]
 		);
 
-		$this->get_normal_color( 'btn_hov_txt_color', esc_html__( 'Text Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-products a.button:hover, {{WRAPPER}} .bew-elements-products a.product_type_grouped:hover, {{WRAPPER}} .bew-elements-products a.product_type_external:hover', 'color' );
+		$this->get_normal_color( 'btn_hov_txt_color', esc_html__( 'Text Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-products .product-inner-contents a.button:hover, {{WRAPPER}} .bew-elements-products a.product_type_grouped:hover, {{WRAPPER}} .bew-elements-products a.product_type_external:hover', 'color' );
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Background::get_type(),
@@ -677,11 +677,11 @@ class BEW_Products extends BEW_Settings {
 				'label' => esc_html__( 'Background', 'bosa-elementor-for-woocommerce' ),
 				'types' => [ 'classic', 'gradient' ],
 				'exclude' => [ 'image' ],
-				'selector' => '{{WRAPPER}} .bew-elements-products a.button:hover, {{WRAPPER}} .bew-elements-products a.product_type_grouped:hover, {{WRAPPER}} .bew-elements-products a.product_type_external:hover',
+				'selector' => '{{WRAPPER}} .bew-elements-products .product-inner-contents a.button:hover, {{WRAPPER}} .bew-elements-products a.product_type_grouped:hover, {{WRAPPER}} .bew-elements-products a.product_type_external:hover',
 			]
 		);
 
-		$this->get_normal_color( 'btn_hov_border_color', esc_html__( 'Border Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-products a.button:hover, {{WRAPPER}} .bew-elements-products a.product_type_grouped:hover, {{WRAPPER}} .bew-elements-products a.product_type_external:hover', 'border-color' );
+		$this->get_normal_color( 'btn_hov_border_color', esc_html__( 'Border Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-products .product-inner-contents a.button:hover, {{WRAPPER}} .bew-elements-products .product-inner-contents a.button:hover, {{WRAPPER}} .bew-elements-products a.product_type_grouped:hover, {{WRAPPER}} .bew-elements-products a.product_type_external:hover', 'border-color' );
 
 		$this->end_controls_tab();
 
@@ -694,13 +694,13 @@ class BEW_Products extends BEW_Settings {
 			]
 		);
 
-		$this->get_border_attr( 'btn_border', '.bew-elements-products a.add_to_cart_button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external' );
+		$this->get_border_attr( 'btn_border', '.bew-elements-products a.add_to_cart_button, {{WRAPPER}} .bew-elements-products .product-inner-contents a.button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external' );
 
-		$this->get_border_radius( 'btn_radius', esc_html__( 'Border Radius', 'bosa-elementor-for-woocommerce' ), '.bew-elements-products a.add_to_cart_button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external', 'border-radius' );
+		$this->get_border_radius( 'btn_radius', esc_html__( 'Border Radius', 'bosa-elementor-for-woocommerce' ), '.bew-elements-products a.add_to_cart_button, {{WRAPPER}} .bew-elements-products .product-inner-contents a.button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external', 'border-radius' );
 
-		$this->get_margin( 'btn_margin', '.bew-elements-products a.add_to_cart_button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external' );
+		$this->get_margin( 'btn_margin', '.bew-elements-products a.add_to_cart_button, {{WRAPPER}} .bew-elements-products .product-inner-contents a.button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external' );
 
-		$this->get_padding( 'btn_padding', '.bew-elements-products a.add_to_cart_button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external' );
+		$this->get_padding( 'btn_padding', '.bew-elements-products a.add_to_cart_button, {{WRAPPER}} .bew-elements-products .product-inner-contents a.button, {{WRAPPER}} .bew-elements-products a.product_type_grouped, {{WRAPPER}} .bew-elements-products a.product_type_external' );
 
 		$this->end_controls_section();
 
