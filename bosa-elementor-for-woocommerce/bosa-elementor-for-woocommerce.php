@@ -3,7 +3,7 @@
 Plugin Name: Bosa Elementor for WooCommerce
 Plugin URI: https://bosathemes.com/bosa-elementor-for-woocommerce
 Description: A collection of 30+ Free Elementor Templates specially designed for your Shop or Marketplace. It comes with Free WooCommerce based Elementor Widgets Including Product Grid, Product Categories, Product Carousel, Contact Form 7, Post Grid, Product List, Product Category List and many more.
-Version:     1.0.17
+Version:     1.0.18
 Author:      Bosa Themes
 Author URI:  https://bosathemes.com
 License:     GPLv3 or later
@@ -275,10 +275,10 @@ if (!class_exists('BEW')) {
             $links[] = sprintf('<a href="https://bosathemes.com/docs/bosa-elementor-for-woocommerce/">' . __('Docs', 'bosa-elementor-for-woocommerce') . '</a>');
 
             // Go Pro
-            $pro = 'bew-pro/bew-pro.php';
-            // if ( !$this->_is_plugin_installed( $pro ) ) {
-                $links['upgrade-pro'] = sprintf('<a href="https://bosathemes.com/bosa-elementor-for-woocommerce-pro/#pricing" target="_blank" class="bew-plugins-upgrade-pro">' . __('Upgrade to Pro', 'bosa-elementor-for-woocommerce') . '</a>');
-            // }    
+            $pro = 'bosa-elementor-for-woocommerce-pro/bosa-elementor-for-woocommerce-pro.php';
+            if ( !$this->_is_plugin_installed( $pro ) ) {
+                $links['upgrade-pro'] = sprintf('<a href="https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing" target="_blank" class="bew-plugins-upgrade-pro">' . __('Upgrade to Pro', 'bosa-elementor-for-woocommerce') . '</a>');
+            }    
 
             return $links;
         }

@@ -21,6 +21,42 @@ $bew_elmentor_templates_list = apply_filters( 'bew_templates_list', array(
         )
     ),
 
+    'home-15' => array(
+        'template_id' => 'home-15',
+        'title' => 'Home 15',
+        'image' => BEW_URL . 'includes/admin/screenshot/home-15.jpg',
+        'preview' => 'https://demo.bosathemes.com/elementor-for-woocommerce/home-15/',
+        'pro' => true,
+        'buy_link' => 'https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing',
+    ),
+
+    'home-14' => array(
+        'template_id' => 'home-14',
+        'title' => 'Home 14',
+        'image' => BEW_URL . 'includes/admin/screenshot/home-14.jpg',
+        'preview' => 'https://demo.bosathemes.com/elementor-for-woocommerce/home-14/',
+        'pro' => true,
+        'buy_link' => 'https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing',
+    ),
+
+    'home-13' => array(
+        'template_id' => 'home-13',
+        'title' => 'Home 13',
+        'image' => BEW_URL . 'includes/admin/screenshot/home-13.jpg',
+        'preview' => 'https://demo.bosathemes.com/elementor-for-woocommerce/home-13/',
+        'pro' => true,
+        'buy_link' => 'https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing',
+    ),
+
+    'home-12' => array(
+        'template_id' => 'home-12',
+        'title' => 'Home 12',
+        'image' => BEW_URL . 'includes/admin/screenshot/home-12.jpg',
+        'preview' => 'https://demo.bosathemes.com/elementor-for-woocommerce/home-12/',
+        'pro' => true,
+        'buy_link' => 'https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing',
+    ),
+
     'home-11' => array(
         'template_id' => 'home-11',
         'title' => 'Home 11',

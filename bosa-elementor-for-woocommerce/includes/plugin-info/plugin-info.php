@@ -102,7 +102,9 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                 }
                 echo "</div>";
                 echo '<div class="bew-logo">';
-                echo '<a href="' . esc_url( 'https://bosathemes.com/bosa-elementor-for-woocommerce' ) . '" target="_blank" class="wp-badge epsilon-info-logo"></a>';
+                echo '<a href="' . esc_url( 'https://bosathemes.com/bosa-elementor-for-woocommerce' ) . '" target="_blank">';
+                        echo '<img src="'.esc_url( plugin_dir_url(__FILE__) . 'assets/bew-logo.png') . '" alt="screenshot">';
+                echo '</a>';
                 echo "</div>";
                 echo "</div>";
                 /* Display tabs */
@@ -135,7 +137,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
          * Support tab
          */
         public function support() {
-            echo '<div class="feature-section col-wrap">';
+            echo '<div class="feature-section display-grid col-grid-3 col-wrap">';
 
             if ( ! empty( $this->config['support_content'] ) ) {
 
@@ -165,7 +167,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                         $is_button = $instance[ 'is_button'];
                         $is_new_tab = $instance[ 'is_new_tab'];
                         
-                        echo '<div class="col"><div class="col-items">';
+                        echo '<div class="col-items">';
 
                         if ( ! empty( $title ) ) {
                             echo '<h3>';
@@ -182,7 +184,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
 
                         if ( ! empty( $button_link ) && ! empty( $button_label ) ) {
 
-                            echo '<p>';
+                            echo '<div>';
                             $button_class = '';
                             if ( $is_button ) {
                                 $button_class = 'button button-primary';
@@ -195,9 +197,9 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                                 }
                             }
                             echo '<a target="' . $button_new_tab . '" href="' . $button_link . '" class="' . $button_class . '">' . $button_label . '</a>';
-                            echo '</p>';
+                            echo '</div>';
                         }
-                        echo '</div></div>';
+                        echo '</div>';
                     }
                 }
             }
@@ -227,7 +229,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                             'is_new_tab' => false
                         );
 
-                         echo '<div class="feature-section col-wrap">';
+                         echo '<div class="feature-section display-grid col-grid-3 col-wrap">';
 
                         foreach ( $free_pro as $free_pro_item ) {
 
@@ -242,7 +244,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                             $is_new_tab = $instance[ 'is_new_tab' ];
 
 
-                            echo '<div class="col"><div class="col-items">';
+                            echo '<div class="col-items">';
                             if ( ! empty( $title ) ) {
                                 echo '<h3>' . $title . '</h3>';
                             }
@@ -251,7 +253,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                             }
                             if ( ! empty( $link_title ) && ! empty( $link_url ) ) {
 
-                                echo '<p>';
+                                echo '<div>';
                                 $button_class = '';
                                 if ( $is_button ) {
                                     $button_class = 'button button-primary';
@@ -263,9 +265,9 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                                 }
 
                                 echo '<a target="' . $button_new_tab . '" href="' . $free_pro_item['link_url'] . '"class="' . $button_class . '">' . $free_pro_item['link_title'] . '</a>';
-                                echo '</p>';
+                                echo '</div>';
                             }
-                            echo '</div></div><!-- .col -->';
+                            echo '</div><!-- .col -->';
                         }
                         echo '</div><!-- .feature-section three-col -->';
                     }
@@ -289,7 +291,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                             'is_button' => false,
                             'is_new_tab' => false
                     );
-                    echo '<div class="feature-section col-wrap">';
+                    echo '<div class="feature-section display-grid col-grid-3 col-wrap">';
                     foreach ( $rating as $rating_item ) {
 
                             /*allowed 6 value in array */
@@ -303,7 +305,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                             $is_new_tab = $instance[ 'is_new_tab' ];
 
 
-                            echo '<div class="col"><div class="col-items">';
+                            echo '<div class="col-items">';
                             if ( ! empty( $title ) ) {
                                 echo '<h3>' . $title . '</h3>';
                             }
@@ -312,7 +314,7 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                             }
                             if ( ! empty( $link_title ) && ! empty( $link_url ) ) {
 
-                                echo '<p>';
+                                echo '<div>';
                                 $button_class = '';
                                 if ( $is_button ) {
                                     $button_class = 'button button-primary';
@@ -324,9 +326,9 @@ if ( ! class_exists( 'BEW_Info' ) ) {
                                 }
 
                                 echo '<a target="' . $button_new_tab . '" href="' . $rating_item['link_url'] . '"class="' . $button_class . '">' . $rating_item['link_title'] . '</a>';
-                                echo '</p>';
+                                echo '</div>';
                             }
-                            echo '</div></div><!-- .col -->';
+                            echo '</div><!-- .col -->';
                     }
                         echo '</div><!-- .feature-section three-col -->';
                 }
