@@ -334,15 +334,21 @@ class BEW_Categories extends BEW_Settings {
 			]
 		);
 
-        $this->get_normal_color( 'title_color', esc_html__( 'Color', 'bosa-elementor-for-woocommerce' ), '.product-category h3.woocommerce-loop-category__title', 'color' );
+        $this->get_normal_color( 'title_color', esc_html__( 'Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-product-categories .product-category h3.woocommerce-loop-category__title', 'color' );
 
-		$this->get_normal_color( 'hov_title_color', esc_html__( 'Hover Color', 'bosa-elementor-for-woocommerce' ), '.product-category:hover h3.woocommerce-loop-category__title', 'color' );
+		$this->get_normal_color( 'hov_title_color', esc_html__( 'Hover Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-product-categories .product-category:hover h3.woocommerce-loop-category__title', 'color' );
 
-		$this->get_title_typography('title_typography', '.product-category h3.woocommerce-loop-category__title');
+		$this->get_normal_color( 'hov_title_border_color', esc_html__( 'Hover Border Color', 'bosa-elementor-for-woocommerce' ), '.bew-elements-product-categories .product-category:hover h3.woocommerce-loop-category__title', 'border-color' );
 
-		$this->get_margin( 'title_margin', 'li.product .woocommerce-loop-category__title' );
+		$this->get_title_typography('title_typography', '.bew-elements-product-categories .product-category h3.woocommerce-loop-category__title');
 
-		$this->get_padding( 'title_padding', 'li.product .woocommerce-loop-category__title' );
+		$this->get_border_attr( 'title_border', '.bew-elements-product-categories li.product .woocommerce-loop-category__title' );
+
+		$this->get_border_radius( 'title_border_radius', esc_html__( 'Border Radius', 'bosa-elementor-for-woocommerce' ), '.bew-elements-product-categories li.product .woocommerce-loop-category__title', 'border-radius' );
+
+		$this->get_margin( 'title_margin', '.bew-elements-product-categories li.product .woocommerce-loop-category__title' );
+
+		$this->get_padding( 'title_padding', '.bew-elements-product-categories li.product .woocommerce-loop-category__title' );
 
 		$this->end_controls_section();
 

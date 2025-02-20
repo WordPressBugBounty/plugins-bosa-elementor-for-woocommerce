@@ -21,6 +21,15 @@ $bew_elmentor_templates_list = apply_filters( 'bew_templates_list', array(
         )
     ),
 
+    'home-16' => array(
+        'template_id' => 'home-16',
+        'title' => 'Home 16',
+        'image' => BEW_URL . 'includes/admin/screenshot/home-16.jpg',
+        'preview' => 'https://demo.bosathemes.com/elementor-for-woocommerce/home-16/',
+        'pro' => true,
+        'buy_link' => 'https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing',
+    ),
+
     'home-15' => array(
         'template_id' => 'home-15',
         'title' => 'Home 15',

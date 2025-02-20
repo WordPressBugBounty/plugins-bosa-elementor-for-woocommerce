@@ -2,8 +2,8 @@
 /*
 Plugin Name: Bosa Elementor for WooCommerce
 Plugin URI: https://bosathemes.com/bosa-elementor-for-woocommerce
-Description: A collection of 30+ Free Elementor Templates specially designed for your Shop or Marketplace. It comes with Free WooCommerce based Elementor Widgets Including Product Grid, Product Categories, Product Carousel, Contact Form 7, Post Grid, Product List, Product Category List and many more.
-Version:     1.0.18
+Description: Enhance your online store with powerful Elementor widgets and a versatile, ready-to-use template library designed for seamless customization and enhanced functionality.
+Version:     1.0.19
 Author:      Bosa Themes
 Author URI:  https://bosathemes.com
 License:     GPLv3 or later
@@ -14,7 +14,7 @@ Text Domain: bosa-elementor-for-woocommerce
 
 if (!defined('ABSPATH')) exit;
 
-define('BEW_VERSION', '1.0.0');
+define('BEW_VERSION', '1.0.19');
 
 define('BEW_FILE', __FILE__);
 define('BEW_PLUGIN_BASENAME', plugin_basename(BEW_FILE));
@@ -56,6 +56,9 @@ if (!class_exists('BEW')) {
             $this->this_dir = BEW_PATH;
 
             require_once ( BEW_PATH . 'includes/plugin-info/plugin-info.php' );
+            require_once ( BEW_PATH . 'includes/admin/notices/rating-notice.php' );
+            require_once ( BEW_PATH . 'includes/admin/notices/pro-notice.php' );
+            require_once ( BEW_PATH . 'includes/admin/notices/widget-notice.php' );
             
             if (!did_action('elementor/loaded')) {
                 add_action( 'admin_notices', array($this, 'admin_notice__error_ele') );
@@ -77,6 +80,7 @@ if (!class_exists('BEW')) {
             }
 
             add_action( 'admin_menu', [ $this, 'bew_addons_add_admin_menu' ] ); 
+
         }
 
         public function elementor_panel_css() {
@@ -288,6 +292,14 @@ if (!class_exists('BEW')) {
         }
     }
 }
+
+function bew_activation_time() {//TODO: Try to locate this in rating-notice.php later if possible
+    if ( false === get_option( 'bew_activation_time' ) ) {
+        add_option( 'bew_activation_time', absint(intval(strtotime('now'))) );
+    }
+}
+
+register_activation_hook( __FILE__,  'bew_activation_time'  );
 
 add_action('after_setup_theme', function(){
     BEW::instance();

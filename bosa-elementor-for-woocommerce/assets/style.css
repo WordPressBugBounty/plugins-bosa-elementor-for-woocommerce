@@ -212,9 +212,9 @@
 .bew-elements-product-categories[desktop-col="6"] ul.products {
     grid-template-columns: repeat(6, 6fr);
 }
-.bew-elements-product-categories .products .product-category {
-    width: 100% !important;
-    margin: 0 !important;
+.bew-elements-product-categories ul.products li.product-category {
+    width: initial;
+    margin: 0 
 }
 .bew-elements-product-categories .bew-match-height-categories .product-wrapper,
 .bew-elements-product-categories .bew-match-height-categories .product-wrapper a,

@@ -3,7 +3,7 @@ Contributors: bosathemes, kanchha-kaji-prajapati
 Tags: elementor addons, woocommerce, elementor widgets, elementor templates, one click template import
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 1.0.18
+Stable tag: 1.0.19
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,29 +12,56 @@ Elementor Addon with widgets and templates for WooCommerce.
 
 == Description ==
 
-A collection of 30+ Free Elementor Templates specially designed for your Shop or Marketplace. It comes with Free WooCommerce based Elementor Widgets Including Product Grid, Product Categories, Product Carousel, Contact Form 7, Post Grid, Product List, Product Category List and many more. Please visit <a href="https://bosathemes.com/bosa-elementor-for-woocommerce">Plugin Homepage</a> for more information.
+Enhance your online store with powerful Elementor widgets and a versatile, ready-to-use template library designed for seamless customization and enhanced functionality. Please visit <a href="https://bosathemes.com/bosa-elementor-for-woocommerce">Plugin Homepage</a> for more information.
 
-== 30+ ELEMENTOR WOOCOMMERCE TEMPLATES ==
+🌟 **Collection of Elementor Page Templates!**
 
-* 10 Homepage Elementor WooCommerce templates
-* 5 Contact Elementor templates
-* 5 About Elementor templates
-* 5 Testimonial Elementor templates
-* 5 FAQ Elementor page templates
-* More comming soon
+✅**Pre-built Templates Library** – Access a collection of Elementor Page Templates to build your site effortlessly and efficiently.
 
-You can view all <a href="https://bosathemes.com/bosa-elementor-for-woocommerce/#template-list">Live Demo Pages</a> from here.
+✅**Variety of Shop Templates** – A diverse collection of homepages and inner pages specially designed for your online store.
 
-== ELEMENTOR WIDGETS FOR WOOCOMMERCE ==
+✅**Seamless Import System** – Easily import Templates for quick and hassle-free customization.
 
-* WooCommerce Categories List – WooCommerce categories in list mode <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-categories-list-widget/">Live Demo</a>
-* Site Logo Widget – Show your site logo <a href="https://demo.bosathemes.com/elementor-for-woocommerce/site-logo-widget/">Live Demo</a>
-* WooCommerce Products List Widget – WooCommerce products in list mode <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-products-list-widget/">Live Demo</a>
-* WooCommerce Carousel Widget – WooCommerce products in carousel mode <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-carousel-widget/">Live Demo</a>
-* WooCommerce Products Widget – WooCommerce products in grid mode <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-products-widget/">Live Demo</a>
-* WooCommerce Categories Widget – WooCommerce categories in grid mode <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-categories-widget/">Live Demo</a>
-* Contact Form 7 Widget – Style contact forms from popular free plugin Contact Form 7 <a href="https://demo.bosathemes.com/elementor-for-woocommerce/contact-form-7-widget/">Live Demo</a>
-* Blog Grid Widget – Show your blog feed <a href="https://demo.bosathemes.com/elementor-for-woocommerce/blog-grid-widget/">Live Demo</a>
+Browse the full library of <a href="https://bosathemes.com/bosa-elementor-for-woocommerce/#template-list">Templates</a>
+
+
+🚀 **Collection of Widgets**
+
+Elegant widget sets designed to enhance your eCommerce website, effortlessly and efficiently.
+
+✅**Woo -Product Tabs(PRO)**: Organize products in a clean, easy-to-navigate tab format within a single page. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woo-product-tabs-widget/">[VIEW DEMO]</a>
+
+✅**Image Carousel(PRO)**: Display multiple images in a compact, interactive, and visually appealing format to easily navigate through them. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/image-carousel-widget/">[VIEW DEMO]</a> 
+
+✅**Testimonial Slider(PRO)**:Display client's reviews or testimonials in a rotating, interactive format, enhancing credibility and trust for a product or service. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/testimonial-slider-widget/">[VIEW DEMO]</a>
+
+✅**Woo - Archive Products**: Display your product archive in an organized layout for easy browsing. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-products-widget/">[VIEW DEMO]</a>
+  
+✅**Woo - Products List**: Show a list of products with easy navigation and detailed descriptions. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-products-list-widget/">[VIEW DEMO]</a>
+  
+✅**Woo - Categories**: Display your product categories to help users navigate your store efficiently. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-categories-widget/">[VIEW DEMO]</a>
+  
+✅**Woo - Archive Carousel**: Showcase products in a sleek carousel design, perfect for highlighting categories or featured products. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-carousel-widget/">[VIEW DEMO]</a>
+
+✅**Woo - Categories List**: Display a list of product categories in an organized, visually appealing layout. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-categories-list-widget/">[VIEW DEMO]</a>
+  
+✅**Site Logo**: Easily customize your site logo to represent your brand. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/site-logo-widget/">[VIEW DEMO]</a>
+  
+✅**Blog**: Display your blog posts in a clean, easy-to-read format for better user engagement. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/blog-grid-widget/">[VIEW DEMO]</a>
+  
+✅**Contact Form 7**: Integrate a user-friendly contact form with customizable fields to connect with your audience. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/contact-form-7-widget/">[VIEW DEMO]</a>
+
+✅**Woo - Product Slider(PRO)**: Allow users to browse products in a smooth slider, enhancing the shopping experience. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-product-slider-widget/">[VIEW DEMO]</a>
+  
+✅**Woo - Grid Products (PRO)**: Display your products in a grid layout for a neat and user-friendly shopping experience. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-grid-products-widget/">[VIEW DEMO]</a>
+  
+✅**Woo - Grid Carousel(PRO)**: Combine the power of grids and carousels to showcase your products dynamically. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-grid-carousel-widget/">[VIEW DEMO]</a>
+    
+✅**Hot Deals(PRO)**: Showcase your hot deals and discounts to attract more customers. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-hot-deal-widget/">[VIEW DEMO]</a>
+
+✅**Woo - Product Accordion (PRO)**: Display product details in a collapsible accordion style, allowing users to easily view more products without cluttering the page. <a href="https://demo.bosathemes.com/elementor-for-woocommerce/woocommerce-products-accordion-widget/">[VIEW DEMO]</a>
+
+✅More Coming Soon...
 
 == Installation ==
 
@@ -89,6 +116,10 @@ No, Elementor PRO or any other PRO addon is not required.
 10. WooCommerce Elementor Widgets
 
 == Changelog ==
+
+= 1.0.19 =
+= Fix =
+* Style issues fix.
 
 = 1.0.18 =
 = Add =
