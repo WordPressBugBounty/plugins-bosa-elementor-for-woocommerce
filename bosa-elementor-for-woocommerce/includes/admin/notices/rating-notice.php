@@ -1,4 +1,4 @@
- <?php
+<?php
 
 if (!defined('ABSPATH')) exit;
 
@@ -8,7 +8,7 @@ if (!class_exists('BewRatingNotice')) {
 
         public function __construct() {
 
-            $this->current_date = false == get_option('bew_maybe_later_time') ? strtotime( 'now' ) : strtotime('now') ;
+            $this->current_date = strtotime( 'now' );
 
             add_action( 'admin_init', [$this, 'check_plugin_install_time'] );
             add_action( 'wp_ajax_bew_rating_maybe_later', [$this, 'bew_rating_maybe_later'] );
