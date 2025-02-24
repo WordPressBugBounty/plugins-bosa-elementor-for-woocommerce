@@ -26,9 +26,9 @@ if (!class_exists('Bew_Upgrade_Notice')) {
         }
 
         public function check_pro_install() { 
-            
+
             if ( $this->current_date >= (int)get_option('bew_remind_me_later_time') ) {
-                if ( !get_option('bew_upgrade_notice_dismiss_' . get_plugin_data(BEW_FILE)['Version']) ) {
+                if ( !get_option('bew_upgrade_notice_dismiss_' . BEW_VERSION) ) {
                     add_action( 'admin_notices', [$this, 'admin_notice_bew_pro' ]);
                 }
             }
@@ -51,7 +51,7 @@ if (!class_exists('Bew_Upgrade_Notice')) {
               exit; // Get out of here, the nonce is rotten!
             }
 
-            add_option( 'bew_upgrade_notice_dismiss_' . get_plugin_data(BEW_FILE)['Version'], true );
+            add_option( 'bew_upgrade_notice_dismiss_' . BEW_VERSION, true );
         }
 
         /**

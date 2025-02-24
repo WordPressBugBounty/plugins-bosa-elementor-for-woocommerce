@@ -6,8 +6,9 @@ if (!class_exists('BewWidgetNotice')) {
     class BewWidgetNotice {
 
         public function __construct() {
+
             add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
-            if ( !get_option('bew_widget_update_dismiss_notice_' . get_plugin_data(BEW_FILE)['Version']) ) {
+            if ( !get_option('bew_widget_update_dismiss_notice_' . BEW_VERSION) ) {
                 add_action( 'admin_init', [$this, 'render_notice'] );
             }
             add_action( 'wp_ajax_bew_widget_update', [$this, 'bew_widget_update'] );
@@ -34,7 +35,7 @@ if (!class_exists('BewWidgetNotice')) {
               exit; // Get out of here, the nonce is rotten!
             }
 
-            add_option( 'bew_widget_update_dismiss_notice_' . get_plugin_data(BEW_FILE)['Version'], true );
+            add_option( 'bew_widget_update_dismiss_notice_' . BEW_VERSION, true );
         }   
 
         /**
