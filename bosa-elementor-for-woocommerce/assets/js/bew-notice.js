@@ -36,15 +36,4 @@ jQuery(document).ready(function($){
         });
     });
 
-    // Widget Update Notice
-    jQuery(document).on( 'click', '#widget-dismiss', function() {
-        jQuery(document).find('.bew-new-widget-notice').slideUp();
-        jQuery.post({
-            url: BEW_NEW.ajaxurl,
-            data: {
-                nonce: BEW_NEW.nonce,
-                action: 'bew_widget_update',
-            }
-        });
-    });
 });

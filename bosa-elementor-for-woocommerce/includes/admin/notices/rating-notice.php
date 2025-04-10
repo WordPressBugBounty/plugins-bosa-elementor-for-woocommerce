@@ -63,7 +63,7 @@ if (!class_exists('BewRatingNotice')) {
             }
             if( !get_user_meta( get_current_user_id(), 'dismiss_bew_rating_notice' ) ){
                 $img_url = BEW_URL . 'assets/images/bew-logo.png';
-                echo '<div class="bew-notice left-thick-border bew-rating-notice">';
+                echo '<div class="bew-notice left-thick-border bew-rating-notice notice notice-success is-dismissible">';
                     echo '<figure class="getting-img">';
                         echo '<img id="" src="'.esc_url( $img_url ).'" />';
                     echo '</figure>';
