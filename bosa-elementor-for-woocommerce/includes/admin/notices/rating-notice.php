@@ -13,6 +13,7 @@ if (!class_exists('BewRatingNotice')) {
             add_action( 'admin_init', [$this, 'check_plugin_install_time'] );
             add_action( 'wp_ajax_bew_rating_maybe_later', [$this, 'bew_rating_maybe_later'] );
             add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
+            add_action( 'admin_init',[ $this, 'bew_notice_dismissed' ]);
         }
 
         public function admin_scripts() {
@@ -72,8 +73,14 @@ if (!class_exists('BewRatingNotice')) {
                         echo '<p class="text">Could you please do us a BIG favour and give it a 5-star rating on Wordpress? Just to help us spread the word and boost our motivation.</p>';
                             echo '<div class="quick-link align-items-center">';
                                 echo '<a href="https://wordpress.org/support/plugin/bosa-elementor-for-woocommerce/reviews/" class="button button-primary" target="_blank">OK, You deserve it!</a>';
-                                echo '<button class="button button-transparent dashicons dashicons-clock clock-symbol bew-maybe-later" >Maybe Later</button>';
-                                echo '<a href="' . esc_url( wp_nonce_url( add_query_arg( 'bew-rating-notice-dismissed', 'dismiss_bew_rating_notice' ), 'bew_rating_state', 'bew_rating_nonce' ) ) . '" class="button button-transparent tick-symbol " target="_blank"> I Already did</a>';
+                                echo '<div class="bew-maybe-later button button-transparent bew-btn-wrapper">
+                                    <span class="dashicons dashicons-clock"></span>
+                                    <span class="btn-text">May be Later</span>
+                                    </div>';
+                                echo '<a href="' . esc_url( wp_nonce_url( add_query_arg( 'bew-rating-notice-dismissed', 'dismiss_bew_rating_notice' ), 'bew_rating_state', 'bew_rating_nonce' ) ) . '" class="button button-transparent bew-btn-wrapper" > 
+                                    <span class="dashicons dashicons-saved"></span>
+                                    <span class="btn-text">I Already did</span>
+                                </a>';
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';

@@ -127,7 +127,6 @@
     gap: 10px;
     text-align: left;
 }
-.tick-symbol:before,
 .bew-notice .getting-content ul.bew-demo-info-list li:before {
     content: "\2714";
     font-weight: 700;
@@ -224,14 +223,15 @@
 .bew-rating-notice .button.tick-symbol:hover:before {
     color: #135e96;
 }
+.bew-rating-notice .bew-btn-wrapper,
 .bew-rating-notice .button.clock-symbol {
     margin: 0;
     padding: 0;
     width: initial;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 5px;
+    justify-content: flex-end;
+    gap: 4px;
 }
 .bew-rating-notice .button.clock-symbol:before {
     font-size: 20px;
@@ -337,18 +337,18 @@
 }
 
 @media only screen and (min-width: 1400px) {
-    .bew-notice {
+    .bew-notice.bew-pro-notice {
         gap: 80px;
     }
-    .bew-notice .getting-img {
+    .bew-notice.bew-pro-notice .getting-img {
         -ms-flex-preferred-size: 400px;
         flex-basis: 400px;
         margin: 0;
     }
-    .bew-notice .getting-content h2.notice-title {
+    .bew-notice.bew-pro-notice .getting-content h2.notice-title {
         font-size: 28px;
     }
-    .bew-notice .getting-content .bew-demo-info-list li {
+    .bew-notice.bew-pro-notice .getting-content .bew-demo-info-list li {
         font-size: 14px;
     }
     .bew-notice .button {
