@@ -62,7 +62,7 @@ if (!class_exists('BewRatingNotice')) {
             if (!current_user_can('activate_plugins')) {
                 return;
             }
-            if( !get_user_meta( get_current_user_id(), 'dismiss_bew_rating_notice' ) ){
+            if( !get_user_meta( get_current_user_id(), 'dismiss_bew_rating_notice' ) && !get_user_meta( get_current_user_id(), 'dismiss_bew_rating_top_notice' ) ){
                 $img_url = BEW_URL . 'assets/images/bew-logo.png';
                 echo '<div class="bew-notice left-thick-border bew-rating-notice notice notice-success is-dismissible">';
                     echo '<figure class="getting-img">';
@@ -81,6 +81,9 @@ if (!class_exists('BewRatingNotice')) {
                                     <span class="dashicons dashicons-saved"></span>
                                     <span class="btn-text">I Already did</span>
                                 </a>';
+                                echo '<a href="' . esc_url( wp_nonce_url( add_query_arg( 'bew-rating-notice-top-dismissed', 'dismiss_bew_rating_top_notice' ), 'bew_rating_top_state', 'bew_rating_top_nonce' ) ) . '" class="bew-top-dissmiss-btn" >
+                                    <span class="btn-text">Dismiss</span>
+                                </a>';
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';
@@ -95,6 +98,9 @@ if (!class_exists('BewRatingNotice')) {
         function bew_notice_dismissed() {
             if ( isset( $_GET['bew-rating-notice-dismissed'] ) && wp_verify_nonce($_GET['bew_rating_nonce'], 'bew_rating_state') ){
                 add_user_meta( get_current_user_id(), 'dismiss_bew_rating_notice', true, true );
+            }
+            if ( isset( $_GET['bew-rating-notice-top-dismissed'] ) && wp_verify_nonce($_GET['bew_rating_top_nonce'], 'bew_rating_top_state') ){
+                add_user_meta( get_current_user_id(), 'dismiss_bew_rating_top_notice', true, true );
             }
         }
     }

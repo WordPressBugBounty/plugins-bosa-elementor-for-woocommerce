@@ -238,8 +238,13 @@ class BEW_Site_Logo extends BEW_Settings {
 	public function site_image_url( $size ) {
 		$settings = $this->get_settings_for_display();
 
-		if ( ! empty( $settings['site_logo_custom_image']['url'] ) ) {
-			$logo = wp_get_attachment_image_src( $settings['site_logo_custom_image']['id'], $size, true );
+		if ( !empty( $settings['site_logo_custom_image']) ) {
+			if( empty( $settings['site_logo_custom_image']['id'])){
+		        $logo = $settings['site_logo_custom_image']['url'];
+	        	return $logo;
+	      	}else{
+	        	$logo = wp_get_attachment_image_src( $settings['site_logo_custom_image']['id'], $size, true );
+	      	}
 		} else {
 			$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), $size, true );
 		}

@@ -203,6 +203,11 @@
 /*bew notification style end*/
 
 /*bew notification for rating style start*/
+.bew-rating-notice .getting-img {
+    flex-basis: 100px;
+    margin: 0;
+    text-align: center
+}
 .bew-rating-notice .getting-content h2.notice-title {
     font-size: 24px;
 }
@@ -248,6 +253,27 @@
     margin-left: 5px;
     font-weight: 700;
 }
+.bew-rating-notice .bew-top-dissmiss-btn,
+.bew-pro-notice .bew-top-dissmiss-btn {
+    color: #d3d3d3;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    border: none;
+    margin: 0;
+    padding: 5px 6px 2px;
+    background: 0 0;
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align: top;
+    text-transform: capitalize;
+    font-size: 12px;
+}
+.bew-rating-notice .bew-top-dissmiss-btn:hover,
+.bew-pro-notice .bew-top-dissmiss-btn:hover {
+    color: #aaa;
+}
+
 /*bew notification for rating style end*/
 
 @media only screen and (max-width: 768px) {
@@ -256,17 +282,19 @@
         justify-content: center;
         align-items: center;
         margin-right: 12px;
+        gap: 30px;
     }
     .bew-notice.upgrade-to-pro .getting-content {
         order: 2;
     }
     .bew-notice .getting-content {
         width: auto;
+        padding: 0;
     }
     .bew-notice .quick-link {
         justify-content: center;
     }
-     .upgrade-to-pro .getting-img {
+    .upgrade-to-pro .getting-img {
         -ms-flex-preferred-size: 400px;
         flex-basis: 400px;
 
@@ -277,6 +305,9 @@
         font-size: 32px;
 
     }
+    .bew-notice {
+        padding: 40px 20px;
+    }
     .bew-notice p,
     .bew-notice .getting-content .bew-demo-info-list li {
         font-size: 14px;
@@ -284,11 +315,8 @@
     .bew-notice .button {
         font-size: 13px;
     }
-}
-
-@media only screen and (max-width: 567px) {
-    .bew-notice {
-        padding: 40px 20px;
+    .upgrade-to-pro .getting-content h2.notice-title {
+        font-size: 22px;
     }
 }
 
@@ -356,4 +384,3 @@
         padding: 11px 26px;
     }
 }
-

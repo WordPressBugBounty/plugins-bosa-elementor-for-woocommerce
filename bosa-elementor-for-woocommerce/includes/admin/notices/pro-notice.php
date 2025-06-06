@@ -88,7 +88,7 @@ if (!class_exists('Bew_Upgrade_Notice')) {
                          echo '<div class="getting-img">';
                             echo '<img id="" src="'.esc_url( $img_url ).'" />';
                         echo '</div>';
-                        echo '<a href="#" id="bew-upgrade-dismiss" class="admin-notice-dismiss"><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></a>';
+                        echo '<a href="#" id="bew-upgrade-dismiss" class="admin-notice-dismiss bew-top-dissmiss-btn">Dismiss</a>';
                     echo '</div>';
                 }
             }

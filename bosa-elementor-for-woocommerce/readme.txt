@@ -3,7 +3,7 @@ Contributors: bosathemes, kanchha-kaji-prajapati
 Tags: elementor addons, woocommerce, elementor widgets, elementor templates, one click template import
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 1.0.23
+Stable tag: 1.0.24
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -104,18 +104,18 @@ No, Elementor PRO or any other PRO addon is not required.
 
 == Screenshots ==
 
-1. WooCommerce Elementor Homepage Template #1
-2. WooCommerce Elementor Homepage Template #2
-3. WooCommerce Elementor Homepage Template #3
-4. WooCommerce Elementor Homepage Template #4
-5. WooCommerce Elementor About Template #1
-6. WooCommerce Elementor FAQ Template #1
-7. WooCommerce Elementor Contact Template #1
-8. WooCommerce Elementor Testimonial Template #1
-9. WooCommerce Elementor Widgets Preview
-10. WooCommerce Elementor Widgets
+1. BEW Widgets
+2. BEW Templates Library
+3. Elementor Woo - Archive Products Widget
+4. Elementor Woo - Categories List
+5. BEW Homepage Template #1
+6. BEW Homepage Template #2
 
 == Changelog ==
+
+= 1.0.24 =
+= Fix =
+* Image url fix in Site Logo widget.
 
 = 1.0.23 =
 * Style issues fix.
