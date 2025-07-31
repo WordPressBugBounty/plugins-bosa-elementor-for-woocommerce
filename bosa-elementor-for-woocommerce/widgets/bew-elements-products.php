@@ -19,6 +19,10 @@ class BEW_Products extends BEW_Settings {
 	public function get_keywords() {
 		return [ 'bew', 'product', 'products', 'bew products', 'woo', 'woo products', 'archive', 'bosa' ];
 	}
+
+	public function get_help_url() {
+		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-use-woo-archive-products/';
+	}
 	
     protected function register_controls() {
 
@@ -300,6 +304,8 @@ class BEW_Products extends BEW_Settings {
 		);
 
 		$this->end_controls_section();
+
+		$this->insert_bew_pro_message();
 
 		$this->start_controls_section(
 			'bew_elements_products_style',

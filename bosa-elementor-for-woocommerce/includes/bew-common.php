@@ -770,4 +770,35 @@ abstract class BEW_Settings extends Widget_Base {
 			]
 		);
 	}
+
+	public function insert_bew_pro_message(){
+        if(!class_exists('BEW_PRO')){
+            $this->start_controls_section(
+                'bew_section_pro',
+                [
+                    'label' => esc_html__('Get Premium Widgets', 'bosa-elementor-for-woocommerce'),
+
+                ]
+            );
+
+            $this->add_control(
+                'bew_control_get_pro',
+                [
+                    'label' => esc_html__('Unlock more Possibilities', 'bosa-elementor-for-woocommerce'),
+                    'type' => \Elementor\Controls_Manager::CHOOSE,
+                    'options' => [
+                        '1' => [
+                            'title' => '',
+                            'icon' => 'eicon-lock',
+                        ],
+                    ],
+                    'default' => '1',
+                    'toggle'    => false,
+                    'description' => '<span class="bew-widget-pro-feature">' . __(' Get the ', 'bosa-elementor-for-woocommerce') .'<a href="https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing" target="_blank">' . __(' Pro version ', 'bosa-elementor-for-woocommerce').'</a>' . __(' for more premium advanced elementor widgets and templates. ', 'bosa-elementor-for-woocommerce') .'</span>',
+                ]
+            );
+
+            $this->end_controls_section();
+        }
+    }
 }

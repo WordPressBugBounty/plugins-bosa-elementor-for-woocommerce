@@ -20,6 +20,10 @@ class BEW_Carousel_Products extends BEW_Settings {
 		return [ 'bew', 'carousel', 'bew carousel', 'woo', 'woo carousel', 'archive', 'bosa' ];
 	}
 	
+	public function get_help_url() {
+		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-woo-archive-carousel/';
+	}
+	
     protected function register_controls() {
 
 		$this->start_controls_section(
@@ -296,6 +300,8 @@ class BEW_Carousel_Products extends BEW_Settings {
 		);
 
 		$this->end_controls_section();
+
+		$this->insert_bew_pro_message();
 
 		$this->start_controls_section(
 			'bew_elements_item_style',

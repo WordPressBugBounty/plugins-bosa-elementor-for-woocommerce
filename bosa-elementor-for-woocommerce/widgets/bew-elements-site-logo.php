@@ -23,6 +23,10 @@ class BEW_Site_Logo extends BEW_Settings {
 		return [ 'bew', 'site', 'bew logo', 'logo', 'site logo' ];
 	}
 
+	public function get_help_url() {
+		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-bew-site-logo/';
+	}
+
 	protected function register_controls(){
 
 		$this->start_controls_section(
@@ -110,6 +114,8 @@ class BEW_Site_Logo extends BEW_Settings {
 		);
 
 		$this->end_controls_section();
+
+		$this->insert_bew_pro_message();
 
 		$this->start_controls_section(
 			'section_style_site_logo_image',

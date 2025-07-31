@@ -24,6 +24,10 @@ class BEW_Contact_Form_7 extends BEW_Settings {
 		return [ 'bosa-elementor-for-woocommerce' ];
 	}
 
+	public function get_help_url() {
+		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-contact-form-7/';
+	}
+
     protected function register_controls() {
 
 		$this->start_controls_section(
@@ -44,6 +48,8 @@ class BEW_Contact_Form_7 extends BEW_Settings {
 		);
 
 		$this->end_controls_section();
+
+		$this->insert_bew_pro_message();
 
 		$this->start_controls_section(
 			'bew_elements_label_style',
@@ -472,14 +478,17 @@ class BEW_Contact_Form_7 extends BEW_Settings {
 		$label_class = $settings['show_label'] == 'yes' ? 'bew-show-label' : 'bew-hide-label';
 
 		$short_code_handle 	=  '[contact-form-7 id="'.$settings['bew_contact_form'].'" title="'.$contact_form_title.'"]';
-	?>
-
-		<section class="bew-elements-widgets bew-elements-contact-forms <?php echo esc_attr( $label_class); ?>">
-			<?php  if( !empty( $settings['bew_contact_form'] )): echo do_shortcode($short_code_handle); endif; ?>
-    	</section>
-	
-	<?php
-
+		if (class_exists( 'WPCF7' ) ) {
+		?>
+			<section class="bew-elements-widgets bew-elements-contact-forms <?php echo esc_attr( $label_class); ?>">
+				<?php  if( !empty( $settings['bew_contact_form'] )): echo do_shortcode($short_code_handle); endif; ?>
+	    	</section>
+		<?php
+		}else{ ?>
+			<div class="bew-error">
+	        	<?php echo esc_html__( 'Please verify that Contact Form 7 plugin is active.', 'bosa-elementor-for-woocommerce' ); ?>
+        	</div>
+        	<?php 
+		}
 	}
-	
 }

@@ -3,7 +3,7 @@
 Plugin Name: Bosa Elementor for WooCommerce
 Plugin URI: https://bosathemes.com/bosa-elementor-for-woocommerce
 Description: Enhance your online store with powerful Elementor widgets and a versatile, ready-to-use template library designed for seamless customization and enhanced functionality.
-Version:     1.0.24
+Version:     1.0.25
 Author:      Bosa Themes
 Author URI:  https://bosathemes.com
 License:     GPLv3 or later
@@ -14,7 +14,7 @@ Text Domain: bosa-elementor-for-woocommerce
 
 if (!defined('ABSPATH')) exit;
 
-define('BEW_VERSION', '1.0.24');
+define('BEW_VERSION', '1.0.25');
 
 define('BEW_FILE', __FILE__);
 define('BEW_PLUGIN_BASENAME', plugin_basename(BEW_FILE));
@@ -68,6 +68,7 @@ if (!class_exists('BEW')) {
                 add_action( 'elementor/widgets/register', array($this, 'register_widgets') );
                 add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
                 add_action( 'elementor/editor/after_enqueue_styles', [$this, 'elementor_panel_css'] );
+                add_action( 'elementor/editor/after_enqueue_scripts', [$this, 'elementor_panel_script'] );
 
                 require_once ( BEW_PATH . 'includes/bew-importer.php' );
             }
@@ -79,7 +80,12 @@ if (!class_exists('BEW')) {
             }
 
             add_action( 'admin_menu', [ $this, 'bew_addons_add_admin_menu' ] ); 
+            add_filter( 'elementor/editor/localize_settings', [ $this, 'get_pro_widgets' ] );
 
+        }
+
+        public function elementor_panel_script() {
+            wp_enqueue_script( 'bew-panel-script', $this->this_uri . 'assets/js/bew-editor.js' );
         }
 
         public function elementor_panel_css() {
@@ -241,6 +247,14 @@ if (!class_exists('BEW')) {
             \Elementor\Plugin::instance()->elements_manager->add_category( 'bosa-elementor-for-woocommerce', array(
                 'title' => esc_html__( 'BEW Elements', 'bosa-elementor-for-woocommerce' ),
             ), 1 );
+
+            // Add Premium Widtgets category in panel
+            \Elementor\Plugin::instance()->elements_manager->add_category(
+                'bew-pro-widget-category',
+                [
+                    'title' => esc_html__( 'BEW Pro Elements', 'bosa-elementor-for-woocommerce' ),
+                ]
+            );
         }
 
         function bew_get_page_templates(){
@@ -288,6 +302,80 @@ if (!class_exists('BEW')) {
 
         function bew_addons_add_admin_menu() {
             add_filter( 'plugin_action_links_'. BEW_PLUGIN_BASENAME, [ $this, 'insert_plugin_links' ] );
+        }
+
+        public static function get_pro_widgets($config) {
+
+            $promotion_widgets = [];
+
+            if ( isset( $config['promotionWidgets'] ) ) {
+                $promotion_widgets = $config['promotionWidgets'];
+            }
+            if ( !class_exists('BEW_Pro') ) {
+                $pro_widgets = array(
+                    array(
+                        'name'       => 'bew-pro-grid-carousel-product',
+                        'title'      => esc_html__( 'Woo - Grid Carousel', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bew-pro-widget-category"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-nested-carousel',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'carousel', 'grid', 'woo', 'woo carousel', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-grid-products',
+                        'title'      => esc_html__( 'Woo - Grid Products', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bew-pro-widget-category"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-product-related',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'product', 'products', 'bew products', 'grid', 'woo', 'woo products', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-hot-deals',
+                        'title'      => esc_html__( 'Woo - Hot Deals', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bew-pro-widget-category"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-single-product',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'hot', 'bew slider', 'woo', 'hot deals', 'woo products', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-image-carousel',
+                        'title'      => esc_html__( 'Image Carousel', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bew-pro-widget-category"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-carousel-loop',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'image', 'bew carousel', 'woo', 'image carousel', 'archive', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-product-accordion',
+                        'title'      => esc_html__( 'Woo - Products Accordion', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bew-pro-widget-category"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-accordion',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'product', 'products', "accordion", "products accordion", 'bew products', 'woo', 'woo products', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-product-slider',
+                        'title'      => esc_html__( 'Woo - Product Slider', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bew-pro-widget-category"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-post-slider',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'product slider', 'bew slider', 'woo', 'woo product slider', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-product-tabs',
+                        'title'      => esc_html__( 'Woo - Product Tabs', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bew-pro-widget-category"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-product-tabs',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'tabs', 'bew tabs', 'bew pro tabs', 'panel', 'navigation', 'group', 'tabs content', 'product tabs', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-testimonial-slider',
+                        'title'      => esc_html__( 'Testimonial Slider', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bew-pro-widget-category"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-testimonial-carousel',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'testimonial', 'bew slider', 'woo', 'testimonial slider', 'archive', 'bosa' ),
+                    ),
+                );
+
+                $combine_array = array_merge( $promotion_widgets, $pro_widgets );
+
+                $config['promotionWidgets'] = $combine_array;
+            }
+            return $config;
         }
     }
 }

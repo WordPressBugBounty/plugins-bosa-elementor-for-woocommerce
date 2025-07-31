@@ -24,6 +24,10 @@ class BEW_Categories_List extends BEW_Settings {
 		return [ 'bosa-elementor-for-woocommerce' ];
 	}
 
+	public function get_help_url() {
+		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-categories-list/';
+	}
+
     protected function register_controls() {
 
 		$this->start_controls_section(
@@ -151,6 +155,8 @@ class BEW_Categories_List extends BEW_Settings {
 		);
 
 		$this->end_controls_section();
+
+		$this->insert_bew_pro_message();
 
         $this->start_controls_section(
 			'bew_elements_product_categories_list_item_style',

@@ -19,6 +19,10 @@ class BEW_Products_list extends BEW_Settings {
 	public function get_keywords() {
 		return [ 'bew', 'product', 'products', "list", "products list", 'bew products', 'woo', 'woo products', 'bosa' ];
 	}
+
+	public function get_help_url() {
+		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-woo-products-list/';
+	}
 	
     protected function register_controls() {
 
@@ -295,6 +299,8 @@ class BEW_Products_list extends BEW_Settings {
 		);
 
 		$this->end_controls_section();
+
+		$this->insert_bew_pro_message();
 
 		$this->start_controls_section(
 			'bew_elements_products_list_style',

@@ -20,6 +20,10 @@ class BEW_Blog extends BEW_Settings {
 		return [ 'bew', 'blog', 'bew blog', 'bosa' ];
 	}
 
+	public function get_help_url() {
+		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-blog/';
+	}
+
 	protected function get_available_post_types() {
 
 		$post_type_args = [
@@ -363,6 +367,8 @@ class BEW_Blog extends BEW_Settings {
 		$this->register_button_content_controls( $section_condition );
 
         $this->end_controls_section();
+
+        $this->insert_bew_pro_message();
 
 		$this->start_controls_section(
 			'bew_elements_blog_style',
