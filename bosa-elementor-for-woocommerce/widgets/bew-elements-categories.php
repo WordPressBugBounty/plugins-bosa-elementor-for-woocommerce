@@ -380,7 +380,7 @@ class BEW_Categories extends BEW_Settings {
 											'orderby'    => $order_by,
 											'order'      => $order,
 											'hide_empty' => $hide_empty,
-											'include'	 => 'all',
+											// 'include'	 => 'all',
 											'number'	 => $categories_no,
 										);
 		} else if( $source == 'manual-selection' ) {

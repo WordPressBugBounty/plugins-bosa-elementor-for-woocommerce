@@ -3,7 +3,7 @@
 Plugin Name: Bosa Elementor for WooCommerce
 Plugin URI: https://bosathemes.com/bosa-elementor-for-woocommerce
 Description: Enhance your online store with powerful Elementor widgets and a versatile, ready-to-use template library designed for seamless customization and enhanced functionality.
-Version:     1.0.25
+Version:     1.0.26
 Author:      Bosa Themes
 Author URI:  https://bosathemes.com
 License:     GPLv3 or later
@@ -14,7 +14,7 @@ Text Domain: bosa-elementor-for-woocommerce
 
 if (!defined('ABSPATH')) exit;
 
-define('BEW_VERSION', '1.0.25');
+define('BEW_VERSION', '1.0.26');
 
 define('BEW_FILE', __FILE__);
 define('BEW_PLUGIN_BASENAME', plugin_basename(BEW_FILE));
@@ -198,8 +198,8 @@ if (!class_exists('BEW')) {
             $widgets_manager->register( new \Elementor\BEW_Categories() );
             $widgets_manager->register( new \Elementor\BEW_Carousel_Products() );
             $widgets_manager->register( new \Elementor\BEW_Blog() );
-            $widgets_manager->register( new \ELementor\BEW_Contact_Form_7() );
-            $widgets_manager->register( new \ELementor\BEW_Site_Logo() );
+            $widgets_manager->register( new \Elementor\BEW_Contact_Form_7() );
+            $widgets_manager->register( new \Elementor\BEW_Site_Logo() );
             $widgets_manager->register( new \Elementor\BEW_Categories_List() );
             
         }

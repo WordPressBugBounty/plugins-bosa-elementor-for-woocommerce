@@ -2,8 +2,8 @@
 Contributors: bosathemes, kanchha-kaji-prajapati
 Tags: elementor addons, woocommerce, elementor widgets, elementor templates, one click template import
 Requires at least: 4.0
-Tested up to: 6.8
-Stable tag: 1.0.25
+Tested up to: 6.9
+Stable tag: 1.0.26
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -112,6 +112,10 @@ No, Elementor PRO or any other PRO addon is not required.
 6. BEW Homepage Template #2
 
 == Changelog ==
+
+= 1.0.26 =
+* Wordpress Compatibility up to 6.9.
+* Style issues fix.
 
 = 1.0.25 =
 = Add =
