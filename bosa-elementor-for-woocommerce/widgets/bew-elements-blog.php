@@ -885,7 +885,7 @@ class BEW_Blog extends BEW_Settings {
 
 	}
 
-	protected function render_btn_text( Widget_Base $instance = null ) {
+	protected function render_btn_text( ?Widget_Base $instance = null ) {
 		// The default instance should be `$this` (a Button widget), unless the Trait is being used from outside of a widget (e.g. `Skin_Base`) which should pass an `$instance`.
 		if ( empty( $instance ) ) {
 			$instance = $this;
