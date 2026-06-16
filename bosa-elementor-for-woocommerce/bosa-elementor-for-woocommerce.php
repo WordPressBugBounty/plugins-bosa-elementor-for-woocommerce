@@ -3,7 +3,7 @@
 Plugin Name: Bosa Elementor for WooCommerce
 Plugin URI: https://bosathemes.com/bosa-elementor-for-woocommerce
 Description: Enhance your online store with powerful Elementor widgets and a versatile, ready-to-use template library designed for seamless customization and enhanced functionality.
-Version:     1.0.27
+Version:     1.0.28
 Author:      Bosa Themes
 Author URI:  https://bosathemes.com
 License:     GPLv3 or later
@@ -14,7 +14,7 @@ Text Domain: bosa-elementor-for-woocommerce
 
 if (!defined('ABSPATH')) exit;
 
-define('BEW_VERSION', '1.0.27');
+define('BEW_VERSION', '1.0.28');
 
 define('BEW_FILE', __FILE__);
 define('BEW_PLUGIN_BASENAME', plugin_basename(BEW_FILE));
@@ -73,9 +73,7 @@ if (!class_exists('BEW')) {
                 require_once ( BEW_PATH . 'includes/bew-importer.php' );
             }
             
-            if ( !class_exists( 'WooCommerce', false ) ) {
-                add_action( 'admin_notices', array($this, 'admin_notice__error_woo') );
-            }else{
+            if ( class_exists( 'WooCommerce') ) {
                 add_action( 'admin_action_elementor', [ $this, 'register_wc_hooks' ], 9);
             }
 
@@ -132,37 +130,6 @@ if (!class_exists('BEW')) {
     
                 $message = sprintf( esc_html__('%1$sBosa Elementor Addons and Templates for WooCommerce%2$s requires %1$sElementor%2$s plugin to be installed and activated. Please install Elementor to continue.', 'bosa-elementor-for-woocommerce'), '<strong>', '</strong>');
                 $button_text = esc_html__('Install Elementor', 'bosa-elementor-for-woocommerce');
-            }
-    
-            $button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
-    
-            printf('<div class="error"><p>%1$s</p>%2$s</div>', $message, $button); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-        }
-
-        /**
-         * 
-         * Admin Error Notice
-         * @since Bosa Elementor Addons and Templates for WooCommerce 1.0.0
-         */
-        function admin_notice__error_woo() {
-
-            if (!current_user_can('activate_plugins')) {
-                return;
-            }
-
-            $elementor = 'woocommerce/woocommerce.php';
-            if ( $this->_is_plugin_installed( $elementor ) ) {
-                $activation_url = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $elementor . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $elementor);
-                
-                $message = sprintf( esc_html__('%1$sBosa Elementor Addons and Templates for WooCommerce%2$s requires %1$sWooCommerce%2$s plugin to be active. Please activate WooCommerce to continue.', 'bosa-elementor-for-woocommerce'), "<strong>", "</strong>");
-    
-                $button_text = esc_html__('Activate WooCommerce', 'bosa-elementor-for-woocommerce');
-            } else {
-                $activation_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=woocommerce'), 'install-plugin_woocommerce');
-    
-                $message = sprintf(esc_html__('%1$sBosa Elementor Addons and Templates for WooCommerce%2$s requires %1$sWooCommerce%2$s plugin to be installed and activated. Please install WooCommerce to continue.', 'bosa-elementor-for-woocommerce'), '<strong>', '</strong>');
-                $button_text = esc_html__('Install WooCommerce', 'bosa-elementor-for-woocommerce');
             }
     
             $button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';

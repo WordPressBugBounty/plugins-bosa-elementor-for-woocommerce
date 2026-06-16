@@ -12,7 +12,7 @@
     -ms-flex-wrap: wrap;
     -o-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 20px;
     row-gap: 25px;
 }
 @media only screen and (max-width: 992px) {
@@ -40,15 +40,11 @@
     font-size: 14px;
     line-height: 1.5em;
 }
-.notice-link {
-    font-weight: 700;
-    color: #213b88;
-}
 .bew-notice {
     background-color: #f6f6f6;
     margin: 40px 20px 0 0;
     position: relative;
-    padding: 20px 30px 20px 40px;
+    padding: 15px 30px 15px 10px;
     border: 1px solid #c3c4c7;
     -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 4%);
     box-shadow: 0 1px 1px rgb(0 0 0 / 4%);
@@ -63,7 +59,7 @@
 .bew-notice .getting-img {
     margin: 0;
     padding: 0;
-    line-height: 1;
+    line-height: 0;
     text-align: right;
 }
 .bew-notice .getting-img img {
@@ -107,13 +103,14 @@
 }
 .bew-notice .getting-content h2.notice-title {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .bew-notice .getting-content .bew-demo-info-list {
-    list-style: none;
+    line-height: 1.5;
     margin-top: 0;
     margin-bottom: 20px;
+    l
 }
 .bew-notice .getting-content .bew-demo-info-list li {
     margin: 0;
@@ -175,18 +172,18 @@
 .bew-notice .button.button-transparent {
     background-color: transparent;
     border: none;
-    color: #878787;
+    color: #b8b5b5;
     padding: 0;
 }
 .bew-notice .button.button-transparent:hover {
     color: #135e96;
 }
 .upgrade-to-pro .getting-content h2.notice-title {
-    margin-bottom: 18px;
+    margin-bottom: 10px;
 }
 .upgrade-to-pro .quick-link {
     align-items: center;
-    gap: 10px 25px;
+    gap: 10px 14px;
 }
 .upgrade-to-pro .remindme-button.button-secondary {
     border-color: #b5b5b5;
@@ -295,8 +292,8 @@
         justify-content: center;
     }
     .upgrade-to-pro .getting-img {
-        -ms-flex-preferred-size: 400px;
-        flex-basis: 400px;
+        -ms-flex-preferred-size: 180px;
+        flex-basis: 180px;
 
     }
 }
@@ -365,22 +362,19 @@
 }
 
 @media only screen and (min-width: 1400px) {
-    .bew-notice.bew-pro-notice {
-        gap: 80px;
-    }
     .bew-notice.bew-pro-notice .getting-img {
         -ms-flex-preferred-size: 400px;
-        flex-basis: 400px;
+        flex-basis: 180px;
         margin: 0;
     }
     .bew-notice.bew-pro-notice .getting-content h2.notice-title {
-        font-size: 28px;
+        font-size: 20px;
     }
     .bew-notice.bew-pro-notice .getting-content .bew-demo-info-list li {
         font-size: 14px;
     }
     .bew-notice .button {
-        font-size: 13px;
-        padding: 11px 26px;
+        font-size: 12px;
+        padding: 6px 12px;
     }
 }

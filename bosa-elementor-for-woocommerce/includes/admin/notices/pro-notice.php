@@ -70,24 +70,21 @@ if (!class_exists('Bew_Upgrade_Notice')) {
             $plugin = 'bosa-elementor-for-woocommerce-pro/bosa-elementor-for-woocommerce-pro.php';
             if ( !$this->_is_plugin_installed( $plugin ) ) {
                 if( !get_user_meta( get_current_user_id(), 'dismiss_bew_upgrade_notice' ) ){
-                    $img_url = BEW_URL . 'assets/images/bew-banner-image.png';
+                    $img_url = BEW_URL . 'assets/images/bew-banner.png';
                     echo '<div class="bew-notice left-thick-border upgrade-to-pro bew-pro-notice notice notice-success is-dismissible">';
+                    echo '<div class="getting-img">';
+                            echo '<img id="" src="'.esc_url( $img_url ).'" />';
+                        echo '</div>';
                         echo '<div class="getting-content">';
                             echo '<h2 class="notice-title">Bosa Elementor For WooCommerce Pro</h2>';
-                            echo '<ul class="bew-demo-info-list">';
-                            echo '<li> <div><strong>Premium Advanced Elementor Widgets</strong> – Latest collection of premium widgets designed to take your design capabilities to the next level and seamlessly integrate with your WooCommerce store. <a href="https://bosathemes.com/bosa-elementor-for-woocommerce/#bew-widgets" class="notice-link " target="_blank">Explore Widgets</a></div></li>';
-                            echo '<li><div><strong>Pre-built Templates Library</strong> – Access a collection of Elementor Page Templates to build your site effortlessly and efficiently.</div></li>';
-                            echo '<li> <div><strong>Variety of Shop Templates</strong> – A diverse collection of homepages and inner pages specially designed for your WooCommerce store. </div></li>';
-                            echo '<li> <div><strong>Seamless Import System</strong> – Easily import Templates for quick and hassle-free customization.</div></li>';                        
-                            echo '</ul>';
+                            echo '<div class="bew-demo-info-list">';
+                            echo ' <div> <p> Build a stunning WooCommerce store faster with powerful Elementor-based widgets, professionally designed templates </br> and seamless imports—giving you everything you need to customize, launch, and grow with confidence.</p></div>';       
+                            echo '</div>';
                             echo '<div class="quick-link">';
                                 echo '<a href="https://bosathemes.com/bosa-elementor-for-woocommerce/#pricing" class="button button-primary bew-upgrade-pro" target="_blank">Upgrade To Pro</a>';
                                 echo '<button class="button button-transparent  bew-remind-me-later" >Remind Me Later</button>';
                             echo '</div>';
                          echo '</div>';
-                         echo '<div class="getting-img">';
-                            echo '<img id="" src="'.esc_url( $img_url ).'" />';
-                        echo '</div>';
                         echo '<a href="#" id="bew-upgrade-dismiss" class="admin-notice-dismiss bew-top-dissmiss-btn">Dismiss</a>';
                     echo '</div>';
                 }
