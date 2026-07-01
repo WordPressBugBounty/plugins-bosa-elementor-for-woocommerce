@@ -3,7 +3,7 @@ Contributors: bosathemes, kanchha-kaji-prajapati
 Tags: elementor addons, woocommerce, elementor widgets, elementor templates, one click template import
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 1.0.28
+Stable tag: 1.0.29
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -113,129 +113,142 @@ No, Elementor PRO or any other PRO addon is not required.
 
 == Changelog ==
 
+= 1.0.29 =
+= Fixed =
+* Widgets style issue. 
+
 = 1.0.28 =
-* Wordpress 7.0 compatibility update.
-* WooCommerce plugin requirement removed.
-* Notice Style Update.
+= Updated =
+* Wordpress 7.0 compatibility.
+* WooCommerce plugin requirement.
+
+= Fixed =
+* Notice Style.
 
 = 1.0.27 =
+= Updated =
 * Php 8.5 compatibility.
 
 = 1.0.26 =
+= Updated =
 * Wordpress Compatibility up to 6.9.
-* Style issues fix.
+
+= Fixed =
+* Style issues.
 
 = 1.0.25 =
-= Add =
+= Added =
 * Pro widget list.
 
 = 1.0.24 =
-= Fix =
-* Image url fix in Site Logo widget.
+= Fixed =
+* Image url in Site Logo widget.
 
 = 1.0.23 =
-* Style issues fix.
+= Fixed =
+* Style issues.
 
 = 1.0.22 =
-= Fix =
-* Style issues fix.
+= Fixed =
+* Style issues.
 
 = 1.0.21 =
-= Fix =
-* Style issues fix.
+= Fixed =
+* Style issues.
 
 = 1.0.20 =
-= Fix =
-* Issue fix.
+= Fixed =
+* Style issues.
 
 = 1.0.19 =
-= Fix =
-* Style issues fix.
+= Fixed =
+* Style issues.
 
 = 1.0.18 =
-= Add =
-* Template added.
+= Added =
+* Templates.
 
 = 1.0.17 =
-= Add =
-* Categories List widget added.
+= Added =
+* Categories List widget.
 
 = 1.0.16 =
-= Add =
-* Site logo widget added.
+= Added =
+* Site logo widget.
 
 = 1.0.15 =
-* Readme updated.
+= updated =
+* Readme.
 
 = 1.0.14 =
-= Add =
-* Woo products list widget added.
+= Added =
+* Woo products list widget.
 
 = 1.0.13 =
-= Fix =
-* Security issues fix.
+= Fixed =
+* Security issues.
 
 = 1.0.12 =
-= Fix =
-* Style issues fixed.
+= Fixed =
+* Style issues.
 
 = 1.0.11 =
-= Add =
-* General options added to all widgets.
+= Added =
+* General options to all widgets.
 
 = 1.0.10 =
-= Add =
-* Equal height option added to WooCommerce categories widget.
-* Rating option added to WooCommerce products widget.
+= Added =
+* Equal height option to WooCommerce categories widget.
+* Rating option to WooCommerce products widget.
 
 = 1.0.9 =
-= Fix =
-* Style issues fixed.
+= Fixed =
+* Style issues.
 
-= Add =
-* Equal height option added to WooCommerce products widget.
+= Added =
+* Equal height option to WooCommerce products widget.
 
 = 1.0.8 =
-= Add =
-* BEW label added to widget in Elementor editor.
+= Added =
+* BEW label to widget in Elementor editor.
 
-= Fix =
-* Style issues fixed.
+= Fixed =
+* Style issues.
 
 = 1.0.7 =
-= Fix =
-* Style issues fixed.
+= Fixed =
+* Style issues.
 
 = 1.0.6 =
-= Fix =
-* Style issues fixed.
+= Fixed =
+* Style issues.
 
 = 1.0.5 =
-= Fix =
-* Style issues fixed.
+= Fixed =
+* Style issues.
 
-= Add =
-* Link added to blog widget image.
+= Added =
+* Link to blog widget image.
 
 = 1.0.4 =
-= Add =
+= Added =
 * New Templates.
 
 = 1.0.3 =
-= Add =
-* Site URI added.
+= Added =
+* Site URI.
 
 = 1.0.2 =
-= Fix =
-* Style issues fixed.
-* Functional issues fixed.
+= Fixed =
+* Style issues.
+* Functional issues.
 
-= Add =
-* Product rating active color, star size and spacing options added.
-* Templates added to BEW Templates Library.
+= Added =
+* Product rating active color, star size and spacing options.
+* Templates to BEW Templates Library.
 
 = 1.0.1 =
-* Functional issues fixed.
+* Functional issues.
 
 = 1.0.0 =
 * Initial release.

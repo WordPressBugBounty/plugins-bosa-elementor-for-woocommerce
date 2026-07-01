@@ -53,15 +53,15 @@
 }
 
 /* bew pro dailogbox */
-#elementor-element--promotion__dialog.bew-hide-default-upgrade-button .dialog-buttons-wrapper {
+.bew-hide-default-upgrade-button .MuiButton-containedPromotion {
+    display: none !important;
+}
+
+.bew-hide-my-upgrade-button .bew-go-pro-button-wrapper {
     display: none;
 }
 
-#elementor-element--promotion__dialog.bew-hide-my-upgrade-button .bew-go-pro-button-wrapper {
-    display: none;
-}
-
-#elementor-element--promotion__dialog .bew-go-pro-button-wrapper .bew-pro-urls {
+.bew-go-pro-button-wrapper .bew-pro-urls {
     display: block;
     font-size: 12px;
     font-weight: 500;
@@ -78,11 +78,11 @@
     transition: all 0.4s;
 }
 
-#elementor-element--promotion__dialog .bew-go-pro-button-wrapper .bew-pro-urls:hover {
+.bew-go-pro-button-wrapper .bew-pro-urls:hover {
     background-color: #66002C;
 }
 
-#elementor-element--promotion__dialog .bew-go-pro-button-wrapper {
+.bew-go-pro-button-wrapper {
     padding: 0 20px 20px;
 }
 
