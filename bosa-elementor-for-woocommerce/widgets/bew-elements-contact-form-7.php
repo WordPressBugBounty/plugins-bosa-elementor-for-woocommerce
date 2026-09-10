@@ -2,6 +2,10 @@
 
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class BEW_Contact_Form_7 extends BEW_Settings {
 
 	public function get_name() {
@@ -25,7 +29,7 @@ class BEW_Contact_Form_7 extends BEW_Settings {
 	}
 
 	public function get_help_url() {
-		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-contact-form-7/';
+		return 'https://bew.bosathemes.com/docs/how-to-use-plugin-widgets/how-to-setup-contact-form-7/';
 	}
 
     protected function register_controls() {
@@ -203,7 +207,7 @@ class BEW_Contact_Form_7 extends BEW_Settings {
 		$this->add_control(
 			'inputs_placeholder_color',
 			[
-				'label' => __('Placeholder Color', 'etww'),
+				'label' => __('Placeholder Color', 'bosa-elementor-for-woocommerce'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpcf7 .wpcf7-form .wpcf7-form-control::-webkit-input-placeholder' => 'color: {{VALUE}}',
@@ -477,7 +481,7 @@ class BEW_Contact_Form_7 extends BEW_Settings {
 		$contact_form_title = get_the_title($settings['bew_contact_form']);
 		$label_class = $settings['show_label'] == 'yes' ? 'bew-show-label' : 'bew-hide-label';
 
-		$short_code_handle 	=  '[contact-form-7 id="'.$settings['bew_contact_form'].'" title="'.$contact_form_title.'"]';
+		$short_code_handle 	=  '[contact-form-7 id="'.absint( $settings['bew_contact_form'] ).'" title="'.esc_attr( $contact_form_title ).'"]';
 		if (class_exists( 'WPCF7' ) ) {
 		?>
 			<section class="bew-elements-widgets bew-elements-contact-forms <?php echo esc_attr( $label_class); ?>">

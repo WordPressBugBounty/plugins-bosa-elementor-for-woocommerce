@@ -2,6 +2,10 @@
 
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class BEW_Products extends BEW_Settings {
 	
 	public function get_name() {
@@ -9,19 +13,19 @@ class BEW_Products extends BEW_Settings {
 	}
 	
 	public function get_title() {
-		return __( 'Woo - Archive Products', 'bosa-elementor-for-woocommerce' );
+		return __( 'Woo Archive Products', 'bosa-elementor-for-woocommerce' );
 	}
-	
+
 	public function get_icon() {
 		return 'bew-widget eicon-products';
 	}
 
 	public function get_keywords() {
-		return [ 'bew', 'product', 'products', 'bew products', 'woo', 'woo products', 'archive', 'bosa' ];
+		return [ 'bew', 'product', 'products', 'bew products', 'woo', 'woo products', 'woo archive products', 'archive', 'bosa' ];
 	}
 
 	public function get_help_url() {
-		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-use-woo-archive-products/';
+		return 'https://bew.bosathemes.com/docs/how-to-use-plugin-widgets/how-to-use-woo-archive-products/';
 	}
 	
     protected function register_controls() {
@@ -876,6 +880,7 @@ class BEW_Products extends BEW_Settings {
 	}
 
 	protected function render() {
+        global $post;
         $settings 					= $this->get_settings_for_display();
         $products_no 				= $settings['items_no'];
         $source 					= $settings['source'];
@@ -1313,11 +1318,13 @@ class BEW_Products extends BEW_Settings {
 	                	<div class="bew-elements-widgets bew-elements-products-container woocommerce" <?php echo $this->get_column_attr($settings); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
             				<div class="bew-elements-products <?php echo esc_attr($wrapper_classes); ?>">
 								<?php
+								$this->start_bew_compare_icon_scope();
 								woocommerce_product_loop_start();
 			                    while ( $products_loop->have_posts() ) : $products_loop->the_post();
 			                        wc_get_template_part( 'content', 'product' );
 			                    endwhile;
 								woocommerce_product_loop_end();
+								$this->end_bew_compare_icon_scope();
 
 								// Display pagination if enabled
 								if ('yes' == $settings['pagination']) {

@@ -1,0 +1,87 @@
+.bew-btt-button {
+	position: fixed;
+	bottom: 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	cursor: pointer;
+	border: none;
+	background-color: #333;
+	color: #fff;
+	fill: #fff;
+	width: 48px;
+	height: 48px;
+	border-radius: 4px;
+	font-size: 16px;
+	line-height: 1;
+	z-index: 999;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition:
+		opacity 0.3s ease,
+		visibility 0.3s ease,
+		transform 0.3s ease,
+		background-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.bew-btt-button.bew-btt-right { right: 20px; }
+.bew-btt-button.bew-btt-left  { left: 20px; }
+
+/* Visible state */
+.bew-btt-button.bew-btt-visible {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+/* Entrance: Slide Up */
+.bew-btt-button.bew-btt-entrance-slide-up {
+	transform: translateY(20px);
+}
+.bew-btt-button.bew-btt-entrance-slide-up.bew-btt-visible {
+	transform: translateY(0);
+}
+
+/* Entrance: Float */
+.bew-btt-button.bew-btt-entrance-float {
+	transform: translateY(10px);
+}
+.bew-btt-button.bew-btt-entrance-float.bew-btt-visible {
+	transform: translateY(0);
+}
+
+/* Focus */
+.bew-btt-button:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* Icon defaults */
+.bew-btt-button {
+	padding: 8px 10px;
+}
+.bew-btt-button i {
+	font-size: inherit;
+	line-height: 1;
+}
+.bew-btt-button svg {
+	width: 1.2em;
+	height: 1.2em;
+	fill: currentColor;
+}
+
+/* Text */
+.bew-btt-button .bew-btt-text {
+	white-space: nowrap;
+}
+
+/* Editor preview hidden by default so it doesn't disturb normal page editing.*/
+.bew-btt-button.bew-btt-editor-preview {
+	display: none;
+}
+body.bew-site-settings-open .bew-btt-button.bew-btt-editor-preview {
+	display: inline-flex;
+}

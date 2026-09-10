@@ -1,0 +1,35 @@
+/**
+ * BEW Template Library — editor toolbar button styles.
+ *
+ * @package Bosa_Elementor_WooCommerce
+ */
+
+#bew-template-library-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	transition: opacity 0.15s;
+	margin: 0 4px;
+}
+
+#bew-template-library-btn:hover {
+	opacity: 0.85;
+}
+
+#bew-template-library-btn:focus-visible {
+	outline: 2px solid rgba(255, 255, 255, 0.6);
+	outline-offset: -2px;
+}
+
+#bew-template-library-btn svg {
+	width: 28px;
+	height: 28px;
+	flex-shrink: 0;
+}

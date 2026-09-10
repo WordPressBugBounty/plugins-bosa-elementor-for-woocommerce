@@ -1,0 +1,3287 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bosa Elementor for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-09 10:32+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.5; wp-7.0; php-8.3.28\n"
+"X-Domain: bosa-elementor-for-woocommerce"
+
+#: inc/bew-common.php:1244
+msgid " for more awesome widgets, modules and template library."
+msgstr ""
+
+#: inc/bew-common.php:1244
+msgid " Get the "
+msgstr ""
+
+#: inc/bew-common.php:1244
+msgid " Pro version "
+msgstr ""
+
+#: widgets/bew-elements-blog.php:1170
+msgid "% Comments"
+msgstr ""
+
+#. %1$s: opening <strong> tag, %2$s: closing </strong> tag
+#: bosa-elementor-for-woocommerce.php:298
+#, php-format
+msgid ""
+"%1$sBEW%2$s requires %1$sElementor%2$s plugin to be active. Please activate "
+"Elementor to continue."
+msgstr ""
+
+#. %1$s: opening <strong> tag, %2$s: closing </strong> tag
+#: bosa-elementor-for-woocommerce.php:305
+#, php-format
+msgid ""
+"%1$sBEW%2$s requires %1$sElementor%2$s plugin to be installed and activated. "
+"Please install Elementor to continue."
+msgstr ""
+
+#. %d is replaced client-side with the model count.
+#: admin/class-bew-admin.php:203
+msgid "%d models loaded."
+msgstr ""
+
+#. %d: number of days.
+#: admin/class-bew-ai-editor.php:122
+msgid "%dd ago"
+msgstr ""
+
+#. %d: number of hours.
+#: admin/class-bew-ai-editor.php:120
+msgid "%dh ago"
+msgstr ""
+
+#. %d: number of minutes.
+#: admin/class-bew-ai-editor.php:118
+msgid "%dm ago"
+msgstr ""
+
+#. %s: Plugin name.
+#: inc/template-library/frontend/class-plugin-installer.php:49
+#, php-format
+msgid "%s installed and activated successfully."
+msgstr ""
+
+#: admin/ai-provider-models.php:273
+msgid "(Free)"
+msgstr ""
+
+#: inc/bew-common.php:287
+msgid "- Select Contact Form -"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:44
+msgid "-- Select --"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:1170
+msgid "0 Comments"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:1170
+msgid "1 Comment"
+msgstr ""
+
+#: admin/class-bew-ai-presets.php:134
+msgid "A preset needs both a name and an instruction."
+msgstr ""
+
+#: admin/partials/page-settings.php:470
+msgid "Actions"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:300
+msgid "Activate Elementor"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:420
+#: widgets/bew-elements-carousel-products.php:636
+#: widgets/bew-elements-products-list.php:583
+#: widgets/bew-elements-products.php:588
+msgid "Active Color"
+msgstr ""
+
+#: widgets/bew-elements-site-logo.php:44
+msgid "Add Image"
+msgstr ""
+
+#. %s: singular label
+#: inc/template-library/inc/helpers.php:61
+#: inc/template-library/inc/helpers.php:95
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: admin/partials/page-settings.php:459
+msgid "Add Provider"
+msgstr ""
+
+#: inc/bew-common.php:931
+msgid "Add to wishlist"
+msgstr ""
+
+#: inc/bew-common.php:582
+msgid "Add your custom id WITHOUT the Pound key. e.g: my-id"
+msgstr ""
+
+#: admin/partials/page-settings.php:469
+msgid "Added"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:253
+#: widgets/bew-elements-products-list.php:252
+#: widgets/bew-elements-products.php:257
+msgid "Advanced"
+msgstr ""
+
+#: inc/bew-common.php:539
+msgid "After"
+msgstr ""
+
+#: admin/partials/page-settings.php:43 admin/partials/page-settings.php:338
+msgid "AI Builder"
+msgstr ""
+
+#: admin/class-bew-ajax.php:157
+msgid "AI feature settings saved"
+msgstr ""
+
+#: admin/partials/page-settings.php:344
+msgid "AI Features"
+msgstr ""
+
+#: admin/class-bew-ajax.php:257
+msgid "AI provider added"
+msgstr ""
+
+#: admin/partials/page-settings.php:408
+msgid "AI Provider Integration"
+msgstr ""
+
+#: admin/class-bew-ajax.php:594
+msgid "AI provider removed"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:357
+msgid "Alerts"
+msgstr ""
+
+#: inc/bew-common.php:481 widgets/bew-elements-blog.php:109
+#: widgets/bew-elements-carousel-products.php:79
+#: widgets/bew-elements-categories.php:72
+#: widgets/bew-elements-contact-form-7.php:85
+#: widgets/bew-elements-contact-form-7.php:391
+#: widgets/bew-elements-products-list.php:54
+#: widgets/bew-elements-products.php:85 widgets/bew-elements-site-logo.php:66
+msgid "Alignment"
+msgstr ""
+
+#. %s: plural label
+#: inc/template-library/inc/helpers.php:59
+#: inc/template-library/inc/helpers.php:89
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:62 widgets/bew-elements-search.php:51
+#: widgets/bew-elements-search.php:52 widgets/bew-elements-search.php:162
+#: widgets/bew-elements-search.php:377
+#: inc/template-library/elementor/class-modal.php:135
+msgid "All Categories"
+msgstr ""
+
+#: widgets/bew-elements-search.php:49
+msgid "All Categories Placeholder"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:118
+#: widgets/bew-elements-products-list.php:119
+#: widgets/bew-elements-products.php:124
+msgid "All Products"
+msgstr ""
+
+#: admin/partials/page-products.php:68
+msgid "All-in-one Bundle"
+msgstr ""
+
+#: admin/partials/page-products.php:35
+msgid ""
+"All-in-one Premium Elementor Theme with 200+ Demos, One-click Installer & "
+"Advanced Features."
+msgstr ""
+
+#: admin/ai-provider-types.php:64
+msgid "Anthropic"
+msgstr ""
+
+#: admin/ai-provider-types.php:68
+msgid "Anthropic Account ↗"
+msgstr ""
+
+#: admin/partials/page-settings.php:434 admin/partials/page-settings.php:468
+msgid "API Key"
+msgstr ""
+
+#: admin/class-bew-ajax.php:213 admin/class-bew-ajax.php:498
+msgid "API key is required"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:94
+msgid "Apply"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:41
+#: widgets/bew-elements-carousel-products.php:341
+msgid "Arrows"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:191
+#: widgets/bew-elements-carousel-products.php:300
+#: widgets/bew-elements-categories-list.php:155
+#: widgets/bew-elements-categories.php:184
+#: widgets/bew-elements-products-list.php:299
+#: widgets/bew-elements-products.php:304
+msgid "ASC"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:208
+msgid "Author"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:65
+msgid "Auto Play"
+msgstr ""
+
+#: admin/class-bew-admin.php:205
+msgid ""
+"Automatic detection isn't available for this provider. Enter the model ID "
+"manually."
+msgstr ""
+
+#: admin/ai-provider-models.php:406
+msgid ""
+"Automatic model detection is not available for this provider. Enter the "
+"model ID manually."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:108
+msgid "Back"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:154
+msgid "Back To Kit"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:150
+msgid "Back To Pages"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:151
+msgid "Back To Sections"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:149
+#: inc/template-library/elementor/class-modal.php:153
+msgid "Back To Templates"
+msgstr ""
+
+#: admin/partials/page-settings.php:296
+#: modules/back-to-top/class-site-settings.php:42
+#: modules/back-to-top/class-site-settings.php:65
+msgid "Back to Top"
+msgstr ""
+
+#: inc/bew-common.php:1107 inc/bew-common.php:1129
+#: widgets/bew-elements-carousel-products.php:352
+#: widgets/bew-elements-carousel-products.php:713
+#: widgets/bew-elements-carousel-products.php:735
+#: widgets/bew-elements-cart.php:136 widgets/bew-elements-cart.php:167
+#: widgets/bew-elements-contact-form-7.php:147
+#: widgets/bew-elements-contact-form-7.php:168
+#: widgets/bew-elements-contact-form-7.php:191
+#: widgets/bew-elements-contact-form-7.php:264
+#: widgets/bew-elements-contact-form-7.php:285
+#: widgets/bew-elements-contact-form-7.php:308
+#: widgets/bew-elements-dropdown-nav.php:145
+#: widgets/bew-elements-dropdown-nav.php:176
+#: widgets/bew-elements-my-account.php:110
+#: widgets/bew-elements-my-account.php:141
+#: widgets/bew-elements-my-account.php:196
+#: widgets/bew-elements-my-account.php:227
+#: widgets/bew-elements-products-list.php:660
+#: widgets/bew-elements-products-list.php:682
+#: widgets/bew-elements-products.php:665 widgets/bew-elements-products.php:687
+#: widgets/bew-elements-search.php:299 widgets/bew-elements-search.php:321
+#: widgets/bew-elements-yith-compare.php:113
+#: widgets/bew-elements-yith-compare.php:144
+#: widgets/bew-elements-yith-compare.php:201
+#: widgets/bew-elements-yith-compare.php:232
+#: widgets/bew-elements-yith-wishlist.php:108
+#: widgets/bew-elements-yith-wishlist.php:139
+#: widgets/bew-elements-yith-wishlist.php:196
+#: widgets/bew-elements-yith-wishlist.php:227
+msgid "Background"
+msgstr ""
+
+#: inc/bew-common.php:648 inc/bew-common.php:675 inc/bew-common.php:1035
+#: inc/bew-common.php:1048 widgets/bew-elements-blog.php:396
+#: widgets/bew-elements-blog.php:495
+#: widgets/bew-elements-carousel-products.php:318
+#: widgets/bew-elements-carousel-products.php:775
+#: widgets/bew-elements-carousel-products.php:797
+#: widgets/bew-elements-cart.php:205 widgets/bew-elements-cart.php:229
+#: widgets/bew-elements-cart.php:298 widgets/bew-elements-cart.php:419
+#: widgets/bew-elements-cart.php:429
+#: widgets/bew-elements-categories-list.php:184
+#: widgets/bew-elements-categories-list.php:195
+#: widgets/bew-elements-categories-list.php:361
+#: widgets/bew-elements-categories-list.php:374
+#: widgets/bew-elements-categories.php:202
+#: widgets/bew-elements-contact-form-7.php:424
+#: widgets/bew-elements-contact-form-7.php:439
+#: widgets/bew-elements-contact-form-7.php:454
+#: widgets/bew-elements-contact-form-7.php:469
+#: widgets/bew-elements-dropdown-nav.php:379
+#: widgets/bew-elements-products-list.php:317
+#: widgets/bew-elements-products-list.php:722
+#: widgets/bew-elements-products-list.php:744
+#: widgets/bew-elements-products.php:322 widgets/bew-elements-products.php:727
+#: widgets/bew-elements-products.php:749 widgets/bew-elements-search.php:79
+#: widgets/bew-elements-search.php:105 widgets/bew-elements-search.php:172
+#: widgets/bew-elements-search.php:232 widgets/bew-elements-search.php:245
+#: modules/back-to-top/class-site-settings.php:240
+#: modules/back-to-top/class-site-settings.php:269
+#: modules/preloader/class-site-settings.php:148
+msgid "Background Color"
+msgstr ""
+
+#: inc/bew-common.php:538
+msgid "Before"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:80 admin/partials/page-settings.php:45
+#: admin/partials/page-settings.php:340
+msgid "Beta"
+msgstr ""
+
+#: admin/class-bew-admin.php:48 admin/class-bew-admin.php:49
+msgid "BEW"
+msgstr ""
+
+#. Name of the plugin
+msgid "BEW - Elementor Addons, Templates & AI Builder"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:79
+msgid "BEW AI"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:25
+msgid "BEW Back to Top"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:429
+msgid "BEW Elements"
+msgstr ""
+
+#: admin/partials/page-info.php:58
+msgid "BEW Free VS Pro"
+msgstr ""
+
+#: admin/class-bew-admin.php:60 admin/class-bew-admin.php:61
+msgid "BEW Info"
+msgstr ""
+
+#: admin/partials/page-info.php:43
+msgid ""
+"BEW is now installed and ready to use. We hope the following information "
+"will help and you enjoy using it!"
+msgstr ""
+
+#: modules/preloader/class-site-settings.php:22
+msgid "BEW Preloader"
+msgstr ""
+
+#: admin/partials/page-products.php:53
+msgid "BEW Pro"
+msgstr ""
+
+#: admin/partials/page-settings.php:21
+msgid "BEW Settings"
+msgstr ""
+
+#: inc/template-library/inc/class-template-library.php:122
+msgid "BEW Template Library requires Elementor to be installed and activated."
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:114
+#: inc/template-library/elementor/class-modal.php:133
+#: inc/template-library/elementor/class-source.php:32
+msgid "BEW Templates"
+msgstr ""
+
+#: inc/template-library/elementor/class-source.php:136
+#: inc/template-library/elementor/class-source.php:144
+#: inc/template-library/elementor/class-source.php:152
+#: inc/template-library/elementor/class-source.php:160
+#: inc/template-library/elementor/class-source.php:168
+msgid "BEW templates are read-only."
+msgstr ""
+
+#: widgets/bew-elements-blog.php:16
+msgid "Blog"
+msgstr ""
+
+#: admin/partials/page-settings.php:376
+msgid "Blog Generator"
+msgstr ""
+
+#: admin/partials/page-settings.php:76
+msgid "Blog Grid"
+msgstr ""
+
+#: inc/bew-common.php:145 widgets/bew-elements-blog.php:879
+#: widgets/bew-elements-products.php:870
+msgid "Border"
+msgstr ""
+
+#: inc/bew-common.php:650 inc/bew-common.php:680
+#: widgets/bew-elements-carousel-products.php:742
+#: widgets/bew-elements-cart.php:430
+#: widgets/bew-elements-categories-list.php:197
+#: widgets/bew-elements-categories-list.php:376
+#: widgets/bew-elements-contact-form-7.php:176
+#: widgets/bew-elements-contact-form-7.php:199
+#: widgets/bew-elements-contact-form-7.php:291
+#: widgets/bew-elements-contact-form-7.php:314
+#: widgets/bew-elements-contact-form-7.php:428
+#: widgets/bew-elements-contact-form-7.php:443
+#: widgets/bew-elements-contact-form-7.php:458
+#: widgets/bew-elements-contact-form-7.php:473
+#: widgets/bew-elements-my-account.php:234
+#: widgets/bew-elements-products-list.php:689
+#: widgets/bew-elements-products.php:694 widgets/bew-elements-search.php:107
+#: widgets/bew-elements-search.php:247
+msgid "Border Color"
+msgstr ""
+
+#: inc/bew-common.php:1050 inc/bew-common.php:1136
+#: widgets/bew-elements-cart.php:174
+#: widgets/bew-elements-categories-list.php:290
+#: widgets/bew-elements-dropdown-nav.php:183
+#: widgets/bew-elements-dropdown-nav.php:392
+#: widgets/bew-elements-my-account.php:148 widgets/bew-elements-search.php:328
+#: widgets/bew-elements-yith-compare.php:151
+#: widgets/bew-elements-yith-compare.php:239
+#: widgets/bew-elements-yith-wishlist.php:146
+#: widgets/bew-elements-yith-wishlist.php:234
+msgid "Border Hover Color"
+msgstr ""
+
+#: inc/bew-common.php:696 inc/bew-common.php:1065 inc/bew-common.php:1151
+#: widgets/bew-elements-blog.php:400 widgets/bew-elements-blog.php:499
+#: widgets/bew-elements-blog.php:627 widgets/bew-elements-blog.php:884
+#: widgets/bew-elements-carousel-products.php:322
+#: widgets/bew-elements-carousel-products.php:571
+#: widgets/bew-elements-carousel-products.php:757
+#: widgets/bew-elements-carousel-products.php:781
+#: widgets/bew-elements-cart.php:182 widgets/bew-elements-cart.php:209
+#: widgets/bew-elements-cart.php:233 widgets/bew-elements-cart.php:437
+#: widgets/bew-elements-categories-list.php:205
+#: widgets/bew-elements-categories-list.php:292
+#: widgets/bew-elements-categories-list.php:384
+#: widgets/bew-elements-categories.php:206
+#: widgets/bew-elements-categories.php:331
+#: widgets/bew-elements-categories.php:357
+#: widgets/bew-elements-contact-form-7.php:222
+#: widgets/bew-elements-contact-form-7.php:324
+#: widgets/bew-elements-contact-form-7.php:373
+#: widgets/bew-elements-dropdown-nav.php:198
+#: widgets/bew-elements-my-account.php:163
+#: widgets/bew-elements-my-account.php:242
+#: widgets/bew-elements-products-list.php:321
+#: widgets/bew-elements-products-list.php:518
+#: widgets/bew-elements-products-list.php:704
+#: widgets/bew-elements-products-list.php:728
+#: widgets/bew-elements-products.php:326 widgets/bew-elements-products.php:523
+#: widgets/bew-elements-products.php:709 widgets/bew-elements-products.php:733
+#: widgets/bew-elements-products.php:875 widgets/bew-elements-search.php:130
+#: widgets/bew-elements-search.php:183 widgets/bew-elements-search.php:255
+#: widgets/bew-elements-search.php:343 widgets/bew-elements-site-logo.php:164
+#: widgets/bew-elements-yith-compare.php:166
+#: widgets/bew-elements-yith-compare.php:254
+#: widgets/bew-elements-yith-wishlist.php:161
+#: widgets/bew-elements-yith-wishlist.php:249
+#: modules/back-to-top/class-site-settings.php:201
+msgid "Border Radius"
+msgstr ""
+
+#: admin/partials/page-products.php:34
+msgid "Bosa Pro"
+msgstr ""
+
+#: admin/partials/page-products.php:63
+msgid "Bosa Pro Extension"
+msgstr ""
+
+#: admin/partials/page-products.php:43
+msgid "Bosa Shop Extension Pro"
+msgstr ""
+
+#. Author of the plugin
+msgid "Bosa Themes"
+msgstr ""
+
+#: widgets/bew-elements-products-list.php:91
+msgid "Bottom"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:98
+msgid "Bottom Left"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:102
+msgid "Bottom Right"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:228
+#: widgets/bew-elements-contact-form-7.php:330
+#: widgets/bew-elements-contact-form-7.php:379
+msgid "Box Shadow"
+msgstr ""
+
+#: admin/partials/page-settings.php:410
+msgid ""
+"Bring the account you already use with your AI providers — no separate "
+"subscription, no markup. Pay the provider directly and choose the model that "
+"best fits your needs and budget."
+msgstr ""
+
+#: modules/preloader/class-site-settings.php:51
+#: modules/preloader/class-site-settings.php:76
+msgid "Built-in Preloader"
+msgstr ""
+
+#: admin/partials/page-settings.php:361
+msgid "Bulk Text & Image Generator"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:689
+#: widgets/bew-elements-products-list.php:636
+#: widgets/bew-elements-products.php:641
+msgid "Button"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:359 widgets/bew-elements-blog.php:754
+msgid "Button / Read More"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:87
+msgid "Button appears after scrolling this distance."
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:177
+msgid "Button Height"
+msgstr ""
+
+#: inc/bew-common.php:576
+msgid "Button ID"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:62
+msgid "Button Text"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:165
+msgid "Button Width"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:88
+#: widgets/bew-elements-categories.php:117
+msgid "By Parent"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:96 admin/class-bew-ai-editor.php:115
+#: admin/class-bew-ai-editor.php:143
+msgid "Cancel"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:128
+#: widgets/bew-elements-products-list.php:129
+#: widgets/bew-elements-products.php:134
+msgid "Cat Filter Rule"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:656
+#: inc/template-library/inc/class-template-library.php:96
+msgid "Categories"
+msgstr ""
+
+#: widgets/bew-elements-search.php:213
+msgid "Categories Dropdown"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:320
+msgid "Categories Separator"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:136
+#: inc/template-library/inc/class-template-library.php:95
+msgid "Category"
+msgstr ""
+
+#: inc/bew-common.php:489 widgets/bew-elements-blog.php:117
+#: widgets/bew-elements-blog.php:143
+#: widgets/bew-elements-carousel-products.php:86
+#: widgets/bew-elements-categories-list.php:321
+#: widgets/bew-elements-categories.php:80
+#: widgets/bew-elements-contact-form-7.php:93
+#: widgets/bew-elements-contact-form-7.php:399
+#: widgets/bew-elements-products-list.php:61
+#: widgets/bew-elements-products-list.php:87
+#: widgets/bew-elements-products.php:57 widgets/bew-elements-products.php:92
+#: widgets/bew-elements-site-logo.php:74
+msgid "Center"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:85
+msgid "Checking…"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:371
+msgid "Checkout Button"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:130
+msgid "Clear all history for this item"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:112
+msgid "Clear all history for this page"
+msgstr ""
+
+#: inc/bew-common.php:419
+msgid "Click here"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:146
+msgid "Close"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:643 widgets/bew-elements-blog.php:663
+#: widgets/bew-elements-blog.php:682 widgets/bew-elements-blog.php:698
+#: widgets/bew-elements-carousel-products.php:346
+#: widgets/bew-elements-carousel-products.php:418
+#: widgets/bew-elements-carousel-products.php:587
+#: widgets/bew-elements-carousel-products.php:634
+#: widgets/bew-elements-carousel-products.php:777
+#: widgets/bew-elements-carousel-products.php:799
+#: widgets/bew-elements-categories-list.php:304
+#: widgets/bew-elements-categories-list.php:359
+#: widgets/bew-elements-categories-list.php:372
+#: widgets/bew-elements-categories.php:347
+#: widgets/bew-elements-contact-form-7.php:78
+#: widgets/bew-elements-contact-form-7.php:118
+#: widgets/bew-elements-contact-form-7.php:153
+#: widgets/bew-elements-contact-form-7.php:174
+#: widgets/bew-elements-contact-form-7.php:197
+#: widgets/bew-elements-contact-form-7.php:426
+#: widgets/bew-elements-contact-form-7.php:441
+#: widgets/bew-elements-contact-form-7.php:456
+#: widgets/bew-elements-contact-form-7.php:471
+#: widgets/bew-elements-products-list.php:534
+#: widgets/bew-elements-products-list.php:552
+#: widgets/bew-elements-products-list.php:581
+#: widgets/bew-elements-products-list.php:724
+#: widgets/bew-elements-products-list.php:746
+#: widgets/bew-elements-products.php:539 widgets/bew-elements-products.php:557
+#: widgets/bew-elements-products.php:586 widgets/bew-elements-products.php:729
+#: widgets/bew-elements-products.php:751
+msgid "Color"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:700
+msgid "Color: Hover"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:228
+msgid "Column Gap"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:413 widgets/bew-elements-products-list.php:334
+#: widgets/bew-elements-products.php:339
+msgid "Columns Gap"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:211
+msgid "Comment Count"
+msgstr ""
+
+#: inc/bew-common.php:805 inc/bew-common.php:899
+#: widgets/bew-elements-yith-compare.php:41
+msgid "Compare"
+msgstr ""
+
+#: inc/bew-common.php:844
+msgid "Compare & Wishlist"
+msgstr ""
+
+#: inc/bew-common.php:963
+msgid "Compare & Wishlist Icon"
+msgstr ""
+
+#: inc/bew-common.php:1076
+msgid "Compare & Wishlist Label"
+msgstr ""
+
+#: inc/bew-common.php:897
+msgid "Compare Label"
+msgstr ""
+
+#: inc/bew-common.php:911
+msgid "Compare Label Tooltip"
+msgstr ""
+
+#: admin/partials/page-settings.php:409
+msgid ""
+"Connect AI providers using your own API keys. Keys are stored encrypted and "
+"are only used by AI-powered features in this plugin."
+msgstr ""
+
+#: admin/class-bew-ajax.php:377
+msgid "Connect an AI provider first"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:82
+msgid "Connect an AI provider in BEW Settings to use this feature."
+msgstr ""
+
+#: admin/partials/page-settings.php:462
+msgid "Connected Providers"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:16
+#: admin/partials/page-settings.php:82
+msgid "Contact Form 7"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:58 widgets/bew-elements-cart.php:62
+#: widgets/bew-elements-categories-list.php:40
+#: widgets/bew-elements-categories.php:40
+#: widgets/bew-elements-dropdown-nav.php:41
+#: widgets/bew-elements-my-account.php:32
+#: widgets/bew-elements-products-list.php:36
+#: widgets/bew-elements-products.php:36 widgets/bew-elements-site-logo.php:35
+#: widgets/bew-elements-yith-compare.php:32
+#: widgets/bew-elements-yith-wishlist.php:32
+msgid "Content"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:314
+msgid "Content Alignment"
+msgstr ""
+
+#: admin/ai-text-generator.php:33
+msgid ""
+"Could not reach the AI provider (a connection issue, e.g. a timeout) -- this "
+"is not related to your API key or usage limits. Please try again."
+msgstr ""
+
+#: admin/class-bew-ajax.php:231
+msgid ""
+"Could not securely store this API key -- your server is missing the PHP "
+"OpenSSL extension (or it failed unexpectedly). Please contact your host."
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:143
+#: widgets/bew-elements-categories-list.php:343
+#: widgets/bew-elements-categories.php:172
+msgid "Count"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:409
+msgid "Count Height"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:391
+msgid "Count Width"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:220
+msgid "Counts"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:300 widgets/bew-elements-cart.php:317
+msgid "Cross Color"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:817 widgets/bew-elements-products.php:808
+msgid "Current"
+msgstr ""
+
+#: widgets/bew-elements-site-logo.php:39
+#: modules/preloader/class-site-settings.php:55
+#: modules/preloader/class-site-settings.php:110
+msgid "Custom Image"
+msgstr ""
+
+#: modules/preloader/class-site-settings.php:122
+msgid "Custom Image Size"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:119
+#: widgets/bew-elements-products-list.php:120
+#: widgets/bew-elements-products.php:125
+msgid "Custom Query"
+msgstr ""
+
+#: widgets/bew-elements-site-logo.php:98
+msgid "Custom URL"
+msgstr ""
+
+#: admin/partials/page-info.php:85
+msgid "Customization Request"
+msgstr ""
+
+#: inc/bew-common.php:439
+msgid "Danger"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:204
+#: widgets/bew-elements-carousel-products.php:282
+#: widgets/bew-elements-products-list.php:281
+#: widgets/bew-elements-products.php:286
+msgid "Date"
+msgstr ""
+
+#: admin/class-bew-admin.php:207 inc/bew-common.php:435
+#: widgets/bew-elements-blog.php:189 widgets/bew-elements-blog.php:203
+#: widgets/bew-elements-carousel-products.php:50
+#: widgets/bew-elements-site-logo.php:96 admin/partials/page-settings.php:490
+msgid "Default"
+msgstr ""
+
+#: admin/class-bew-ajax.php:302
+msgid "Default provider updated"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:618
+#: widgets/bew-elements-products-list.php:565
+#: widgets/bew-elements-products.php:570
+msgid "Del Price Color"
+msgstr ""
+
+#: admin/class-bew-admin.php:197 admin/partials/page-settings.php:512
+msgid "Delete"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:113
+msgid "Delete all saved history for this page? This can't be undone."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:111
+msgid "Delete this entry"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:148
+msgid "Delete this preset"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:190
+#: widgets/bew-elements-carousel-products.php:301
+#: widgets/bew-elements-categories-list.php:156
+#: widgets/bew-elements-categories.php:185
+#: widgets/bew-elements-products-list.php:300
+#: widgets/bew-elements-products.php:305
+msgid "DESC"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:142
+#: widgets/bew-elements-categories.php:171
+msgid "Description"
+msgstr ""
+
+#: admin/partials/page-products.php:64
+msgid ""
+"Designed for your store with an Elementor theme, WooCommerce features, "
+"widgets, and templates."
+msgstr ""
+
+#: widgets/bew-elements-blog.php:298
+msgid "Display Author"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:309
+msgid "Display Categories"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:287
+msgid "Display Comments"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:276
+msgid "Display Date"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:333
+msgid "Display Excerpt"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:46
+msgid "Display on Hover"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:265
+msgid "Display Title"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:337
+msgid "Divider"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:304 widgets/bew-elements-dropdown-nav.php:355
+msgid "Divider Color"
+msgstr ""
+
+#: admin/partials/page-info.php:67
+msgid "Documentation"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:59
+#: widgets/bew-elements-carousel-products.php:413
+msgid "Dots"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:427
+msgid "Dots Size"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:445
+msgid "Dots Spacing"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:90
+msgid "Drop Icon"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:300
+msgid "Dropdown"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:16 admin/partials/page-settings.php:70
+msgid "Dropdown Nav"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:141
+msgid "e.g. Casual bakery voice"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:90
+msgid "e.g. make it shorter, more playful…"
+msgstr ""
+
+#. %s: singular label
+#: inc/template-library/inc/helpers.php:63
+#: inc/template-library/inc/helpers.php:91
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:248
+msgid "Elements"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:364
+msgid "Enable Button"
+msgstr ""
+
+#: admin/partials/page-settings.php:345
+msgid ""
+"Enable or disable individual AI features. Disabled features will not appear "
+"in the editor."
+msgstr ""
+
+#: admin/partials/page-settings.php:292
+msgid "Enable or disable modules."
+msgstr ""
+
+#: admin/partials/page-settings.php:253
+msgid "Enable or disable the BEW Template Library inside the Elementor editor."
+msgstr ""
+
+#: admin/partials/page-settings.php:56
+msgid ""
+"Enable or disable widgets. Disabled widgets will not appear in Elementor."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Enhance your website building experience with powerful Elementor widgets and "
+"a versatile, ready-to-use template library & AI-powered Content Generation "
+"for seamless customization and improved workflow efficiency."
+msgstr ""
+
+#: admin/class-bew-admin.php:204
+msgid "Enter model ID, e.g. gpt-4o"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:221 widgets/bew-elements-blog.php:234
+msgid "Enter the categories slugs seperated by a \"comma\""
+msgstr ""
+
+#: admin/partials/page-settings.php:454
+msgid ""
+"Enter your API key above, then load the models it can access and pick one as "
+"the default."
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:312
+msgid "Entrance Animation"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:104 widgets/bew-elements-categories.php:96
+#: widgets/bew-elements-products.php:75
+msgid "Equal Heights"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:677
+msgid "Excerpt"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:344
+msgid "Excerpt Length"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:233
+#: widgets/bew-elements-carousel-products.php:133
+#: widgets/bew-elements-products-list.php:134
+#: widgets/bew-elements-products.php:139
+msgid "Exclude Categories"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:236
+#: widgets/bew-elements-products-list.php:237
+#: widgets/bew-elements-products.php:242
+msgid "Exclude Current Product"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:205
+#: widgets/bew-elements-products-list.php:206
+#: widgets/bew-elements-products.php:211
+msgid "Exclude Products"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:164
+#: widgets/bew-elements-products-list.php:165
+#: widgets/bew-elements-products.php:170
+msgid "Exclude Tags"
+msgstr ""
+
+#: admin/partials/page-settings.php:531
+msgid ""
+"Experiencing an issue with this version? You can rollback the previous "
+"version."
+msgstr ""
+
+#: admin/partials/page-products.php:28
+msgid "Explore our complete suite of premium WordPress products and solutions."
+msgstr ""
+
+#: admin/partials/page-info.php:59
+msgid ""
+"Explore the difference between Free and Pro versions and choose what suits "
+"you best."
+msgstr ""
+
+#: inc/template-library/elementor/class-source.php:176
+msgid "Export is not supported for BEW templates."
+msgstr ""
+
+#: inc/bew-common.php:749
+msgid "Extra Large"
+msgstr ""
+
+#: inc/bew-common.php:745
+msgid "Extra Small"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:317
+msgid "Fade In"
+msgstr ""
+
+#: modules/preloader/class-site-settings.php:189
+msgid "Fade Out Duration (ms)"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:166
+msgid "Failed"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:269
+#: widgets/bew-elements-products-list.php:268
+#: widgets/bew-elements-products.php:273
+msgid "Featured"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:264
+#: widgets/bew-elements-products-list.php:263
+#: widgets/bew-elements-products.php:268
+msgid "Filter By"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:98
+msgid "Fit Rows"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:319
+msgid "Float"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:183
+#: widgets/bew-elements-contact-form-7.php:298
+#: widgets/bew-elements-search.php:99
+msgid "Focus"
+msgstr ""
+
+#: inc/template-library/inc/class-template-library.php:70
+msgid "Footer"
+msgstr ""
+
+#: inc/template-library/inc/class-template-library.php:70
+msgid "Footers"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:40
+msgid "Form"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:155
+msgid "Free"
+msgstr ""
+
+#. %s: link to Google AI Studio
+#: admin/ai-provider-types.php:35
+#, php-format
+msgid ""
+"Free to use, no card required (Gemini Flash models, rate-limited). You can "
+"get your API Keys in your %s."
+msgstr ""
+
+#. %s: link to the Groq console API keys page
+#: admin/ai-provider-types.php:100
+#, php-format
+msgid ""
+"Free to use, no card required, across their full model catalog (rate-limited)"
+". Get your API key from your %s."
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:342
+msgid "Full Width Button"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:380
+msgid "Gap"
+msgstr ""
+
+#: inc/bew-common.php:996
+msgid "Gap Between Icons"
+msgstr ""
+
+#: admin/partials/page-settings.php:49 admin/partials/page-settings.php:201
+#: admin/partials/page-settings.php:525
+msgid "General"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:92
+msgid "Generate"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:93
+msgid "Generating…"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:103
+msgid "Get BEW Pro to access advanced AI features."
+msgstr ""
+
+#: admin/partials/page-info.php:94
+msgid ""
+"Get community help, find solutions, & connect with the BEW community. BEW "
+"Pro users can submit a support ticket directly to our core support team."
+msgstr ""
+
+#: admin/partials/page-info.php:93
+msgid "Get Priority Support Access"
+msgstr ""
+
+#: admin/partials/page-info.php:87
+msgid "Get Service"
+msgstr ""
+
+#: inc/bew-common.php:1226
+msgid "Go Premium for More Features"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:143
+msgid "Go Pro"
+msgstr ""
+
+#: admin/ai-provider-types.php:32
+msgid "Google"
+msgstr ""
+
+#: admin/ai-provider-types.php:36
+msgid "Google AI Studio ↗"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:68
+msgid "Grid Columns"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:380
+msgid "Grid Item"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:94
+msgid "Grid Style"
+msgstr ""
+
+#: admin/ai-provider-types.php:97
+msgid "Groq"
+msgstr ""
+
+#: admin/ai-provider-types.php:101
+msgid "GroqCloud Console ↗"
+msgstr ""
+
+#: inc/template-library/inc/class-template-library.php:69
+msgid "Header"
+msgstr ""
+
+#: inc/template-library/inc/class-template-library.php:69
+msgid "Headers"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:269 widgets/bew-elements-blog.php:280
+#: widgets/bew-elements-blog.php:291 widgets/bew-elements-blog.php:302
+#: widgets/bew-elements-blog.php:313 widgets/bew-elements-blog.php:337
+#: widgets/bew-elements-categories-list.php:127
+#: widgets/bew-elements-categories.php:156
+#: widgets/bew-elements-contact-form-7.php:72
+#: widgets/bew-elements-dropdown-nav.php:55
+#: widgets/bew-elements-dropdown-nav.php:75
+#: widgets/bew-elements-dropdown-nav.php:93
+#: widgets/bew-elements-dropdown-nav.php:111
+#: widgets/bew-elements-dropdown-nav.php:340
+msgid "Hide"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:124
+#: widgets/bew-elements-categories.php:153
+msgid "Hide Empty"
+msgstr ""
+
+#. 1: current item number, 2: total number of items.
+#: admin/class-bew-ai-editor.php:126
+#, php-format
+msgid "History — %1$d of %2$d"
+msgstr ""
+
+#. %s: field name, e.g. "Headline".
+#: admin/class-bew-ai-editor.php:106
+#, php-format
+msgid "History — %s"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:114
+msgid "Horizontal Offset"
+msgstr ""
+
+#: inc/bew-common.php:657 inc/bew-common.php:1042 inc/bew-common.php:1119
+#: widgets/bew-elements-blog.php:491 widgets/bew-elements-blog.php:568
+#: widgets/bew-elements-blog.php:802
+#: widgets/bew-elements-carousel-products.php:512
+#: widgets/bew-elements-carousel-products.php:725
+#: widgets/bew-elements-cart.php:148 widgets/bew-elements-cart.php:311
+#: widgets/bew-elements-cart.php:425
+#: widgets/bew-elements-categories-list.php:191
+#: widgets/bew-elements-categories-list.php:368
+#: widgets/bew-elements-categories.php:272
+#: widgets/bew-elements-contact-form-7.php:160
+#: widgets/bew-elements-contact-form-7.php:275
+#: widgets/bew-elements-dropdown-nav.php:157
+#: widgets/bew-elements-dropdown-nav.php:267
+#: widgets/bew-elements-dropdown-nav.php:386
+#: widgets/bew-elements-my-account.php:122
+#: widgets/bew-elements-my-account.php:208
+#: widgets/bew-elements-products-list.php:459
+#: widgets/bew-elements-products-list.php:672
+#: widgets/bew-elements-products.php:464 widgets/bew-elements-products.php:677
+#: widgets/bew-elements-products.php:793 widgets/bew-elements-search.php:239
+#: widgets/bew-elements-search.php:311 widgets/bew-elements-site-logo.php:215
+#: widgets/bew-elements-yith-compare.php:125
+#: widgets/bew-elements-yith-compare.php:213
+#: widgets/bew-elements-yith-wishlist.php:120
+#: widgets/bew-elements-yith-wishlist.php:208
+#: modules/back-to-top/class-site-settings.php:252
+msgid "Hover"
+msgstr ""
+
+#: widgets/bew-elements-categories.php:351
+msgid "Hover Border Color"
+msgstr ""
+
+#: inc/bew-common.php:131 widgets/bew-elements-blog.php:645
+#: widgets/bew-elements-blog.php:665
+#: widgets/bew-elements-carousel-products.php:422
+#: widgets/bew-elements-carousel-products.php:589
+#: widgets/bew-elements-carousel-products.php:607
+#: widgets/bew-elements-categories-list.php:306
+#: widgets/bew-elements-categories.php:349
+#: widgets/bew-elements-products-list.php:536
+#: widgets/bew-elements-products-list.php:554
+#: widgets/bew-elements-products.php:541 widgets/bew-elements-products.php:559
+msgid "Hover Color"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://bew.bosathemes.com"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://bosathemes.com"
+msgstr ""
+
+#: inc/bew-common.php:469 widgets/bew-elements-site-logo.php:108
+msgid "https://your-link.com"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:84
+msgid "I've Connected — Check Again"
+msgstr ""
+
+#: inc/bew-common.php:521 widgets/bew-elements-cart.php:69
+#: widgets/bew-elements-cart.php:89 widgets/bew-elements-dropdown-nav.php:72
+#: widgets/bew-elements-my-account.php:53
+#: widgets/bew-elements-my-account.php:67
+#: widgets/bew-elements-yith-compare.php:51
+#: widgets/bew-elements-yith-compare.php:65
+#: widgets/bew-elements-yith-wishlist.php:51
+#: widgets/bew-elements-yith-wishlist.php:65
+#: modules/back-to-top/class-site-settings.php:50
+msgid "Icon"
+msgstr ""
+
+#: widgets/bew-elements-search.php:262
+msgid "Icon Button"
+msgstr ""
+
+#: inc/bew-common.php:1024 inc/bew-common.php:1046
+#: widgets/bew-elements-cart.php:120 widgets/bew-elements-cart.php:155
+#: widgets/bew-elements-dropdown-nav.php:254
+#: widgets/bew-elements-dropdown-nav.php:274
+#: widgets/bew-elements-my-account.php:98
+#: widgets/bew-elements-my-account.php:129 widgets/bew-elements-search.php:293
+#: widgets/bew-elements-search.php:315 widgets/bew-elements-yith-compare.php:96
+#: widgets/bew-elements-yith-compare.php:132
+#: widgets/bew-elements-yith-wishlist.php:96
+#: widgets/bew-elements-yith-wishlist.php:127
+msgid "Icon Color"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:73
+#: widgets/bew-elements-carousel-products.php:792
+#: widgets/bew-elements-dropdown-nav.php:209
+#: widgets/bew-elements-products-list.php:46
+#: widgets/bew-elements-products-list.php:739
+#: widgets/bew-elements-products.php:79 widgets/bew-elements-products.php:744
+msgid "Icon Group"
+msgstr ""
+
+#: inc/bew-common.php:534
+msgid "Icon Position"
+msgstr ""
+
+#: inc/bew-common.php:974 widgets/bew-elements-blog.php:707
+#: widgets/bew-elements-carousel-products.php:362
+#: widgets/bew-elements-cart.php:97 widgets/bew-elements-dropdown-nav.php:217
+#: widgets/bew-elements-my-account.php:75 widgets/bew-elements-search.php:270
+#: widgets/bew-elements-yith-compare.php:73
+#: widgets/bew-elements-yith-wishlist.php:73
+#: modules/back-to-top/class-site-settings.php:152
+msgid "Icon Size"
+msgstr ""
+
+#: inc/bew-common.php:548 widgets/bew-elements-blog.php:741
+msgid "Icon Spacing"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:210
+msgid "ID"
+msgstr ""
+
+#: admin/partials/page-info.php:103
+msgid ""
+"If you love BEW, please leave a 5-star rating to help other users discover "
+"it."
+msgstr ""
+
+#: widgets/bew-elements-blog.php:521
+#: widgets/bew-elements-carousel-products.php:465
+#: widgets/bew-elements-categories-list.php:258
+#: widgets/bew-elements-categories.php:225
+#: widgets/bew-elements-products-list.php:412
+#: widgets/bew-elements-products.php:417
+msgid "Image"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:521 admin/partials/page-settings.php:88
+msgid "Image Carousel"
+msgstr ""
+
+#: admin/partials/page-settings.php:356
+msgid "Image Generator"
+msgstr ""
+
+#: inc/bew-common.php:761
+msgid "Image Position"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:255
+#: widgets/bew-elements-categories-list.php:62
+#: widgets/bew-elements-categories-list.php:266
+#: widgets/bew-elements-categories.php:62
+msgid "Image Size"
+msgstr ""
+
+#: inc/bew-common.php:409
+msgctxt "Image Size Control"
+msgid "Full"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:220
+msgid "Include Categories"
+msgstr ""
+
+#. %s: link to the Mistral console API keys page
+#: admin/ai-provider-types.php:51
+#, php-format
+msgid ""
+"Includes a rate-limited free tier for evaluation. Beyond that, you will use "
+"the same balance you already have with Mistral -- BEW AI never adds an extra "
+"charge on top. Get your API key from your %s."
+msgstr ""
+
+#. %s: link to the OpenRouter API keys page
+#: admin/ai-provider-types.php:43
+#, php-format
+msgid ""
+"Includes free models with no card required. For paid models, you will use "
+"the same OpenRouter balance you already top up -- BEW AI never adds an extra "
+"charge on top. Get your API key from your %s."
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:67
+msgid "Infinite Loop"
+msgstr ""
+
+#: inc/bew-common.php:436
+msgid "Info"
+msgstr ""
+
+#: widgets/bew-elements-search.php:61
+msgid "Input"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:127
+msgid "Inputs and Textareas"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:142
+msgid "Insert"
+msgstr ""
+
+#: inc/template-library/admin/class-editor-prompt.php:71
+#: inc/template-library/admin/class-editor-prompt.php:135
+#: inc/template-library/elementor/class-modal.php:163
+msgid "Install & Activate"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:306
+msgid "Install Elementor"
+msgstr ""
+
+#: inc/template-library/frontend/class-importer.php:191
+msgid "Install the plugin to display the full widget."
+msgstr ""
+
+#: inc/template-library/admin/class-editor-prompt.php:70
+#: inc/template-library/elementor/class-modal.php:165
+msgid "Installed ✓"
+msgstr ""
+
+#: inc/template-library/admin/class-editor-prompt.php:69
+#: inc/template-library/elementor/class-modal.php:164
+msgid "Installing…"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:88
+msgid "Instruction (optional)"
+msgstr ""
+
+#: admin/class-bew-ajax.php:114 admin/class-bew-ajax.php:143
+#: admin/class-bew-ajax.php:172
+msgid "Invalid data"
+msgstr ""
+
+#: admin/class-bew-ai-history.php:195
+msgid "Invalid history owner"
+msgstr ""
+
+#: inc/template-library/inc/class-remote-client.php:274
+msgid "Invalid JSON from the remote template service."
+msgstr ""
+
+#: inc/template-library/api/class-api.php:195
+msgid "Invalid kit ID."
+msgstr ""
+
+#: admin/class-bew-ajax.php:61
+msgid "Invalid module ID"
+msgstr ""
+
+#: inc/template-library/frontend/class-plugin-installer.php:64
+msgid "Invalid plugin slug."
+msgstr ""
+
+#: admin/class-bew-ajax.php:283 admin/class-bew-ajax.php:580
+msgid "Invalid provider ID"
+msgstr ""
+
+#: admin/class-bew-ajax.php:209 admin/class-bew-ajax.php:494
+msgid "Invalid provider type"
+msgstr ""
+
+#: inc/template-library/inc/class-remote-client.php:288
+msgid "Invalid response from the remote template service."
+msgstr ""
+
+#: inc/template-library/elementor/class-source.php:97
+#: inc/template-library/frontend/class-importer.php:33
+msgid "Invalid template ID."
+msgstr ""
+
+#: admin/class-bew-ajax.php:606
+msgid "Invalid version specified"
+msgstr ""
+
+#: admin/class-bew-ajax.php:43
+msgid "Invalid widget ID"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:102
+#: widgets/bew-elements-carousel-products.php:313
+#: widgets/bew-elements-categories-list.php:168
+#: widgets/bew-elements-categories.php:197
+#: widgets/bew-elements-dropdown-nav.php:121
+#: widgets/bew-elements-products-list.php:312
+#: widgets/bew-elements-products.php:317
+msgid "Item"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:842 widgets/bew-elements-products.php:833
+msgid "Item Size"
+msgstr ""
+
+#: inc/bew-common.php:169 widgets/bew-elements-blog.php:860
+#: widgets/bew-elements-products.php:851
+msgid "Item Spacing"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:116
+msgid "Just now"
+msgstr ""
+
+#: inc/bew-common.php:497
+msgid "Justified"
+msgstr ""
+
+#: inc/template-library/inc/class-template-library.php:68
+msgid "Kit"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:169
+#: inc/template-library/inc/class-template-library.php:68
+msgid "Kits"
+msgstr ""
+
+#: inc/bew-common.php:881 widgets/bew-elements-contact-form-7.php:61
+#: widgets/bew-elements-dropdown-nav.php:55
+#: widgets/bew-elements-dropdown-nav.php:60
+#: widgets/bew-elements-my-account.php:39
+#: widgets/bew-elements-my-account.php:174
+#: widgets/bew-elements-yith-compare.php:39
+#: widgets/bew-elements-yith-compare.php:177
+#: widgets/bew-elements-yith-wishlist.php:39
+#: widgets/bew-elements-yith-wishlist.php:172
+msgid "Label"
+msgstr ""
+
+#: widgets/bew-elements-my-account.php:46
+#: widgets/bew-elements-yith-compare.php:46
+#: widgets/bew-elements-yith-wishlist.php:46
+msgid "Label Tool Tip"
+msgstr ""
+
+#: inc/bew-common.php:748
+msgid "Large"
+msgstr ""
+
+#: admin/partials/page-info.php:60 admin/partials/page-products.php:36
+#: admin/partials/page-products.php:45 admin/partials/page-products.php:65
+msgid "Learn More"
+msgstr ""
+
+#: admin/partials/page-info.php:104
+msgid "Leave Rating"
+msgstr ""
+
+#: inc/bew-common.php:485 inc/bew-common.php:765
+#: widgets/bew-elements-blog.php:113 widgets/bew-elements-blog.php:139
+#: widgets/bew-elements-carousel-products.php:82
+#: widgets/bew-elements-categories-list.php:317
+#: widgets/bew-elements-categories.php:76
+#: widgets/bew-elements-contact-form-7.php:89
+#: widgets/bew-elements-contact-form-7.php:395
+#: widgets/bew-elements-products-list.php:57
+#: widgets/bew-elements-products.php:53 widgets/bew-elements-products.php:88
+#: widgets/bew-elements-site-logo.php:70
+msgid "Left"
+msgstr ""
+
+#: inc/bew-common.php:464 widgets/bew-elements-site-logo.php:92
+#: widgets/bew-elements-site-logo.php:106
+msgid "Link"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:145
+msgid "Live Preview"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:138
+msgid "Load a saved preset"
+msgstr ""
+
+#: admin/partials/page-settings.php:450
+msgid "Load Models"
+msgstr ""
+
+#: admin/class-bew-admin.php:206
+msgid "Load models and choose one before adding this provider."
+msgstr ""
+
+#: modules/preloader/class-site-settings.php:160
+msgid "Loader Size"
+msgstr ""
+
+#: modules/preloader/class-site-settings.php:47
+msgid "Loader Source"
+msgstr ""
+
+#: admin/class-bew-admin.php:201 admin/class-bew-ai-editor.php:123
+#: inc/template-library/elementor/class-modal.php:157
+msgid "Loading…"
+msgstr ""
+
+#: widgets/bew-elements-site-logo.php:123
+msgid "Logo"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:137
+msgid "Manage presets"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:120
+#: widgets/bew-elements-categories-list.php:87
+#: widgets/bew-elements-categories.php:116
+#: widgets/bew-elements-products-list.php:121
+#: widgets/bew-elements-products.php:126
+msgid "Manual Selection"
+msgstr ""
+
+#: inc/bew-common.php:197 inc/bew-common.php:718
+msgid "Margin"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:99
+msgid "Masonry"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:132
+#: widgets/bew-elements-products-list.php:133
+#: widgets/bew-elements-products.php:138
+msgid "Match Categories"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:163
+#: widgets/bew-elements-products-list.php:164
+#: widgets/bew-elements-products.php:169
+msgid "Match Tags"
+msgstr ""
+
+#: inc/bew-common.php:747
+msgid "Medium"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:212
+#: widgets/bew-elements-carousel-products.php:288
+#: widgets/bew-elements-products-list.php:287
+#: widgets/bew-elements-products.php:292
+msgid "Menu Order"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:308
+msgid "Menu Width"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:693
+msgid "Meta"
+msgstr ""
+
+#: admin/class-bew-ai-history.php:206 admin/class-bew-ai-history.php:217
+msgid "Missing field key"
+msgstr ""
+
+#: admin/class-bew-ai-history.php:245
+msgid "Missing field key or entry id"
+msgstr ""
+
+#: admin/class-bew-ai-presets.php:146
+msgid "Missing preset id"
+msgstr ""
+
+#: admin/ai-provider-types.php:48
+msgid "Mistral"
+msgstr ""
+
+#: admin/ai-provider-types.php:52
+msgid "Mistral Console ↗"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:87 admin/partials/page-settings.php:447
+msgid "Model"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:207
+msgid "Modified"
+msgstr ""
+
+#: admin/class-bew-ajax.php:186
+msgid "Module settings saved"
+msgstr ""
+
+#: admin/partials/page-settings.php:39 admin/partials/page-settings.php:291
+msgid "Modules"
+msgstr ""
+
+#: widgets/bew-elements-my-account.php:41
+msgid "My Account"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:206
+#: widgets/bew-elements-categories-list.php:140
+#: widgets/bew-elements-categories.php:169 admin/partials/page-settings.php:423
+#: admin/partials/page-settings.php:466
+msgid "Name"
+msgstr ""
+
+#: admin/partials/page-info.php:86
+msgid ""
+"Need custom modifications? Get in touch with our team for professional "
+"customization services."
+msgstr ""
+
+#: admin/partials/page-info.php:76
+msgid "Need More Features?"
+msgstr ""
+
+#. %s: singular label
+#: inc/template-library/inc/helpers.php:65
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:128
+msgid "Next"
+msgstr ""
+
+#: inc/bew-common.php:855 inc/bew-common.php:884 inc/bew-common.php:914
+#: inc/bew-common.php:946 widgets/bew-elements-blog.php:104
+#: widgets/bew-elements-blog.php:130 widgets/bew-elements-blog.php:364
+#: widgets/bew-elements-carousel-products.php:65
+#: widgets/bew-elements-carousel-products.php:67
+#: widgets/bew-elements-carousel-products.php:71
+#: widgets/bew-elements-carousel-products.php:73
+#: widgets/bew-elements-carousel-products.php:239
+#: widgets/bew-elements-cart.php:78 widgets/bew-elements-cart.php:80
+#: widgets/bew-elements-cart.php:82 widgets/bew-elements-categories.php:96
+#: widgets/bew-elements-my-account.php:46
+#: widgets/bew-elements-my-account.php:48
+#: widgets/bew-elements-products-list.php:44
+#: widgets/bew-elements-products-list.php:46
+#: widgets/bew-elements-products-list.php:240
+#: widgets/bew-elements-products.php:75 widgets/bew-elements-products.php:77
+#: widgets/bew-elements-products.php:79 widgets/bew-elements-products.php:245
+#: widgets/bew-elements-site-logo.php:39
+#: widgets/bew-elements-yith-compare.php:46
+#: widgets/bew-elements-yith-wishlist.php:46
+msgid "No"
+msgstr ""
+
+#. %s: plural label
+#: inc/template-library/inc/helpers.php:73
+#, php-format
+msgid "No %s found in trash."
+msgstr ""
+
+#. %s: plural label
+#: inc/template-library/inc/helpers.php:71
+#: inc/template-library/inc/helpers.php:99
+#, php-format
+msgid "No %s found."
+msgstr ""
+
+#: admin/class-bew-admin.php:200 admin/partials/page-settings.php:476
+msgid "No AI providers connected yet."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:101
+msgid "No AI-eligible fields on this widget yet"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:545
+#: widgets/bew-elements-categories.php:467
+msgid ""
+"No categories found. Please verify that the WooCommerce plugin is active and "
+"there are product categories."
+msgstr ""
+
+#: admin/class-bew-ajax.php:338
+msgid "No eligible fields selected"
+msgstr ""
+
+#. %s: link to the OpenAI API keys page
+#: admin/ai-provider-types.php:59
+#, php-format
+msgid ""
+"No free API tier -- a ChatGPT Plus subscription does not cover this. But you "
+"will use the same API balance you already pay for -- BEW AI never adds an "
+"extra charge on top. You can get your API Keys in your %s."
+msgstr ""
+
+#. %s: link to the Anthropic API keys page
+#: admin/ai-provider-types.php:67
+#, php-format
+msgid ""
+"No free API tier -- a Claude Pro subscription does not cover this. But you "
+"will use the same API balance you already pay for -- BEW AI never adds an "
+"extra charge on top. You can get your API Keys in your %s."
+msgstr ""
+
+#. %s: link to the Replicate API tokens page
+#: admin/ai-provider-types.php:75
+#, php-format
+msgid ""
+"No free tier -- pay-per-run. But you will use the same balance you already "
+"pay for -- BEW AI never adds an extra charge on top. Get your API token from "
+"your %s."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:109
+msgid "No history yet for this field."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:146
+msgid "No presets saved yet."
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:1272
+#: widgets/bew-elements-products-list.php:1234
+#: widgets/bew-elements-products.php:1342
+msgid ""
+"No products found. Please verify that the WooCommerce plugin is active and "
+"there are products."
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:158
+msgid "No templates found."
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:268
+#: widgets/bew-elements-products-list.php:267
+#: widgets/bew-elements-products.php:272 widgets/bew-elements-site-logo.php:97
+#: modules/back-to-top/class-site-settings.php:316
+msgid "None"
+msgstr ""
+
+#: inc/bew-common.php:630 inc/bew-common.php:1020 inc/bew-common.php:1097
+#: widgets/bew-elements-blog.php:392 widgets/bew-elements-blog.php:533
+#: widgets/bew-elements-blog.php:787
+#: widgets/bew-elements-carousel-products.php:477
+#: widgets/bew-elements-carousel-products.php:703
+#: widgets/bew-elements-cart.php:113 widgets/bew-elements-cart.php:292
+#: widgets/bew-elements-cart.php:415
+#: widgets/bew-elements-categories-list.php:180
+#: widgets/bew-elements-categories-list.php:355
+#: widgets/bew-elements-categories.php:237
+#: widgets/bew-elements-contact-form-7.php:139
+#: widgets/bew-elements-contact-form-7.php:254
+#: widgets/bew-elements-dropdown-nav.php:135
+#: widgets/bew-elements-dropdown-nav.php:247
+#: widgets/bew-elements-dropdown-nav.php:373
+#: widgets/bew-elements-my-account.php:91
+#: widgets/bew-elements-my-account.php:186
+#: widgets/bew-elements-products-list.php:424
+#: widgets/bew-elements-products-list.php:650
+#: widgets/bew-elements-products.php:429 widgets/bew-elements-products.php:655
+#: widgets/bew-elements-products.php:778 widgets/bew-elements-search.php:73
+#: widgets/bew-elements-search.php:226 widgets/bew-elements-search.php:289
+#: widgets/bew-elements-site-logo.php:188
+#: widgets/bew-elements-yith-compare.php:89
+#: widgets/bew-elements-yith-compare.php:191
+#: widgets/bew-elements-yith-wishlist.php:89
+#: widgets/bew-elements-yith-wishlist.php:186
+#: modules/back-to-top/class-site-settings.php:223
+msgid "Normal"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:448
+msgid "Not Valid"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:112
+msgid "Not Valid Notices"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:256 widgets/bew-elements-cart.php:359
+#: widgets/bew-elements-cart.php:385
+msgid "Note"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:129
+msgid "Nothing to show history for yet."
+msgstr ""
+
+#. 1: opening <strong><a> tags linking to the Store Hub demo, 2: closing </a></strong> tags, 3: opening <strong><a> tags linking to the Store Hub Pro demo, 4: closing </a></strong> tags, 5: opening <strong> tags linking to the Template Library, 6: closing </strong> tags
+#: admin/partials/page-settings.php:272
+#, php-format
+msgid ""
+"Notice: All existing Free & Pro templates previews have been moved to "
+"%1$sStore Hub%2$s. They can now be imported directly from the %3$sTemplate "
+"Library%4$s within the Elementor editor, just like any other template. For "
+"more details, please refer to the %5$sHow to Import Templates%6$s guide."
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:50
+#: widgets/bew-elements-categories.php:50
+msgid "Number of Categories"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:45
+#: widgets/bew-elements-categories.php:45
+#: widgets/bew-elements-products-list.php:40
+#: widgets/bew-elements-products.php:40
+msgid "Number of Columns"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:248
+#: widgets/bew-elements-products-list.php:42
+#: widgets/bew-elements-products.php:42
+msgid "Number of Products"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:190
+#: widgets/bew-elements-products-list.php:191
+#: widgets/bew-elements-products.php:196
+msgid "Offset"
+msgstr ""
+
+#: inc/bew-common.php:917 inc/bew-common.php:949
+msgid ""
+"On: shows on hover only, as a tooltip. Off: shows next to the icon at all "
+"times."
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:91
+msgid "Once Weekly"
+msgstr ""
+
+#: inc/bew-common.php:262
+msgid "Only Top Level"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:540 widgets/bew-elements-blog.php:575
+#: widgets/bew-elements-carousel-products.php:484
+#: widgets/bew-elements-carousel-products.php:519
+#: widgets/bew-elements-categories.php:244
+#: widgets/bew-elements-categories.php:279
+#: widgets/bew-elements-products-list.php:431
+#: widgets/bew-elements-products-list.php:466
+#: widgets/bew-elements-products.php:436 widgets/bew-elements-products.php:471
+#: widgets/bew-elements-site-logo.php:195
+#: widgets/bew-elements-site-logo.php:221
+#: modules/back-to-top/class-site-settings.php:300
+msgid "Opacity"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:83
+msgid "Open AI Integration Settings"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:82
+msgid "Open Cart on Add to Cart"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:80 widgets/bew-elements-cart.php:242
+msgid "Open Cart on Hover"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:257 widgets/bew-elements-cart.php:360
+#: widgets/bew-elements-cart.php:386
+msgid "Open Preview Changes to View."
+msgstr ""
+
+#: admin/ai-provider-types.php:56
+msgid "OpenAI"
+msgstr ""
+
+#: admin/ai-provider-types.php:60
+msgid "OpenAI Account ↗"
+msgstr ""
+
+#: admin/ai-provider-types.php:40
+msgid "OpenRouter"
+msgstr ""
+
+#: admin/ai-provider-types.php:44
+msgid "OpenRouter Account ↗"
+msgstr ""
+
+#: admin/partials/page-settings.php:429
+msgid "Optional label, e.g. \"Main OpenAI Key\""
+msgstr ""
+
+#: widgets/bew-elements-blog.php:185
+#: widgets/bew-elements-carousel-products.php:296
+#: widgets/bew-elements-categories-list.php:151
+#: widgets/bew-elements-categories.php:180
+#: widgets/bew-elements-products-list.php:295
+#: widgets/bew-elements-products.php:300
+msgid "Order"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:199
+#: widgets/bew-elements-carousel-products.php:278
+#: widgets/bew-elements-categories-list.php:136
+#: widgets/bew-elements-categories.php:165
+#: widgets/bew-elements-products-list.php:277
+#: widgets/bew-elements-products.php:282
+msgid "Order By"
+msgstr ""
+
+#: admin/class-bew-admin.php:94 admin/class-bew-admin.php:95
+#: admin/partials/page-products.php:17
+msgid "Our Products"
+msgstr ""
+
+#: admin/partials/page-products.php:44
+msgid ""
+"Packed with advanced WooCommerce features and flexible options, specially "
+"crafted to enhance the functionality of the Bosa Free & Pro theme."
+msgstr ""
+
+#: inc/bew-common.php:211 inc/bew-common.php:732
+#: widgets/bew-elements-carousel-products.php:399
+#: modules/back-to-top/class-site-settings.php:189
+msgid "Padding"
+msgstr ""
+
+#: inc/template-library/inc/class-template-library.php:66
+msgid "Page"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:170
+#: inc/template-library/inc/class-template-library.php:66
+msgid "Pages"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:130 widgets/bew-elements-blog.php:767
+#: widgets/bew-elements-products.php:44 widgets/bew-elements-products.php:758
+msgid "Pagination"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:135 widgets/bew-elements-products.php:49
+msgid "Pagination Position"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:111
+#: widgets/bew-elements-categories.php:140
+msgid "Parent"
+msgstr ""
+
+#: admin/ai-provider-types.php:88
+msgid "Perplexity"
+msgstr ""
+
+#: admin/ai-provider-types.php:93
+msgid "Perplexity Account ↗"
+msgstr ""
+
+#. %s: link to the Perplexity account/signup page
+#: admin/ai-provider-types.php:92
+#, php-format
+msgid ""
+"Perplexity.ai is a paid service ($10 free credit on signup) -- beyond that, "
+"you will use the same balance you already pay for and BEW AI never adds an "
+"extra charge on top. You can get your API Keys in your %s."
+msgstr ""
+
+#: widgets/bew-elements-search.php:39
+msgid "Placeholder"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:210
+#: widgets/bew-elements-search.php:84
+msgid "Placeholder Color"
+msgstr ""
+
+#: admin/class-bew-ajax.php:217
+msgid "Please load and select a model before adding this provider"
+msgstr ""
+
+#. %1$s: opening <code> tag, %2$s: closing </code> tag
+#: inc/bew-common.php:585
+#, php-format
+msgid ""
+"Please make sure the ID is unique and not used elsewhere on the page this "
+"form is displayed. This field allows %1$sA-z 0-9%2$s & underscore chars "
+"without spaces."
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:493
+msgid "Please verify that Contact Form 7 plugin is active."
+msgstr ""
+
+#: admin/partials/page-products.php:48 admin/partials/page-products.php:58
+msgid "Plugin"
+msgstr ""
+
+#. %s: Plugin slug.
+#: inc/template-library/frontend/class-plugin-installer.php:150
+#, php-format
+msgid "Plugin \"%s\" not found on WordPress.org."
+msgstr ""
+
+#: inc/template-library/frontend/class-plugin-installer.php:169
+msgid "Plugin file not found after installation."
+msgstr ""
+
+#: inc/template-library/frontend/class-plugin-installer.php:163
+msgid "Plugin installation failed."
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:285
+#: widgets/bew-elements-products-list.php:284
+#: widgets/bew-elements-products.php:289
+msgid "Popularity"
+msgstr ""
+
+#: widgets/bew-elements-my-account.php:48
+msgid "Popup Login"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:94
+msgid "Position"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:175
+msgid "Post Type"
+msgstr ""
+
+#: modules/preloader/class-site-settings.php:39
+msgid "Preloader"
+msgstr ""
+
+#. %d: preloader number
+#: modules/preloader/class-site-settings.php:68
+msgid "Preloader %d"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:140
+msgid "Preset name"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:144
+msgid "Preview"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:127
+msgid "Previous"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:284
+#: widgets/bew-elements-carousel-products.php:600
+#: widgets/bew-elements-products-list.php:283
+#: widgets/bew-elements-products-list.php:547
+#: widgets/bew-elements-products.php:288 widgets/bew-elements-products.php:552
+msgid "Price"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:605
+msgid "Price Color"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:302
+msgid "Price Count Color"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:277
+msgid "Price Count Typography"
+msgstr ""
+
+#: admin/partials/components/component-card.php:40
+msgid "PRO"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:133
+#: inc/template-library/elementor/class-modal.php:156
+msgid "Pro"
+msgstr ""
+
+#: admin/partials/page-settings.php:371
+msgid "Products Generator"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:61
+msgid "Products to Display"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:63
+msgid "Products to Scroll"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:86 admin/partials/page-settings.php:413
+#: admin/partials/page-settings.php:467
+msgid "Provider"
+msgstr ""
+
+#: admin/class-bew-ajax.php:297 admin/class-bew-ajax.php:589
+msgid "Provider not found"
+msgstr ""
+
+#. %d: HTTP status code
+#: admin/ai-provider-types.php:167
+msgid "Provider returned HTTP %d."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:89
+msgid ""
+"Providing clear guidance helps AI match your intended tone and direction."
+msgstr ""
+
+#: widgets/bew-elements-blog.php:167
+#: widgets/bew-elements-carousel-products.php:106
+#: widgets/bew-elements-categories-list.php:74
+#: widgets/bew-elements-categories.php:103
+#: widgets/bew-elements-products-list.php:107
+#: widgets/bew-elements-products.php:112
+msgid "Query"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:209
+#: widgets/bew-elements-carousel-products.php:287
+#: widgets/bew-elements-products-list.php:286
+#: widgets/bew-elements-products.php:291
+msgid "Random"
+msgstr ""
+
+#: admin/ai-provider-types.php:159
+msgid ""
+"Rate limit or quota reached for this API key. Wait a moment and try again, "
+"or check your usage on the provider's dashboard."
+msgstr ""
+
+#: admin/partials/page-info.php:102
+msgid "Rate This Plugin"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:71
+#: widgets/bew-elements-carousel-products.php:286
+#: widgets/bew-elements-carousel-products.php:629
+#: widgets/bew-elements-products-list.php:44
+#: widgets/bew-elements-products-list.php:285
+#: widgets/bew-elements-products-list.php:576
+#: widgets/bew-elements-products.php:77 widgets/bew-elements-products.php:290
+#: widgets/bew-elements-products.php:581
+msgid "Rating"
+msgstr ""
+
+#: admin/partials/page-info.php:69
+msgid "Read Docs"
+msgstr ""
+
+#: admin/partials/page-info.php:68
+msgid ""
+"Read our comprehensive documentation to learn how to use all features of the "
+"plugin."
+msgstr ""
+
+#: admin/partials/page-settings.php:306
+msgid "Reading Progressbar"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:95
+msgid "Regenerate"
+msgstr ""
+
+#. %s: version number
+#: admin/partials/page-settings.php:537
+#, php-format
+msgid "Reinstall v%s"
+msgstr ""
+
+#. %d: HTTP status code
+#: inc/template-library/inc/class-remote-client.php:264
+msgid "Remote service returned status %d."
+msgstr ""
+
+#. %d: HTTP status code
+#: inc/template-library/inc/class-remote-client.php:150
+msgid "Remote service returned unexpected status code: %d"
+msgstr ""
+
+#: admin/class-bew-admin.php:198
+msgid "Remove this AI provider?"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:147
+msgid "Rename this preset"
+msgstr ""
+
+#: admin/partials/page-settings.php:366
+msgid "Repeater Generator"
+msgstr ""
+
+#: admin/ai-provider-types.php:72
+msgid "Replicate"
+msgstr ""
+
+#: admin/ai-provider-types.php:76
+msgid "Replicate Account ↗"
+msgstr ""
+
+#. %s: comma-separated widget names
+#: inc/template-library/frontend/class-dependency-scanner.php:87
+#, php-format
+msgid "Required by: %s"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:161
+msgid "Required Plugins"
+msgstr ""
+
+#: inc/template-library/admin/class-editor-prompt.php:72
+#: inc/template-library/admin/class-editor-prompt.php:103
+msgid "Required Plugins Missing"
+msgstr ""
+
+#: inc/bew-common.php:858
+msgid ""
+"Requires YITH WooCommerce Compare and/or YITH WooCommerce Wishlist to be "
+"active."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:110
+msgid "Restore"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:124
+msgid "Restored."
+msgstr ""
+
+#: inc/bew-common.php:493 inc/bew-common.php:766
+#: widgets/bew-elements-blog.php:121 widgets/bew-elements-blog.php:147
+#: widgets/bew-elements-carousel-products.php:90
+#: widgets/bew-elements-categories-list.php:325
+#: widgets/bew-elements-categories.php:84
+#: widgets/bew-elements-contact-form-7.php:97
+#: widgets/bew-elements-contact-form-7.php:403
+#: widgets/bew-elements-products-list.php:65
+#: widgets/bew-elements-products.php:61 widgets/bew-elements-products.php:96
+#: widgets/bew-elements-site-logo.php:78
+msgid "Right"
+msgstr ""
+
+#: admin/class-bew-ajax.php:671
+msgid "Rollback failed. Please try again."
+msgstr ""
+
+#. %s: minimum version
+#: admin/class-bew-ajax.php:613
+#, php-format
+msgid "Rollback is only supported for version %s and above"
+msgstr ""
+
+#: admin/partials/page-settings.php:530
+msgid "Rollback to Previous Version"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:450
+#: widgets/bew-elements-categories-list.php:210
+#: widgets/bew-elements-products-list.php:371
+#: widgets/bew-elements-products.php:376
+msgid "Row Gap"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:270
+#: widgets/bew-elements-carousel-products.php:768
+#: widgets/bew-elements-products-list.php:269
+#: widgets/bew-elements-products-list.php:715
+#: widgets/bew-elements-products.php:274 widgets/bew-elements-products.php:720
+msgid "Sale"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:142
+msgid "Save"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:139
+msgid "Save as preset"
+msgstr ""
+
+#: admin/class-bew-admin.php:194 admin/partials/page-settings.php:246
+#: admin/partials/page-settings.php:285 admin/partials/page-settings.php:330
+#: admin/partials/page-settings.php:399
+msgid "Save Changes"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:145
+msgid "Saved presets"
+msgstr ""
+
+#: admin/class-bew-admin.php:196
+msgid "Saved!"
+msgstr ""
+
+#: admin/class-bew-admin.php:195
+msgid "Saving…"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:82
+msgid "Scroll Offset (px)"
+msgstr ""
+
+#: modules/back-to-top/class-frontend.php:108
+#: modules/back-to-top/class-site-settings.php:75
+msgid "Scroll to top"
+msgstr ""
+
+#: widgets/bew-elements-search.php:32 widgets/bew-elements-search.php:41
+#: widgets/bew-elements-search.php:42 widgets/bew-elements-search.php:376
+#: widgets/bew-elements-search.php:408
+msgid "Search"
+msgstr ""
+
+#. %s: plural label
+#: inc/template-library/inc/helpers.php:69
+#: inc/template-library/inc/helpers.php:97
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:138
+msgid "Search Kits"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:139
+msgid "Search Pages"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:140
+msgid "Search Sections"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:134
+msgid "Search templates…"
+msgstr ""
+
+#: inc/template-library/inc/class-template-library.php:67
+msgid "Section"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:171
+#: inc/template-library/inc/class-template-library.php:67
+msgid "Sections"
+msgstr ""
+
+#: inc/template-library/frontend/class-plugin-installer.php:29
+msgid "Security check failed."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:100
+msgid "Select at least one field"
+msgstr ""
+
+#: inc/bew-common.php:61 widgets/bew-elements-carousel-products.php:144
+#: widgets/bew-elements-categories-list.php:96
+#: widgets/bew-elements-categories.php:125
+#: widgets/bew-elements-products-list.php:145
+#: widgets/bew-elements-products.php:150
+msgid "Select Categories"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:47
+msgid "Select Form"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:48
+msgid "Select Menu"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:221
+#: widgets/bew-elements-products-list.php:222
+#: widgets/bew-elements-products.php:227
+msgid "Select Products"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:207
+#: widgets/bew-elements-products-list.php:208
+#: widgets/bew-elements-products.php:213
+msgid "Select products to exclude from the query."
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:175
+#: widgets/bew-elements-products-list.php:176
+#: widgets/bew-elements-products.php:181
+msgid "Select Tags"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:433
+msgid "Sent Error"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:418
+msgid "Sent Success"
+msgstr ""
+
+#: admin/class-bew-admin.php:208 admin/partials/page-settings.php:504
+msgid "Set as Default"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:466 admin/class-bew-admin.php:70
+#: admin/class-bew-admin.php:71
+msgid "Settings"
+msgstr ""
+
+#: admin/class-bew-ajax.php:99
+msgid "Settings saved successfully"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:268 widgets/bew-elements-blog.php:279
+#: widgets/bew-elements-blog.php:290 widgets/bew-elements-blog.php:301
+#: widgets/bew-elements-blog.php:312 widgets/bew-elements-blog.php:336
+#: widgets/bew-elements-carousel-products.php:51
+#: widgets/bew-elements-categories-list.php:126
+#: widgets/bew-elements-categories.php:155
+#: widgets/bew-elements-contact-form-7.php:71
+#: widgets/bew-elements-dropdown-nav.php:55
+#: widgets/bew-elements-dropdown-nav.php:74
+#: widgets/bew-elements-dropdown-nav.php:92
+#: widgets/bew-elements-dropdown-nav.php:110
+#: widgets/bew-elements-dropdown-nav.php:339
+msgid "Show"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:86
+#: widgets/bew-elements-categories.php:115
+msgid "Show All"
+msgstr ""
+
+#: inc/bew-common.php:852
+msgid "Show Compare & Wishlist Buttons"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:69
+msgid "Show Label"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:99
+msgid "Show less"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:98
+msgid "Show more"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:108
+msgid "Show on Click"
+msgstr ""
+
+#: widgets/bew-elements-site-logo.php:15 admin/partials/page-settings.php:64
+msgid "Site Logo"
+msgstr ""
+
+#: admin/partials/page-settings.php:301
+msgid "Site Preloader"
+msgstr ""
+
+#: inc/bew-common.php:509
+msgid "Size"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:167
+msgid "Skip & Import Anyway"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:318
+msgid "Slide Up"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:36
+msgid "Slider"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:141
+#: widgets/bew-elements-categories.php:170
+msgid "Slug"
+msgstr ""
+
+#: inc/bew-common.php:746
+msgid "Small"
+msgstr ""
+
+#: admin/class-bew-admin.php:199 admin/class-bew-ai-editor.php:97
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:114
+#: widgets/bew-elements-categories-list.php:82
+#: widgets/bew-elements-categories.php:111
+#: widgets/bew-elements-products-list.php:115
+#: widgets/bew-elements-products.php:120
+msgid "Source"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:463
+msgid "Spam Blocked"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:663
+#: widgets/bew-elements-products-list.php:610
+#: widgets/bew-elements-products.php:615
+msgid "Star Size"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:641
+#: widgets/bew-elements-products-list.php:588
+#: widgets/bew-elements-products.php:593
+msgid "Star Spacing"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:147
+msgid ""
+"Start using this style on your WordPress sites and make your site more "
+"flexible."
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:160
+msgid "Stay tuned! More awesome templates coming soon."
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:144
+#: modules/preloader/class-site-settings.php:140
+msgid "Style"
+msgstr ""
+
+#: widgets/bew-elements-contact-form-7.php:242
+msgid "Submit Button"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:78 widgets/bew-elements-cart.php:193
+msgid "Subtotal"
+msgstr ""
+
+#: inc/bew-common.php:437
+msgid "Success"
+msgstr ""
+
+#. %s: version number
+#: admin/class-bew-ajax.php:680
+#, php-format
+msgid "Successfully rolled back to version %s"
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:159
+msgid "Sync templates"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:159
+#: widgets/bew-elements-products-list.php:160
+#: widgets/bew-elements-products.php:165
+msgid "Tag Filter Rule"
+msgstr ""
+
+#: inc/template-library/elementor/class-source.php:119
+#: inc/template-library/frontend/class-importer.php:55
+msgid "Template data is corrupted."
+msgstr ""
+
+#: admin/partials/page-settings.php:258
+msgid "Template Library"
+msgstr ""
+
+#: inc/template-library/elementor/class-source.php:78
+#: inc/template-library/frontend/class-importer.php:39
+msgid "Template not found."
+msgstr ""
+
+#: admin/partials/page-settings.php:36 admin/partials/page-settings.php:252
+msgid "Templates"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:549 admin/partials/page-settings.php:94
+msgid "Testimonial Slider"
+msgstr ""
+
+#: inc/bew-common.php:420
+msgid "Text"
+msgstr ""
+
+#: inc/bew-common.php:638 inc/bew-common.php:665 inc/bew-common.php:1101
+#: inc/bew-common.php:1123 widgets/bew-elements-carousel-products.php:707
+#: widgets/bew-elements-carousel-products.php:729
+#: widgets/bew-elements-cart.php:203 widgets/bew-elements-cart.php:227
+#: widgets/bew-elements-cart.php:418 widgets/bew-elements-cart.php:428
+#: widgets/bew-elements-contact-form-7.php:258
+#: widgets/bew-elements-contact-form-7.php:279
+#: widgets/bew-elements-contact-form-7.php:302
+#: widgets/bew-elements-dropdown-nav.php:139
+#: widgets/bew-elements-dropdown-nav.php:164
+#: widgets/bew-elements-dropdown-nav.php:377
+#: widgets/bew-elements-dropdown-nav.php:390
+#: widgets/bew-elements-my-account.php:190
+#: widgets/bew-elements-my-account.php:215
+#: widgets/bew-elements-products-list.php:654
+#: widgets/bew-elements-products-list.php:676
+#: widgets/bew-elements-products.php:659 widgets/bew-elements-products.php:681
+#: widgets/bew-elements-search.php:77 widgets/bew-elements-search.php:103
+#: widgets/bew-elements-search.php:170 widgets/bew-elements-search.php:230
+#: widgets/bew-elements-search.php:243
+#: widgets/bew-elements-yith-compare.php:195
+#: widgets/bew-elements-yith-compare.php:220
+#: widgets/bew-elements-yith-wishlist.php:190
+#: widgets/bew-elements-yith-wishlist.php:215
+#: modules/back-to-top/class-site-settings.php:229
+#: modules/back-to-top/class-site-settings.php:258
+msgid "Text Color"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:81 admin/partials/page-settings.php:351
+msgid "Text Generator"
+msgstr ""
+
+#: admin/partials/page-info.php:39
+msgid ""
+"Thanks for going Pro! <strong>BEW Pro is now installed and ready to use."
+"</strong> We hope the following information will help and you enjoy using it!"
+msgstr ""
+
+#: admin/class-bew-ajax.php:447
+msgid "The AI did not return usable text. Please try again."
+msgstr ""
+
+#: admin/ai-text-generator.php:68
+msgid "The AI response could not be understood. Please try again."
+msgstr ""
+
+#: admin/ai-provider-types.php:163
+msgid "The provider is having issues right now. Please try again shortly."
+msgstr ""
+
+#: admin/partials/page-products.php:39
+msgid "Theme"
+msgstr ""
+
+#: admin/ai-provider-types.php:161
+msgid ""
+"This API key was rejected. Check that it's correct and still active on the "
+"provider's dashboard."
+msgstr ""
+
+#: admin/partials/page-settings.php:556
+msgid ""
+"This is available in the Pro version. Unlock all premium widgets, templates, "
+"and features for your store."
+msgstr ""
+
+#: inc/template-library/frontend/class-plugin-installer.php:37
+#: inc/template-library/frontend/class-plugin-installer.php:78
+msgid "This plugin is not in the current template dependency list."
+msgstr ""
+
+#: inc/template-library/frontend/class-importer.php:43
+msgid "This post is not a BEW Template Library template."
+msgstr ""
+
+#: admin/ai-text-generator.php:390
+msgid "This provider does not support text generation."
+msgstr ""
+
+#: inc/template-library/api/class-api.php:534
+#: inc/template-library/elementor/class-source.php:113
+#: inc/template-library/elementor/class-source.php:198
+#: inc/template-library/frontend/class-importer.php:49
+msgid "This template has no Elementor data."
+msgstr ""
+
+#: inc/template-library/api/class-api.php:511
+msgid "This template requires BEW Pro."
+msgstr ""
+
+#: inc/template-library/elementor/class-modal.php:162
+msgid ""
+"This template uses widgets from third-party plugins. Install them for the "
+"full design, or skip to import with placeholders."
+msgstr ""
+
+#: inc/template-library/admin/class-editor-prompt.php:73
+#: inc/template-library/admin/class-editor-prompt.php:104
+msgid ""
+"This template uses widgets from third-party plugins. Install them to display "
+"the full design."
+msgstr ""
+
+#. %s: required plugin name
+#: inc/template-library/frontend/class-importer.php:183
+#, php-format
+msgid "This widget requires %s."
+msgstr ""
+
+#: inc/template-library/frontend/class-importer.php:186
+msgid "This widget requires a plugin that is not installed or active."
+msgstr ""
+
+#: widgets/bew-elements-blog.php:205 widgets/bew-elements-blog.php:638
+#: widgets/bew-elements-carousel-products.php:283
+#: widgets/bew-elements-carousel-products.php:582
+#: widgets/bew-elements-categories-list.php:299
+#: widgets/bew-elements-categories.php:342
+#: widgets/bew-elements-products-list.php:282
+#: widgets/bew-elements-products-list.php:529
+#: widgets/bew-elements-products.php:287 widgets/bew-elements-products.php:534
+msgid "Title"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:296 widgets/bew-elements-cart.php:315
+msgid "Title Color"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:265
+msgid "Title Typography"
+msgstr ""
+
+#. %s: Widget or setting name shown on the card.
+#: admin/partials/components/component-card.php:56
+#, php-format
+msgid "Toggle %s"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:72
+msgid "Tooltip"
+msgstr ""
+
+#: widgets/bew-elements-products-list.php:83
+msgid "Top"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:601
+#: widgets/bew-elements-carousel-products.php:545
+#: widgets/bew-elements-categories.php:305
+#: widgets/bew-elements-products-list.php:492
+#: widgets/bew-elements-products.php:497
+msgid "Transition Duration"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:69
+msgid "Transition Speed (ms)"
+msgstr ""
+
+#: inc/bew-common.php:431
+msgid "Type"
+msgstr ""
+
+#: inc/bew-common.php:105 widgets/bew-elements-contact-form-7.php:120
+msgid "Typography"
+msgstr ""
+
+#: admin/class-bew-ai-history.php:176 admin/class-bew-ai-presets.php:115
+#: admin/class-bew-ajax.php:36 admin/class-bew-ajax.php:54
+#: admin/class-bew-ajax.php:75 admin/class-bew-ajax.php:106
+#: admin/class-bew-ajax.php:135 admin/class-bew-ajax.php:164
+#: admin/class-bew-ajax.php:197 admin/class-bew-ajax.php:278
+#: admin/class-bew-ajax.php:313 admin/class-bew-ajax.php:328
+#: admin/class-bew-ajax.php:485 admin/class-bew-ajax.php:574
+#: admin/class-bew-ajax.php:601
+msgid "Unauthorized access"
+msgstr ""
+
+#: admin/ai-provider-models.php:50 admin/ai-provider-models.php:108
+#: admin/ai-provider-models.php:154 admin/ai-provider-models.php:218
+#: admin/ai-provider-models.php:258 admin/ai-provider-models.php:315
+#: admin/ai-provider-models.php:356 admin/ai-text-generator.php:46
+#: admin/ai-text-generator.php:111 admin/ai-text-generator.php:151
+#: admin/ai-text-generator.php:187 admin/ai-text-generator.php:221
+#: admin/ai-text-generator.php:255 admin/ai-text-generator.php:289
+#: admin/ai-text-generator.php:323 admin/ai-text-generator.php:357
+msgid "Unexpected response from provider."
+msgstr ""
+
+#: inc/bew-common.php:1234
+msgid "Unlock More Possibilities"
+msgstr ""
+
+#. %s: singular label
+#: inc/template-library/inc/helpers.php:93
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:560 admin/class-bew-ai-editor.php:104
+#: admin/partials/page-products.php:55 admin/partials/page-settings.php:558
+msgid "Upgrade Now"
+msgstr ""
+
+#: admin/class-bew-admin.php:85 admin/class-bew-admin.php:86
+msgid "Upgrade to BEW Pro"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:471 admin/partials/page-settings.php:555
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: admin/partials/page-info.php:77 admin/partials/page-products.php:54
+msgid ""
+"Upgrade to Pro & unlock premium widgets, modules, 2,500+ templates, & AI-"
+"powered Content Generation."
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:91
+msgid "Using"
+msgstr ""
+
+#: admin/class-bew-ajax.php:629
+msgid "Version not found on WordPress.org"
+msgstr ""
+
+#: widgets/bew-elements-products-list.php:80
+msgid "Vertical Alignment"
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:128
+msgid "Vertical Offset"
+msgstr ""
+
+#: inc/bew-common.php:566
+msgid "View"
+msgstr ""
+
+#. %s: singular label
+#: inc/template-library/inc/helpers.php:67
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:345
+msgid "View Cart Button"
+msgstr ""
+
+#: admin/partials/components/component-card.php:21
+msgid "VIEW DEMO"
+msgstr ""
+
+#: admin/partials/page-settings.php:262
+msgid "VIEW DEMOS"
+msgstr ""
+
+#: admin/partials/page-info.php:50
+msgid "View Details"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:107
+msgid "View history for this field"
+msgstr ""
+
+#: admin/partials/page-info.php:78
+msgid "View Pricing"
+msgstr ""
+
+#: widgets/bew-elements-blog.php:1175
+msgid "Visit Author Page"
+msgstr ""
+
+#: admin/partials/page-info.php:95
+msgid "Visit Support Center"
+msgstr ""
+
+#: inc/bew-common.php:438
+msgid "Warning"
+msgstr ""
+
+#: admin/partials/page-settings.php:543
+msgid "Warning: Please backup your database before making the rollback."
+msgstr ""
+
+#: admin/partials/page-info.php:22
+msgid "Welcome to BEW - Elementor Addons, Templates & AI Builder"
+msgstr ""
+
+#: admin/partials/page-info.php:20
+msgid "Welcome to BEW Pro - Premium Elementor Addons, Templates & AI Builder"
+msgstr ""
+
+#: admin/class-bew-ajax.php:128
+msgid "Widget settings saved"
+msgstr ""
+
+#: admin/partials/page-settings.php:33 admin/partials/page-settings.php:55
+msgid "Widgets"
+msgstr ""
+
+#: widgets/bew-elements-search.php:135 widgets/bew-elements-search.php:188
+#: widgets/bew-elements-search.php:348 widgets/bew-elements-site-logo.php:131
+msgid "Width"
+msgstr ""
+
+#: widgets/bew-elements-yith-wishlist.php:41
+msgid "Wishlist"
+msgstr ""
+
+#: inc/bew-common.php:929
+msgid "Wishlist Label"
+msgstr ""
+
+#: inc/bew-common.php:943
+msgid "Wishlist Label Tooltip"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:500
+msgid "Woo - Grid Carousel"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:507
+msgid "Woo - Grid Products"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:514
+msgid "Woo - Hot Deals"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:535
+msgid "Woo - Product Slider"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:542
+msgid "Woo - Product Tabs"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:528
+msgid "Woo - Products Accordion"
+msgstr ""
+
+#: widgets/bew-elements-carousel-products.php:16
+#: admin/partials/page-settings.php:109
+msgid "Woo Archive Carousel"
+msgstr ""
+
+#: widgets/bew-elements-products.php:16 admin/partials/page-settings.php:121
+msgid "Woo Archive Products"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:46 admin/partials/page-settings.php:133
+msgid "Woo Cart"
+msgstr ""
+
+#: widgets/bew-elements-categories.php:16 admin/partials/page-settings.php:103
+msgid "Woo Categories"
+msgstr ""
+
+#: widgets/bew-elements-categories-list.php:16
+#: admin/partials/page-settings.php:115
+msgid "Woo Categories List"
+msgstr ""
+
+#: admin/partials/page-settings.php:187
+msgid "Woo Grid Carousel"
+msgstr ""
+
+#: admin/partials/page-settings.php:181
+msgid "Woo Grid Product"
+msgstr ""
+
+#: admin/partials/page-settings.php:169
+msgid "Woo Hot Deals"
+msgstr ""
+
+#: widgets/bew-elements-my-account.php:16 admin/partials/page-settings.php:139
+msgid "Woo My Account"
+msgstr ""
+
+#: admin/partials/page-settings.php:193
+msgid "Woo Product Accordion"
+msgstr ""
+
+#: admin/partials/page-settings.php:175
+msgid "Woo Product Slider"
+msgstr ""
+
+#: admin/partials/page-settings.php:163
+msgid "Woo Product Tabs"
+msgstr ""
+
+#: widgets/bew-elements-products-list.php:16
+#: admin/partials/page-settings.php:127
+msgid "Woo Products List"
+msgstr ""
+
+#: widgets/bew-elements-search.php:16 admin/partials/page-settings.php:145
+msgid "Woo Search"
+msgstr ""
+
+#: widgets/bew-elements-yith-compare.php:16
+#: admin/partials/page-settings.php:151
+msgid "Woo YITH Compare"
+msgstr ""
+
+#: widgets/bew-elements-yith-wishlist.php:16
+#: admin/partials/page-settings.php:157
+msgid "Woo YITH Wishlist"
+msgstr ""
+
+#: admin/partials/page-settings.php:223
+msgid "WooCommerce"
+msgstr ""
+
+#: widgets/bew-elements-cart.php:494 widgets/bew-elements-my-account.php:306
+msgid "WooCommerce plugin not installed. Please verify plugins are active."
+msgstr ""
+
+#. 1: templates endpoint URL, 2: error detail
+#: inc/template-library/inc/class-remote-client.php:160
+#, php-format
+msgid ""
+"WordPress REST is reachable, but the template list could not be read from "
+"%1$s: %2$s"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:144
+msgid "Write an instruction first."
+msgstr ""
+
+#: admin/ai-provider-types.php:80
+msgid "xAI (Grok)"
+msgstr ""
+
+#. %s: link to the xAI console
+#: admin/ai-provider-types.php:83
+#, php-format
+msgid ""
+"xAI (Grok) requires a paid account, but you will use the same balance you "
+"already pay for -- BEW AI never adds an extra charge on top. You can get "
+"your API Keys in your %s."
+msgstr ""
+
+#: admin/ai-provider-types.php:84
+msgid "xAI Console ↗"
+msgstr ""
+
+#: inc/bew-common.php:854 inc/bew-common.php:883 inc/bew-common.php:913
+#: inc/bew-common.php:945 widgets/bew-elements-blog.php:104
+#: widgets/bew-elements-blog.php:130 widgets/bew-elements-blog.php:364
+#: widgets/bew-elements-carousel-products.php:65
+#: widgets/bew-elements-carousel-products.php:67
+#: widgets/bew-elements-carousel-products.php:71
+#: widgets/bew-elements-carousel-products.php:73
+#: widgets/bew-elements-carousel-products.php:238
+#: widgets/bew-elements-cart.php:78 widgets/bew-elements-cart.php:80
+#: widgets/bew-elements-cart.php:82 widgets/bew-elements-categories.php:96
+#: widgets/bew-elements-my-account.php:46
+#: widgets/bew-elements-my-account.php:48
+#: widgets/bew-elements-products-list.php:44
+#: widgets/bew-elements-products-list.php:46
+#: widgets/bew-elements-products-list.php:239
+#: widgets/bew-elements-products.php:75 widgets/bew-elements-products.php:77
+#: widgets/bew-elements-products.php:79 widgets/bew-elements-products.php:244
+#: widgets/bew-elements-site-logo.php:39
+#: widgets/bew-elements-yith-compare.php:46
+#: widgets/bew-elements-yith-wishlist.php:46
+msgid "Yes"
+msgstr ""
+
+#: admin/class-bew-ai-editor.php:114
+msgid "Yes, clear it"
+msgstr ""
+
+#: widgets/bew-elements-yith-compare.php:332
+msgid ""
+"YITH Compare and WooCommerce plugin not installed. Please verify plugins are "
+"active."
+msgstr ""
+
+#: widgets/bew-elements-yith-compare.php:330
+msgid "YITH Compare plugin not installed. Please verify plugin is active."
+msgstr ""
+
+#: widgets/bew-elements-yith-wishlist.php:284
+msgid ""
+"YITH Wishlist and WooCommerce plugin not installed. Please verify plugins "
+"are active."
+msgstr ""
+
+#: widgets/bew-elements-yith-wishlist.php:282
+msgid "YITH Wishlist plugin not installed. Please verify plugin is active."
+msgstr ""
+
+#: admin/class-bew-admin.php:220 admin/class-bew-admin.php:227
+#: admin/class-bew-admin.php:234
+msgid "You do not have permission to access this page."
+msgstr ""
+
+#: inc/template-library/api/class-api.php:164
+msgid "You do not have permission to access this resource."
+msgstr ""
+
+#: inc/template-library/frontend/class-plugin-installer.php:33
+#: inc/template-library/frontend/class-plugin-installer.php:70
+msgid "You do not have permission to install plugins."
+msgstr ""
+
+#: modules/back-to-top/class-site-settings.php:327
+#: modules/preloader/class-site-settings.php:176
+msgid "Z-index"
+msgstr ""
+
+#: widgets/bew-elements-dropdown-nav.php:28
+msgid "— Select Menu —"
+msgstr ""

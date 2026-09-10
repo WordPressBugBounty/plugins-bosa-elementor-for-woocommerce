@@ -1,0 +1,1142 @@
+/**
+ * BEW Template Library — Custom Modal Styles
+ */
+
+/* ── Overrides on Elementor's dialog shell ── */
+#bosa-library-modal .dialog-widget-content,
+#bosa-library-modal .dialog-lightbox-content {
+	width: 100%;
+	max-width: 990px;
+	height: 86vh;
+	display: flex;
+	flex-direction: column;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+@media ( min-width: 1440px ) {
+	#bosa-library-modal .dialog-widget-content,
+	#bosa-library-modal .dialog-lightbox-content {
+		max-width: 1200px;
+	}
+}
+
+#bosa-library-modal .dialog-header {
+	display: none;
+}
+
+#bosa-library-modal .dialog-footer {
+	flex-shrink: 0;
+}
+
+#bosa-library-modal .dialog-message {
+	flex: 1;
+	overflow: hidden;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	background-color: var( --e-a-bg-default, #26292c );
+	color: var( --e-a-color-txt, #babfc5 );
+}
+
+#bosa-library-modal .bosa-modal-body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+	height: 100%;
+}
+
+#bosa-library-modal .bosa-tk-library-shell {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+}
+
+#bosa-library-modal .bosa-tk-kit-details-shell {
+	display: none;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+}
+
+#bosa-library-modal .bosa-tk-preview-shell {
+	display: none;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+}
+
+#bosa-library-modal .bosa-tk-library-shell #bosa-modal-header {
+	flex-shrink: 0;
+}
+
+#bosa-library-modal .bosa-tk-library-shell #bosa-modal-content {
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+#bosa-library-modal.bosa-tk-mode-kit-details .bosa-tk-library-shell #bosa-modal-content,
+#bosa-library-modal .bosa-tk-mode-kit-details .bosa-tk-library-shell #bosa-modal-content {
+	display: none !important;
+}
+
+#bosa-library-modal.bosa-tk-mode-kit-details .bosa-tk-library-shell,
+#bosa-library-modal .bosa-tk-mode-kit-details .bosa-tk-library-shell {
+	flex: 0 0 auto;
+}
+
+#bosa-library-modal.bosa-tk-mode-kit-details .bosa-tk-kit-details-shell,
+#bosa-library-modal .bosa-tk-mode-kit-details .bosa-tk-kit-details-shell {
+	display: flex !important;
+	flex: 1;
+	min-height: 0;
+}
+
+#bosa-library-modal.bosa-tk-mode-preview .bosa-tk-library-shell,
+#bosa-library-modal .bosa-tk-mode-preview .bosa-tk-library-shell,
+#bosa-library-modal.bosa-tk-mode-preview .bosa-tk-kit-details-shell,
+#bosa-library-modal .bosa-tk-mode-preview .bosa-tk-kit-details-shell {
+	display: none !important;
+}
+
+#bosa-library-modal.bosa-tk-mode-preview .bosa-tk-preview-shell,
+#bosa-library-modal .bosa-tk-mode-preview .bosa-tk-preview-shell {
+	display: flex !important;
+}
+
+#bosa-library-modal #bosa-modal-content {
+	flex: 1;
+	overflow: hidden;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ── Header ── */
+.bosa-tk-modal-header {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	background: #1e1e1e;
+	flex-shrink: 0;
+}
+
+.bosa-tk-header__bar {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	gap: 16px;
+	min-height: 52px;
+	padding: 0 18px;
+}
+
+.bosa-tk-header__brand {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	justify-self: start;
+	min-width: 0;
+}
+
+.bosa-tk-header__logo {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+}
+
+.bosa-tk-header__logo svg {
+	width: 28px;
+	height: 28px;
+}
+
+.bosa-tk-header__title {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* ── Tabs ── */
+.bosa-tk-tabs {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 28px;
+	justify-self: center;
+}
+
+.bosa-tk-tab {
+	position: relative;
+	padding: 16px 0 14px;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+	color: #9a9a9a;
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1;
+	transition: color 0.15s;
+}
+
+.bosa-tk-tab:hover {
+	color: #d8d8d8;
+}
+
+.bosa-tk-tab--active {
+	color: #fff;
+}
+
+.bosa-tk-tab--active::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 2px;
+	background: #fff;
+}
+
+.bosa-tk-header__actions {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	justify-self: end;
+}
+
+.bosa-tk-close {
+	border: none;
+	background: transparent;
+	color: #d0d0d0;
+	cursor: pointer;
+	font-size: 22px;
+	line-height: 1;
+	padding: 6px 8px;
+	transition: color 0.15s;
+}
+
+.bosa-tk-close:hover {
+	color: #fff;
+}
+
+/* ── Body content (Elementor template-library theme) ── */
+#bosa-library-modal .bosa-tk-modal-content-wrap {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+	height: 100%;
+	background-color: var( --e-a-bg-default, #26292c );
+	color: var( --e-a-color-txt, #babfc5 );
+}
+
+#bosa-library-modal .bosa-tk-body-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2%;
+	height: 45px;
+	padding: 0 20px;
+	background: transparent;
+	border-bottom: none;
+	flex-shrink: 0;
+}
+
+#bosa-library-modal .bosa-tk-category-wrap {
+	flex-shrink: 0;
+}
+
+#bosa-library-modal .bosa-tk-category-field {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+}
+
+#bosa-library-modal .bosa-tk-category {
+	min-width: 135px;
+	padding: 6px 28px 6px 10px;
+	border: var( --e-a-border, 1px solid #4c4f56 );
+	border-radius: 3px;
+	font-size: 11px;
+	line-height: 1;
+	background: var( --e-a-bg-default, #27292c );
+	color: var( --e-a-color-txt, #babfc5 );
+	cursor: pointer;
+	appearance: none;
+}
+
+#bosa-library-modal .bosa-tk-category option {
+	background: var( --e-a-bg-default, #27292c );
+	color: var( --e-a-color-txt, #babfc5 );
+}
+
+#bosa-library-modal .bosa-tk-category-field .eicon-chevron-down {
+	position: absolute;
+	right: 8px;
+	pointer-events: none;
+	font-size: 12px;
+	color: var( --e-a-color-txt, #babfc5 );
+}
+
+#bosa-library-modal .bosa-tk-body-toolbar .bosa-tk-search-wrap {
+	position: relative;
+	flex: 0 1 220px;
+	min-width: 160px;
+	padding: 0;
+	background: transparent;
+	border: none;
+	border-bottom: var( --e-a-border, 1px solid #4c4f56 );
+}
+
+#bosa-library-modal .bosa-tk-search {
+	width: 100%;
+	padding: 8px 24px 8px 0;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: 0.02em;
+	color: var( --e-a-color-txt, #babfc5 );
+}
+
+#bosa-library-modal .bosa-tk-search::placeholder {
+	color: var( --e-a-color-txt-muted, #7d8186 );
+	opacity: 1;
+}
+
+#bosa-library-modal .bosa-tk-search-wrap .eicon-search {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY( -50% );
+	font-size: 14px;
+	color: var( --e-a-color-txt, #babfc5 );
+	pointer-events: none;
+}
+
+#bosa-library-modal .bosa-tk-body-grid-host {
+	flex: 1;
+	overflow-y: auto;
+	min-height: 0;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+/* ── Grid (Masonry) ── */
+#bosa-library-modal .bosa-tk-grid {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+#bosa-library-modal .bosa-tk-grid-items {
+	width: 100%;
+}
+
+#bosa-library-modal .bosa-tk-grid-sizer {
+	display: block;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	pointer-events: none;
+	z-index: -1;
+}
+
+.bosa-tk-grid--loading {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100%;
+	padding: 0;
+}
+
+.bosa-tk-loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+#bosa-library-modal .bosa-tk-loading__icon {
+	font-size: 44px;
+	line-height: 1;
+	color: var( --e-a-color-txt-muted, #7d8186 );
+}
+
+#bosa-library-modal .bosa-tk-no-results {
+	padding: 40px;
+	text-align: center;
+	color: var( --e-a-color-txt-muted, #7d8186 );
+	font-size: 13px;
+	grid-column: 1 / -1;
+}
+
+/* ── Card (Elementor template-library grid) ── */
+#bosa-library-modal .bosa-tk-card {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	padding: 8px;
+	margin-bottom: 20px;
+	border: var( --e-a-border, 1px solid #4c4f56 );
+	border-radius: 3px;
+	overflow: hidden;
+	background: var( --e-a-bg-default, #26292c );
+	transition: border-color 0.15s;
+	box-sizing: border-box;
+}
+
+#bosa-library-modal .bosa-tk-card:hover,
+#bosa-library-modal .bosa-tk-card:focus-within {
+	border-color: var( --e-a-border-color-bold, #5d6166 );
+}
+
+#bosa-library-modal .bosa-tk-card__thumb {
+	position: relative;
+	max-height: 320px;
+	overflow: hidden;
+	flex-shrink: 0;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 4px;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+#bosa-library-modal .bosa-tk-card__thumb img {
+	width: 100%;
+	height: auto;
+	display: block;
+	vertical-align: top;
+}
+
+#bosa-library-modal .bosa-tk-card__no-thumb {
+	width: 100%;
+	min-height: 100px;
+	aspect-ratio: 16 / 9;
+	background: #f0f0f0;
+}
+
+#bosa-library-modal .bosa-tk-card__preview {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	background-color: rgba( 0, 0, 0, 0.5 );
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	pointer-events: none;
+	cursor: pointer;
+}
+
+#bosa-library-modal .bosa-tk-card:hover .bosa-tk-card__preview,
+#bosa-library-modal .bosa-tk-card:focus-within .bosa-tk-card__preview {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+#bosa-library-modal .bosa-tk-card__preview-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 16px;
+	background: rgba( 0, 0, 0, 0.35 );
+}
+
+#bosa-library-modal .bosa-tk-card__preview-icon .eicon-search {
+	font-size: 16px;
+}
+
+.bosa-tk-badge {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.bosa-tk-badge--free { background: #27ae60; color: #fff; }
+.bosa-tk-badge--pro  { background: #8382f3; color: #fff; }
+
+#bosa-library-modal .bosa-tk-card__count {
+	flex-shrink: 0;
+	min-width: 22px;
+	height: 22px;
+	padding: 0 6px;
+	border-radius: 11px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1;
+	background: rgba( 0, 0, 0, 0.72 );
+	color: #fff;
+}
+
+#bosa-library-modal .bosa-tk-card__info--kit {
+	cursor: default;
+}
+
+#bosa-library-modal .bosa-tk-kit-details {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+#bosa-library-modal .bosa-tk-kit-details-shell #bosa-kit-details-host {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+}
+
+#bosa-library-modal .bosa-tk-kit-details__grid .bosa-tk-grid {
+	width: 100%;
+	min-height: 0;
+}
+
+#bosa-library-modal .bosa-tk-kit-details__grid .bosa-tk-grid.bosa-tk-grid--loading {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 0;
+	padding: 0;
+}
+
+#bosa-library-modal .bosa-tk-kit-details__grid {
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+	padding: 20px;
+	box-sizing: border-box;
+	-webkit-overflow-scrolling: touch;
+	position: relative;
+}
+
+#bosa-library-modal .bosa-tk-header__bar--kit-details {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	gap: 16px;
+}
+
+#bosa-library-modal .bosa-tk-header__bar--kit-details .bosa-tk-kit-details-back {
+	justify-self: start;
+}
+
+#bosa-library-modal .bosa-tk-header__kit-title {
+	justify-self: center;
+	margin: 0;
+	padding: 0 12px;
+	max-width: 100%;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.3;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#bosa-library-modal .bosa-tk-header__bar--kit-details .bosa-tk-header__actions {
+	justify-self: end;
+}
+
+#bosa-library-modal .bosa-tk-header--kit-details .bosa-tk-kit-details-back {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var( --e-a-color-txt, #babfc5 );
+	font-size: 12px;
+	cursor: pointer;
+}
+
+#bosa-library-modal .bosa-tk-header--kit-details .bosa-tk-kit-details-back:hover,
+#bosa-library-modal .bosa-tk-header--kit-details .bosa-tk-kit-details-back:focus {
+	color: #fff;
+	outline: none;
+}
+
+#bosa-library-modal .bosa-tk-card__info {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 38px;
+	padding: 0;
+	gap: 8px;
+}
+
+#bosa-library-modal .bosa-tk-card:not( .bosa-tk-card--kit ) .bosa-tk-card__info {
+	justify-content: center;
+}
+
+#bosa-library-modal .bosa-tk-card__title {
+	font-size: 11px;
+	font-weight: 400;
+	color: var( --e-a-color-txt, #babfc5 );
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	flex: 1;
+}
+
+#bosa-library-modal .bosa-tk-card:not( .bosa-tk-card--kit ) .bosa-tk-card__title {
+	text-align: center;
+}
+
+#bosa-library-modal .bosa-tk-card__insert {
+	display: none;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	z-index: 1;
+	flex-shrink: 0;
+	font-size: 11px;
+	padding: 4px 10px;
+	transform: translateY( -50% );
+}
+
+#bosa-library-modal .bosa-tk-card:not( .bosa-tk-card--kit ):hover .bosa-tk-card__insert,
+#bosa-library-modal .bosa-tk-card:not( .bosa-tk-card--kit ):focus-within .bosa-tk-card__insert {
+	display: inline-flex;
+}
+
+.bosa-tk-card--loading .bosa-tk-card__insert {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+#bosa-library-modal .bosa-tk-card__go-pro,
+#bosa-library-modal .bosa-tk-preview-insert.bosa-tk-go-pro {
+	background-color: #8382f3;
+	border-color: #8382f3;
+	color: #fff;
+	text-decoration: none;
+}
+
+#bosa-library-modal .bosa-tk-card__go-pro:hover,
+#bosa-library-modal .bosa-tk-preview-insert.bosa-tk-go-pro:hover {
+	background-color: #7968e4;
+	border-color: #7968e4;
+	color: #fff;
+}
+
+/* ── Import-in-progress overlay ──
+ * Shown for the whole multi-step insert workflow (content fetch,
+ * optional plugin install, re-fetch, Elementor import) so a multi-second
+ * process never looks frozen between clicking Insert and the template
+ * actually appearing. Sits above #bosa-library-modal but below
+ * .bosa-dep-overlay (99999999) below, so the Required Plugins dialog
+ * still displays normally on top of it when one is needed.
+ */
+.bosa-tk-import-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, .88);
+	z-index: 19999999;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: #fff;
+}
+
+.bosa-tk-import-overlay .bosa-tk-loading__icon {
+	font-size: 44px;
+	line-height: 1;
+	color: #fff;
+	margin-bottom: 16px;
+}
+
+.bosa-tk-import-overlay__text {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+/* ── Pre-import Dependency Modal ── */
+
+/*
+ * Overlay sits above Elementor's own dialogs (z-index ~9999999) so users
+ * cannot interact with the template library while this modal is open.
+ */
+.bosa-dep-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, .72);
+	z-index: 99999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bosa-dep-modal {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 16px 56px rgba(0, 0, 0, .32);
+	width: 580px;
+	max-width: 96vw;
+	max-height: 82vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.bosa-dep-modal-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 18px 24px;
+	border-bottom: 1px solid #e2e2e2;
+	background: #f5f5f5;
+	flex-shrink: 0;
+}
+
+.bosa-dep-modal-head h2 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 700;
+	color: #1a1a1a;
+}
+
+.bosa-dep-close {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 22px;
+	color: #999;
+	line-height: 1;
+	padding: 2px 7px;
+	border-radius: 4px;
+	transition: color .15s, background .15s;
+}
+
+.bosa-dep-close:hover {
+	color: #333;
+	background: #e5e5e5;
+}
+
+.bosa-dep-modal-body {
+	padding: 20px 24px;
+	overflow-y: auto;
+	flex: 1;
+}
+
+.bosa-dep-modal-body > p {
+	margin: 0 0 18px;
+	font-size: 13px;
+	color: #555;
+	line-height: 1.6;
+}
+
+/* Plugin list */
+.bosa-dep-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.bosa-dep-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	padding: 14px 18px;
+	background: #f7f7f7;
+	border: 1px solid #e4e4e4;
+	border-radius: 6px;
+	transition: border-color .15s, background .15s;
+}
+
+.bosa-dep-item--info {
+	opacity: 0.85;
+}
+
+.bosa-dep-label--info {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 4px;
+}
+
+.bosa-dep-plugin-note {
+	font-size: 12px;
+	color: #777;
+}
+
+.bosa-dep-item:has(.bosa-dep-check:checked) {
+	border-color: #c0392b22;
+	background: #fff8f8;
+}
+
+/* Checkbox + label */
+.bosa-dep-label {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	cursor: pointer;
+	flex: 1;
+	min-width: 0;
+}
+
+.bosa-dep-check {
+	width: 17px;
+	height: 17px;
+	flex-shrink: 0;
+	cursor: pointer;
+	accent-color: #c0392b;
+}
+
+.bosa-dep-plugin-name {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1a1a1a;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Per-plugin install status */
+.bosa-dep-status {
+	font-size: 12px;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.bosa-dep-status--loading { color: #e67e22; }
+.bosa-dep-status--done    { color: #27ae60; font-weight: 700; }
+.bosa-dep-status--error   { color: #e74c3c; }
+
+.bosa-dep-modal-foot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px 24px;
+	border-top: 1px solid #e2e2e2;
+	background: #f5f5f5;
+	flex-shrink: 0;
+	gap: 12px;
+}
+
+/* Install & Activate (left, primary) */
+.bosa-dep-install-all {
+	cursor: pointer !important;
+	padding: 9px 20px !important;
+	font-size: 13px !important;
+}
+
+.bosa-dep-install-all:hover:not(:disabled) { cursor: pointer; }
+
+.bosa-dep-install-all:disabled {
+	opacity: .65;
+	cursor: not-allowed !important;
+}
+
+/* Skip (right, ghost text button) */
+.bosa-dep-skip {
+	cursor: pointer !important;
+	padding: 9px 20px !important;
+	font-size: 13px !important;
+	background: transparent !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+	color: #555 !important;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.bosa-dep-skip:hover:not(:disabled) {
+	cursor: pointer;
+	color: #222 !important;
+}
+
+.bosa-dep-skip:disabled {
+	opacity: .5;
+	cursor: not-allowed !important;
+}
+
+/* Busy state — dims the modal while installs are running */
+.bosa-dep-modal--busy .bosa-dep-list {
+	opacity: .85;
+	pointer-events: none;
+}
+
+/* ── Refresh / Sync button ── */
+.bosa-tk-refresh {
+	background: none;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 18px;
+	line-height: 1;
+	padding: 6px 8px;
+	color: #d0d0d0;
+	flex-shrink: 0;
+	transition: color 0.15s;
+}
+
+.bosa-tk-refresh:hover {
+	color: #fff;
+}
+
+.bosa-tk-refresh:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+@keyframes bosa-tk-spin {
+	to { transform: rotate( 360deg ); }
+}
+
+.bosa-tk-refresh--spinning {
+	animation: bosa-tk-spin 0.7s linear infinite;
+	display: inline-block;
+}
+
+/* ── In-grid "load more" indicator ── */
+#bosa-library-modal .bosa-tk-load-more {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 16px 0;
+}
+
+#bosa-library-modal .bosa-tk-load-more--visible {
+	display: flex;
+}
+
+#bosa-library-modal .bosa-tk-load-more__icon {
+	font-size: 22px;
+	line-height: 1;
+	color: var( --e-a-color-txt-muted, #7d8186 );
+}
+
+/* ── In-grid "end of list" notice, matching Elementor's nerd-box style ── */
+#bosa-library-modal .bosa-tk-end-notice {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 30px 20px;
+	text-align: center;
+}
+
+#bosa-library-modal .bosa-tk-end-notice--visible {
+	display: flex;
+}
+
+#bosa-library-modal .bosa-tk-end-notice__icon {
+	width: 60px;
+	height: 60px;
+	margin-bottom: 12px;
+}
+
+#bosa-library-modal .bosa-tk-end-notice__text {
+	max-width: 320px;
+	font-size: 13px;
+	line-height: 1.6;
+	color: #fff;
+}
+
+/* ── Template Preview Page ── */
+#bosa-library-modal #bosa-preview-header {
+	flex-shrink: 0;
+}
+
+#bosa-library-modal #bosa-preview-body {
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+#bosa-library-modal.bosa-tk-mode-preview .dialog-message,
+#bosa-library-modal .bosa-tk-mode-preview {
+	flex: 1;
+	min-height: 0;
+}
+
+.bosa-tk-preview-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 52px;
+	padding: 0 18px;
+	background: #1e1e1e;
+	border-bottom: 1px solid #333;
+}
+
+.bosa-tk-preview-header__left,
+.bosa-tk-preview-header__right {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.bosa-tk-preview-back {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	border: none;
+	background: transparent;
+	color: #babfc5;
+	font-size: 13px;
+	font-weight: 500;
+	padding: 6px 0;
+	cursor: pointer;
+	transition: color 0.15s;
+}
+
+.bosa-tk-preview-back:hover {
+	color: #fff;
+}
+
+.bosa-tk-preview-back .eicon-chevron-left {
+	font-size: 14px;
+}
+
+.bosa-tk-preview-live {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: #babfc5 !important;
+	text-decoration: none !important;
+	font-size: 12px;
+	padding: 6px 10px;
+}
+
+.bosa-tk-preview-live:hover {
+	color: #fff !important;
+}
+
+.bosa-tk-preview-live--hidden {
+	display: none !important;
+}
+
+.bosa-tk-preview-insert {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	padding: 6px 14px;
+}
+
+.bosa-tk-preview-insert:disabled {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+.bosa-tk-preview-close {
+	border: none;
+	background: transparent;
+	color: #babfc5;
+	font-size: 22px;
+	line-height: 1;
+	padding: 4px 6px;
+	cursor: pointer;
+	transition: color 0.15s;
+}
+
+.bosa-tk-preview-close:hover {
+	color: #fff;
+}
+
+.bosa-tk-preview-body {
+	flex: 1;
+	min-height: 0;
+	background: var( --e-a-bg-default, #26292c );
+	color: var( --e-a-color-txt, #babfc5 );
+}
+
+.bosa-tk-preview-body__scroll {
+	height: 100%;
+	overflow-y: auto;
+	padding: 22px 20px 28px;
+	box-sizing: border-box;
+}
+
+.bosa-tk-preview-body__shot {
+	width: 100%;
+	margin: 0;
+	border-radius: 0;
+	overflow: visible;
+	box-shadow: none;
+}
+
+.bosa-tk-preview-body__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border: none;
+	box-shadow: none;
+}
+
+.bosa-tk-preview-body__no-img {
+	width: 100%;
+	min-height: 280px;
+	background: var( --e-a-bg-active, #34383c );
+}
+
+/* ── Go Pro banner (dialog-buttons-wrapper footer) ── */
+#bosa-library-modal .dialog-buttons-wrapper.dialog-lightbox-buttons-wrapper {
+	flex-shrink: 0;
+}
+
+.bew-tl-go-pro-banner {
+	display: block;
+	line-height: 0;
+	opacity: 0.85;
+	transition: opacity 0.15s;
+}
+
+.bew-tl-go-pro-banner:hover {
+	opacity: 1;
+}
+
+.bew-tl-go-pro-banner img {
+	display: block;
+	width: 100%;
+	height: auto;
+}

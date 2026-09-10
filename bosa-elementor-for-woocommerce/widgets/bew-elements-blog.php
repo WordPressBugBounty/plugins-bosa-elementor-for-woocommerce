@@ -2,6 +2,10 @@
 
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class BEW_Blog extends BEW_Settings {
 	// use Button_Trait;
 	public function get_name() {
@@ -17,11 +21,11 @@ class BEW_Blog extends BEW_Settings {
 	}
 
 	public function get_keywords() {
-		return [ 'bew', 'blog', 'bew blog', 'bosa' ];
+		return [ 'bew', 'blog', 'bew blog', 'blog grid', 'bosa' ];
 	}
 
 	public function get_help_url() {
-		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-blog/';
+		return 'https://bew.bosathemes.com/docs/how-to-use-plugin-widgets/how-to-setup-blog/';
 	}
 
 	protected function get_available_post_types() {
@@ -931,7 +935,7 @@ class BEW_Blog extends BEW_Settings {
 				<?php endif; ?>
 			</span>
 			<?php endif; ?>
-			<span <?php $instance->print_render_attribute_string( 'text' ); ?>><?php $this->print_unescaped_setting( 'read_more_text' ); ?></span>
+			<span <?php $instance->print_render_attribute_string( 'text' ); ?>><?php echo esc_html( $settings['read_more_text'] ); ?></span>
 		</span>
 		<?php
 	}
@@ -1111,7 +1115,7 @@ class BEW_Blog extends BEW_Settings {
 						$cat_separator 		= $settings['cat_separator'];
             ?>
 
-                <div class="bew-elements-post">
+                <div class="bew-elements-post" data-bew-post-id="<?php echo esc_attr( get_the_ID() ); ?>">
                     <article class="bew-elements-post-inner">
                     	<?php if(has_post_thumbnail()) { ?>
 	                    	<div class="bew-featured-image">
@@ -1144,7 +1148,7 @@ class BEW_Blog extends BEW_Settings {
 							<?php if( $title_visibility === 'yes' ) : ?>
 								<h3 class="bew-blog-title">
 									<a href="<?php the_permalink(); ?>">
-		                        		<?php esc_html(the_title()); ?>
+		                        		<?php echo esc_html( get_the_title() ); ?>
 									</a>
 								</h3>
 							<?php endif; ?>

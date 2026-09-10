@@ -2,6 +2,10 @@
 
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class BEW_Products_list extends BEW_Settings {
 	
 	public function get_name() {
@@ -9,19 +13,19 @@ class BEW_Products_list extends BEW_Settings {
 	}
 	
 	public function get_title() {
-		return __( 'Woo - Products List', 'bosa-elementor-for-woocommerce' );
+		return __( 'Woo Products List', 'bosa-elementor-for-woocommerce' );
 	}
-	
+
 	public function get_icon() {
 		return 'bew-widget eicon-post-list';
 	}
 
 	public function get_keywords() {
-		return [ 'bew', 'product', 'products', "list", "products list", 'bew products', 'woo', 'woo products', 'bosa' ];
+		return [ 'bew', 'product', 'products', "list", "products list", 'bew products', 'woo', 'woo products', 'woo products list', 'bosa' ];
 	}
 
 	public function get_help_url() {
-		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-woo-products-list/';
+		return 'https://bew.bosathemes.com/docs/how-to-use-plugin-widgets/how-to-setup-woo-products-list/';
 	}
 	
     protected function register_controls() {
@@ -742,9 +746,12 @@ class BEW_Products_list extends BEW_Settings {
 		$this->get_normal_color( 'product_icon_group_color', esc_html__( 'Color', 'bosa-elementor-for-woocommerce' ), '.bew-product-list-widget-container ul.products li .product-compare-wishlist a i', 'color' );
 
 		$this->end_controls_section();
+
+		$this->register_bew_yith_buttons_control();
 	}
 
 	protected function render() {
+        global $post;
         $settings 					= $this->get_settings_for_display();
         $products_no 				= $settings['items_no'];
         $source 					= $settings['source'];
@@ -1188,10 +1195,16 @@ class BEW_Products_list extends BEW_Settings {
 													woocommerce_template_loop_product_link_close();
 
 													do_action( 'bew_woo_widget_quickview_icon' );
+
+													$this->render_bew_compare_icon();
 													?>
 												</figure>
 												<div class="product-inner-contents">
-													<?php 
+													<?php
+													if ( 'yes' === $settings['bew_show_yith_buttons'] ) {
+														$this->render_bew_default_yith_buttons( $settings['bew_yith_buttons_compare_label'] ?? '', $settings['bew_yith_buttons_wishlist_label'] ?? '' );
+													}
+
 													woocommerce_template_loop_product_link_open();
 													woocommerce_template_loop_product_title();
 

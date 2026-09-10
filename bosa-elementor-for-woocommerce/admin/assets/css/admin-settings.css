@@ -1,0 +1,236 @@
+/* BEW Admin — Base page layout */
+.bew-admin-page {
+	max-width: 1200px;
+}
+
+.bew-admin-page h1 {
+	font-size: 28px;
+	font-weight: 500;
+}
+
+/* Tab Navigation */
+.bew-tab-nav {
+	display: flex;
+	gap: 4px;
+	margin: 24px 0 0;
+	border-bottom: 1px solid #c3c4c7;
+	padding-bottom: 0;
+}
+
+.bew-tab-button {
+	background: none;
+	border: 1px solid transparent;
+	border-bottom: none;
+	padding: 8px 16px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #2c3338;
+	border-radius: 3px 3px 0 0;
+	position: relative;
+	bottom: -1px;
+	line-height: 1.4;
+}
+
+.bew-tab-button:hover {
+	color: #1d2327;
+}
+
+.bew-tab-button.active {
+	background: #fff;
+	border-color: #c3c4c7;
+	border-bottom-color: #fff;
+	color: #1d2327;
+	font-weight: 600;
+}
+
+/* Icon + text + beta tag inside this tab button -- tight, even 2px gaps
+   instead of the icon/tag's own (larger) shared margins used elsewhere. */
+.bew-tab-button[data-tab="ai-integration"] {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+}
+
+.bew-tab-button[data-tab="ai-integration"] .bew-ai-icon {
+	margin-right: 0;
+}
+
+.bew-tab-button[data-tab="ai-integration"] .bew-beta-tag {
+	margin-left: 5px;
+}
+
+/* Tab Content Panels */
+.bew-tab-content {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-top: none;
+	padding: 24px;
+	margin-bottom: 20px;
+}
+
+.bew-tab-content h3 {
+	margin-top: 0;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.bew-tab-content .button-primary {
+	margin-top: 8px;
+}
+
+/* Sub-section titles */
+.bew-subsection-title {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 24px 0 0;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.bew-subsection-title:first-of-type {
+	margin-top: 8px;
+}
+
+/* Cards grid — widgets / modules / templates */
+.bew-cards-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 16px;
+	margin: 16px 0 24px;
+}
+
+/* Info boxes grid */
+.bew-info-boxes {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 30px;
+	margin-top: 30px;
+}
+
+/* Products grid */
+.bew-products-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+	margin-top: 20px;
+}
+
+/* Intro / welcome text */
+.bew-welcome-text,
+.bew-products-intro {
+	font-size: 15px;
+	color: #50575e;
+	margin: 5px 0 20px 0;
+	line-height: 1.6;
+}
+
+.bew-buttons-container {
+	margin-top: 30px;
+}
+
+.bew-buttons-container .bew-box-button {
+	margin-right: 8px;
+}
+
+/* Connected Providers table row actions -- a flex wrapper with gap so
+   Set as Default / Change Model / Delete stay evenly spaced whether they
+   fit on one line or wrap to several in the narrow Actions column. */
+.bew-provider-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+}
+
+.bew-provider-actions .bew-button-secondary {
+	padding: 1px 10px;
+    font-size: 12px;
+    min-height: 36px;
+}
+
+/* Inline notice for AJAX feedback */
+.bew-notice {
+	display: inline-block;
+	padding: 4px 10px;
+	margin-left: 10px;
+	border-radius: 3px;
+	font-size: 13px;
+	vertical-align: middle;
+}
+
+.bew-notice-success {
+	background: #d1fae5;
+	color: #065f46;
+}
+
+.bew-notice-error {
+	background: #fee2e2;
+	color: #991b1b;
+}
+
+/* Rollback section */
+.bew-rollback-section {
+	margin-top: 30px;
+	padding-top: 24px;
+	border-top: 1px solid #e0e0e0;
+}
+
+.bew-rollback-section h3 {
+	font-size: 16px;
+	font-weight: 600;
+	margin-top: 0;
+}
+
+.bew-rollback-button {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 6px;
+}
+
+.bew-rollback-button .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+}
+
+.bew-rollback-warning {
+	color: #d63638;
+	font-size: 13px;
+	margin-top: 12px;
+}
+
+/* AI Integration: beta / default tags */
+.bew-beta-tag,
+.bew-default-tag {
+	display: inline-block;
+	font-size: 10px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.4px;
+	padding: 2px 6px;
+	border-radius: 3px;
+	margin-left: 4px;
+	vertical-align: middle;
+}
+
+.bew-beta-tag {
+	background: #fef3c7;
+	color: #92400e;
+}
+
+.bew-default-tag {
+	background: #d1fae5;
+	color: #065f46;
+}
+
+.bew-ai-icon {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0;
+	position: relative;
+	top: -1px;
+}

@@ -1,0 +1,54 @@
+/* BEW Admin — Responsive overrides */
+
+@media ( max-width: 1024px ) {
+	.bew-info-boxes,
+	.bew-products-grid {
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	}
+}
+
+@media ( max-width: 782px ) {
+	.bew-info-boxes,
+	.bew-products-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.bew-cards-grid {
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	}
+
+	.bew-tab-nav {
+		flex-wrap: wrap;
+	}
+
+	.bew-tab-button {
+		bottom: 0;
+	}
+
+	.bew-banner-image {
+		max-height: 100px;
+	}
+
+	.bew-banner-title {
+		font-size: 18px;
+	}
+
+	.bew-tab-content {
+		padding: 16px;
+	}
+}
+
+@media ( max-width: 480px ) {
+	.bew-cards-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.bew-tab-button {
+		padding: 6px 10px;
+		font-size: 13px;
+	}
+
+	.bew-box-ui {
+		padding: 14px;
+	}
+}

@@ -2,6 +2,10 @@
 
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class BEW_Categories extends BEW_Settings {
 	
 	public function get_name() {
@@ -9,7 +13,7 @@ class BEW_Categories extends BEW_Settings {
 	}
 	
 	public function get_title() {
-		return __( 'Woo - Categories', 'bosa-elementor-for-woocommerce' );
+		return __( 'Woo Categories', 'bosa-elementor-for-woocommerce' );
 	}
 	
 	public function get_icon() {
@@ -25,7 +29,7 @@ class BEW_Categories extends BEW_Settings {
 	}
 
 	public function get_help_url() {
-		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-woo-categories/';
+		return 'https://bew.bosathemes.com/docs/how-to-use-plugin-widgets/how-to-setup-woo-categories/';
 	}
 
     protected function register_controls() {
@@ -436,11 +440,11 @@ class BEW_Categories extends BEW_Settings {
 		                    $term_name = $term->name;
 		                    $sub_count =  apply_filters( 'woocommerce_subcategory_count_html', ' (' . $term->count . ') ', $term);
 		            		?>
-			            	<li class="product-category product">
+			            	<li class="product-category product" data-bew-term-id="<?php echo esc_attr( $key ); ?>">
 			                    <div class="product-wrapper">
 			                        <a href="<?php echo esc_url( $term_link ); ?>">
 			                            <div class="products-cat-wrap">
-			                                <div class="products-cat-image <?php print_r( $thumbnail_id ); ?>">    
+			                                <div class="products-cat-image <?php echo esc_attr( $thumbnail_id ); ?>">    
 			                                    <img class="categoryimage" src="<?php echo esc_url( $image[0] ); ?>">
 			                                </div>
 			                                <div class="products-cat-info">

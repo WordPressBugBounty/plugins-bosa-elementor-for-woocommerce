@@ -24,7 +24,7 @@ class BEW_Site_Logo extends BEW_Settings {
 	}
 
 	public function get_help_url() {
-		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-bew-site-logo/';
+		return 'https://bew.bosathemes.com/docs/how-to-use-plugin-widgets/how-to-setup-bew-site-logo/';
 	}
 
 	protected function register_controls(){
@@ -250,6 +250,14 @@ class BEW_Site_Logo extends BEW_Settings {
 	        	return $logo;
 	      	}else{
 	        	$logo = wp_get_attachment_image_src( $settings['site_logo_custom_image']['id'], $size, true );
+			
+				// Site logo supports both Media Library ID and raw URL
+	        	$resolved_url         = ( is_array( $logo ) && ! empty( $logo[0] ) ) ? $logo[0] : false;
+	        	$missing_attachment   = false === $resolved_url || site_url() . '/wp-includes/images/media/default.svg' === $resolved_url;
+
+	        	if ( $missing_attachment && ! empty( $settings['site_logo_custom_image']['url'] ) ) {
+	        		return $settings['site_logo_custom_image']['url'];
+	        	}
 	      	}
 		} else {
 			$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), $size, true );
@@ -342,7 +350,7 @@ class BEW_Site_Logo extends BEW_Settings {
 		}
 
 		$alt_text = Control_Media::get_image_alt( $settings['site_logo_custom_image'] );
-		$alt_text = empty( $alt_text ) ? 'default-logo' : esc_attr( $alt_text );
+		$alt_text = empty( $alt_text ) ? 'default-logo' : $alt_text;
 		?>
 			<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>	
 				<?php if ( $link ) { ?>

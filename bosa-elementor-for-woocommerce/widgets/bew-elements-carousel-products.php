@@ -2,6 +2,10 @@
 
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class BEW_Carousel_Products extends BEW_Settings {
 
 	public function get_name() {
@@ -9,19 +13,19 @@ class BEW_Carousel_Products extends BEW_Settings {
 	}
 	
 	public function get_title() {
-		return __( 'Woo - Archive Carousel', 'bosa-elementor-for-woocommerce' );
+		return __( 'Woo Archive Carousel', 'bosa-elementor-for-woocommerce' );
 	}
-	
+
 	public function get_icon() {
 		return 'bew-widget eicon-carousel';
 	}
 
 	public function get_keywords() {
-		return [ 'bew', 'carousel', 'bew carousel', 'woo', 'woo carousel', 'archive', 'bosa' ];
+		return [ 'bew', 'carousel', 'bew carousel', 'woo', 'woo carousel', 'woo archive carousel', 'archive', 'bosa' ];
 	}
 	
 	public function get_help_url() {
-		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-woo-archive-carousel/';
+		return 'https://bew.bosathemes.com/docs/how-to-use-plugin-widgets/how-to-setup-woo-archive-carousel/';
 	}
 	
     protected function register_controls() {
@@ -1252,12 +1256,14 @@ class BEW_Carousel_Products extends BEW_Settings {
                 if ( $products_loop->have_posts() ) {
                 	?>
                 	<div class="bew-elements-widgets bew-elements-carousel-products woocommerce owl-carousel <?php echo esc_attr($wrapper_classes); ?>" <?php echo $this->get_column_attr($settings); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> slider-products="<?php echo esc_attr( $products_display_no ); ?>" slider-products-tablet="<?php echo esc_attr( $products_display_no_tablet ); ?>" slider-products-mobile="<?php echo esc_attr( $products_display_no_mobile ) ?>" products-scroll="<?php echo esc_attr( $products_scroll_no ); ?>" products-scroll-tablet="<?php echo esc_attr( $products_scroll_no_tablet ); ?>" products-scroll-mobile="<?php echo esc_attr( $products_scroll_no_mobile ); ?>" slider-arrows="<?php echo esc_attr( $arrows ); ?>" slider-dots="<?php echo esc_attr( $dots ); ?>" auto-play="<?php echo esc_attr( $auto_play ); ?>" infinite-loop="<?php echo esc_attr( $infinite_loop ); ?>" transition-speed="<?php echo esc_attr( $transition_speed ); ?>">
-                		<?php 
+                		<?php
+	                	$this->start_bew_compare_icon_scope();
 	                	while ( $products_loop->have_posts() ) : $products_loop->the_post(); ?>
 	                		<ul class="products">
 	                			<?php wc_get_template_part( 'content', 'product' ); ?>
 	                    	</ul>
-	                    <?php endwhile; ?>
+	                    <?php endwhile;
+	                    $this->end_bew_compare_icon_scope(); ?>
 	                </div>
                 <?php
                 } else {

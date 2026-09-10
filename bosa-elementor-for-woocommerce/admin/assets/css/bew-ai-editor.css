@@ -1,0 +1,801 @@
+/* BEW's own brand accent -- deliberately distinct from Elementor's own
+   --e-a-color-primary(-bold) (used by Elementor's native "Write with AI"
+   button) so this card reads as its own feature, not Elementor's. light-dark()
+   resolves off the same `color-scheme` Elementor itself sets on :root in
+   theme-dark.css/theme-light.css, so it tracks Elementor's actual active
+   editor theme (Light/Dark/Auto, already resolved) rather than a second,
+   possibly-disagreeing guess at prefers-color-scheme. */
+:root {
+	--bew-ai-accent: light-dark( #7968e4, #8382f3 );
+	--bew-ai-accent-hover: light-dark( #624fe0, #6d5ce0 );
+	--bew-ai-accent-soft-bg: light-dark( #eeedfe, #2a3050 );
+	--bew-ai-status-bg: light-dark( #f7ecdd, #5a3914 );
+	--bew-ai-status-border: light-dark( var(--e-a-color-warning, #dba617), #ef9f27 );
+}
+
+/* Button lives inline next to a control's own label row by default (same row
+   Elementor's native "Write with AI" appears in) -- keep it a normal inline
+   flex item, not absolutely positioned, so it doesn't fight that layout. */
+.bew-ai-editor-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	background: var(--bew-ai-accent);
+	color: #fff;
+	border: none;
+	border-radius: var(--e-a-border-radius, 3px);
+	font-family: var(--e-a-font-family, inherit);
+	font-size: 11px;
+	font-weight: 600;
+	padding: 4px 8px;
+	cursor: pointer;
+	line-height: 1.4;
+	margin-left: 8px;
+	white-space: nowrap;
+	vertical-align: middle;
+	transition: var(--e-a-transition-hover, background .2s);
+}
+
+.bew-ai-editor-button:hover {
+	background: var(--bew-ai-accent-hover);
+}
+
+/* Fallback for widgets with only repeater fields mapped (no single field row
+   to anchor to) -- sits as its own row above the controls instead. */
+.bew-ai-editor-button-top {
+	display: inline-flex;
+	margin: 10px 0 0 12px;
+}
+
+/* Woo - Search only: this widget maps BOTH "Placeholder" and "All Categories
+   Placeholder" to the same AI role (see ai-field-map.php), so the button
+   covers both fields at once -- but it anchors (per the shared JS logic
+   every widget uses) to the first field's own row, where it visually reads
+   as belonging to "Placeholder" alone. Move it above both fields instead,
+   purely visually -- the DOM anchor point itself is untouched, so it still
+   plays along with the shared placement/observer logic. Scoped via the
+   sibling-only "categories_placeholder" control, unique to this widget. */
+#elementor-controls:has( .elementor-control-categories_placeholder ) .elementor-control-placeholder {
+	position: relative;
+	margin-top: 36px;
+}
+
+#elementor-controls:has( .elementor-control-categories_placeholder ) .elementor-control-placeholder .bew-ai-editor-button {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	margin: 0;
+	transform: translateY( calc( -100% - 8px ) );
+}
+
+/* Last-resort fallback if #elementor-controls isn't found at all. */
+.bew-ai-editor-button-floating {
+	position: fixed;
+	top: 8px;
+	right: 44px;
+	z-index: 10;
+	margin-left: 0;
+}
+
+.bew-ai-icon {
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	vertical-align: middle;
+	flex-shrink: 0;
+}
+
+/* The source SVG is filled navy -- invisible on a navy button, and low-
+   contrast in a dark card header too. An <img>-embedded SVG can't be
+   recolored with `color`/`currentColor`, so both variants render it as a
+   solid silhouette via CSS mask instead, only differing in what paints it:
+   -white is always white (the button it sits on is always navy); -header
+   is the brand navy in light mode but switches to white in dark mode
+   (light-dark(), keyed off the same color-scheme signal Elementor's own
+   theme-dark.css sets -- see checklist §12), since a dark navy mark on
+   Elementor's near-black dark background was barely visible. */
+.bew-ai-icon-white,
+.bew-ai-icon-header {
+	-webkit-mask-image: url( "../svg/bew-ai.svg" );
+	mask-image: url( "../svg/bew-ai.svg" );
+	-webkit-mask-size: contain;
+	mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+}
+
+.bew-ai-icon-white {
+	background-color: currentColor;
+}
+
+.bew-ai-icon-header {
+	background-color: light-dark( #8382f3, #ffffff );
+}
+
+/* Beta tag -- same pill style as the Settings page tab (admin-settings.css
+   isn't loaded in the Elementor editor context, so it's repeated here). Text
+   is temporary; drop this whole rule (and its markup) once BEW AI graduates
+   out of beta. Only shown inside the card now, not on the trigger button.
+   Neutral chip styling (Elementor's own "chip" token, the same shape used
+   for badges/tags in its own UI) rather than a warning color -- being in
+   beta isn't a warning. */
+.bew-beta-tag {
+	display: inline-block;
+	font-size: 10px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.4px;
+	padding: 2px 6px;
+	border-radius: var(--e-a-border-radius, 3px);
+	margin-left: 6px;
+	vertical-align: middle;
+	background: var(--e-a-bg-chip, #f1f2f3);
+	color: var(--e-a-color-txt, #1d2327);
+}
+
+/* Pro tag -- marks a card as belonging to a Pro-only generator (never shown
+   on the free Text Generator). Same pill shape as the Beta tag, BEW's own
+   accent instead of warning so the two read as different kinds of label. */
+.bew-ai-pro-tag {
+	display: inline-block;
+	font-size: 10px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.4px;
+	padding: 2px 6px;
+	border-radius: var(--e-a-border-radius, 3px);
+	margin-left: 6px;
+	vertical-align: middle;
+	background: var(--bew-ai-accent-soft-bg);
+	color: var(--bew-ai-accent);
+}
+
+.bew-ai-editor-card {
+	position: fixed;
+	z-index: 10000;
+	width: 340px;
+	max-height: 70vh;
+	overflow-y: auto;
+	background: var(--e-a-bg-default, #ffffff);
+	border: var(--e-a-border, 1px solid #d5d8dc);
+	border-radius: 6px;
+	box-shadow: var(--e-a-popover-shadow, 0 4px 16px rgba( 0, 0, 0, 0.25 ));
+	padding: 16px;
+	font-family: var(--e-a-font-family, inherit);
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--e-a-color-txt, #1d2327);
+}
+
+.bew-ai-editor-card * {
+	box-sizing: border-box;
+}
+
+.bew-ai-editor-card h4 {
+	margin: 0 0 5px;
+	font-size: 13px;
+	color: var(--e-a-color-txt, #1d2327);
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+/* One line identifying which generator this card belongs to (Text/Bulk
+   Text & Image/Image Generator) -- every AI feature's card uses the same
+   "[icon] BEW AI [Beta]" title, so this is the only thing telling them
+   apart. Shared across the free plugin and both Pro AI features. */
+.bew-ai-editor-card-subtitle {
+	margin: 0 0 14px;
+	font-size: 11px;
+	color: var(--e-a-color-txt-muted, #6b7280);
+}
+
+.bew-ai-editor-card label {
+	color: var(--e-a-color-txt, #1d2327);
+}
+
+.bew-ai-editor-card .description {
+	color: var(--e-a-color-txt-muted, #6b7280);
+	margin: 0 0 14px;
+}
+
+.bew-ai-editor-card select,
+.bew-ai-editor-card textarea,
+.bew-ai-editor-card input[type="text"] {
+	width: 100%;
+	margin-bottom: 14px;
+	background: var(--e-a-bg-default, #ffffff);
+	color: var(--e-a-color-txt, #1d2327);
+	border: var(--e-a-border, 1px solid #c3c4c7);
+	border-radius: var(--e-a-border-radius, 3px);
+	padding: 6px 8px;
+	font-size: 12px;
+	font-family: inherit;
+}
+
+.bew-ai-editor-card select:focus,
+.bew-ai-editor-card textarea:focus,
+.bew-ai-editor-card input[type="text"]:focus {
+	border-color: var(--bew-ai-accent);
+	outline: none;
+}
+
+/* Single row for the Provider select and the Model select (or its empty
+   holder div, when the provider only has one model). :empty collapse lets
+   Provider fill the row alone rather than leaving a dead half-width gap. */
+.bew-ai-editor-provider-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.bew-ai-editor-provider-row > div,
+.bew-ai-editor-provider-field {
+	flex: 1;
+	min-width: 0;
+}
+
+.bew-ai-editor-provider-row select,
+.bew-ai-editor-provider-row input[type="text"] {
+	margin-bottom: 0;
+}
+
+.bew-ai-editor-model-field:empty {
+	display: none;
+}
+
+.bew-ai-editor-fields {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.bew-ai-editor-field-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-bottom: 8px;
+	color: var(--e-a-color-txt, #1d2327);
+}
+
+.bew-ai-editor-field-row:last-child {
+	margin-bottom: 0;
+}
+
+/* !important: Elementor's own dark editor theme applies its pink accent to
+   every checkbox on the page (checked or not); this is the only reliable way
+   to override it without depending on load order. */
+.bew-ai-editor-field-row input[type="checkbox"] {
+	background: var(--e-a-bg-hover, #e8e8ea) !important;
+	margin: 0;
+	border: var(--e-a-border, 1px solid #cbcccd);
+}
+
+.bew-ai-editor-field-row input[type="checkbox"]:checked {
+	background: var(--bew-ai-accent) !important;
+	border-color: var(--bew-ai-accent);
+}
+
+.bew-ai-editor-instruction-label {
+	display: block;
+	margin-bottom: 6px;
+	color: var(--e-a-color-txt-muted, #6b7280);
+}
+
+.bew-ai-editor-instruction-note {
+	margin: -2px 0 8px;
+	font-size: 11px;
+	line-height: 1.4;
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+}
+
+.bew-ai-editor-instruction {
+	min-height: 60px;
+	resize: vertical;
+}
+
+/* Matches the .notice.notice-warning.notice-alt box used on the Settings
+   page's Templates tab (WP core's own notice styles, replicated here since
+   they aren't loaded in the Elementor editor context). Empty by default --
+   :empty keeps it from reserving any space until there's actually a message. */
+.bew-ai-editor-card-status {
+	background: var(--bew-ai-status-bg);
+	border-left: 4px solid var(--bew-ai-status-border);
+	color: var(--e-a-color-txt, #1d2327);
+	font-size: 12px;
+	line-height: 1.4;
+	padding: 8px 10px;
+	margin-bottom: 12px;
+}
+
+.bew-ai-editor-card-status:empty {
+	display: none;
+	margin-bottom: 0;
+	padding: 0;
+	border: none;
+}
+
+.bew-ai-editor-status-more {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	color: var(--bew-ai-accent);
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	text-decoration: underline;
+	white-space: nowrap;
+}
+
+.bew-ai-editor-status-more:hover {
+	color: var(--bew-ai-accent-hover);
+}
+
+.bew-ai-editor-preview-row {
+	margin-bottom: 8px;
+}
+
+.bew-ai-editor-preview-row > label {
+	display: block;
+	color: var(--e-a-color-txt-muted, #6b7280);
+	margin-bottom: 6px;
+}
+
+.bew-ai-editor-preview-row textarea {
+	min-height: 80px;
+	resize: vertical;
+}
+
+.bew-ai-editor-preview-repeater {
+	border: var(--e-a-border, 1px solid #e2e4e7);
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.bew-ai-editor-repeater-row {
+	padding: 8px 0;
+	border-top: var(--e-a-border, 1px solid #eceef0);
+}
+
+.bew-ai-editor-repeater-row:first-of-type {
+	padding-top: 0;
+	border-top: none;
+}
+
+.bew-ai-editor-repeater-row-title {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--e-a-color-txt-muted, #6b7280);
+	margin-bottom: 6px;
+}
+
+.bew-ai-editor-repeater-sublabel {
+	display: block;
+	font-size: 11px;
+	color: var(--e-a-color-txt-muted, #6b7280);
+	margin-bottom: 2px;
+}
+
+.bew-ai-editor-repeater-input {
+	margin-bottom: 8px;
+}
+
+.bew-ai-editor-repeater-input:last-child {
+	margin-bottom: 0;
+}
+
+/* Shared row for every button group (Generate/Cancel, Apply/Regenerate/Cancel,
+   Open Settings/Check Again) -- a real flex row keeps buttons of different
+   heights (e.g. Generate's icon+text vs Cancel's text-only) vertically
+   centered against each other instead of drifting to their own baselines. */
+.bew-ai-editor-actions {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.bew-ai-editor-upgrade-note {
+	margin: 12px 0 0;
+	padding-top: 10px;
+	border-top: var(--e-a-border, 1px solid #e2e4e7);
+	font-size: 11px;
+	line-height: 1.5;
+	color: var(--e-a-color-txt-muted, #6b7280);
+}
+
+.bew-ai-editor-upgrade-note a {
+	color: var(--bew-ai-accent);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.bew-ai-editor-upgrade-note a:hover {
+	color: var(--bew-ai-accent-hover);
+	text-decoration: underline;
+}
+
+/* Real button styling -- bew-box-button's actual rules live in
+   admin-settings.css, which isn't loaded in the editor context, so these
+   would otherwise render as bare unstyled <button> elements. */
+.bew-ai-editor-card .bew-box-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin: 0;
+	padding: 6px 12px;
+	border-radius: var(--e-a-border-radius, 3px);
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	border: 1px solid transparent;
+	line-height: 1.4;
+	text-decoration: none;
+	transition: var(--e-a-transition-hover, background .2s);
+}
+
+.bew-ai-editor-card .bew-button-primary {
+	background: var(--bew-ai-accent);
+	color: #ffffff;
+}
+
+.bew-ai-editor-card .bew-button-primary:hover {
+	background: var(--bew-ai-accent-hover);
+}
+
+.bew-ai-editor-card .bew-button-secondary {
+	background: var(--e-a-bg-hover, #f0f0f1);
+	color: var(--e-a-color-txt, #1d2327);
+	border-color: var(--e-a-border-color, #c3c4c7);
+}
+
+.bew-ai-editor-card .bew-button-secondary:hover {
+	background: var(--e-a-bg-active, #e2e4e7);
+}
+
+.bew-ai-editor-card .bew-box-button:disabled {
+	opacity: 0.6;
+	cursor: default;
+}
+
+.bew-ai-editor-card .bew-ai-editor-button-label {
+	display: inline-flex;
+	align-items: center;
+}
+
+/* Generation History -- shared across every card via window.BEWAIHistory.
+   Lives inside a field row's own <label> (picker view) or a preview row's
+   header (preview view), so it's a plain inline flex item pushed to the row's
+   trailing edge, not its own layout system. */
+.bew-ai-history-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	padding: 2px;
+	background: none;
+	border: none;
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.bew-ai-history-icon:hover {
+	color: var(--bew-ai-accent);
+}
+
+.bew-ai-editor-preview-row-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 6px;
+}
+
+.bew-ai-editor-preview-row-header label {
+	margin-bottom: 0;
+}
+
+.bew-ai-history-back {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	color: var(--e-a-color-txt-muted, #6b7280);
+	cursor: pointer;
+	width: fit-content;
+}
+
+.bew-ai-history-back:hover {
+	color: var(--bew-ai-accent);
+}
+
+.bew-ai-history-back-arrow {
+	font-style: normal;
+}
+
+.bew-ai-history-item-label {
+	margin: 0 0 10px;
+	font-size: 12px;
+	color: var(--e-a-color-txt-muted, #6b7280);
+}
+
+.bew-ai-history-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	margin-bottom: 10px;
+}
+
+.bew-ai-history-list {
+	max-height: 260px;
+	overflow-y: auto;
+	margin-bottom: 10px;
+}
+
+.bew-ai-history-entry {
+	border: var(--e-a-border, 1px solid #e2e4e7);
+	border-radius: 4px;
+	padding: 8px 10px;
+	margin-bottom: 8px;
+}
+
+.bew-ai-history-entry:last-child {
+	margin-bottom: 0;
+}
+
+.bew-ai-history-entry-field {
+	font-size: 10px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+	margin-bottom: 4px;
+}
+
+.bew-ai-history-entry-value {
+	font-size: 12px;
+	color: var(--e-a-color-txt, #1d2327);
+	margin-bottom: 6px;
+	line-height: 1.5;
+	word-break: break-word;
+}
+
+.bew-ai-history-thumb {
+	max-width: 100%;
+	max-height: 90px;
+	border-radius: var(--e-a-border-radius, 3px);
+	display: block;
+}
+
+.bew-ai-history-entry-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.bew-ai-history-entry-meta {
+	font-size: 11px;
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.bew-ai-history-entry-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
+}
+
+.bew-ai-history-restore {
+	background: none;
+	border: none;
+	padding: 0;
+	color: var(--bew-ai-accent);
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.bew-ai-history-restore:hover {
+	color: var(--bew-ai-accent-hover);
+}
+
+.bew-ai-history-restore:disabled {
+	opacity: 0.6;
+	cursor: default;
+	text-decoration: none;
+}
+
+.bew-ai-history-delete {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: none;
+	border: none;
+	padding: 0;
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.bew-ai-history-delete:hover {
+	color: var(--e-a-color-danger, #d63638);
+}
+
+.bew-ai-history-empty {
+	font-size: 12px;
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+	margin: 0;
+}
+
+.bew-ai-history-clear {
+	text-align: center;
+	font-size: 11px;
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+	cursor: pointer;
+	margin: 4px 0 0;
+	text-decoration: underline;
+}
+
+.bew-ai-history-clear:hover {
+	color: var(--e-a-color-danger, #d63638);
+}
+
+.bew-ai-history-clear-confirm {
+	text-align: center;
+	margin-top: 4px;
+	padding-top: 10px;
+	border-top: var(--e-a-border, 1px solid #e2e4e7);
+}
+
+.bew-ai-history-clear-confirm p {
+	font-size: 11px;
+	color: var(--e-a-color-danger, #d63638);
+	margin: 0 0 8px;
+}
+
+.bew-ai-history-clear-confirm .bew-box-button {
+	font-size: 11px;
+	padding: 4px 10px;
+}
+
+.bew-ai-history-clear-confirm .bew-box-button + .bew-box-button {
+	margin-left: 8px;
+}
+
+/* Saved instruction presets -- shared across every card via
+   window.BEWAIPresets. Reuses .bew-ai-history-back/-list/-entry/-empty
+   wholesale for the manage view (same visual language as History's own
+   list, per design), so only the pieces genuinely unique to Presets --
+   the header/save row and the inline name-input forms -- get their own
+   classes here. */
+.bew-ai-preset-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	margin: 12px 0 8px;
+}
+
+.bew-ai-preset-header .bew-ai-editor-instruction-label {
+	margin-bottom: 0;
+}
+
+.bew-ai-preset-manage-link,
+.bew-ai-preset-save {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	cursor: pointer;
+}
+
+.bew-ai-preset-manage-link svg,
+.bew-ai-preset-save svg {
+	flex-shrink: 0;
+	display: block;
+}
+
+.bew-ai-preset-manage-link {
+	font-size: 11px;
+	color: var(--bew-ai-accent);
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.bew-ai-preset-manage-link:hover {
+	color: var(--bew-ai-accent-hover);
+}
+
+.bew-ai-preset-save {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--bew-ai-accent);
+}
+
+.bew-ai-preset-save:hover {
+	color: var(--bew-ai-accent-hover);
+}
+
+.bew-ai-preset-save-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: -6px 0 14px;
+}
+
+.bew-ai-preset-save-confirm,
+.bew-ai-preset-save-cancel,
+.bew-ai-preset-rename-confirm,
+.bew-ai-preset-rename-cancel {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--bew-ai-accent);
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.bew-ai-preset-save-confirm:hover,
+.bew-ai-preset-save-cancel:hover,
+.bew-ai-preset-rename-confirm:hover,
+.bew-ai-preset-rename-cancel:hover {
+	color: var(--bew-ai-accent-hover);
+}
+
+.bew-ai-preset-save-cancel,
+.bew-ai-preset-rename-cancel {
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+}
+
+/* Bare native <button> otherwise renders with the browser's own gray
+   beveled chrome -- match .bew-ai-history-delete's treatment (icon-only,
+   no background) instead of leaving it unstyled. Accent hover, not danger:
+   renaming isn't destructive the way deleting is. */
+.bew-ai-preset-rename {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: none;
+	border: none;
+	padding: 0;
+	color: var(--e-a-color-txt-disabled, #8c8f94);
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.bew-ai-preset-rename:hover {
+	color: var(--bew-ai-accent);
+}
+
+.bew-ai-preset-save-row .bew-ai-preset-name-input {
+	flex: 1;
+	margin-bottom: 0;
+}
+
+.bew-ai-preset-rename-form {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.bew-ai-preset-rename-form .bew-ai-preset-name-input {
+	flex: 1;
+	margin-bottom: 0;
+	font-size: 12px;
+}
+
+.bew-ai-preset-row-label {
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--e-a-color-txt, #1d2327);
+	margin-bottom: 4px;
+}

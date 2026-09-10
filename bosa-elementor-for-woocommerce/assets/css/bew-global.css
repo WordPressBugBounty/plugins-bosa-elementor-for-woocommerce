@@ -342,3 +342,948 @@
     background-color: #ffffff;
     color: #1b1b1b;
 }
+
+/*YITH Compatibility
+************************************************************************************/
+
+.bew-elements-carousel-products ul.products li.product .product-compare-wishlist {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	width: 100%;
+	z-index: 9;
+}
+.bew-elements-widgets .product .product-compare-wishlist > div {
+	display: inline-block;
+}
+.bew-elements-carousel-products .product-wishlist {
+	margin-right: 0;
+}
+.bew-elements-carousel-products .product .product-compare a,
+.bew-elements-carousel-products .product .product-view a,
+.bew-elements-carousel-products .product .product-wishlist a {
+	opacity: 0;
+}
+.bew-elements-carousel-products .product:hover .product-compare-wishlist a,
+.bew-elements-carousel-products .product:focus .product-compare-wishlist a {
+	opacity: 1;
+}
+.bew-elements-carousel-products .product-compare-wishlist a i {
+	background-color: #ffffff;
+	border-radius: 100px;
+	line-height: 35px;
+	height: 35px;
+	text-align: center;
+	width: 35px;
+}
+.bew-elements-carousel-products .product-compare-wishlist a i {
+	color: #383838;
+	font-size: 12px;
+}
+
+/* BEW's own Compare icon -- self-contained, doesn't depend on the theme's
+ * or YITH's own compare markup, so it looks/works the same on any theme. */
+.bew-elements-products .products li.product,
+.bew-product-widget .products li.product,
+.bew-elements-carousel-products .products li.product {
+	position: relative;
+}
+/* Archive/Carousel widgets fire the theme's/YITH's compare+wishlist hook,
+ * so they keep that markup, already correctly grouped/positioned by the
+ * theme itself -- BEW's own badge is hidden there instead (below) to avoid
+ * a duplicate. Products List/Grid never fire that hook on their own (their
+ * loop is fully custom), so there's normally nothing to hide there -- and
+ * since their own opt-in "Show Compare & Wishlist Buttons" control (off by
+ * default) can render YITH's own .compare markup directly into that same
+ * scope, this must NOT blanket-hide it the way Archive/Carousel do. */
+.bew-elements-products .bew-product-compare,
+.bew-elements-carousel-products .bew-product-compare {
+	display: none !important;
+}
+/* Woo Products List has no wishlist counterpart in its own layout, so
+ * BEW's own compare-only badge looks broken/incomplete there -- remove it
+ * until this widget gets a matching wishlist icon of its own. */
+.bew-product-widget .bew-product-compare {
+	display: none !important;
+}
+.bew-product-compare {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 9;
+}
+.bew-compare-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 100px;
+	background-color: #ffffff;
+	color: #383838;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.bew-elements-products .products li.product:hover .bew-compare-link,
+.bew-product-widget .products li.product:hover .bew-compare-link,
+.bew-elements-carousel-products .products li.product:hover .bew-compare-link,
+.bew-compare-link:focus {
+	opacity: 1;
+	visibility: visible;
+}
+.bew-compare-link:hover {
+	background-color: #383838;
+	color: #ffffff;
+}
+.bew-compare-link svg {
+	flex-shrink: 0;
+}
+.bew-compare-tooltip {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	margin-top: 6px;
+	padding: 4px 8px;
+	background-color: #383838;
+	color: #ffffff;
+	font-size: 11px;
+	line-height: 1.4;
+	white-space: nowrap;
+	border-radius: 3px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease, visibility 0.2s ease;
+	pointer-events: none;
+}
+.bew-compare-link:hover .bew-compare-tooltip,
+.bew-compare-link:focus .bew-compare-tooltip {
+	opacity: 1;
+	visibility: visible;
+}
+.bew-hide-icon-group .bew-product-compare {
+	display: none !important;
+}
+
+/* Opt-in default YITH Compare/Wishlist buttons (the 7 independent
+ * product-listing widgets' own "Show Compare & Wishlist Buttons" control,
+ * off by default -- see render_bew_default_yith_buttons(), which wraps
+ * both buttons in this exact .bew-yith-buttons-group -- a class unique to
+ * this feature, so scoping through it alone is enough; no need to also
+ * list all 7 widget wrapper classes). Laid out side by side, centered.
+ * YITH's own Compare button renders as a full text/box button by default;
+ * restyle it into a plain outline-icon so it visually matches YITH's own
+ * Wishlist button, which is already icon-only. Every visual knob here
+ * (size/color/gap/tooltip) reads a --bew-yith-* custom property with a
+ * fallback matching this block's own original static values, set by
+ * register_bew_yith_buttons_control()'s Style-tab section -- pre-existing
+ * saved instances (no value for the new controls yet) render identically
+ * via the fallback. CSS only -- the element, its classes/attributes and
+ * YITH's own click handling are untouched.
+ *
+ * inline-flex (not flex): each of these 7 widgets already has its own
+ * "Alignment" control (products_alignment) setting text-align:left/
+ * center/right on an ancestor of this group, same as the title/price/
+ * rating text -- an inline-level box is positioned by that inherited
+ * text-align like any other inline content, so the icon pair follows
+ * whatever alignment the rest of the card uses without a control of its
+ * own. A block-level flex container would ignore text-align entirely. */
+.bew-yith-buttons-group {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--bew-yith-icon-gap, 12px);
+	margin-bottom: 8px;
+	/* A long inline-mode label (Label Tooltip off, see below) wraps onto a
+	 * second line instead of growing this box past its own column's width
+	 * -- inline-flex otherwise sizes to its unwrapped content, pushing a
+	 * grid/columned layout wider to fit it. */
+	max-width: 100%;
+}
+/* YITH's own base CSS sets margin:7px auto on this block -- inside a flex
+ * container, that auto margin swallows the free space and pushes it away
+ * from Compare instead of letting gap/justify-content center the pair. */
+.bew-yith-buttons-group .yith-add-to-wishlist-button-block {
+	margin: 0;
+}
+/* Positioning context for .bew-yith-tooltip-label below -- one wrap per
+ * icon, so each tooltip centers on its own icon precisely regardless of
+ * which icon it is or how many are present. min-width:0 overrides the
+ * flex-item default of min-width:auto, which otherwise refuses to shrink
+ * below the label's unwrapped width -- needed for wrapping to actually
+ * kick in rather than just overflowing. */
+.bew-yith-buttons-group .bew-yith-button-wrap {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	min-width: 0;
+}
+/* !important needed here: YITH's own CSS carries a more specific compound
+ * selector (3 classes) targeting its svg directly for color, which
+ * otherwise wins over this plain ancestor-scoped override regardless of
+ * source order. Combined into one rule with compare's color for brevity;
+ * compare has no competing rule of its own so it doesn't need this, but
+ * sharing the !important here is harmless -- nothing else targets it. */
+.bew-yith-buttons-group a.compare,
+.bew-yith-buttons-group .yith-wcwl-add-to-wishlist-button {
+	color: var(--bew-yith-icon-color, #1a1a1a) !important;
+	/* Same !important-vs-theme fight as color above (the theme's own
+	 * .woocommerce a.button rule ties this selector's specificity), so the
+	 * Icon Background Color style control is routed through this custom
+	 * property rather than a plain group-control rule that a tied,
+	 * non-important selector could never reliably beat. */
+	background: var(--bew-yith-icon-bg, none) !important;
+}
+.bew-yith-buttons-group a.compare:hover,
+.bew-yith-buttons-group .yith-wcwl-add-to-wishlist-button:hover {
+	color: var(--bew-yith-icon-hover-color, #767676) !important;
+	background: var(--bew-yith-icon-hov-bg, none) !important;
+}
+.bew-yith-buttons-group a.compare:hover,
+.bew-yith-buttons-group a.compare:focus,
+.bew-yith-buttons-group a.compare:active {
+	background: var(--bew-yith-icon-hov-bg, none) !important;
+}
+.bew-yith-buttons-group a.compare {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	padding: 0;
+	text-decoration: none;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+/* A static SVG shape used as a mask, tinted via background-color:
+ * currentColor -- the same round two-arrow refresh/sync shape as Woo
+ * YITH Compare's own .bew-icon-outline-sync below, but its own separate
+ * copy at stroke-width 1.5 (NOT kept in sync with that widget's 2.4 --
+ * this pairs with YITH's own wishlist icon here, a completely different
+ * partner icon than the dedicated widget's far fa-heart/far fa-user, so
+ * it needs its own independently-tuned weight). 1.5 is not a guess: YITH's
+ * own heart-outline.svg (yith-woocommerce-wishlist/assets/images/icons/
+ * heart-outline.svg), the actual SVG rendered next to this icon, itself
+ * declares stroke-width="1.5" in the same 24x24 viewBox -- an exact
+ * match, confirmed by reading its source directly. Unlike Font Awesome's
+ * fa-sync (a solid/filled glyph; Font Awesome 5 Free has no regular/
+ * outline "sync" at all, and tracing the solid glyph's own outline
+ * reproduces its busy internal shape rather than a clean icon). Width
+ * matches Wishlist's own SVG icon alongside it via the shared
+ * --bew-yith-icon-size custom property. */
+.bew-yith-buttons-group a.compare::before {
+	content: "";
+	display: block;
+	width: var(--bew-yith-icon-size, 18px);
+	height: var(--bew-yith-icon-size, 18px);
+	background-color: currentColor;
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='23 4 23 10 17 10'%3E%3C/polyline%3E%3Cpolyline points='1 20 1 14 7 14'%3E%3C/polyline%3E%3Cpath d='M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15'%3E%3C/path%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='23 4 23 10 17 10'%3E%3C/polyline%3E%3Cpolyline points='1 20 1 14 7 14'%3E%3C/polyline%3E%3Cpath d='M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15'%3E%3C/path%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+}
+/* !important needed: YITH's own more specific compound selector
+ * (.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button--anchor
+ * svg.yith-wcwl-icon-svg, 3 classes + 1 element) sets width/height:30px and
+ * otherwise wins over this plain ancestor-scoped override. Color is set
+ * here too (rather than relying on inheritance from the .color rule
+ * above) because YITH's own svg.yith-wcwl-add-to-wishlist-button-icon
+ * rule sets color directly on this same element -- a direct declaration
+ * always wins over an inherited one regardless of !important upstream, so
+ * only an equally-direct declaration on this element can override it. */
+.bew-yith-buttons-group .yith-wcwl-add-to-wishlist-button-icon {
+	width: var(--bew-yith-icon-size, 18px) !important;
+	height: var(--bew-yith-icon-size, 18px) !important;
+	color: var(--bew-yith-icon-color, #1a1a1a) !important;
+}
+.bew-yith-buttons-group .yith-wcwl-add-to-wishlist-button:hover .yith-wcwl-add-to-wishlist-button-icon {
+	color: var(--bew-yith-icon-hover-color, #767676) !important;
+}
+/* YITH's own label elements (Compare's plain .label span, Wishlist's
+ * JS-rendered __label span) are no longer this feature's tooltip -- see
+ * .bew-yith-tooltip-label below. Wishlist's text is baked into YITH's own
+ * JS bundle (can't be swapped per-instance) and Compare's isn't
+ * independently editable, so BEW renders its own label span for both
+ * instead (render_bew_default_yith_buttons()) and these originals are
+ * just hidden, not deleted -- deleting them would break YITH's own click
+ * handling, which is scoped to elements it rendered itself. */
+.bew-yith-buttons-group a.compare .label,
+.bew-yith-buttons-group .yith-wcwl-add-to-wishlist-button__label {
+	display: none !important;
+}
+/* Hidden unless "Label" is on (.bew-yith-show-label-yes, prefix_class on
+ * the widget wrapper -- see register_bew_yith_buttons_control()). Elementor
+ * only ever adds a prefix_class for a switcher's "on" value; there's no
+ * "off" class to select against, so the un-prefixed state has to mean Off
+ * here, not On. */
+.bew-yith-tooltip-label {
+	display: none;
+}
+/* "On": a plain inline label sitting next to its icon in normal flow --
+ * this is the default sub-state, and matches Woo YITH Compare's own
+ * widget's label when its OWN Label Tool Tip is off (an <h4> next to the
+ * icon, no bubble). Wraps onto a second line rather than pushing its
+ * column wider (see .bew-yith-buttons-group's max-width above) if the
+ * text is long. .bew-yith-button-wrap is already inline-flex, so this
+ * just falls into that row -- no positioning of its own needed. */
+.bew-yith-show-label-yes .bew-yith-tooltip-label {
+	display: inline;
+	font-size: inherit;
+	color: inherit;
+	white-space: normal;
+	overflow-wrap: break-word;
+	margin-left: 6px;
+	min-width: 0;
+}
+/* Tooltip mode instead: a hover-only bubble, fully self-contained (these 7
+ * widgets are theme-independent, so this must never lean on the active
+ * theme providing any styling) and centered on its own icon via
+ * .bew-yith-button-wrap (one wrap per icon, marked --compare/--wishlist by
+ * render_bew_default_yith_buttons()). Each icon's own tooltip control
+ * (.bew-yith-compare-tooltip-yes / .bew-yith-wishlist-tooltip-yes) can
+ * only be "yes" while "Label" is also on (its own condition requires
+ * bew_yith_buttons_show_label => yes), so matching on it alone -- without
+ * also requiring .bew-yith-show-label-yes here -- is enough. */
+.bew-yith-compare-tooltip-yes .bew-yith-button-wrap--compare .bew-yith-tooltip-label,
+.bew-yith-wishlist-tooltip-yes .bew-yith-button-wrap--wishlist .bew-yith-tooltip-label {
+	display: block;
+	/* Static defaults -- overridden per-instance by the Label style
+	 * section's own Normal Text Color/Background controls (higher
+	 * specificity via {{WRAPPER}}), which target .bew-yith-tooltip-label
+	 * directly rather than through a custom property. */
+	background-color: #1a1a1a;
+	color: #ffffff;
+	font-size: 11px;
+	line-height: initial;
+	margin-left: 0;
+	padding: 4px 10px;
+	position: absolute;
+	top: -25px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	text-align: center;
+	white-space: nowrap;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 1;
+	transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+	pointer-events: none;
+}
+.bew-yith-compare-tooltip-yes .bew-yith-button-wrap--compare:hover .bew-yith-tooltip-label,
+.bew-yith-compare-tooltip-yes .bew-yith-button-wrap--compare:focus-within .bew-yith-tooltip-label,
+.bew-yith-wishlist-tooltip-yes .bew-yith-button-wrap--wishlist:hover .bew-yith-tooltip-label,
+.bew-yith-wishlist-tooltip-yes .bew-yith-button-wrap--wishlist:focus-within .bew-yith-tooltip-label {
+	top: -35px;
+	visibility: visible;
+	opacity: 1;
+}
+
+/* Woo Product List only: this widget renders its product loop inside
+ * WooCommerce's own native `ul.products li.product` markup (the other 6
+ * widgets that call render_bew_default_yith_buttons() use Elementor's
+ * own grid/slider markup instead), so WooCommerce core's own
+ * `.woocommerce ul.products li.product .button` rule (display:
+ * inline-block; margin-top: 1em; -- higher specificity than
+ * .bew-yith-buttons-group a.compare above) reaches the compare icon
+ * here specifically, since it carries YITH's own "button" class
+ * alongside "compare". That 1em top margin was what visibly pushed the
+ * compare icon down out of line with the wishlist icon beside it.
+ * Scoped to this widget's own wrapper class so the other 6 widgets
+ * (which never needed this override) are untouched. */
+.elementor-widget-bew-elements-product-list .bew-yith-buttons-group a.compare {
+	display: inline-flex !important;
+	margin: 0 !important;
+}
+
+/* Woo Grid Products, Woo Grid Carousel and Woo Hot Deals only: their
+ * product image sits flush (or nearly flush) against
+ * .bew-yith-buttons-group with no built-in breathing room -- Grid
+ * Products' own <figure> margin already contributes ~15px, Grid
+ * Carousel's and Hot Deals' image wrappers contribute none at all, so
+ * each needs a different top margin to land on the same 20px gap.
+ * Scoped to these three widgets' own wrapper classes; the other 4
+ * widgets that call render_bew_default_yith_buttons() are untouched. */
+.elementor-widget-bew-pro-grid-products .bew-yith-buttons-group {
+	margin-top: 5px;
+}
+.elementor-widget-bew-pro-grid-carousel-products .bew-yith-buttons-group,
+.elementor-widget-bew-pro-hot-deals .bew-yith-buttons-group {
+	margin-top: 20px;
+}
+
+/* Woo YITH Compare widget's default icon (fas fa-sync) is a solid/filled
+ * glyph, visibly heavier than Woo YITH Wishlist's own default (far
+ * fa-heart, a true outline glyph) and Woo My Account's (far fa-user) --
+ * inconsistent "border width" across the three single-purpose widgets.
+ * Font Awesome 5 Free has no regular/outline style for "sync" at all
+ * (confirmed live: far fa-sync renders no glyph), so switching its icon
+ * control to far like the other two isn't possible, and tracing the
+ * solid glyph's own outline (fill:none + stroke, on either the <i> glyph
+ * via -webkit-text-stroke or the equivalent <svg> Elementor may render it
+ * as instead) reproduces that glyph's own busy internal shape rather than
+ * a clean simple icon, illegible at normal icon sizes. A hand-built
+ * stroke icon -- a round two-arrow refresh/sync shape, closer to the
+ * classic "sync" look than the earlier boxy-arrow version -- replaces it
+ * instead, at stroke-width 2.4 (empirically matched, screenshot
+ * comparison at multiple sizes, to Font Awesome regular's own visual
+ * weight, i.e. Wishlist's (far fa-heart) and My Account's (far fa-user)
+ * icons). The shared Compare & Wishlist feature's own compare icon
+ * (.bew-yith-buttons-group a.compare::before below) uses this same
+ * round shape, but its OWN separate stroke-width (1.5, not 2.4) --
+ * that icon pairs with YITH's own wishlist SVG, a different weight
+ * target than this widget's far fa-heart/far fa-user, so the two are
+ * independently tuned on purpose; don't re-sync them. Scoped to
+ * .bew-icon-outline-sync -- a class the widget's own PHP adds
+ * only while its icon control still holds the unmodified default, so a
+ * user who picks a different icon keeps seeing exactly that icon, in
+ * whichever form Elementor renders it (<i> or <svg>) for this install.
+ * Stroke color comes from --bew-compare-icon-stroke (set by this
+ * widget's own Icon Color / Icon Hover Color controls above). */
+.bew-compare-inner .bew-icon-outline-sync > * {
+	visibility: hidden;
+}
+.bew-compare-inner .bew-icon-outline-sync {
+	position: relative;
+}
+.bew-compare-inner .bew-icon-outline-sync::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1em;
+	height: 1em;
+	background-color: var(--bew-compare-icon-stroke, #1a1a1a);
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='23 4 23 10 17 10'%3E%3C/polyline%3E%3Cpolyline points='1 20 1 14 7 14'%3E%3C/polyline%3E%3Cpath d='M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15'%3E%3C/path%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='23 4 23 10 17 10'%3E%3C/polyline%3E%3Cpolyline points='1 20 1 14 7 14'%3E%3C/polyline%3E%3Cpath d='M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15'%3E%3C/path%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+}
+
+/* Woo Cart widget's default icon (fas fa-shopping-cart, a solid/filled
+ * glyph) gets the same hand-built outline-SVG treatment as Woo YITH
+ * Compare's own .bew-icon-outline-sync above -- same technique, same
+ * stroke-width 2.4, so this widget's icon reads as the same visual
+ * weight as Compare, Wishlist and My Account when used together (e.g.
+ * in a header). Scoped to .bew-icon-outline-cart -- a class the
+ * widget's own PHP adds only while its icon control still holds the
+ * unmodified default, so a user who picks a different icon keeps
+ * seeing exactly that icon. Only the rendered icon element itself
+ * (the <i> or <svg> Icons_Manager::render_icon() outputs) is hidden
+ * here, not "> *" like Compare -- this icon's own span also wraps a
+ * .bew-cart-count badge as a sibling, which must stay visible. Stroke
+ * color comes from --bew-cart-icon-stroke (set by this widget's own
+ * Icon Color / Icon Hover Color controls above). */
+.bew-cart-inner .bew-icon-outline-cart > i,
+.bew-cart-inner .bew-icon-outline-cart > svg {
+	visibility: hidden;
+}
+.bew-cart-inner .bew-icon-outline-cart::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1em;
+	height: 1em;
+	background-color: var(--bew-cart-icon-stroke, #1a1a1a);
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='21' r='1'%3E%3C/circle%3E%3Ccircle cx='20' cy='21' r='1'%3E%3C/circle%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'%3E%3C/path%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='21' r='1'%3E%3C/circle%3E%3Ccircle cx='20' cy='21' r='1'%3E%3C/circle%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'%3E%3C/path%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+}
+
+.wpcf7 .wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-checkbox):not(.wpcf7-radio) {
+	outline: none;
+}
+.bew-blog-content .read-more-blog {
+	display: inline-block;
+	border-style: solid;
+	border-width: 1px;
+	border-color: transparent;
+}
+.bew-elements-contact-forms.bew-hide-label label {
+	font-size: 0;
+}
+.bew-elements-contact-forms .wpcf7 .wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-checkbox):not(.wpcf7-radio) {
+	width: 100%;
+	padding: 0;
+}
+.bew-elements-contact-forms .wpcf7 .wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-checkbox):not(.wpcf7-radio):not(.wpcf7-textarea) {
+	height: 48px;
+	padding: 0 10px;
+}
+.bew-elements-contact-forms .wpcf7 .wpcf7-form-control.wpcf7-textarea {
+	padding: 10px;
+}
+
+/*bew yith icon size*/
+.bew-widget-inner {
+	display: inline-block;
+}
+.bew-widget-inner a {
+	display: flex;
+	align-items: center;
+}
+.bew-widget-inner a h4 {
+	display: inline-block;
+	margin-bottom: 0;
+	margin-left: 5px;
+}
+.bew-widget-inner .bew-icon {
+	display: inline-block;
+	font-size: 20px;
+}
+.bew-widget-inner .bew-icon i, .bew-widget-inner .bew-icon svg {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    display: block;
+}
+
+/*yith tooltip*/
+.elementor-widget-container .bew-widget-inner {
+	position: relative;
+}
+.elementor-widget-container .bew-tooltip {
+	background-color: #1a1a1a;
+	color: #FFFFFF;
+	font-size: 11px;
+	padding: 4px 10px;
+	position: absolute;
+	top: -25px;
+	text-align: center;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+	white-space: nowrap;
+	visibility: hidden;
+	z-index: 1;
+	-webkit-transition: top 0.4s;
+	-moz-transition: top 0.4s;
+	transition: top 0.4s;
+}
+.elementor-widget-container .bew-widget-inner:hover .bew-tooltip {
+	top: -35px;
+	visibility: visible;
+}
+
+/*yith cart icon*/
+.bew-cart-inner a {
+	display: flex;
+	align-items: center;
+}
+.bew-cart-inner .bew-icon {
+    position: relative;
+}
+.bew-cart-count {
+    background-color: #000;
+	position: absolute;
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+    border-radius: 100%;
+    color: #fff;
+    top: -9px;
+    right: -9px;
+    padding: 0px 5px;
+}
+.bew-cart-amount {
+	margin-left: 8px;
+}
+.bew-cart-amount {
+	color: #000000;
+}
+.ementor-widget-bew-element-cart {
+	position: relative;
+}
+.bew-shoping-detail-cart {
+	background-color: #fff;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 99;
+	min-width: 280px;
+}
+.bew-shoping-detail-cart {
+	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.07);
+	visibility: hidden;
+	opacity: 0;
+    padding: 15px;
+	transition: all 0.4s ease-out 0s;
+}
+.bew-shoping-detail-cart .widget_shopping_cart {
+	margin-bottom: 0;
+}
+.bew-cart-inner:hover .bew-shoping-detail-cart {
+	opacity: 1;
+	visibility: visible;
+}
+.bew-shoping-detail-cart .woocommerce a.button {
+	padding: 8px 18px;
+	font-size: 14px;
+	text-transform: capitalize;
+}
+.bew-shoping-detail-cart .woocommerce a.remove:hover {
+	background-color: transparent !important;
+	color: #494949 !important;
+	text-decoration: none;
+}
+.bew-shoping-detail-cart .woocommerce a,
+.bew-shoping-detail-cart .woocommerce a:hover {
+	text-decoration: none;
+}
+
+/*Woo - Cart
+************************************************************************************/
+
+/*open cart content on add to cart action*/
+.product-added-to-cart .bew-shoping-detail-cart {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*Woo - Dropdown Nav
+************************************************************************************/
+
+.bew-category-nav-container .bew-category-parent-label {
+	align-items: center;
+	background-color: #000;
+	display: flex;
+	color: #fff;
+	padding: 15px 20px;;
+	text-decoration: none;
+	cursor: pointer;
+	border: none;
+}
+.bew-category-nav-container .bew-category-parent-label:hover {
+	text-decoration: none;
+}
+.bew-category-nav-container .bew-icon {
+	font-size: 22px;
+	margin-right: 10px;
+}
+.bew-category-nav-container .bew-icon i, 
+.bew-category-nav-container .bew-icon svg {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    display: block;
+}
+.bew-category-nav-container .bew-category-parent-label:after {
+    display: inline-block;
+    content: "";
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: currentColor;
+    margin-left: 15px;
+}
+.bew-category-nav-container .bew-category-menu-label {
+	flex-grow: 1;
+}
+.bew-category-nav {
+	background-color: #fff;
+    border: 1px solid rgba(243, 243, 243, 0.8);
+    display: block;
+    opacity: 0;
+    top: 100%;
+    margin: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    z-index: 999;
+    transform: translateY(-2px);
+    transition: opacity 0.5s ease-in-out, 
+                transform 0.5s ease-in-out, 
+                visibility 0.5s ease-in-out;
+}
+
+.bew-category-nav-container:not(.bew-clickable):has(.bew-category-parent-label:hover, .bew-category-nav:hover) .bew-category-nav,
+.bew-category-nav-container.show .bew-category-nav {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/*dropdown nav category submenu*/
+.bew-category-nav ul {
+	margin: 0;
+	padding: 0;
+}
+.bew-category-nav ul li ul {
+	background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: none;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    width: 180px;
+    z-index: 99;
+    text-align: left;
+    -webkit-animation: slide-up 0.3s ease-out;
+    -moz-animation: slide-up 0.3s ease-out;
+    -ms-animation: slide-up 0.3s ease-out;
+    -o-animation: slide-up 0.3s ease-out;
+    animation: slide-up 0.3s ease-out;
+}
+.bew-category-nav ul li {
+	list-style: none;
+}
+.bew-category-nav ul li:hover>ul,
+.bew-category-nav ul li:focus>ul,
+.bew-category-nav ul li:active>ul {
+    display: block;
+    top: 0;
+    left: 100%;
+}
+.bew-category-nav ul li a {
+    color: #313131;
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+.bew-category-nav ul li a:hover {
+	text-decoration: none;
+}
+.bew-category-nav ul li:hover>a:after,
+.bew-category-nav ul li:focus>a:after {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.bew-category-nav ul li a {
+    border-bottom: 1px solid #f5f5f5;
+}
+.bew-category-nav ul > li:last-child a {
+    border-bottom: none;
+}
+
+/*dropdown nav category megamenu */
+.bew-category-nav .elementskit-megamenu-panel {
+	opacity: 0;
+	visibility: hidden;
+}
+.bew-category-nav ul li.menu-item-has-children {
+	position: relative;
+}
+.bew-category-nav ul > li:hover .elementskit-megamenu-panel {
+	opacity: 1;
+	visibility: visible;
+}
+.bew-category-nav-container .ekit-wid-con .elementor-icon-list-item>a {
+	padding: 0;
+}
+.bew-category-nav-container .elementskit-section-subtitle {
+	margin-bottom: 15px;
+}
+.bew-category-nav .elementskit-dropdown-has a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.bew-category-nav ul li a .icon,
+.bew-category-nav ul li a .elementskit-submenu-indicator {
+	display: inline-block;
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    margin-left: 8px;
+    -moz-transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.bew-category-nav ul li:hover>a .icon,
+.bew-category-nav ul li:focus>a .icon,
+.bew-category-nav ul li:hover>a .elementskit-submenu-indicator,
+.bew-category-nav ul li:focus>a .elementskit-submenu-indicator {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+/*Woo - Account Icon Popup
+************************************************************************************/
+
+.bew-account-login-wrapper {
+	background: #ffffff;
+    width: 90%;
+    max-width: 700px;
+    max-height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 40px 50px 45px 50px;
+    z-index: 999999;
+    overflow-y: auto;
+    -webkit-box-shadow: 300px 0 0 1900px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 300px 0 0 1900px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-out 0s;
+    -moz-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    transition: all 0.4s ease-out 0s;
+}
+.bew-show-popup-login .bew-account-login-wrapper {
+    visibility: visible;
+    opacity: 1;
+}
+.bew-account-login-inner .woocommerce form.login {
+    margin-bottom: 0;
+	border: none !important;
+    padding: 0;
+}
+.bew-account-login-inner .woocommerce form.login .input-text {
+	padding: 1em;
+}
+.bew-account-login-inner .bew-toggle-icon {
+	float: right;
+}
+.bew-account-login-inner .bew-toggle-icon i {
+	font-size: 24px;
+    color: #cfc8d8;
+	-webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -ms-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+}
+.bew-account-login-inner .bew-toggle-icon i:hover,
+.bew-account-login-inner .bew-toggle-icon i:focus,
+.bew-account-login-inner .bew-toggle-icon i:active {
+	color: #18271f;
+}
+
+/*Woo - Search
+************************************************************************************/
+
+.bew-product-search-form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.bew-product-search-form .bew-product-search-input {
+	flex-grow: 1;
+}
+.bew-product-search-form .bew-product-search-select {
+	flex-grow: 1;
+}
+.bew-product-search-form .bew-product-search-input input,
+.bew-product-search-form .bew-product-search-select select {
+	width: 100%;
+	border: 1px solid #ecebeb;
+}
+.bew-product-search-input input {
+	height: auto;
+	padding: 14px;
+}
+.bew-product-search-select .bew-select-styled {
+	border: 1px solid #ecebeb;
+	padding: 10px 15px 11px 15px;
+}
+.bew-product-search-form .bew-search-submit button {
+	padding: 13px 25px 14px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ecebeb;
+	margin-left: -1px;
+	cursor: pointer;
+}
+.bew-search-submit button svg {
+	width: 1em;
+	height: 1em;
+	font-size: 18px;
+	display: block;
+}
+
+/* Custom category select — built by bew_init_search_select() in bew-admin-script.js */
+.bew-select-hidden {
+	display: none;
+	visibility: hidden;
+	padding-right: 10px;
+	position: absolute;
+	z-index: -1;
+}
+.bew-select-wrap {
+	cursor: pointer;
+	position: relative;
+	margin-left: -1px;
+}
+.bew-select-styled:after {
+	content: "";
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-color: #313131 transparent transparent transparent;
+	position: absolute;
+	top: 55%;
+	right: 15px;
+	transform: translate(0, -50%);
+}
+.bew-select-options {
+	background-color: #313131;
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	left: 0;
+	z-index: 99999;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.bew-select-options li {
+	color: #fff;
+	padding: 5px 10px;
+}
+.bew-select-options li.bew-is-selected,
+.bew-select-options li:hover {
+	background-color: #393939;
+}
+.bew-select-options li[rel="hide"] {
+	display: none;
+}
+
+/*Editor Error
+************************************************************************************/
+
+.bew-editor-error,
+.bew-error {
+	padding: 10px 10px 10px 15px;
+	border: 1px solid #c3c4c7;
+	border-left-width: 4px;
+	border-left-color: #d63638;
+}
+body:not(.elementor-editor-active) .bew-editor-error {
+	display: none;
+}

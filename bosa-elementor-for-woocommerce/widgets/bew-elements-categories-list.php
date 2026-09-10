@@ -2,6 +2,10 @@
 
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class BEW_Categories_List extends BEW_Settings {
 	
 	public function get_name() {
@@ -9,7 +13,7 @@ class BEW_Categories_List extends BEW_Settings {
 	}
 	
 	public function get_title() {
-		return __( 'Woo - Categories List', 'bosa-elementor-for-woocommerce' );
+		return __( 'Woo Categories List', 'bosa-elementor-for-woocommerce' );
 	}
 	
 	public function get_icon() {
@@ -25,7 +29,7 @@ class BEW_Categories_List extends BEW_Settings {
 	}
 
 	public function get_help_url() {
-		return 'https://bosathemes.com/docs/bosa-elementor-for-woocommerce/how-to-use-plugin-widgets/how-to-setup-categories-list/';
+		return 'https://bew.bosathemes.com/docs/how-to-use-plugin-widgets/how-to-setup-categories-list/';
 	}
 
     protected function register_controls() {
@@ -433,7 +437,7 @@ class BEW_Categories_List extends BEW_Settings {
             }else {
                 $image[0] = wc_placeholder_img_src();
             } ?>
-            <div class="products-cat-image <?php print_r( $thumbnail_id ); ?>"> 
+            <div class="products-cat-image <?php echo esc_attr( $thumbnail_id ); ?>"> 
 				<img class="categoryimage" src="<?php echo esc_url( $image[0] ); ?>">
 				
 			</div>
@@ -521,7 +525,7 @@ class BEW_Categories_List extends BEW_Settings {
 	                	$term = get_term_by( 'id', $key, 'product_cat' );  
 	                    if( !$term || ( $source == 'manual-selection' && $term->count == 0 && $hide_empty != false ) ) continue;
 	            		?>
-	                    <div class="product-wrapper product-category product">
+	                    <div class="product-wrapper product-category product" data-bew-term-id="<?php echo esc_attr( $key ); ?>">
 	                       <?php $this->get_category_link($key); ?>
 	                            <div class="products-cat-wrap">
                                    <?php $this->get_category_image($key); ?>

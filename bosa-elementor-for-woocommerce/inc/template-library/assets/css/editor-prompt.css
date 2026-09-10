@@ -1,0 +1,207 @@
+/**
+ * BEW Template Library — Missing plugin prompt styles.
+ *
+ * @package Bosa_Elementor_WooCommerce
+ */
+
+/* ── Outer wrapper ──────────────────────────────────────────────────────────── */
+.bew-template-library-plugin-prompt {
+	padding: 20px;
+	margin: 20px 0;
+}
+
+/* ── Notice card ────────────────────────────────────────────────────────────── */
+.bew-plugin-notice {
+	background: #fff;
+	border: 1px solid #e8e8e8;
+	border-left: 4px solid #ffc107;
+	border-radius: 4px;
+	padding: 20px;
+	display: flex;
+	gap: 15px;
+	align-items: flex-start;
+}
+
+.bew-plugin-notice.elementor-message-warning {
+	border-left-color: #ffc107;
+}
+
+/* ── Icon ───────────────────────────────────────────────────────────────────── */
+.bew-plugin-notice .elementor-message-icon {
+	flex-shrink: 0;
+}
+
+.bew-plugin-notice .elementor-message-icon i {
+	font-size: 24px;
+	color: #ffc107;
+	line-height: 1;
+}
+
+/* ── Text content ───────────────────────────────────────────────────────────── */
+.bew-plugin-notice .elementor-message-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.bew-plugin-notice .elementor-message-content h3 {
+	margin: 0 0 8px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #1e1e1e;
+}
+
+.bew-plugin-notice .elementor-message-content > p {
+	margin: 0 0 15px;
+	font-size: 14px;
+	color: #555d66;
+	line-height: 1.5;
+}
+
+/* ── Plugin list ────────────────────────────────────────────────────────────── */
+.bew-plugins-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.bew-plugin-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px;
+	background: #f9f9f9;
+	border: 1px solid #e8e8e8;
+	border-radius: 3px;
+}
+
+.bew-plugin-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.bew-plugin-info h4 {
+	margin: 0 0 3px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #1e1e1e;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.bew-plugin-info p {
+	margin: 0;
+	font-size: 12px;
+	color: #555d66;
+}
+
+.bew-plugin-action {
+	flex-shrink: 0;
+	margin-left: 12px;
+}
+
+/* ── Install button ─────────────────────────────────────────────────────────── */
+.bew-install-plugin {
+	padding: 7px 14px !important;
+	font-size: 13px !important;
+	min-width: 140px !important;
+	text-align: center !important;
+	border-radius: 3px !important;
+	cursor: pointer;
+	position: relative;
+	transition: opacity 0.2s;
+}
+
+.bew-install-plugin:hover:not( :disabled ) {
+	opacity: 0.9;
+}
+
+.bew-install-plugin:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.bew-install-plugin.loading {
+	color: transparent !important;
+}
+
+.bew-install-plugin.loading::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -8px 0 0 -8px;
+	width: 16px;
+	height: 16px;
+	border: 2px solid rgba( 255, 255, 255, 0.35 );
+	border-radius: 50%;
+	border-top-color: #fff;
+	animation: bew-tl-spin 0.8s linear infinite;
+}
+
+.bew-install-plugin.success {
+	background-color: #28a745 !important;
+	color: #fff !important;
+	border-color: #28a745 !important;
+}
+
+/* ── Status messages ────────────────────────────────────────────────────────── */
+.bew-message {
+	padding: 10px 14px;
+	margin-bottom: 8px;
+	border-radius: 3px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	animation: bew-tl-slide-in 0.25s ease;
+}
+
+.bew-message.bew-success {
+	background: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+}
+
+.bew-message.bew-error {
+	background: #f8d7da;
+	color: #721c24;
+	border: 1px solid #f5c6cb;
+}
+
+.bew-message.fade-out {
+	animation: bew-tl-fade-out 0.3s ease forwards;
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────────── */
+@keyframes bew-tl-spin {
+	to { transform: rotate( 360deg ); }
+}
+
+@keyframes bew-tl-slide-in {
+	from { opacity: 0; transform: translateY( -8px ); }
+	to   { opacity: 1; transform: translateY( 0 ); }
+}
+
+@keyframes bew-tl-fade-out {
+	from { opacity: 1; transform: translateY( 0 ); }
+	to   { opacity: 0; transform: translateY( -8px ); }
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media ( max-width: 600px ) {
+	.bew-plugin-item {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.bew-plugin-action {
+		margin-left: 0;
+		margin-top: 10px;
+		width: 100%;
+	}
+
+	.bew-install-plugin {
+		width: 100% !important;
+	}
+}

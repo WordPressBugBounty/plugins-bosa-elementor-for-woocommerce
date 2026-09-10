@@ -538,8 +538,8 @@
     text-decoration: none;
 }
 .bew-elements-grid-products ul li h2.woocommerce-loop-product__title {
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 600;
 }
 .bew-elements-grid-products ul li a:hover h2.woocommerce-loop-product__title {
     color: #086abd;
