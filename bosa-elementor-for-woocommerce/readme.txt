@@ -3,7 +3,7 @@ Contributors: bosathemes
 Tags: elementor addons, ai builder, template library, woocommerce widgets, elementor widgets
 Requires at least: 6.9
 Tested up to: 7.1
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 Requires PHP: 7.4
 Requires Plugins: elementor
 License: GNU General Public License v2 or later
@@ -135,7 +135,9 @@ Connect your preferred AI provider under BEW → Settings → AI Builder and ent
 
 This plugin connects to the Bosa Themes template service at https://demo.bosathemes.com/bosa/ to retrieve template listings, preview data, and template content for the Template Library functionality. This connection is required to display and import templates into your website.
 
-No personal data, user information, or site content is transmitted. Only read-only requests for template metadata and content are made.
+These requests include your site's URL (sent as part of the request headers) so the service can identify which site is connecting. No personal data, user information, or site content is transmitted -- only read-only requests for template metadata and content are made.
+
+If a template requires a third-party plugin that isn't already installed, and you choose to install it directly from the template import screen, that installation request is sent to the WordPress.org plugin repository, not to our servers.
 
 Service URL: https://demo.bosathemes.com/bosa/
 Privacy Policy: https://bosathemes.com/privacy-policy/
@@ -169,6 +171,11 @@ No. Elementor Pro is not required.
 3. Ai-powered Content Generator
 
 == Changelog ==
+
+= 2.1.1 =
+= Fixed =
+* Rollback to Previous Version could offer a version newer than the one installed
+* Security and code-quality hardening (escaping, sanitization, and i18n fixes) ahead of a Plugin Check pass
 
 = 2.1.0 =
 = Added =

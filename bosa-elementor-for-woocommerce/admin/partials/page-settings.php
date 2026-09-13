@@ -2,7 +2,7 @@
 /**
  * BEW Settings Page
  *
- * Five tabs: Widgets | Templates | Modules | AI Integration | General
+ * Five tabs: General | Widgets | Templates | Modules | AI Integration
  * The Templates tab controls only the Elementor editor Template Library modal.
  * The AI Integration tab manages user-supplied AI provider API keys.
  */
@@ -29,7 +29,10 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 	?>
 
 	<div class="bew-tab-nav">
-		<button class="bew-tab-button active" data-tab="widgets">
+		<button class="bew-tab-button active" data-tab="general">
+			<?php esc_html_e( 'General', 'bosa-elementor-for-woocommerce' ); ?>
+		</button>
+		<button class="bew-tab-button" data-tab="widgets">
 			<?php esc_html_e( 'Widgets', 'bosa-elementor-for-woocommerce' ); ?>
 		</button>
 		<button class="bew-tab-button" data-tab="templates">
@@ -45,13 +48,10 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 				<span class="bew-beta-tag"><?php esc_html_e( 'Beta', 'bosa-elementor-for-woocommerce' ); ?></span>
 			<?php endif; ?>
 		</button>
-		<button class="bew-tab-button" data-tab="general">
-			<?php esc_html_e( 'General', 'bosa-elementor-for-woocommerce' ); ?>
-		</button>
 	</div>
 
-	<!-- Tab: Widgets (default active) -->
-	<div class="bew-tab-content active" id="bew-tab-widgets">
+	<!-- Tab: Widgets -->
+	<div class="bew-tab-content" id="bew-tab-widgets" style="display:none;">
 		<h3><?php esc_html_e( 'Widgets', 'bosa-elementor-for-woocommerce' ); ?></h3>
 		<p><?php esc_html_e( 'Enable or disable widgets. Disabled widgets will not appear in Elementor.', 'bosa-elementor-for-woocommerce' ); ?></p>
 
@@ -269,12 +269,12 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 				<?php
 				printf(
 					/* translators: 1: opening <strong><a> tags linking to the Store Hub demo, 2: closing </a></strong> tags, 3: opening <strong><a> tags linking to the Store Hub Pro demo, 4: closing </a></strong> tags, 5: opening <strong> tags linking to the Template Library, 6: closing </strong> tags */
-					esc_html__( 'Notice: All existing Free & Pro templates previews have been moved to %1$sStore Hub%2$s. They can now be imported directly from the %3$sTemplate Library%4$s within the Elementor editor, just like any other template. For more details, please refer to the %5$sHow to Import Templates%6$s guide.', 'bosa-elementor-for-woocommerce' ),
+					esc_html__( 'Notice: All existing Free & Pro templates previews have been moved to %1$sStore Hub%2$s. They can now be imported directly from the %3$sTemplate Library%4$s within the Elementor editor, just like any other template. For more details, please refer to the %5$sHow to Insert Templates%6$s guide.', 'bosa-elementor-for-woocommerce' ),
 					'<strong><a href="' . esc_url( 'https://demo.bosathemes.com/bosa/store-hub-pro/' ) . '" target="_blank" rel="noopener noreferrer">',
 					'</a></strong>',
 					'<strong>',
 					'</strong>',
-					'<strong><a href="' . esc_url( 'https://bew.bosathemes.com/docs/how-to-import-templates/' ) . '" target="_blank" rel="noopener noreferrer">',
+					'<strong><a href="' . esc_url( 'https://bew.bosathemes.com/docs/how-to-insert-templates/' ) . '" target="_blank" rel="noopener noreferrer">',
 					'</a></strong>'
 				);
 				?>
@@ -520,8 +520,8 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 		</table>
 	</div>
 
-	<!-- Tab: General -->
-	<div class="bew-tab-content" id="bew-tab-general" style="display:none;">
+	<!-- Tab: General (default active) -->
+	<div class="bew-tab-content active" id="bew-tab-general">
 		<h3><?php esc_html_e( 'General', 'bosa-elementor-for-woocommerce' ); ?></h3>
 
 		<?php $rollback_version = BEW_Plugin_Settings::get_rollback_version(); ?>

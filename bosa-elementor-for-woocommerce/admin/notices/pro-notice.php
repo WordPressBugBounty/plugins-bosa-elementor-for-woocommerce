@@ -77,12 +77,12 @@ if (!class_exists('Bew_Upgrade_Notice')) {
                             echo '<img id="" src="'.esc_url( $img_url ).'" />';
                         echo '</div>';
                         echo '<div class="getting-content">';
-                            echo '<h2 class="notice-title">' . esc_html( 'BEW Pro' ) . '</h2>';
+                            echo '<h2 class="notice-title">' . esc_html( 'Upgrade to BEW Pro — 2,500+ Templates, Premium Widgets, Modules & AI Builder' ) . '</h2>';
                             echo '<div class="bew-demo-info-list">';
-                            echo '<div><p>' . wp_kses( 'Enhance your website building experience with powerful Elementor widgets, modules, and 2,500+ready-to-use template library & AI-powered Content Generation for seamless customization and improved workflow efficiency.', array( 'br' => array() ) ) . '</p></div>';
+                            echo '<div><p>' . wp_kses( 'Unlock Premium Elementor widgets, modules, ready-to-use templates & AI Content Generations — all without leaving the editor.', array( 'br' => array() ) ) . '</p></div>';
                             echo '</div>';
                             echo '<div class="quick-link">';
-                                echo '<a href="' . esc_url( 'https://bew.bosathemes.com/pricing' ) . '" class="button button-primary bew-upgrade-pro" target="_blank">' . esc_html( 'Upgrade To Pro' ) . '</a>';
+                                echo '<a href="' . esc_url( 'https://bew.bosathemes.com/pricing' ) . '" class="button button-primary bew-upgrade-pro" target="_blank">' . esc_html( 'Upgrade Now' ) . '</a>';
                                 echo '<button class="button button-transparent  bew-remind-me-later" >' . esc_html( 'Remind Me Later' ) . '</button>';
                             echo '</div>';
                          echo '</div>';

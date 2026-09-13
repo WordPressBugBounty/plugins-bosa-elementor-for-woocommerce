@@ -3,7 +3,7 @@
 Plugin Name: BEW - Elementor Addons, Templates & AI Builder
 Plugin URI: https://bew.bosathemes.com
 Description: Enhance your website building experience with powerful Elementor widgets and a versatile, ready-to-use template library & AI-powered Content Generation for seamless customization and improved workflow efficiency.
-Version:     2.1.0
+Version:     2.1.1
 Requires at least: 6.9
 Requires PHP: 7.4
 Requires Plugins: elementor
@@ -17,7 +17,7 @@ Text Domain: bosa-elementor-for-woocommerce
 
 if (!defined('ABSPATH')) exit;
 
-define('BEW_VERSION', '2.1.2');
+define('BEW_VERSION', '2.1.1');
 
 define('BEW_FILE', __FILE__);
 define('BEW_PLUGIN_BASENAME', plugin_basename(BEW_FILE));
@@ -68,7 +68,12 @@ if ( is_admin() || wp_doing_cron() ) {
 
     add_action( 'admin_init', function () {
         $stored = BEW_Plugin_Settings::get( 'current_version', '' );
-        if ( $stored && $stored !== BEW_VERSION ) {
+        // Only treat this as an upgrade (and shift the rollback target) when the
+        // stored version is genuinely older -- a `!==` check here would also fire
+        // on a lateral/backward BEW_VERSION change (e.g. a cache-busting bump
+        // during dev that never got reverted), recording a "previous" version
+        // that's actually newer than what's running.
+        if ( $stored && version_compare( $stored, BEW_VERSION, '<' ) ) {
             BEW_Plugin_Settings::save( 'previous_version', $stored );
             delete_transient( 'bew_rollback_version' );
         }

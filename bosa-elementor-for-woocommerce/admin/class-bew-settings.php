@@ -77,7 +77,7 @@ class BEW_Plugin_Settings {
 
 	public static function get_rollback_version() {
 		$stored = self::get( 'previous_version', '' );
-		if ( $stored && version_compare( $stored, self::ROLLBACK_MIN_VERSION, '>=' ) ) {
+		if ( $stored && version_compare( $stored, self::ROLLBACK_MIN_VERSION, '>=' ) && version_compare( $stored, BEW_VERSION, '<' ) ) {
 			return $stored;
 		}
 
