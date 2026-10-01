@@ -17,6 +17,7 @@ function bew_render_card( $args = [] ) {
 		'toggle_type'  => 'setting',
 		'badge'        => '',
 		'pro'          => false,
+		'disabled'     => false,
 		'demo_link'    => '',
 		'demo_text'    => __( 'VIEW DEMO', 'bosa-elementor-for-woocommerce' ),
 		'class'        => '',
@@ -30,6 +31,9 @@ function bew_render_card( $args = [] ) {
 	}
 	if ( $args['pro'] ) {
 		$card_classes .= ' bew-card-pro';
+	}
+	if ( $args['disabled'] ) {
+		$card_classes .= ' bew-card-disabled';
 	}
 	?>
 	<div class="<?php echo esc_attr( $card_classes ); ?>">
@@ -48,6 +52,7 @@ function bew_render_card( $args = [] ) {
 					id="<?php echo esc_attr( $args['toggle_id'] ); ?>"
 					class="bew-widget-toggle"
 					<?php echo $args['toggle_state'] ? 'checked' : ''; ?>
+					<?php echo $args['disabled'] ? 'disabled' : ''; ?>
 					data-widget="<?php echo esc_attr( $args['toggle_id'] ); ?>"
 					data-type="<?php echo esc_attr( $args['toggle_type'] ); ?>"
 					data-pro="<?php echo $args['pro'] ? '1' : '0'; ?>"

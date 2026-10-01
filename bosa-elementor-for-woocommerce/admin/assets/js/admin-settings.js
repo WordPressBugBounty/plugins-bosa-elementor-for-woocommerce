@@ -88,6 +88,11 @@
 					if ( cb.dataset.pro === '1' && ! bewAdmin.isProActive ) {
 						return;
 					}
+					// Disabled toggles (WooCommerce widgets while WooCommerce is
+					// inactive) keep their saved state: never send them.
+					if ( cb.disabled ) {
+						return;
+					}
 					toggles[ cb.dataset.widget ] = cb.checked ? 1 : 0;
 				} );
 			}

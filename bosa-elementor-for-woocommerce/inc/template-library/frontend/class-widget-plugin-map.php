@@ -97,6 +97,25 @@ class Bosa_Ewc_Widget_Plugin_Map {
 				continue;
 			}
 
+			// BEW's WooCommerce widgets are deliberately left unregistered while
+			// WooCommerce is inactive (see BEW::register_widgets()). The generic
+			// "bew-" hint below would then read as "BEW is active, nothing
+			// missing", so name WooCommerce as the missing dependency first --
+			// the import dialog then offers to install/activate it before import.
+			if ( class_exists( 'BEW' ) && ! class_exists( 'WooCommerce' ) ) {
+				$woo_widget_title = BEW::woo_widget_title( $type );
+				if ( null !== $woo_widget_title ) {
+					$result[ $type ] = [
+						'widget_type'  => $type,
+						'widget_label' => $woo_widget_title,
+						'plugin_slug'  => 'woocommerce',
+						'plugin_name'  => 'WooCommerce',
+						'is_active'    => false,
+					];
+					continue;
+				}
+			}
+
 			if ( $registry_loaded ) {
 				if ( isset( $active_map[ $type ] ) ) {
 					$result[ $type ] = [

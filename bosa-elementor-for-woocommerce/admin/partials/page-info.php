@@ -74,7 +74,7 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 		if ( ! $bew_is_pro_active ) {
 			bew_render_box( [
 				'title'        => __( 'Need More Features?', 'bosa-elementor-for-woocommerce' ),
-				'description'  => __( 'Upgrade to Pro & unlock premium widgets, modules, 2,500+ templates, & AI-powered Content Generation.', 'bosa-elementor-for-woocommerce' ),
+				'description'  => __( 'Upgrade to Pro & unlock premium widgets, modules, 3,000+ templates, & AI-powered Content Generation.', 'bosa-elementor-for-woocommerce' ),
 				'button_text'  => __( 'View Pricing', 'bosa-elementor-for-woocommerce' ),
 				'button_link'  => 'https://bew.bosathemes.com/pricing',
 				'button_class' => 'primary',

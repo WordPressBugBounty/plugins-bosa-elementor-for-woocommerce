@@ -570,6 +570,66 @@
     background-color: #086abd;
     color: #FFFFFF;
 }
+/*woo grid products widget css (moved here from BEW Pro)*/
+/***************************************************************************************************/
+.bew-pro-grid-products.bew-match-height-product-grid ul.products {
+    align-items: stretch;
+}
+.bew-pro-grid-products ul.products {
+    align-items: start;
+}
+.bew-pro-grid-products li.product {
+    overflow: clip;
+}
+.bew-pro-grid-products .bew-grid-product-image {
+    position: relative;
+    z-index: 1;
+}
+.bew-pro-grid-products .bew-grid-product-image img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.bew-pro-grid-products.bew-match-height-product-grid ul.products li.product {
+    display: grid;
+    align-content: space-between;
+}
+.bew-pro-grid-products ul li a.woocommerce-loop-product__link {
+    display: block;
+    text-decoration: none;
+}
+.bew-pro-grid-products ul li h2.woocommerce-loop-product__title {
+    font-size: 16px;
+    font-weight: 600;
+}
+.bew-pro-grid-products ul li a:hover h2.woocommerce-loop-product__title {
+    color: #086abd;
+}
+.bew-pro-grid-products ul li .star-rating {
+    margin-bottom: 5px;
+}
+.bew-pro-grid-products ul li .price {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #414141;
+    margin-top: 0;
+}
+.bew-pro-grid-products ul li .price del {
+    color: inherit;
+    opacity: 0.5;
+}
+.bew-pro-grid-products ul li .bew-cart-button a.button {
+    text-decoration: none;
+}
+.bew-pro-grid-products ul li .bew-cart-button a.added_to_cart {
+    text-decoration: none;
+    display: block;
+    padding: 0;
+}
+.bew-pro-grid-products ul li .bew-cart-button a.button:hover {
+    background-color: #086abd;
+    color: #FFFFFF;
+}
 /*All Screen Media Query*/
 @media only screen and (max-width: 1199px) {
     .bew-elements-product-slider .owl-nav button.owl-prev {

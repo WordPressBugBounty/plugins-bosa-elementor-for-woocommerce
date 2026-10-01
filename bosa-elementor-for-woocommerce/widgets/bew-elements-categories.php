@@ -330,9 +330,17 @@ class BEW_Categories extends BEW_Settings {
 
 		$this->get_border_radius( 'img_border_radius', esc_html__( 'Border Radius', 'bosa-elementor-for-woocommerce' ), '.bew-elements-product-categories li.product img', 'border-radius' );
 
-		$this->get_margin( 'img_margin', '.bew-elements-product-categories li.product img' );
-
-		$this->get_padding( 'img_padding', '.bew-elements-product-categories li.product img' );
+		// Targets the image's own wrapper (div.products-cat-image), not the
+		// <img> itself: WooCommerce's own core CSS forces every product-loop
+		// image to width:100% (.woocommerce ul.products li.product a img),
+		// and this wrapper is a plain div with no width of its own -- so
+		// padding directly on the <img> had no visible effect at all (same
+		// bug fixed on Woo Grid Products' img_padding). Padding on the
+		// wrapper shrinks it to fit as expected, and the 100%-width image
+		// scales down to match. (No separate Image Margin control -- it would
+		// shrink the same wrapper the same way, so it's a duplicate of this
+		// one; padding alone covers the use case.)
+		$this->get_padding( 'img_padding', '.bew-elements-product-categories li.product .products-cat-image' );
 
 		$this->end_controls_section();
 

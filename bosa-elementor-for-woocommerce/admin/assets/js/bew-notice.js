@@ -24,7 +24,20 @@ jQuery(document).ready(function($){
         });
     });
 
-    //BEW Pro Admin Page Notice 
+    // The X in the corner hides the notice for 30 days, same as its "Dismiss" link.
+    // WordPress already fades the notice out; this makes it stay hidden.
+    $(document).on( 'click', '.bew-rating-notice .notice-dismiss', function() {
+        $.ajax({
+            url: BEW_NOTICE.ajaxurl,
+            type: 'POST',
+            data: {
+                nonce: BEW_NOTICE.nonce,
+                action: 'bew_rating_top_dismiss',
+            },
+        });
+    });
+
+    //BEW Pro Admin Page Notice
     $(document).on( 'click', '.bew-remind-me-later', function() {
         $(document).find('.bew-pro-notice').slideUp();
          $.ajax({
@@ -39,6 +52,17 @@ jQuery(document).ready(function($){
     $(document).on( 'click', '#bew-upgrade-dismiss', function() {
         $(document).find('.bew-pro-notice').slideUp();
          $.ajax({
+            url: BEW_UPGRADE.ajaxurl,
+            type: 'POST',
+            data: {
+                nonce: BEW_UPGRADE.dismiss_nonce,
+                action: 'bew_upgrade_notice_dismiss',
+            },
+        });
+    });
+    // The X in the corner does what "Dismiss" does: hide the notice for 30 days.
+    $(document).on( 'click', '.bew-pro-notice .notice-dismiss', function() {
+        $.ajax({
             url: BEW_UPGRADE.ajaxurl,
             type: 'POST',
             data: {

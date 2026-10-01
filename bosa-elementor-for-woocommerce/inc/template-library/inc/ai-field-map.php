@@ -78,6 +78,14 @@ function bosa_ewc_get_ai_field_map() {
 		'bew_yith_buttons_compare_label'  => 'button_label',
 		'bew_yith_buttons_wishlist_label' => 'button_label',
 	);
+	// Woo Grid Products moved from BEW Pro into this plugin in 2.1.2. BEW Pro
+	// still registers the same entry for itself -- identical keys, so the
+	// overlap is harmless.
+	$map['bew-pro-grid-products'] = array(
+		'_anchor'                          => 'bew_yith_buttons_show_label',
+		'bew_yith_buttons_compare_label'  => 'button_label',
+		'bew_yith_buttons_wishlist_label' => 'button_label',
+	);
 	// Only the button's own label -- title/excerpt/content are per-post
 	// WP_Post data, not this widget's own settings, so BEW Pro's Blog
 	// Generator (a separate, content-adapter-based card; see

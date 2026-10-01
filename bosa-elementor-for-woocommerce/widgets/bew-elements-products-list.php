@@ -517,9 +517,19 @@ class BEW_Products_list extends BEW_Settings {
 
 		$this->get_border_radius( 'img_border_radius', esc_html__( 'Border Radius', 'bosa-elementor-for-woocommerce' ), '.woocommerce ul.products li.product img', 'border-radius' );
 
-		$this->get_margin( 'img_margin', '.woocommerce ul.products li.product img' );
-
-		$this->get_padding( 'img_padding', '.woocommerce ul.products li.product img' );
+		// Targets the image's own wrapper (figure.woo-product-image), not the
+		// <img> itself: WooCommerce's own core CSS forces every product-loop
+		// image to width:100% (.woocommerce ul.products li.product a img), so
+		// padding directly on the <img> had no visible effect at all (same
+		// bug fixed on Woo Grid Products' img_padding). This wrapper has its
+		// own explicit width (assets/style.css: 40%, for the side-by-side
+		// image/content layout), but Elementor's own box-sizing:border-box
+		// reset keeps padding inside that width rather than adding to it, so
+		// it shrinks the image as expected without upsetting the 40/60 split.
+		// (No separate Image Margin control -- margin isn't included in
+		// border-box, so it would push past that 40% instead of shrinking
+		// within it; padding alone is the correct, safe option here.)
+		$this->get_padding( 'img_padding', '.woocommerce ul.products li.product .woo-product-image' );
 
 		$this->end_controls_section();
 

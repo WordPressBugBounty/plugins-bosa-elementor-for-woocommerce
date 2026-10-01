@@ -7,7 +7,7 @@ var BosaTemplatesCollection = Backbone.Collection.extend({
 	/* Map tab slugs (plural) → API type param (singular). */
 	_tabTypeMap: { kits: 'kit', pages: 'page', sections: 'section' },
 
-	state: { type: 'page', page: 1, per_page: 60, search: '', category: '' },
+	state: { type: 'kit', page: 1, per_page: 60, search: '', category: '' },
 
 	initialize: function () {
 		this.totalPages           = 1;

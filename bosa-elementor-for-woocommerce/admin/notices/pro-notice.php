@@ -77,7 +77,7 @@ if (!class_exists('Bew_Upgrade_Notice')) {
                             echo '<img id="" src="'.esc_url( $img_url ).'" />';
                         echo '</div>';
                         echo '<div class="getting-content">';
-                            echo '<h2 class="notice-title">' . esc_html( 'Upgrade to BEW Pro — 2,500+ Templates, Premium Widgets, Modules & AI Builder' ) . '</h2>';
+                            echo '<h2 class="notice-title">' . esc_html( 'Upgrade to BEW Pro — 3,000+ Templates, Premium Widgets, Modules & AI Builder' ) . '</h2>';
                             echo '<div class="bew-demo-info-list">';
                             echo '<div><p>' . wp_kses( 'Unlock Premium Elementor widgets, modules, ready-to-use templates & AI Content Generations — all without leaving the editor.', array( 'br' => array() ) ) . '</p></div>';
                             echo '</div>';

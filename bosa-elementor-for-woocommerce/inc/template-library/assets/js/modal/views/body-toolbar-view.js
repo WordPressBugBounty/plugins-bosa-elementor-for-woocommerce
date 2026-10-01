@@ -6,14 +6,14 @@ var BosaBodyToolbarView = Marionette.ItemView.extend({
 
 	className: 'bosa-tk-body-toolbar elementor-template-library-filter-toolbar',
 
-	currentTab: 'pages',
+	currentTab: 'kits',
 
 	_tabTypeMap: { kits: 'kit', pages: 'page', sections: 'section' },
 
 	serializeData: function () {
 		var i18n = BEWTemplateLibraryModal.i18n;
 		var tabs = i18n.search_tabs || {};
-		var placeholder = ( tabs[ this.currentTab ] || tabs.pages || i18n.search || 'Search templates…' ).toUpperCase();
+		var placeholder = ( tabs[ this.currentTab ] || tabs.kits || i18n.search || 'Search templates…' ).toUpperCase();
 
 		return {
 			categoryLabel: this.escapeAttr( i18n.category_label || 'Category' ),
@@ -149,7 +149,7 @@ var BosaBodyToolbarView = Marionette.ItemView.extend({
 	},
 
 	setActiveTab: function ( tab ) {
-		this.currentTab = tab || 'pages';
+		this.currentTab = tab || 'kits';
 		this.render();
 		this.syncCategoryDropdown();
 	},

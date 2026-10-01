@@ -570,9 +570,16 @@ class BEW_Carousel_Products extends BEW_Settings {
 
 		$this->get_border_radius( 'img_border_radius', esc_html__( 'Border Radius', 'bosa-elementor-for-woocommerce' ), '.bew-elements-carousel-products li.product img', 'border-radius' );
 
-		$this->get_margin( 'img_margin', '.bew-elements-carousel-products li.product img' );
-
-		$this->get_padding( 'img_padding', '.bew-elements-carousel-products li.product img' );
+		// Targets the image's own wrapper (figure.woo-product-image), not the
+		// <img> itself: Owl Carousel's own CSS forces every slide image to
+		// width:100% (.owl-item img), so padding placed directly on the <img>
+		// can't shrink it -- it only pushes/expands the image past its slide's
+		// edge (same class of bug fixed on Woo Grid Products). The wrapper has
+		// no width of its own, so padding on it shrinks to fit as expected,
+		// and the 100%-width image scales down to match. (No separate Image
+		// Margin control -- it would shrink the same wrapper the same way, so
+		// it's a duplicate of this one; padding alone covers the use case.)
+		$this->get_padding( 'img_padding', '.bew-elements-carousel-products li.product .woo-product-image' );
 
 		$this->end_controls_section();
 
@@ -839,7 +846,6 @@ class BEW_Carousel_Products extends BEW_Settings {
 			$products_scroll_no_mobile = 1;
 		}
 
-		// print_r( $settings );
 		if( isset( $settings['products_display_no']['size'] ) && ( $settings['products_display_no']['size'] != '' ) ) {
 			$products_display_no = $settings['products_display_no']['size'];
 		} else {

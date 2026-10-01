@@ -13,6 +13,7 @@ if (!class_exists('BewRatingNotice')) {
             add_action( 'admin_init', [$this, 'check_plugin_install_time'] );
             add_action( 'wp_ajax_bew_rating_maybe_later', [$this, 'bew_rating_maybe_later'] );
             add_action( 'wp_ajax_bew_rating_rate_dismiss', [$this, 'bew_rating_rate_dismiss'] );
+            add_action( 'wp_ajax_bew_rating_top_dismiss', [$this, 'bew_rating_top_dismiss'] );
             add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
             add_action( 'admin_init',[ $this, 'bew_notice_dismissed' ]);
         }
@@ -80,6 +81,23 @@ if (!class_exists('BewRatingNotice')) {
         }
 
         /**
+         * The X in the notice's corner: hides the notice for 30 days, exactly like
+         * the "Dismiss" link.
+         */
+        public function bew_rating_top_dismiss() {
+            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'bew_ajax_notice_nonce' ) || ! current_user_can( 'manage_options' ) ) {
+                exit;
+            }
+
+            $this->dismiss_for_a_month();
+            wp_die();
+        }
+
+        private function dismiss_for_a_month() {
+            update_user_meta( get_current_user_id(), 'dismiss_bew_rating_top_notice', $this->current_date + MONTH_IN_SECONDS );
+        }
+
+        /**
          * To Check Plugin is installed or not
          * @since Bosa Elementor Addons and Templates for WooCommerce 1.0.0
          */
@@ -132,7 +150,7 @@ if (!class_exists('BewRatingNotice')) {
                 add_user_meta( get_current_user_id(), 'dismiss_bew_rating_notice', true, true );
             }
             if ( isset( $_GET['bew-rating-notice-top-dismissed'], $_GET['bew_rating_top_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['bew_rating_top_nonce'] ) ), 'bew_rating_top_state' ) ){
-                update_user_meta( get_current_user_id(), 'dismiss_bew_rating_top_notice', $this->current_date + MONTH_IN_SECONDS );
+                $this->dismiss_for_a_month();
             }
         }
     }

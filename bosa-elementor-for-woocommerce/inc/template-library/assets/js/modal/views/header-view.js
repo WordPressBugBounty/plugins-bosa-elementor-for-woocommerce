@@ -24,7 +24,7 @@ var BosaHeaderView = Marionette.ItemView.extend({
 
 	className: 'bosa-tk-modal-header',
 
-	currentTab: 'pages',
+	currentTab: 'kits',
 
 	_kitDetailsModel: null,
 
@@ -69,8 +69,8 @@ var BosaHeaderView = Marionette.ItemView.extend({
 					'<span class="bosa-tk-header__title">' + bosaTkHeaderEsc( data.title ) + '</span>',
 				'</div>',
 				'<div class="bosa-tk-tabs">',
-					'<button type="button" class="bosa-tk-tab" data-tab="kits">' + data.tabs.kits + '</button>',
-					'<button type="button" class="bosa-tk-tab bosa-tk-tab--active" data-tab="pages">' + data.tabs.pages + '</button>',
+					'<button type="button" class="bosa-tk-tab bosa-tk-tab--active" data-tab="kits">' + data.tabs.kits + '</button>',
+					'<button type="button" class="bosa-tk-tab" data-tab="pages">' + data.tabs.pages + '</button>',
 					'<button type="button" class="bosa-tk-tab" data-tab="sections">' + data.tabs.sections + '</button>',
 				'</div>',
 				'<div class="bosa-tk-header__actions">',

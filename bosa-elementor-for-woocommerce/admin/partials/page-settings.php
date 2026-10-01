@@ -99,23 +99,12 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 		];
 
 		$woo_widgets = [
+			// WooCommerce -- Free
 			[
-				'name'      => __( 'Woo Categories', 'bosa-elementor-for-woocommerce' ),
-				'id'        => 'bew_categories',
+				'name'      => __( 'Woo Grid Products', 'bosa-elementor-for-woocommerce' ),
+				'id'        => 'bew_pro_grid_products',
 				'pro'       => false,
-				'demo_link' => 'https://bew.bosathemes.com/woo-categories-widget/',
-			],
-			[
-				'name'      => __( 'Woo Archive Carousel', 'bosa-elementor-for-woocommerce' ),
-				'id'        => 'bew_carousel_products',
-				'pro'       => false,
-				'demo_link' => 'https://bew.bosathemes.com/woo-archive-carousel-widget/',
-			],
-			[
-				'name'      => __( 'Woo Categories List', 'bosa-elementor-for-woocommerce' ),
-				'id'        => 'bew_categories_list',
-				'pro'       => false,
-				'demo_link' => 'https://bew.bosathemes.com/woo-categories-list-widget/',
+				'demo_link' => 'https://bew.bosathemes.com/woo-grid-product-widget/',
 			],
 			[
 				'name'      => __( 'Woo Archive Products', 'bosa-elementor-for-woocommerce' ),
@@ -124,10 +113,34 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 				'demo_link' => 'https://bew.bosathemes.com/woo-archive-products-widget/',
 			],
 			[
+				'name'      => __( 'Woo Archive Carousel', 'bosa-elementor-for-woocommerce' ),
+				'id'        => 'bew_carousel_products',
+				'pro'       => false,
+				'demo_link' => 'https://bew.bosathemes.com/woo-archive-carousel-widget/',
+			],
+			[
 				'name'      => __( 'Woo Products List', 'bosa-elementor-for-woocommerce' ),
 				'id'        => 'bew_products_list',
 				'pro'       => false,
 				'demo_link' => 'https://bew.bosathemes.com/woo-products-list-widget/',
+			],
+			[
+				'name'      => __( 'Woo Categories', 'bosa-elementor-for-woocommerce' ),
+				'id'        => 'bew_categories',
+				'pro'       => false,
+				'demo_link' => 'https://bew.bosathemes.com/woo-categories-widget/',
+			],
+			[
+				'name'      => __( 'Woo Categories List', 'bosa-elementor-for-woocommerce' ),
+				'id'        => 'bew_categories_list',
+				'pro'       => false,
+				'demo_link' => 'https://bew.bosathemes.com/woo-categories-list-widget/',
+			],
+			[
+				'name'      => __( 'Woo Search', 'bosa-elementor-for-woocommerce' ),
+				'id'        => 'bew_search',
+				'pro'       => false,
+				'demo_link' => 'https://bew.bosathemes.com/woo-search-widget/',
 			],
 			[
 				'name'      => __( 'Woo Cart', 'bosa-elementor-for-woocommerce' ),
@@ -142,10 +155,10 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 				'demo_link' => 'https://bew.bosathemes.com/woo-my-account-widget/',
 			],
 			[
-				'name'      => __( 'Woo Search', 'bosa-elementor-for-woocommerce' ),
-				'id'        => 'bew_search',
+				'name'      => __( 'Woo YITH Wishlist', 'bosa-elementor-for-woocommerce' ),
+				'id'        => 'bew_yith_wishlist',
 				'pro'       => false,
-				'demo_link' => 'https://bew.bosathemes.com/woo-search-widget/',
+				'demo_link' => 'https://bew.bosathemes.com/woo-yith-wishlist-widget/',
 			],
 			[
 				'name'      => __( 'Woo YITH Compare', 'bosa-elementor-for-woocommerce' ),
@@ -153,18 +166,7 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 				'pro'       => false,
 				'demo_link' => 'https://bew.bosathemes.com/woo-yith-compare-widget/',
 			],
-			[
-				'name'      => __( 'Woo YITH Wishlist', 'bosa-elementor-for-woocommerce' ),
-				'id'        => 'bew_yith_wishlist',
-				'pro'       => false,
-				'demo_link' => 'https://bew.bosathemes.com/woo-yith-wishlist-widget/',
-			],
-			[
-				'name'      => __( 'Woo Product Tabs', 'bosa-elementor-for-woocommerce' ),
-				'id'        => 'bew_pro_product_tab',
-				'pro'       => true,
-				'demo_link' => 'https://bew.bosathemes.com/woo-product-tabs-widget/',
-			],
+			// WooCommerce -- Pro
 			[
 				'name'      => __( 'Woo Hot Deals', 'bosa-elementor-for-woocommerce' ),
 				'id'        => 'bew_pro_hot_deals',
@@ -178,10 +180,10 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 				'demo_link' => 'https://bew.bosathemes.com/woo-product-slider-widget/',
 			],
 			[
-				'name'      => __( 'Woo Grid Product', 'bosa-elementor-for-woocommerce' ),
-				'id'        => 'bew_pro_grid_products',
+				'name'      => __( 'Woo Product Tabs', 'bosa-elementor-for-woocommerce' ),
+				'id'        => 'bew_pro_product_tab',
 				'pro'       => true,
-				'demo_link' => 'https://bew.bosathemes.com/woo-grid-product-widget/',
+				'demo_link' => 'https://bew.bosathemes.com/woo-product-tabs-widget/',
 			],
 			[
 				'name'      => __( 'Woo Grid Carousel', 'bosa-elementor-for-woocommerce' ),
@@ -198,10 +200,16 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 		];
 		?>
 
-		<h4 class="bew-subsection-title"><?php esc_html_e( 'General', 'bosa-elementor-for-woocommerce' ); ?></h4>
+		<?php $bew_woo_active = class_exists( 'WooCommerce' ); ?>
+		<h4 class="bew-subsection-title"><?php esc_html_e( 'WooCommerce', 'bosa-elementor-for-woocommerce' ); ?></h4>
+		<?php if ( ! $bew_woo_active ) : ?>
+			<div class="notice inline notice-warning notice-alt bew-woo-required-notice">
+				<p><?php esc_html_e( 'Install and activate WooCommerce to use these widgets.', 'bosa-elementor-for-woocommerce' ); ?></p>
+			</div>
+		<?php endif; ?>
 		<div class="bew-cards-grid">
 			<?php
-			foreach ( $general_widgets as $widget ) {
+			foreach ( $woo_widgets as $widget ) {
 				$is_pro = $widget['pro'];
 				if ( $is_pro && ! $is_pro_active ) {
 					$enabled = false;
@@ -214,16 +222,17 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 					'toggle_state' => $enabled,
 					'toggle_type'  => 'widget',
 					'pro'          => $is_pro,
+					'disabled'     => ! $bew_woo_active,
 					'demo_link'    => $widget['demo_link'],
 				] );
 			}
 			?>
 		</div>
 
-		<h4 class="bew-subsection-title"><?php esc_html_e( 'WooCommerce', 'bosa-elementor-for-woocommerce' ); ?></h4>
+		<h4 class="bew-subsection-title"><?php esc_html_e( 'General', 'bosa-elementor-for-woocommerce' ); ?></h4>
 		<div class="bew-cards-grid">
 			<?php
-			foreach ( $woo_widgets as $widget ) {
+			foreach ( $general_widgets as $widget ) {
 				$is_pro = $widget['pro'];
 				if ( $is_pro && ! $is_pro_active ) {
 					$enabled = false;

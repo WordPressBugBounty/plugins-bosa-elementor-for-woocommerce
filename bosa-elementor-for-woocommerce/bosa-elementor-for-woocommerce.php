@@ -3,7 +3,7 @@
 Plugin Name: BEW - Elementor Addons, Templates & AI Builder
 Plugin URI: https://bew.bosathemes.com
 Description: Enhance your website building experience with powerful Elementor widgets and a versatile, ready-to-use template library & AI-powered Content Generation for seamless customization and improved workflow efficiency.
-Version:     2.1.1
+Version:     2.1.2
 Requires at least: 6.9
 Requires PHP: 7.4
 Requires Plugins: elementor
@@ -17,7 +17,7 @@ Text Domain: bosa-elementor-for-woocommerce
 
 if (!defined('ABSPATH')) exit;
 
-define('BEW_VERSION', '2.1.1');
+define('BEW_VERSION', '2.1.2');
 
 define('BEW_FILE', __FILE__);
 define('BEW_PLUGIN_BASENAME', plugin_basename(BEW_FILE));
@@ -221,6 +221,8 @@ if (!class_exists('BEW')) {
                 add_action( 'elementor/elements/categories_registered', array($this, 'elementor_category') );
                 add_action( 'elementor/widgets/register', array($this, 'register_widgets') );
                 add_action( 'elementor/widgets/register', array($this, 'unregister_disabled_widgets'), 999 );
+                add_filter( 'elementor/document/save/data', array($this, 'stash_hidden_woo_widgets'), 10, 2 );
+                add_action( 'elementor/editor/after_save', array($this, 'restore_hidden_woo_widgets') );
                 add_action( 'elementor/editor/after_enqueue_styles', [$this, 'elementor_panel_css'] );
                 add_action( 'elementor/editor/after_enqueue_scripts', [$this, 'elementor_panel_script'] );
 
@@ -244,6 +246,21 @@ if (!class_exists('BEW')) {
                 $this->asset_version( $rel_path ),
                 true
             );
+
+            if ( ! self::is_woo_active() ) {
+                $cta = self::woo_lock_cta();
+
+                wp_localize_script(
+                    'bew-panel-script',
+                    'BEW_PANEL',
+                    array(
+                        'wooTitle'   => __( 'WooCommerce Required', 'bosa-elementor-for-woocommerce' ),
+                        'wooContent' => __( 'This widget requires WooCommerce. Install and activate WooCommerce to use it.', 'bosa-elementor-for-woocommerce' ),
+                        'wooCtaText' => $cta['text'],
+                        'wooCtaUrl'  => $cta['url'],
+                    )
+                );
+            }
         }
 
         public function elementor_panel_css() {
@@ -328,33 +345,82 @@ if (!class_exists('BEW')) {
 
             include( $this->this_dir . 'inc/bew-common.php' );
 
-            $toggles = BEW_Plugin_Settings::get( 'widget_toggles', [] );
+            $toggles     = BEW_Plugin_Settings::get( 'widget_toggles', [] );
+            $woo_active  = self::is_woo_active();
+            $woo_widgets = self::woo_widgets();
+
+            // Standard panel order: WooCommerce widgets first, then General;
+            // matches the BEW Settings > Widgets tab. Woo Grid Products is
+            // registered separately (own guard against a stale BEW Pro copy)
+            // but must lead the Woo group, so it goes first, ahead of this loop.
+            $this->register_grid_products_widget( $widgets_manager );
 
             $free_widgets = [
+                // WooCommerce
                 'bew_products'          => [ 'bew-elements-products.php',          'BEW_Products' ],
+                'bew_carousel_products' => [ 'bew-elements-carousel-products.php', 'BEW_Carousel_Products' ],
                 'bew_products_list'     => [ 'bew-elements-products-list.php',     'BEW_Products_List' ],
                 'bew_categories'        => [ 'bew-elements-categories.php',        'BEW_Categories' ],
-                'bew_carousel_products' => [ 'bew-elements-carousel-products.php', 'BEW_Carousel_Products' ],
+                'bew_categories_list'   => [ 'bew-elements-categories-list.php',   'BEW_Categories_List' ],
+                'bew_search'            => [ 'bew-elements-search.php',            'BEW_Search' ],
+                'bew_cart'              => [ 'bew-elements-cart.php',              'BEW_Cart' ],
+                'bew_my_account'        => [ 'bew-elements-my-account.php',        'BEW_My_Account' ],
+                'bew_yith_wishlist'     => [ 'bew-elements-yith-wishlist.php',     'BEW_Yith_Wishlist' ],
+                'bew_yith_compare'      => [ 'bew-elements-yith-compare.php',      'BEW_Yith_Compare' ],
+                // General
+                'bew_site_logo'         => [ 'bew-elements-site-logo.php',         'BEW_Site_Logo' ],
+                'bew_dropdown_nav'      => [ 'bew-elements-dropdown-nav.php',      'BEW_Dropdown_Nav' ],
                 'bew_blog'              => [ 'bew-elements-blog.php',              'BEW_Blog' ],
                 'bew_contact_form_7'    => [ 'bew-elements-contact-form-7.php',    'BEW_Contact_Form_7' ],
-                'bew_site_logo'         => [ 'bew-elements-site-logo.php',         'BEW_Site_Logo' ],
-                'bew_categories_list'   => [ 'bew-elements-categories-list.php',   'BEW_Categories_List' ],
-                'bew_cart'              => [ 'bew-elements-cart.php',              'BEW_Cart' ],
-                'bew_dropdown_nav'      => [ 'bew-elements-dropdown-nav.php',      'BEW_Dropdown_Nav' ],
-                'bew_my_account'        => [ 'bew-elements-my-account.php',        'BEW_My_Account' ],
-                'bew_search'            => [ 'bew-elements-search.php',            'BEW_Search' ],
-                'bew_yith_compare'      => [ 'bew-elements-yith-compare.php',      'BEW_Yith_Compare' ],
-                'bew_yith_wishlist'     => [ 'bew-elements-yith-wishlist.php',     'BEW_Yith_Wishlist' ],
             ];
 
             foreach ( $free_widgets as $toggle_id => $info ) {
                 if ( isset( $toggles[ $toggle_id ] ) && ! $toggles[ $toggle_id ] ) {
                     continue;
                 }
+                // These classes call WooCommerce functions, so they are not registered
+                // while WooCommerce is inactive; a locked panel tile stands in for them
+                // (see get_pro_widgets()). Saved toggles are left untouched.
+                if ( ! $woo_active && isset( $woo_widgets[ $toggle_id ] ) ) {
+                    continue;
+                }
                 require_once $this->this_dir . 'widgets/' . $info[0];
                 $class = '\\Elementor\\' . $info[1];
                 $widgets_manager->register( new $class() );
             }
+        }
+
+        /**
+         * Woo Grid Products used to ship only with BEW Pro; current BEW Pro
+         * versions no longer register their own copy at all. Called directly
+         * from register_widgets(), before that function's own loop, so this
+         * widget leads the Woo group in the panel. The "already registered"
+         * guard below just skips redundant work if something has already
+         * claimed the widget name -- e.g. a stale, pre-update BEW Pro that
+         * still bundles and registers its own copy.
+         *
+         * @param \Elementor\Widgets_Manager $widgets_manager
+         */
+        function register_grid_products_widget( $widgets_manager ) {
+            if ( ! self::is_woo_active() ) {
+                return;
+            }
+
+            $toggles = BEW_Plugin_Settings::get( 'widget_toggles', [] );
+            if ( isset( $toggles['bew_pro_grid_products'] ) && ! $toggles['bew_pro_grid_products'] ) {
+                return;
+            }
+
+            if ( $widgets_manager->get_widget_types( 'bew-pro-grid-products' ) ) {
+                return;
+            }
+
+            if ( ! class_exists( '\Elementor\BEW_Settings' ) ) {
+                include_once $this->this_dir . 'inc/bew-common.php';
+            }
+
+            require_once $this->this_dir . 'widgets/bew-elements-grid-products.php';
+            $widgets_manager->register( new \Elementor\BEW_Grid_Products() );
         }
 
         function unregister_disabled_widgets( $widgets_manager ) {
@@ -376,6 +442,403 @@ if (!class_exists('BEW')) {
                     $widgets_manager->unregister( $widget_name );
                 }
             }
+
+            // While WooCommerce is inactive, also drop the WooCommerce widgets that
+            // BEW Pro registered on its own; a locked panel tile replaces them.
+            if ( ! self::is_woo_active() ) {
+                foreach ( self::woo_widgets() as $woo_widget ) {
+                    $widgets_manager->unregister( $woo_widget['name'] );
+                }
+            }
+        }
+
+        /**
+         * Whether WooCommerce is loaded. Only call this from a hook that runs after
+         * all plugins are loaded, never while this plugin file itself is loading.
+         */
+        public static function is_woo_active() {
+            return class_exists( 'WooCommerce' );
+        }
+
+        /**
+         * Whether the Bosa Pro theme is the active theme. It's a theme (folder
+         * "bosa-pro"), not a plugin, so "active" means current theme -- checking
+         * both get_template() and get_stylesheet() so a child theme of Bosa Pro
+         * still counts.
+         */
+        public static function is_bosa_pro_theme_active() {
+            return ( 'bosa-pro' === get_template() || 'bosa-pro' === get_stylesheet() );
+        }
+
+        /**
+         * Whether the Bosa Shop Extension Pro plugin is active. It defines this
+         * constant as soon as its main plugin file loads.
+         */
+        public static function is_bosa_shop_extension_pro_active() {
+            return defined( 'BOSA_SHOP_EXTENSION_PRO_BASENAME' );
+        }
+
+        /**
+         * Whether every Bosa product BEW cross-sells (Bosa Pro, Bosa Shop
+         * Extension Pro, BEW Pro) is active on this site -- i.e. there's nothing
+         * left to show on the "Our Products" page. See admin/partials/page-products.php
+         * and BEW_Admin::register_menu().
+         */
+        public static function all_bosa_products_active() {
+            return self::is_bosa_pro_theme_active()
+                && self::is_bosa_shop_extension_pro_active()
+                && class_exists( 'BEW_Pro' );
+        }
+
+        /**
+         * Every BEW widget that needs WooCommerce, free and Pro alike, keyed by the
+         * toggle id stored in the "widget_toggles" option. `tier` only picks the
+         * badge on the locked Elementor panel tile.
+         *
+         * @return array<string, array{name:string, title:string, icon:string, keywords:string[], tier:string}>
+         */
+        public static function woo_widgets() {
+            return array(
+                // WooCommerce -- Free
+                'bew_pro_grid_products' => array(
+                    'name'     => 'bew-pro-grid-products',
+                    'title'    => __( 'Woo Grid Products', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-product-related',
+                    'keywords' => array( 'bew', 'product', 'products', 'bew products', 'grid', 'woo', 'woo products', 'woo grid products', 'bosa' ),
+                    'tier'     => 'free',
+                ),
+                'bew_products' => array(
+                    'name'     => 'bew-elements-products',
+                    'title'    => __( 'Woo Archive Products', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-products',
+                    'keywords' => array( 'bew', 'product', 'products', 'bew products', 'woo', 'woo products', 'woo archive products', 'archive', 'bosa' ),
+                    'tier'     => 'free',
+                ),
+                'bew_carousel_products' => array(
+                    'name'     => 'bew-elements-carousel-products',
+                    'title'    => __( 'Woo Archive Carousel', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-carousel',
+                    'keywords' => array( 'bew', 'carousel', 'bew carousel', 'woo', 'woo carousel', 'woo archive carousel', 'archive', 'bosa' ),
+                    'tier'     => 'free',
+                ),
+                'bew_products_list' => array(
+                    'name'     => 'bew-elements-product-list',
+                    'title'    => __( 'Woo Products List', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-post-list',
+                    'keywords' => array( 'bew', 'product', 'products', 'list', 'products list', 'bew products', 'woo', 'woo products', 'woo products list', 'bosa' ),
+                    'tier'     => 'free',
+                ),
+                'bew_categories' => array(
+                    'name'     => 'bew-elements-product-categories',
+                    'title'    => __( 'Woo Categories', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-product-categories',
+                    'keywords' => array( 'bew', 'categories', 'bew categories', 'woo', 'woo categories', 'bosa' ),
+                    'tier'     => 'free',
+                ),
+                'bew_categories_list' => array(
+                    'name'     => 'bew-elements-product-categories-list',
+                    'title'    => __( 'Woo Categories List', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-radio',
+                    'keywords' => array( 'bew', 'categories', 'list', 'bew categories', 'woo', 'woo categories list', 'bosa' ),
+                    'tier'     => 'free',
+                ),
+                'bew_search' => array(
+                    'name'     => 'bew-elements-search',
+                    'title'    => __( 'Woo Search', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'bew-icon-search',
+                    'keywords' => array( 'search', 'products search', 'bew search', 'woo', 'woocommerce', 'woo search' ),
+                    'tier'     => 'free',
+                ),
+                'bew_cart' => array(
+                    'name'     => 'bew-elements-cart',
+                    'title'    => __( 'Woo Cart', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'bew-icon-cart',
+                    'keywords' => array( 'bew', 'cart', 'bew cart', 'woo', 'woocommerce', 'woo cart' ),
+                    'tier'     => 'free',
+                ),
+                'bew_my_account' => array(
+                    'name'     => 'bew-elements-my-account',
+                    'title'    => __( 'Woo My Account', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'bew-icon-account',
+                    'keywords' => array( 'bew', 'account', 'bew my account', 'my account', 'woo', 'woocommerce', 'woo my account' ),
+                    'tier'     => 'free',
+                ),
+                'bew_yith_wishlist' => array(
+                    'name'     => 'bew-elements-yith-wishlist',
+                    'title'    => __( 'Woo YITH Wishlist', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'bew-icon-wishlist',
+                    'keywords' => array( 'bew', 'wishlist', 'bew wishlist', 'woo', 'woocommerce', 'yith', 'yith wishlist', 'woo yith wishlist' ),
+                    'tier'     => 'free',
+                ),
+                'bew_yith_compare' => array(
+                    'name'     => 'bew-elements-yith-compare',
+                    'title'    => __( 'Woo YITH Compare', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'bew-icon-compare',
+                    'keywords' => array( 'bew', 'compare', 'bew compare', 'woo', 'woocommerce', 'yith', 'yith compare', 'woo yith compare' ),
+                    'tier'     => 'free',
+                ),
+                // WooCommerce -- Pro
+                'bew_pro_hot_deals' => array(
+                    'name'     => 'bew-pro-hot-deals',
+                    'title'    => __( 'Woo Hot Deals', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-single-product',
+                    'keywords' => array( 'bew', 'pro', 'bew pro', 'hot', 'bew slider', 'woo', 'hot deals', 'woo hot deals', 'woo products', 'bosa' ),
+                    'tier'     => 'pro',
+                ),
+                'bew_pro_product_slider' => array(
+                    'name'     => 'bew-pro-product-slider',
+                    'title'    => __( 'Woo Product Slider', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-post-slider',
+                    'keywords' => array( 'bew', 'pro', 'bew pro', 'product slider', 'bew slider', 'woo', 'woo product slider', 'bosa' ),
+                    'tier'     => 'pro',
+                ),
+                'bew_pro_product_tab' => array(
+                    'name'     => 'bew-pro-product-tabs',
+                    'title'    => __( 'Woo Product Tabs', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-product-tabs',
+                    'keywords' => array( 'bew', 'pro', 'bew pro', 'tabs', 'bew tabs', 'bew pro tabs', 'panel', 'navigation', 'group', 'tabs content', 'product tabs', 'woo product tabs', 'bosa' ),
+                    'tier'     => 'pro',
+                ),
+                'bew_pro_grid_carousel' => array(
+                    'name'     => 'bew-pro-grid-carousel-products',
+                    'title'    => __( 'Woo Grid Carousel', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-nested-carousel',
+                    'keywords' => array( 'bew', 'pro', 'bew pro', 'carousel', 'grid', 'woo', 'woo carousel', 'woo grid carousel', 'bosa' ),
+                    'tier'     => 'pro',
+                ),
+                'bew_product_accordion' => array(
+                    'name'     => 'bew-pro-product-accordion',
+                    'title'    => __( 'Woo Products Accordion', 'bosa-elementor-for-woocommerce' ),
+                    'icon'     => 'eicon-accordion',
+                    'keywords' => array( 'bew', 'pro', 'bew pro', 'product', 'products', 'accordion', 'products accordion', 'bew products', 'woo', 'woo products', 'woo products accordion', 'bosa' ),
+                    'tier'     => 'pro',
+                ),
+            );
+        }
+
+        /**
+         * Title of a WooCommerce-dependent BEW widget, looked up by its Elementor
+         * widget type; null for anything else.
+         *
+         * @param string $widget_type
+         * @return string|null
+         */
+        public static function woo_widget_title( $widget_type ) {
+            foreach ( self::woo_widgets() as $widget ) {
+                if ( $widget['name'] === $widget_type ) {
+                    return $widget['title'];
+                }
+            }
+            return null;
+        }
+
+        /**
+         * What the locked WooCommerce tiles offer: activate WooCommerce when it is
+         * installed but inactive, install it when it is missing.
+         *
+         * @return array{text:string, url:string}
+         */
+        public static function woo_lock_cta() {
+            $file = 'woocommerce/woocommerce.php';
+
+            if ( ! function_exists( 'get_plugins' ) ) {
+                require_once ABSPATH . 'wp-admin/includes/plugin.php';
+            }
+
+            $installed = get_plugins();
+
+            if ( isset( $installed[ $file ] ) && current_user_can( 'activate_plugins' ) ) {
+                return array(
+                    'text' => __( 'Activate WooCommerce', 'bosa-elementor-for-woocommerce' ),
+                    'url'  => wp_specialchars_decode( wp_nonce_url( self_admin_url( 'plugins.php?action=activate&plugin=' . $file ), 'activate-plugin_' . $file ) ),
+                );
+            }
+
+            if ( ! isset( $installed[ $file ] ) && current_user_can( 'install_plugins' ) ) {
+                return array(
+                    'text' => __( 'Install WooCommerce', 'bosa-elementor-for-woocommerce' ),
+                    'url'  => wp_specialchars_decode( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=woocommerce' ), 'install-plugin_woocommerce' ) ),
+                );
+            }
+
+            return array(
+                'text' => __( 'Get WooCommerce', 'bosa-elementor-for-woocommerce' ),
+                'url'  => 'https://wordpress.org/plugins/woocommerce/',
+            );
+        }
+
+        /**
+         * WooCommerce widgets found in the stored data of a page that is about to be
+         * saved while WooCommerce is inactive, keyed by the id of the post being
+         * written. See stash_hidden_woo_widgets() / restore_hidden_woo_widgets().
+         *
+         * @var array
+         */
+        private static $hidden_woo_widgets = array();
+
+        /**
+         * Elementor only loads registered widgets into the editor and re-instantiates
+         * every element when it saves, so saving a page while WooCommerce is inactive
+         * would silently drop every WooCommerce widget on it (they are deliberately
+         * unregistered then). Step 1 of keeping them: remember which ones the stored
+         * page has, before Elementor overwrites it. No-op whenever WooCommerce is
+         * active.
+         *
+         * @param array                         $data     Document data being saved.
+         * @param \Elementor\Core\Base\Document $document The document being saved.
+         * @return array The data, unchanged.
+         */
+        public function stash_hidden_woo_widgets( $data, $document ) {
+            $post_id = $document->get_post()->ID;
+            unset( self::$hidden_woo_widgets[ $post_id ] );
+
+            if ( self::is_woo_active() ) {
+                return $data;
+            }
+
+            $stored = get_post_meta( $document->get_main_id(), '_elementor_data', true );
+            if ( is_string( $stored ) ) {
+                $stored = json_decode( $stored, true );
+            }
+            if ( ! is_array( $stored ) ) {
+                return $data;
+            }
+
+            $hidden = array();
+            self::collect_woo_widgets( $stored, '', wp_list_pluck( self::woo_widgets(), 'name' ), $hidden );
+            if ( $hidden ) {
+                self::$hidden_woo_widgets[ $post_id ] = $hidden;
+            }
+
+            return $data;
+        }
+
+        /**
+         * Step 2: once Elementor has written the page, put the stashed WooCommerce
+         * widgets back into the stored data -- same container, same position, exactly
+         * as they were -- so they return with their settings when WooCommerce is
+         * active again.
+         *
+         * @param int $post_id The post Elementor just saved.
+         */
+        public function restore_hidden_woo_widgets( $post_id ) {
+            if ( empty( self::$hidden_woo_widgets[ $post_id ] ) ) {
+                return;
+            }
+
+            $hidden = self::$hidden_woo_widgets[ $post_id ];
+            unset( self::$hidden_woo_widgets[ $post_id ] );
+
+            $saved = get_metadata( 'post', $post_id, '_elementor_data', true );
+            if ( is_string( $saved ) ) {
+                $saved = json_decode( $saved, true );
+            }
+            if ( ! is_array( $saved ) ) {
+                return;
+            }
+
+            $present = array();
+            self::collect_element_ids( $saved, $present );
+
+            $merged = self::reinsert_woo_widgets( $saved, '', $hidden, $present );
+
+            update_metadata( 'post', $post_id, '_elementor_data', wp_slash( wp_json_encode( $merged ) ) );
+        }
+
+        private static function collect_woo_widgets( array $elements, $parent_id, array $woo_types, array &$hidden ) {
+            foreach ( array_values( $elements ) as $index => $element ) {
+                if ( ! is_array( $element ) ) {
+                    continue;
+                }
+
+                if ( isset( $element['elType'], $element['widgetType'] ) && 'widget' === $element['elType'] && in_array( $element['widgetType'], $woo_types, true ) ) {
+                    $hidden[ $parent_id ][] = array(
+                        'index'   => $index,
+                        'element' => $element,
+                    );
+                    continue;
+                }
+
+                if ( isset( $element['id'], $element['elements'] ) && is_array( $element['elements'] ) ) {
+                    self::collect_woo_widgets( $element['elements'], (string) $element['id'], $woo_types, $hidden );
+                }
+            }
+        }
+
+        private static function collect_element_ids( array $elements, array &$ids ) {
+            foreach ( $elements as $element ) {
+                if ( ! is_array( $element ) ) {
+                    continue;
+                }
+
+                if ( isset( $element['id'] ) ) {
+                    $ids[ (string) $element['id'] ] = true;
+                }
+
+                if ( ! empty( $element['elements'] ) && is_array( $element['elements'] ) ) {
+                    self::collect_element_ids( $element['elements'], $ids );
+                }
+            }
+        }
+
+        private static function reinsert_woo_widgets( array $elements, $parent_id, array $hidden, array $present ) {
+            // Recurse into every container -- including ones that arrive empty because
+            // their only children were the hidden widgets.
+            foreach ( $elements as $i => $element ) {
+                if ( ! is_array( $element ) || ! isset( $element['id'] ) || ( isset( $element['elType'] ) && 'widget' === $element['elType'] ) ) {
+                    continue;
+                }
+
+                $children                   = ( isset( $element['elements'] ) && is_array( $element['elements'] ) ) ? $element['elements'] : array();
+                $elements[ $i ]['elements'] = self::reinsert_woo_widgets( $children, (string) $element['id'], $hidden, $present );
+            }
+
+            // A hidden widget whose parent container no longer exists was removed
+            // along with that container by the user, so it is not resurrected.
+            if ( isset( $hidden[ $parent_id ] ) ) {
+                foreach ( $hidden[ $parent_id ] as $item ) {
+                    if ( isset( $present[ (string) $item['element']['id'] ] ) ) {
+                        continue;
+                    }
+                    array_splice( $elements, min( $item['index'], count( $elements ) ), 0, array( $item['element'] ) );
+                }
+            }
+
+            return $elements;
+        }
+
+        /**
+         * Locked Elementor panel tiles for the WooCommerce widgets, shown in place
+         * of the real widgets while WooCommerce is inactive. Same "promotion
+         * widget" mechanism as the locked Pro tiles. Widgets the admin switched
+         * off stay hidden.
+         *
+         * @param array $toggles Saved widget toggles.
+         * @return array
+         */
+        public static function get_woo_locked_tiles( $toggles ) {
+            $cta   = self::woo_lock_cta();
+            $tiles = array();
+
+            foreach ( self::woo_widgets() as $toggle_id => $widget ) {
+                if ( isset( $toggles[ $toggle_id ] ) && ! $toggles[ $toggle_id ] ) {
+                    continue;
+                }
+
+                $tiles[] = array(
+                    'name'       => $widget['name'],
+                    'title'      => $widget['title'],
+                    'categories' => '["bosa-elementor-for-woocommerce"]',
+                    'icon'       => 'bew-woo-widget-promotion bew-woo-lock-' . $widget['tier'] . ' ' . $widget['icon'],
+                    'keywords'   => $widget['keywords'],
+                    'promotion'  => array(
+                        'upgrade_url'  => $cta['url'],
+                        'upgrade_text' => $cta['text'],
+                    ),
+                );
+            }
+
+            return $tiles;
         }
 
         /**
@@ -498,42 +961,19 @@ if (!class_exists('BEW')) {
             if ( isset( $config['promotionWidgets'] ) ) {
                 $promotion_widgets = $config['promotionWidgets'];
             }
+
+            $toggles   = BEW_Plugin_Settings::get( 'widget_toggles', [] );
+            $woo_tiles = self::is_woo_active() ? [] : self::get_woo_locked_tiles( $toggles );
+
             if ( !class_exists('BEW_Pro') ) {
                 $pro_widgets = array(
-                    array(
-                        'name'       => 'bew-pro-grid-carousel-product',
-                        'title'      => esc_html__( 'Woo - Grid Carousel', 'bosa-elementor-for-woocommerce' ),
-                        'categories' => '["bosa-elementor-for-woocommerce"]',
-                        'icon'       => 'bew-pro-widget-promotion eicon-nested-carousel',
-                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'carousel', 'grid', 'woo', 'woo carousel', 'bosa' ),
-                    ),
-                    array(
-                        'name'       => 'bew-pro-grid-products',
-                        'title'      => esc_html__( 'Woo - Grid Products', 'bosa-elementor-for-woocommerce' ),
-                        'categories' => '["bosa-elementor-for-woocommerce"]',
-                        'icon'       => 'bew-pro-widget-promotion eicon-product-related',
-                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'product', 'products', 'bew products', 'grid', 'woo', 'woo products', 'bosa' ),
-                    ),
+                    // WooCommerce -- Pro
                     array(
                         'name'       => 'bew-pro-hot-deals',
                         'title'      => esc_html__( 'Woo - Hot Deals', 'bosa-elementor-for-woocommerce' ),
                         'categories' => '["bosa-elementor-for-woocommerce"]',
                         'icon'       => 'bew-pro-widget-promotion eicon-single-product',
                         'keywords'   => array( 'bew', 'pro', 'bew pro', 'hot', 'bew slider', 'woo', 'hot deals', 'woo products', 'bosa' ),
-                    ),
-                    array(
-                        'name'       => 'bew-pro-image-carousel',
-                        'title'      => esc_html__( 'Image Carousel', 'bosa-elementor-for-woocommerce' ),
-                        'categories' => '["bosa-elementor-for-woocommerce"]',
-                        'icon'       => 'bew-pro-widget-promotion eicon-carousel-loop',
-                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'image', 'bew carousel', 'woo', 'image carousel', 'archive', 'bosa' ),
-                    ),
-                    array(
-                        'name'       => 'bew-pro-product-accordion',
-                        'title'      => esc_html__( 'Woo - Products Accordion', 'bosa-elementor-for-woocommerce' ),
-                        'categories' => '["bosa-elementor-for-woocommerce"]',
-                        'icon'       => 'bew-pro-widget-promotion eicon-accordion',
-                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'product', 'products', "accordion", "products accordion", 'bew products', 'woo', 'woo products', 'bosa' ),
                     ),
                     array(
                         'name'       => 'bew-pro-product-slider',
@@ -548,6 +988,28 @@ if (!class_exists('BEW')) {
                         'categories' => '["bosa-elementor-for-woocommerce"]',
                         'icon'       => 'bew-pro-widget-promotion eicon-product-tabs',
                         'keywords'   => array( 'bew', 'pro', 'bew pro', 'tabs', 'bew tabs', 'bew pro tabs', 'panel', 'navigation', 'group', 'tabs content', 'product tabs', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-grid-carousel-product',
+                        'title'      => esc_html__( 'Woo - Grid Carousel', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bosa-elementor-for-woocommerce"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-nested-carousel',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'carousel', 'grid', 'woo', 'woo carousel', 'bosa' ),
+                    ),
+                    array(
+                        'name'       => 'bew-pro-product-accordion',
+                        'title'      => esc_html__( 'Woo - Products Accordion', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bosa-elementor-for-woocommerce"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-accordion',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'product', 'products', "accordion", "products accordion", 'bew products', 'woo', 'woo products', 'bosa' ),
+                    ),
+                    // General -- Pro
+                    array(
+                        'name'       => 'bew-pro-image-carousel',
+                        'title'      => esc_html__( 'Image Carousel', 'bosa-elementor-for-woocommerce' ),
+                        'categories' => '["bosa-elementor-for-woocommerce"]',
+                        'icon'       => 'bew-pro-widget-promotion eicon-carousel-loop',
+                        'keywords'   => array( 'bew', 'pro', 'bew pro', 'image', 'bew carousel', 'woo', 'image carousel', 'archive', 'bosa' ),
                     ),
                     array(
                         'name'       => 'bew-pro-testimonial-slider',
@@ -567,10 +1029,8 @@ if (!class_exists('BEW')) {
                 }
                 unset( $pw );
 
-                $toggles = BEW_Plugin_Settings::get( 'widget_toggles', [] );
                 $promotion_toggle_map = [
                     'bew-pro-grid-carousel-product' => 'bew_pro_grid_carousel',
-                    'bew-pro-grid-products'         => 'bew_pro_grid_products',
                     'bew-pro-hot-deals'             => 'bew_pro_hot_deals',
                     'bew-pro-product-accordion'     => 'bew_product_accordion',
                     'bew-pro-product-slider'        => 'bew_pro_product_slider',
@@ -579,19 +1039,31 @@ if (!class_exists('BEW')) {
                     'bew-pro-testimonial-slider'    => 'bew_pro_testimonial_slider',
                 ];
 
-                $pro_widgets = array_filter( $pro_widgets, function ( $widget ) use ( $toggles, $promotion_toggle_map ) {
+                $woo_toggle_ids = self::woo_widgets();
+
+                $pro_widgets = array_filter( $pro_widgets, function ( $widget ) use ( $toggles, $promotion_toggle_map, $woo_tiles, $woo_toggle_ids ) {
                     if ( isset( $promotion_toggle_map[ $widget['name'] ] ) ) {
                         $tid = $promotion_toggle_map[ $widget['name'] ];
                         if ( isset( $toggles[ $tid ] ) && ! $toggles[ $tid ] ) {
+                            return false;
+                        }
+                        // The locked "requires WooCommerce" tile replaces the locked "Pro" tile.
+                        if ( $woo_tiles && isset( $woo_toggle_ids[ $tid ] ) ) {
                             return false;
                         }
                     }
                     return true;
                 } );
 
-                $combine_array = array_merge( $promotion_widgets, $pro_widgets );
+                $promotion_widgets = array_merge( $promotion_widgets, $pro_widgets );
+            }
 
-                $config['promotionWidgets'] = $combine_array;
+            if ( $woo_tiles ) {
+                $promotion_widgets = array_merge( $promotion_widgets, $woo_tiles );
+            }
+
+            if ( !class_exists('BEW_Pro') || $woo_tiles ) {
+                $config['promotionWidgets'] = $promotion_widgets;
             }
             return $config;
         }

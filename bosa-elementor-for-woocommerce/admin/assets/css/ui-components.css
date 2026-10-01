@@ -216,8 +216,10 @@
 .bew-toggle-switch input {
 	opacity: 0;
 	width: 0;
+	min-width: 0;
 	height: 0;
 	position: absolute;
+	border: none;
 }
 
 .bew-toggle-slider {
@@ -252,6 +254,31 @@
 .bew-toggle-switch input:focus-visible + .bew-toggle-slider {
 	outline: 2px solid #7968e4;
 	outline-offset: 2px;
+}
+
+/* ── Disabled card (e.g. WooCommerce widgets while WooCommerce is inactive) ── */
+.bew-card-disabled {
+	opacity: 0.6;
+}
+
+.bew-card-disabled .bew-toggle-switch,
+.bew-card-disabled .bew-card-demo-link {
+	cursor: not-allowed;
+}
+
+.bew-card-disabled .bew-card-demo-link {
+	pointer-events: none;
+}
+
+/* A disabled toggle must always read as "off", even when its stored value is
+   still true (e.g. a Woo widget left enabled from before WooCommerce was
+   deactivated) — otherwise it looks active while actually being inert. */
+.bew-toggle-switch input:checked:disabled + .bew-toggle-slider {
+	background: #c3c4c7;
+}
+
+.bew-toggle-switch input:checked:disabled + .bew-toggle-slider::before {
+	transform: translateX(0);
 }
 
 /* ── Pro Upgrade Popup ─────────────────────────────────────────────── */

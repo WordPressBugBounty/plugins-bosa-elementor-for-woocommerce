@@ -1,35 +1,65 @@
 === BEW - Elementor Addons, Templates & AI Builder ===
 Contributors: bosathemes
-Tags: elementor addons, ai builder, template library, woocommerce widgets, elementor widgets
+Tags: elementor addons, woocommerce widgets, template library, ai builder, elementor widgets
 Requires at least: 6.9
 Tested up to: 7.1
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 Requires PHP: 7.4
 Requires Plugins: elementor
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Elementor addon providing widgets, modules, template library and AI Builder for website building.
+Shop-first Elementor addon with WooCommerce widgets, 3,000+ templates, site modules & AI Builder — for your store or any website.
 
 == Description ==
 
-<p>Enhance your website building experience with powerful Elementor widgets and a versatile, ready-to-use template library & AI-powered Content Generation for seamless customization and improved workflow efficiency.</p>
+<p><strong>Built for Shop, Ready for Every Website.</strong> BEW gives Elementor the widgets, templates, and AI tools to launch and grow your online store — or any website — faster.</p>
+
+<p>WooCommerce is at its core, with 16 widgets built for stores, from product grids and carousels to cart, search, wishlist, and compare. Alongside them, you get essential site widgets, site modules, a 3,000+ template library, and AI-powered content generation right inside the Elementor editor.</p>
 
 <p>For more information, visit the <a href="https://bew.bosathemes.com/">official BEW website</a>.</p>
 
-<p><h3>🚀 Collection of 2,500+ Ready-to-use Elementor Kits, Pages & Sections</h3></p>
+<h3>🚀 3,000+ Ready-to-use Elementor Kits, Pages & Sections (Free & Pro)</h3>
 
 <p><strong>Pre-built Template Library:</strong> Access a collection of Elementor kits, pages, and sections templates to build your site quickly and effortlessly.</p>
 
-<p><strong>Wide Variety of Templates:</strong> Explore a diverse collection of templates for various industries and niches, including dedicated options for eCommerce.</p>
+<p><strong>Store-Ready Templates:</strong> Launch a WooCommerce store quickly with dedicated shop layouts, product pages, and sections.</p>
+
+<p><strong>Every Niche Covered:</strong> Beyond eCommerce, find templates for business, portfolio, blog, and many other industries.</p>
 
 <p><strong>Quick Template Insertion:</strong> Choose and insert templates right inside the Elementor editor for fast and hassle-free customization.</p>
 
 <p>Browse the full collection of available Kits, Pages &amp; Sections in the <a href="https://bew.bosathemes.com/#templates">Template Library</a>.</p>
 
-<p><h3>🌟 Widget Collection</h3></p>
+<h3>🌟 Widget Collection</h3>
 
-<p><strong>A powerful set of Elementor widgets designed to enhance website design and functionality.</strong></p>
+<p><strong>Elementor widgets built for WooCommerce stores, plus essentials for every site.</strong></p>
+
+<h4>🛒 WooCommerce Widgets</h4>
+
+<p><strong> Woo Grid Product:</strong> Display products in a grid layout. <a href="https://bew.bosathemes.com/woo-grid-product-widget/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo Archive Products:</strong> Display product archives in a structured layout. <a href="https://bew.bosathemes.com/woo-archive-products-widget/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo Archive Carousel:</strong> Showcase products in a carousel format. <a href="https://bew.bosathemes.com/woo-archive-carousel-widget/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo Products List:</strong> Present products in a clean, navigable list format. <a href="https://bew.bosathemes.com/woo-products-list-widget/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo Categories:</strong> Display product categories for easier navigation. <a href="https://bew.bosathemes.com/woo-categories-widget/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo Categories List:</strong> Display product categories in a structured list layout. <a href="https://bew.bosathemes.com/woo-categories-list-widget/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo Search:</strong> Add a product-focused search box with category filtering. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo Cart:</strong> Display a fully functional WooCommerce cart with live totals. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo My Account:</strong> Display the WooCommerce My Account page with custom styling. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo YITH Wishlist:</strong> Let customers save favorite products to a wishlist. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
+
+<p><strong> Woo YITH Compare:</strong> Let customers compare products side by side. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
+
+<h4>🧩 General Widgets</h4>
 
 <p><strong> Site Logo:</strong> Customize and display your site branding. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
 
@@ -39,59 +69,37 @@ Elementor addon providing widgets, modules, template library and AI Builder for 
 
 <p><strong> Contact Form 7:</strong> Integrate contact forms with flexible field options. <a href="https://bew.bosathemes.com/contact-form-7-widget/">[VIEW DEMO]</a></p>
 
-<p><strong> Woo Categories:</strong> Display product categories for easier navigation. <a href="https://bew.bosathemes.com/woo-categories-widget/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo Archive Carousel:</strong> Showcase products in a carousel format. <a href="https://bew.bosathemes.com/woo-archive-carousel-widget/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo Categories List:</strong> Display product categories in a structured list layout. <a href="https://bew.bosathemes.com/woo-categories-list-widget/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo Archive Products:</strong> Display product archives in a structured layout. <a href="https://bew.bosathemes.com/woo-archive-products-widget/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo Products List:</strong> Present products in a clean, navigable list format. <a href="https://bew.bosathemes.com/woo-products-list-widget/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo Cart:</strong> Display a fully functional WooCommerce cart with live totals. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
-
-<p><strong> My Account:</strong> Display the WooCommerce My Account page with custom styling. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo Search:</strong> Add a product-focused search box with category filtering. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo YITH Compare:</strong> Let customers compare products side by side. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo YITH Wishlist:</strong> Let customers save favorite products to a wishlist. <a href="https://bew.bosathemes.com/utility-widgets/">[VIEW DEMO]</a></p>
-
-<p><h3>✅ <strong>Pro Widgets</strong></h3></p>
-
-<p><strong> Image Carousel:</strong> Display images in an interactive carousel format for better visual engagement. <a href="https://bew.bosathemes.com/image-carousel-widget/">[VIEW DEMO]</a></p>
-
-<p><strong> Testimonial Slider:</strong> Showcase customer reviews in a rotating slider format to build trust. <a href="https://bew.bosathemes.com/testimonial-slider-widget/">[VIEW DEMO]</a></p>
-
-<p><strong> Woo Product Tabs:</strong> Organize products in a clean tab layout for improved navigation. <a href="https://bew.bosathemes.com/woo-product-tabs-widget/">[VIEW DEMO]</a></p>
+<h3>✅ Pro Widgets</h3>
 
 <p><strong> Woo Hot Deals:</strong> Highlight promotional offers and discounts. <a href="https://bew.bosathemes.com/woo-hot-deals-widget/">[VIEW DEMO]</a></p>
 
 <p><strong> Woo Product Slider:</strong> Showcase products in a sliding format. <a href="https://bew.bosathemes.com/woo-product-slider-widget/">[VIEW DEMO]</a></p>
 
-<p><strong> Woo Grid Product:</strong> Display products in a grid layout. <a href="https://bew.bosathemes.com/woo-grid-product-widget/">[VIEW DEMO]</a></p>
+<p><strong> Woo Product Tabs:</strong> Organize products in a clean tab layout for improved navigation. <a href="https://bew.bosathemes.com/woo-product-tabs-widget/">[VIEW DEMO]</a></p>
 
 <p><strong> Woo Grid Carousel:</strong> Combine grid and carousel layouts for dynamic display. <a href="https://bew.bosathemes.com/woo-grid-carousel-widget/">[VIEW DEMO]</a></p>
 
 <p><strong> Woo Product Accordion:</strong> Organize product information in collapsible accordion panels. <a href="https://bew.bosathemes.com/woo-product-accordion-widget/">[VIEW DEMO]</a></p>
 
-<p><h3>✨ BEW AI Builder</h3></p>
+<p><strong> Image Carousel:</strong> Display images in an interactive carousel format for better visual engagement. <a href="https://bew.bosathemes.com/image-carousel-widget/">[VIEW DEMO]</a></p>
+
+<p><strong> Testimonial Slider:</strong> Showcase customer reviews in a rotating slider format to build trust. <a href="https://bew.bosathemes.com/testimonial-slider-widget/">[VIEW DEMO]</a></p>
+
+<h3>✨ BEW AI Builder</h3>
 
 <p><strong>AI-Powered Content Generators</strong></p>
 
-The <strong>BEW AI Generators</strong> are BEW AI’s core content-generation tools, built directly into the Elementor editor. Instead of switching to a separate AI tool and copy-pasting content back into your page, you can generate contents directly within the widget field you’re editing and apply the results with one click.
+<p>The <strong>BEW AI Generators</strong> are BEW AI’s core content-generation tools, built directly into the Elementor editor. Instead of switching to a separate AI tool and copy-pasting content back into your page, you can generate content directly within the widget field you’re editing and apply the results with one click.</p>
 
 <p><strong> Text Generator:</strong> Generate on-brand headlines, descriptions, and any text field right inside the Elementor editor. Describe what you need, preview the result, and apply it with one click.</p>
+
+<p><strong> Products Generator [PRO]:</strong> Generate titles, descriptions, and images for your WooCommerce products and categories directly from the page you're designing — no switching to the products admin screen.</p>
 
 <p><strong> Image Generator [PRO]:</strong> Create original images for any image field in your widgets without leaving the editor. Describe the image, generate, and apply it directly to your design.</p>
 
 <p><strong> Bulk Text & Image Generator [PRO]:</strong> Generate every text and image field inside a widget in one pass. Pick which fields to include, generate once, and apply them all together instead of field by field.</p>
 
 <p><strong> Repeater Generator [PRO]:</strong> Generate content across every item in a repeater-based widget — like the slides in an Image Carousel — in one pass instead of editing each one by hand.</p>
-
-<p><strong> Products Generator [PRO]:</strong> Generate titles, descriptions, and images for your WooCommerce products and categories directly from the page you're designing — no switching to the products admin screen.</p>
 
 <p><strong> Blog Generator [PRO]:</strong> Generate blog post titles, content, excerpts, and featured images from inside the editor — write and design in the same place.</p>
 
@@ -156,6 +164,9 @@ This plugin's AI Content Generator feature is entirely optional and only activat
 
 == Frequently Asked Questions ==
 
+= Do I need WooCommerce? =
+No. BEW works on any Elementor site. The WooCommerce widgets become available once WooCommerce is installed and active, while the general widgets, modules, templates, and AI tools work without it.
+
 = Does it work with any WordPress theme? =
 Yes. The plugin works with any WordPress theme that supports Elementor. However, some styling may vary depending on theme-level WooCommerce or layout overrides.
 
@@ -168,9 +179,25 @@ No. Elementor Pro is not required.
 == Screenshots ==
 1. BEW Templates Library
 2. BEW Widgets
-3. Ai-powered Content Generator
+3. AI-powered Content Generator
 
 == Changelog ==
+
+= 2.1.2 =
+= Added =
+* Woo Grid Product widget is now available in the free version.
+
+= Updated =
+* Template Library now includes 3,000+ templates.
+* WooCommerce widgets now require WooCommerce to be active, with locked panel tiles and disabled Settings toggles until it is; saved settings are preserved either way.
+* Template import warns when a template needs WooCommerce and it isn't active.
+* Template Library now opens on the Kits tab by default.
+* Widgets list reordered to a consistent standard order, in both the Settings page and the Elementor panel.
+* Our Products page now hides items — and itself, once empty — for products you already have active.
+* Admin notices: the X now dismisses for 30 days like "Dismiss", which is also easier to read now.
+
+= Fixed =
+* Image Margin/Padding not applying correctly on several WooCommerce widgets (Grid Products, Archive Products, Archive Carousel, Products List, Categories, Grid Carousel, Product Slider, Product Tabs, Hot Deals) — could crop the image, overflow the card, or silently do nothing depending on the widget.
 
 = 2.1.1 =
 = Fixed =
@@ -327,3 +354,8 @@ No. Elementor Pro is not required.
 
 = 1.0.0 =
 * Initial release.
+
+== Upgrade Notice ==
+
+= 2.1.2 =
+BEW v2: new widgets, modules, AI content generation, and a 3,000+ template library (full access with Pro). Update to get the latest features.

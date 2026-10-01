@@ -10,7 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once BEW_PATH . 'admin/partials/components/component-banner.php';
 require_once BEW_PATH . 'admin/partials/components/component-box.php';
 
-$bew_is_pro_active = class_exists( 'BEW_Pro' );
+$bew_is_pro_active              = class_exists( 'BEW_Pro' );
+$bosa_pro_theme_active          = BEW::is_bosa_pro_theme_active();
+$bosa_shop_extension_pro_active = BEW::is_bosa_shop_extension_pro_active();
 ?>
 <div class="wrap bew-admin-page bew-admin-page-products">
 
@@ -30,28 +32,32 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 
 	<div class="bew-products-grid">
 		<?php
-		bew_render_box( [
-			'title'        => __( 'Bosa Pro', 'bosa-elementor-for-woocommerce' ),
-			'description'  => __( 'All-in-one Premium Elementor Theme with 200+ Demos, One-click Installer & Advanced Features.', 'bosa-elementor-for-woocommerce' ),
-			'button_text'  => __( 'Learn More', 'bosa-elementor-for-woocommerce' ),
-			'button_link'  => 'https://bosathemes.com/bosa-pro/',
-			'button_class' => 'secondary',
-			'tag'          => __( 'Theme', 'bosa-elementor-for-woocommerce' ),
-		] );
+		if ( ! $bosa_pro_theme_active ) {
+			bew_render_box( [
+				'title'        => __( 'Bosa Pro', 'bosa-elementor-for-woocommerce' ),
+				'description'  => __( 'Premium Elementor & WooCommerce theme with 200+ pre-built websites — launch any site or online store faster, no coding required.', 'bosa-elementor-for-woocommerce' ),
+				'button_text'  => __( 'Learn More', 'bosa-elementor-for-woocommerce' ),
+				'button_link'  => 'https://bosathemes.com/bosa-pro/',
+				'button_class' => 'secondary',
+				'tag'          => __( 'Theme', 'bosa-elementor-for-woocommerce' ),
+			] );
+		}
 
-		bew_render_box( [
-			'title'        => __( 'Bosa Shop Extension Pro', 'bosa-elementor-for-woocommerce' ),
-			'description'  => __( 'Packed with advanced WooCommerce features and flexible options, specially crafted to enhance the functionality of the Bosa Free & Pro theme.', 'bosa-elementor-for-woocommerce' ),
-			'button_text'  => __( 'Learn More', 'bosa-elementor-for-woocommerce' ),
-			'button_link'  => 'https://bosathemes.com/bosa-shop-extension/',
-			'button_class' => 'secondary',
-			'tag'          => __( 'Plugin', 'bosa-elementor-for-woocommerce' ),
-		] );
+		if ( ! $bosa_shop_extension_pro_active ) {
+			bew_render_box( [
+				'title'        => __( 'Bosa Shop Extension Pro', 'bosa-elementor-for-woocommerce' ),
+				'description'  => __( 'Add variation swatches, Ajax add to cart, Ajax search, sale countdowns & more — powerful shop features that boost conversions.', 'bosa-elementor-for-woocommerce' ),
+				'button_text'  => __( 'Learn More', 'bosa-elementor-for-woocommerce' ),
+				'button_link'  => 'https://bosathemes.com/bosa-shop-extension/',
+				'button_class' => 'secondary',
+				'tag'          => __( 'Plugin', 'bosa-elementor-for-woocommerce' ),
+			] );
+		}
 
-		if ( ! class_exists( 'BEW_Pro' ) ) {
+		if ( ! $bew_is_pro_active ) {
 			bew_render_box( [
 				'title'        => __( 'BEW Pro', 'bosa-elementor-for-woocommerce' ),
-				'description'  => __( 'Upgrade to Pro & unlock premium widgets, modules, 2,500+ templates, & AI-powered Content Generation.', 'bosa-elementor-for-woocommerce' ),
+				'description'  => __( 'Launch and grow your online store — or any website — faster with Elementor widgets, 3,000+ templates & AI-powered content generation, right inside the editor.', 'bosa-elementor-for-woocommerce' ),
 				'button_text'  => __( 'Upgrade Now', 'bosa-elementor-for-woocommerce' ),
 				'button_link'  => 'https://bew.bosathemes.com/pricing',
 				'button_class' => 'primary',
@@ -59,14 +65,18 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 			] );
 		}
 
-		bew_render_box( [
-			'title'        => __( 'Bosa Pro Extension', 'bosa-elementor-for-woocommerce' ),
-			'description'  => __( 'Designed for your store with an Elementor theme, WooCommerce features, widgets, and templates.', 'bosa-elementor-for-woocommerce' ),
-			'button_text'  => __( 'Learn More', 'bosa-elementor-for-woocommerce' ),
-			'button_link'  => 'https://bosathemes.com/bosa-pro-extension/',
-			'button_class' => 'secondary',
-			'tag'          => __( 'All-in-one Bundle', 'bosa-elementor-for-woocommerce' ),
-		] );
+		// The bundle already includes all three, so once every one of them is
+		// active there is nothing left for the bundle to sell on this site.
+		if ( ! ( $bosa_pro_theme_active && $bosa_shop_extension_pro_active && $bew_is_pro_active ) ) {
+			bew_render_box( [
+				'title'        => __( 'Bosa Pro Extension', 'bosa-elementor-for-woocommerce' ),
+				'description'  => __( 'Everything to launch your online store — or any website: Bosa Pro with 200+ pre-built websites, BEW with 3,000+ templates & AI content generation, and Bosa Shop Extension with conversion-boosting WooCommerce features.', 'bosa-elementor-for-woocommerce' ),
+				'button_text'  => __( 'Learn More', 'bosa-elementor-for-woocommerce' ),
+				'button_link'  => 'https://bosathemes.com/bosa-pro-extension/',
+				'button_class' => 'secondary',
+				'tag'          => __( 'All-in-one Bundle', 'bosa-elementor-for-woocommerce' ),
+			] );
+		}
 		?>
 	</div>
 </div>

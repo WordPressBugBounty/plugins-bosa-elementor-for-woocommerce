@@ -3,6 +3,8 @@
 
     var BEW_PRICING_URL = 'https://bew.bosathemes.com/pricing';
     var BEW_PROMO_ICON_CLASS = 'bew-pro-widget-promotion';
+    // Locked "requires WooCommerce" tiles (set in BEW::get_woo_locked_tiles()).
+    var BEW_WOO_ICON_CLASS = 'bew-woo-widget-promotion';
 
     // data-library-element-type is "undefined" for promotion tiles, so we
     // identify BEW tiles via our own icon class instead (set in get_pro_widgets()).
@@ -11,13 +13,25 @@
         return !!(tile && tile.querySelector && tile.querySelector('.' + BEW_PROMO_ICON_CLASS));
     }
 
-    // Elementor's promotion card reads event.detail.ctaUrl; wrapping
-    // dispatchEvent lets us set it before Elementor's own listener runs,
-    // without touching its native card UI.
+    function isBewWooLockedTile(tile) {
+        return !!(tile && tile.querySelector && tile.querySelector('.' + BEW_WOO_ICON_CLASS));
+    }
+
+    // Elementor's promotion card reads event.detail (title, content, ctaText,
+    // ctaUrl, hideProTag); wrapping dispatchEvent lets us set those before
+    // Elementor's own listener runs, without touching its native card UI.
     var nativeDispatchEvent = document.dispatchEvent.bind(document);
     document.dispatchEvent = function (event) {
         if (event && 'widget-promotion:open' === event.type && event.detail) {
-            if (isBewPromotionTile(event.detail.target)) {
+            if (isBewWooLockedTile(event.detail.target)) {
+                if (window.BEW_PANEL) {
+                    event.detail.title = window.BEW_PANEL.wooTitle;
+                    event.detail.content = window.BEW_PANEL.wooContent;
+                    event.detail.ctaText = window.BEW_PANEL.wooCtaText;
+                    event.detail.ctaUrl = window.BEW_PANEL.wooCtaUrl;
+                    event.detail.hideProTag = true;
+                }
+            } else if (isBewPromotionTile(event.detail.target)) {
                 event.detail.ctaUrl = BEW_PRICING_URL;
             }
         }
@@ -29,7 +43,7 @@
     // restore the crown's original top-right 5px position.
     function patchBewProCrowns(root) {
         var scope = root || document;
-        var promoIcons = scope.querySelectorAll('.' + BEW_PROMO_ICON_CLASS);
+        var promoIcons = scope.querySelectorAll('.' + BEW_PROMO_ICON_CLASS + ', .' + BEW_WOO_ICON_CLASS);
         for (var i = 0; i < promoIcons.length; i++) {
             var tile = promoIcons[i].closest('.elementor-element');
             if (!tile) {
@@ -71,8 +85,16 @@
             if (!$dialog.length) return;
 
             var isBewPro = $(this).find('.' + BEW_PROMO_ICON_CLASS).length > 0;
+            var isBewWoo = $(this).find('.' + BEW_WOO_ICON_CLASS).length > 0;
 
-            if (isBewPro) {
+            if (isBewWoo) {
+                // No Pro upsell button on a WooCommerce-locked tile; show why it is locked.
+                $dialog.find('.dialog-buttons-wrapper').hide();
+                $dialog.find('.bew-go-pro-button-wrapper').hide();
+                if (window.BEW_PANEL) {
+                    $dialog.find('.dialog-message').text(window.BEW_PANEL.wooContent);
+                }
+            } else if (isBewPro) {
                 $dialog.find('.dialog-buttons-wrapper').hide();
 
                 if ($dialog.find('.bew-go-pro-button-wrapper').length === 0) {

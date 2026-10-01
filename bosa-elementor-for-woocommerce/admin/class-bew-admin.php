@@ -89,14 +89,18 @@ class BEW_Admin {
 			);
 		}
 
-		add_submenu_page(
-			self::MENU_SLUG,
-			__( 'Our Products', 'bosa-elementor-for-woocommerce' ),
-			__( 'Our Products', 'bosa-elementor-for-woocommerce' ),
-			self::CAPABILITY,
-			'bew-products',
-			[ $this, 'render_products_page' ]
-		);
+		// Hidden once every cross-sold product (Bosa Pro, Bosa Shop Extension Pro,
+		// BEW Pro) is active -- there would be nothing left to show on this page.
+		if ( ! BEW::all_bosa_products_active() ) {
+			add_submenu_page(
+				self::MENU_SLUG,
+				__( 'Our Products', 'bosa-elementor-for-woocommerce' ),
+				__( 'Our Products', 'bosa-elementor-for-woocommerce' ),
+				self::CAPABILITY,
+				'bew-products',
+				[ $this, 'render_products_page' ]
+			);
+		}
 
 		// No Templates submenu — templates are accessed exclusively from the Elementor editor.
 	}

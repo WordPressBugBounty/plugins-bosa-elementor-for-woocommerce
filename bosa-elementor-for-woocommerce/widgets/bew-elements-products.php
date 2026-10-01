@@ -522,9 +522,21 @@ class BEW_Products extends BEW_Settings {
 
 		$this->get_border_radius( 'img_border_radius', esc_html__( 'Border Radius', 'bosa-elementor-for-woocommerce' ), '.woocommerce ul.products li.product img', 'border-radius' );
 
-		$this->get_margin( 'img_margin', '.woocommerce ul.products li.product img' );
-
-		$this->get_padding( 'img_padding', '.woocommerce ul.products li.product img' );
+		// Targets the image's own wrapper (figure.woo-product-image), not the
+		// <img> itself. The <img>'s own rendered width doesn't shrink for its
+		// own margin/padding (an element's margin/padding never changes what
+		// its own width resolves against), so margin worked at small values by
+		// coincidence but overflowed the card at larger ones (verified: at
+		// 30px on a 3-column grid the image ran 18px past the card's right
+		// edge), and padding had no visible effect at any value (verified: a
+		// red background never showed through). Retargeting to the wrapper
+		// fixes both -- it shrinks correctly since it has no width of its own,
+		// and the image (which does track its containing block's width) scales
+		// down to match. (No separate Image Margin control -- it would shrink
+		// the same wrapper the same way, so it's a duplicate of this one;
+		// padding alone covers the use case, matching the rest of this widget
+		// family.)
+		$this->get_padding( 'img_padding', '.woocommerce ul.products li.product .woo-product-image' );
 
 		$this->end_controls_section();
 

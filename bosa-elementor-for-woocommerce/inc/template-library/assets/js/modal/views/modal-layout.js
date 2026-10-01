@@ -533,7 +533,7 @@ var BEWLibraryLayout = elementorModules.common.views.modal.Layout.extend({
 		elementorModules.common.views.modal.Layout.prototype.initialize.apply( this, arguments );
 
 		this.collection     = new BosaTemplatesCollection();
-		this._currentTab      = 'pages';
+		this._currentTab      = 'kits';
 		this._currentSearch   = '';
 		this._currentCategory = '';
 
