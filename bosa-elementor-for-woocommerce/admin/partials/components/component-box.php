@@ -19,6 +19,8 @@ function bew_render_box( $args = [] ) {
 		'icon'         => '',
 		'class'        => '',
 		'tag'          => '',
+		'note'         => '',
+		'new_tab'      => true, // false for links into this site's own admin.
 	];
 
 	$args = wp_parse_args( $args, $defaults );
@@ -32,8 +34,11 @@ function bew_render_box( $args = [] ) {
 		<?php endif; ?>
 		<h3 class="bew-box-title"><?php echo esc_html( $args['title'] ); ?></h3>
 		<p class="bew-box-description"><?php echo wp_kses_post( $args['description'] ); ?></p>
+		<?php if ( $args['note'] ) : ?>
+			<p class="bew-box-note"><?php echo esc_html( $args['note'] ); ?></p>
+		<?php endif; ?>
 		<?php if ( $args['button_text'] && $args['button_link'] ) : ?>
-			<a href="<?php echo esc_url( $args['button_link'] ); ?>" class="bew-box-button bew-button-<?php echo esc_attr( $args['button_class'] ); ?>" target="_blank" rel="noopener noreferrer">
+			<a href="<?php echo esc_url( $args['button_link'] ); ?>" class="bew-box-button bew-button-<?php echo esc_attr( $args['button_class'] ); ?>"<?php echo $args['new_tab'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
 				<?php echo esc_html( $args['button_text'] ); ?>
 			</a>
 		<?php endif; ?>

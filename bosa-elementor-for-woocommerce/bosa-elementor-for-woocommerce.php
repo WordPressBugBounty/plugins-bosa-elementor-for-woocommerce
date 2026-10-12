@@ -3,7 +3,7 @@
 Plugin Name: BEW - Elementor Addons, Templates & AI Builder
 Plugin URI: https://bew.bosathemes.com
 Description: Enhance your website building experience with powerful Elementor widgets and a versatile, ready-to-use template library & AI-powered Content Generation for seamless customization and improved workflow efficiency.
-Version:     2.1.2
+Version:     2.1.3
 Requires at least: 6.9
 Requires PHP: 7.4
 Requires Plugins: elementor
@@ -17,7 +17,12 @@ Text Domain: bosa-elementor-for-woocommerce
 
 if (!defined('ABSPATH')) exit;
 
-define('BEW_VERSION', '2.1.2');
+define('BEW_VERSION', '2.1.3');
+
+// Tells Bosa Starter Sites that BEW shows its own "Bosa theme" recommendation
+// (admin/notices/theme-notice.php), so Starter Sites stays silent while BEW is
+// active and a site only ever sees one of the two.
+define( 'BEW_RECOMMENDS_BOSA_THEME', true );
 
 define('BEW_FILE', __FILE__);
 define('BEW_PLUGIN_BASENAME', plugin_basename(BEW_FILE));
@@ -26,6 +31,9 @@ define('BEW_URL', plugins_url('/', BEW_FILE));
 
 if (!defined('ABSPATH'))
     exit;
+
+// Keeps BEW active after a WP Reset -- see inc/class-bew-wp-reset-compat.php.
+require_once BEW_PATH . 'inc/class-bew-wp-reset-compat.php';
 
 require_once BEW_PATH . 'admin/class-bew-settings.php';
 add_filter( 'bew_enable_template_library', function () {
@@ -212,7 +220,9 @@ if (!class_exists('BEW')) {
 
             require_once ( BEW_PATH . 'admin/notices/rating-notice.php' );
             require_once ( BEW_PATH . 'admin/notices/pro-notice.php' );
-            
+            require_once ( BEW_PATH . 'admin/notices/sale-notice.php' );
+            require_once ( BEW_PATH . 'admin/notices/theme-notice.php' );
+
             if (!did_action('elementor/loaded')) {
                 add_action( 'admin_notices', array($this, 'admin_notice__error_ele') );
             }else{
@@ -247,20 +257,25 @@ if (!class_exists('BEW')) {
                 true
             );
 
+            // Locked Pro tiles use the same call-to-action as the BEW pages:
+            // Activate License / Renew License with BEW Pro installed, otherwise
+            // Upgrade Now (see BEW::pro_cta()).
+            $pro_cta = self::pro_cta();
+            $panel   = array(
+                'proCtaText' => $pro_cta['text'],
+                'proCtaUrl'  => $pro_cta['url'],
+            );
+
             if ( ! self::is_woo_active() ) {
                 $cta = self::woo_lock_cta();
 
-                wp_localize_script(
-                    'bew-panel-script',
-                    'BEW_PANEL',
-                    array(
-                        'wooTitle'   => __( 'WooCommerce Required', 'bosa-elementor-for-woocommerce' ),
-                        'wooContent' => __( 'This widget requires WooCommerce. Install and activate WooCommerce to use it.', 'bosa-elementor-for-woocommerce' ),
-                        'wooCtaText' => $cta['text'],
-                        'wooCtaUrl'  => $cta['url'],
-                    )
-                );
+                $panel['wooTitle']   = __( 'WooCommerce Required', 'bosa-elementor-for-woocommerce' );
+                $panel['wooContent'] = __( 'This widget requires WooCommerce. Install and activate WooCommerce to use it.', 'bosa-elementor-for-woocommerce' );
+                $panel['wooCtaText'] = $cta['text'];
+                $panel['wooCtaUrl']  = $cta['url'];
             }
+
+            wp_localize_script( 'bew-panel-script', 'BEW_PANEL', $panel );
         }
 
         public function elementor_panel_css() {
@@ -487,7 +502,82 @@ if (!class_exists('BEW')) {
         public static function all_bosa_products_active() {
             return self::is_bosa_pro_theme_active()
                 && self::is_bosa_shop_extension_pro_active()
-                && class_exists( 'BEW_Pro' );
+                && self::is_pro_unlocked();
+        }
+
+        /**
+         * BEW Pro's license state as BEW Pro reports it through the
+         * 'bew_pro_license' filter: 'active' (active, lifetime or trial),
+         * 'expired' or 'none', plus its activate/renew links. '' when BEW Pro
+         * isn't active. The free plugin holds no license code itself; an older
+         * BEW Pro without the report counts as active once it has loaded,
+         * exactly as before.
+         *
+         * @return array
+         */
+        public static function pro_license() {
+            static $info = null;
+
+            if ( null === $info ) {
+                $raw    = apply_filters( 'bew_pro_license', array() );
+                $raw    = is_array( $raw ) ? $raw : array();
+                $status = isset( $raw['status'] ) && in_array( $raw['status'], array( 'active', 'expired', 'none' ), true )
+                    ? $raw['status']
+                    : ( class_exists( 'BEW_Pro' ) ? 'active' : '' );
+
+                $info = array(
+                    'status'       => $status,
+                    'activate_url' => ! empty( $raw['activate_url'] ) ? $raw['activate_url'] : admin_url( 'admin.php?page=bew-pro' ),
+                    'renew_url'    => ! empty( $raw['renew_url'] ) ? $raw['renew_url'] : 'https://bew.bosathemes.com/pricing',
+                );
+            }
+
+            return $info;
+        }
+
+        /**
+         * @return string 'active', 'expired', 'none', or '' without BEW Pro.
+         */
+        public static function pro_status() {
+            $info = self::pro_license();
+            return $info['status'];
+        }
+
+        /**
+         * BEW Pro is active as a plugin, whatever its license state.
+         */
+        public static function is_pro_installed() {
+            return '' !== self::pro_status();
+        }
+
+        /**
+         * BEW Pro features can be added: an active, lifetime or trial license.
+         */
+        public static function is_pro_unlocked() {
+            return 'active' === self::pro_status();
+        }
+
+        /**
+         * Call-to-action for a locked Pro feature: "Activate License" or
+         * "Renew License" when BEW Pro is installed, otherwise the usual upgrade.
+         *
+         * @return array { url, text, new_tab }
+         */
+        public static function pro_cta() {
+            $info = self::pro_license();
+
+            if ( 'none' === $info['status'] ) {
+                $cta = array( 'url' => $info['activate_url'], 'text' => __( 'Activate License', 'bosa-elementor-for-woocommerce' ) );
+            } elseif ( 'expired' === $info['status'] ) {
+                $cta = array( 'url' => $info['renew_url'], 'text' => __( 'Renew License', 'bosa-elementor-for-woocommerce' ) );
+            } else {
+                $cta = array( 'url' => 'https://bew.bosathemes.com/pricing', 'text' => __( 'Upgrade Now', 'bosa-elementor-for-woocommerce' ) );
+            }
+
+            // Links into this site's own admin open in the same tab.
+            $cta['new_tab'] = 0 !== strpos( $cta['url'], admin_url() );
+
+            return $cta;
         }
 
         /**
@@ -965,7 +1055,7 @@ if (!class_exists('BEW')) {
             $toggles   = BEW_Plugin_Settings::get( 'widget_toggles', [] );
             $woo_tiles = self::is_woo_active() ? [] : self::get_woo_locked_tiles( $toggles );
 
-            if ( !class_exists('BEW_Pro') ) {
+            if ( ! self::is_pro_unlocked() ) {
                 $pro_widgets = array(
                     // WooCommerce -- Pro
                     array(
@@ -1020,11 +1110,11 @@ if (!class_exists('BEW')) {
                     ),
                 );
 
-                $bew_upgrade_url = 'https://bew.bosathemes.com/pricing';
+                $bew_pro_cta = self::pro_cta();
                 foreach ( $pro_widgets as &$pw ) {
                     $pw['promotion'] = [
-                        'upgrade_url'  => $bew_upgrade_url,
-                        'upgrade_text' => esc_html__( 'Upgrade Now', 'bosa-elementor-for-woocommerce' ),
+                        'upgrade_url'  => $bew_pro_cta['url'],
+                        'upgrade_text' => esc_html( $bew_pro_cta['text'] ),
                     ];
                 }
                 unset( $pw );
@@ -1055,6 +1145,16 @@ if (!class_exists('BEW')) {
                     return true;
                 } );
 
+                // With an expired license the real Pro widgets stay registered (hidden from
+                // the panel) so existing pages keep rendering; the locked tiles get their own
+                // names so they never clash with them.
+                if ( class_exists( 'BEW_Pro' ) ) {
+                    foreach ( $pro_widgets as &$pw ) {
+                        $pw['name'] .= '-locked';
+                    }
+                    unset( $pw );
+                }
+
                 $promotion_widgets = array_merge( $promotion_widgets, $pro_widgets );
             }
 
@@ -1062,7 +1162,7 @@ if (!class_exists('BEW')) {
                 $promotion_widgets = array_merge( $promotion_widgets, $woo_tiles );
             }
 
-            if ( !class_exists('BEW_Pro') || $woo_tiles ) {
+            if ( ! self::is_pro_unlocked() || $woo_tiles ) {
                 $config['promotionWidgets'] = $promotion_widgets;
             }
             return $config;

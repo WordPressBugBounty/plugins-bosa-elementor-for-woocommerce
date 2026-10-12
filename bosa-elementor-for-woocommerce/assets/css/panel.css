@@ -121,7 +121,7 @@
     border: none;
     box-shadow: none;
     color: #fff;
-    background-color: #93003F;
+    background-color: #7968e4;
     cursor: pointer;
     margin: 0;
     text-align: center;
@@ -130,7 +130,22 @@
 }
 
 #elementor-element--promotion__dialog .bew-go-pro-button-wrapper .bew-pro-urls:hover {
-    background-color: #66002C;
+    background-color: #624fe0;
+}
+
+/* BEW brand purple on the CTA of Elementor's promotion card, for BEW tiles only
+   (bew-editor.js tags that one button with .bew-promo-cta). */
+.bew-promo-cta.MuiButton-root,
+a.bew-promo-cta {
+    background-color: #7968e4 !important;
+    color: #fff !important;
+}
+
+.bew-promo-cta.MuiButton-root:hover,
+.bew-promo-cta.MuiButton-root:focus-visible,
+a.bew-promo-cta:hover {
+    background-color: #624fe0 !important;
+    color: #fff !important;
 }
 
 .elementor-control-bew_section_pro .elementor-panel-heading:after {

@@ -83,6 +83,20 @@
 	line-height: 1.6;
 }
 
+.bew-box-note {
+	width: fit-content;
+	max-width: 100%;
+	margin: 0 0 16px;
+	padding: 6px 10px;
+	border: 1px solid #b7e2c4;
+	border-radius: 4px;
+	background: #e7f6ec;
+	color: #14532d;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
 .bew-box-button {
 	display: inline-block;
 	margin-top: 8px;

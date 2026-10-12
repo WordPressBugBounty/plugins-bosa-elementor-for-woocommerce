@@ -73,7 +73,7 @@ class BEW_AI_Editor {
 			// Shown as a small upgrade note at the bottom of the card --
 			// pointless once Pro is already active, so gated the same way
 			// the "Upgrade to BEW Pro" admin menu link is.
-			'showUpgradeNote'    => class_exists( 'BEW_Admin' ) && ! class_exists( 'BEW_Pro' ),
+			'showUpgradeNote'    => class_exists( 'BEW_Admin' ) && ! BEW::is_pro_installed(),
 			'pricingUrl'         => class_exists( 'BEW_Admin' ) ? BEW_Admin::PRICING_URL : 'https://bew.bosathemes.com/pricing',
 			'i18n'               => [
 				'buttonLabel'        => __( 'BEW AI', 'bosa-elementor-for-woocommerce' ),

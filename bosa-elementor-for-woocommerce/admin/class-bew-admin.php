@@ -54,11 +54,15 @@ class BEW_Admin {
 			59
 		);
 
-		// Submenu 1: BEW Info (mirrors top-level for consistency)
+		// Submenu 1: BEW Info (mirrors top-level for consistency); "BEW Pro Info"
+		// whenever BEW Pro is active, whatever its license state.
+		$info_title = BEW::is_pro_installed()
+			? __( 'BEW Pro Info', 'bosa-elementor-for-woocommerce' )
+			: __( 'BEW Info', 'bosa-elementor-for-woocommerce' );
 		add_submenu_page(
 			self::MENU_SLUG,
-			__( 'BEW Info', 'bosa-elementor-for-woocommerce' ),
-			__( 'BEW Info', 'bosa-elementor-for-woocommerce' ),
+			$info_title,
+			$info_title,
 			self::CAPABILITY,
 			self::MENU_SLUG,
 			[ $this, 'render_info_page' ]
@@ -79,7 +83,7 @@ class BEW_Admin {
 		// to that address instead of an internal admin.php?page= route. Opens in a
 		// new tab -- see print_upgrade_link_script(), since add_submenu_page() has
 		// no target parameter of its own.
-		if ( ! class_exists( 'BEW_Pro' ) ) {
+		if ( ! BEW::is_pro_installed() ) {
 			add_submenu_page(
 				self::MENU_SLUG,
 				__( 'Upgrade to BEW Pro', 'bosa-elementor-for-woocommerce' ),
@@ -114,7 +118,7 @@ class BEW_Admin {
 	 * active and the link no longer exists in the DOM.
 	 */
 	public function print_upgrade_link_script() {
-		if ( class_exists( 'BEW_Pro' ) ) {
+		if ( BEW::is_pro_installed() ) {
 			return;
 		}
 		?>
@@ -194,10 +198,11 @@ class BEW_Admin {
 			'nonce'          => wp_create_nonce( 'bew-settings-nonce' ),
 			'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
 			'menuSlug'       => self::MENU_SLUG,
-			'isProActive'    => class_exists( 'BEW_Pro' ),
+			'isProActive'    => BEW::is_pro_unlocked(),
 			'save'           => __( 'Save Changes', 'bosa-elementor-for-woocommerce' ),
 			'saving'         => __( 'Saving…', 'bosa-elementor-for-woocommerce' ),
 			'saved'          => __( 'Saved!', 'bosa-elementor-for-woocommerce' ),
+			'copied'         => __( 'Copied!', 'bosa-elementor-for-woocommerce' ),
 			'aiDeleteLabel'  => __( 'Delete', 'bosa-elementor-for-woocommerce' ),
 			'aiConfirmDelete' => __( 'Remove this AI provider?', 'bosa-elementor-for-woocommerce' ),
 			'aiErrorMessage' => __( 'Something went wrong. Please try again.', 'bosa-elementor-for-woocommerce' ),

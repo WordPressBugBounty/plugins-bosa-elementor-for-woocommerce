@@ -8,15 +8,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once BEW_PATH . 'admin/partials/components/component-banner.php';
+require_once BEW_PATH . 'admin/partials/components/component-version-eyebrow.php';
 require_once BEW_PATH . 'admin/partials/components/component-box.php';
 
-$bew_is_pro_active = class_exists( 'BEW_Pro' );
+// BEW Pro license state (see BEW::pro_license()): 'active', 'expired', 'none', or '' without BEW Pro.
+$bew_pro_status    = BEW::pro_status();
+$bew_pro_installed = '' !== $bew_pro_status;
+$bew_is_pro_active = 'active' === $bew_pro_status;
+$bew_pro_cta       = BEW::pro_cta();
 ?>
 <div class="wrap bew-admin-page bew-admin-page-info">
 
+	<?php bew_render_version_eyebrow(); ?>
+
 	<h1>
 		<?php
-		if ( $bew_is_pro_active ) {
+		if ( $bew_pro_installed ) {
 			esc_html_e( 'Welcome to BEW Pro - Premium Elementor Addons, Templates & AI Builder', 'bosa-elementor-for-woocommerce' );
 		} else {
 			esc_html_e( 'Welcome to BEW - Elementor Addons, Templates & AI Builder', 'bosa-elementor-for-woocommerce' );
@@ -25,7 +32,7 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 	</h1>
 
 	<?php
-	if ( $bew_is_pro_active ) {
+	if ( $bew_pro_installed ) {
 		bew_render_banner( BEW_URL . 'admin/assets/images/bew-cta-pro-banner.jpg' );
 	} else {
 		bew_render_banner( BEW_URL . 'admin/assets/images/bew-cta-banner.jpg', '', 'https://bew.bosathemes.com/pricing' );
@@ -39,6 +46,10 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 				__( 'Thanks for going Pro! <strong>BEW Pro is now installed and ready to use.</strong> We hope the following information will help and you enjoy using it!', 'bosa-elementor-for-woocommerce' ),
 				[ 'strong' => [] ]
 			);
+		} elseif ( 'none' === $bew_pro_status ) {
+			esc_html_e( 'BEW Pro is installed. Activate your license to unlock Pro widgets, modules, templates and AI content generation.', 'bosa-elementor-for-woocommerce' );
+		} elseif ( 'expired' === $bew_pro_status ) {
+			esc_html_e( 'Your BEW Pro license has expired. Pages you already built keep working; renew to add Pro widgets, templates and AI content again and to keep getting updates.', 'bosa-elementor-for-woocommerce' );
 		} else {
 			esc_html_e( 'BEW is now installed and ready to use. We hope the following information will help and you enjoy using it!', 'bosa-elementor-for-woocommerce' );
 		}
@@ -53,7 +64,7 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 
 	<div class="bew-info-boxes">
 		<?php
-		if ( ! $bew_is_pro_active ) {
+		if ( ! $bew_pro_installed ) {
 			bew_render_box( [
 				'title'        => __( 'BEW Free VS Pro', 'bosa-elementor-for-woocommerce' ),
 				'description'  => __( 'Explore the difference between Free and Pro versions and choose what suits you best.', 'bosa-elementor-for-woocommerce' ),
@@ -71,7 +82,21 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 			'button_class' => 'secondary',
 		] );
 
-		if ( ! $bew_is_pro_active ) {
+		if ( 'none' === $bew_pro_status || 'expired' === $bew_pro_status ) {
+			// License section: BEW Pro is installed but its license is missing or expired.
+			bew_render_box( [
+				'title'        => 'none' === $bew_pro_status
+					? __( 'Activate Your License', 'bosa-elementor-for-woocommerce' )
+					: __( 'Renew Your License', 'bosa-elementor-for-woocommerce' ),
+				'description'  => 'none' === $bew_pro_status
+					? __( 'Enter your BEW Pro license key to unlock Pro widgets, modules, 3,000+ templates & AI-powered Content Generation.', 'bosa-elementor-for-woocommerce' )
+					: __( 'Renew to add Pro widgets, modules, templates & AI content in the editor again, and to keep getting updates and priority support.', 'bosa-elementor-for-woocommerce' ),
+				'button_text'  => $bew_pro_cta['text'],
+				'button_link'  => $bew_pro_cta['url'],
+				'button_class' => 'primary',
+				'new_tab'      => $bew_pro_cta['new_tab'],
+			] );
+		} elseif ( ! $bew_pro_installed ) {
 			bew_render_box( [
 				'title'        => __( 'Need More Features?', 'bosa-elementor-for-woocommerce' ),
 				'description'  => __( 'Upgrade to Pro & unlock premium widgets, modules, 3,000+ templates, & AI-powered Content Generation.', 'bosa-elementor-for-woocommerce' ),
@@ -97,7 +122,7 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 			'button_class' => 'secondary',
 		] );
 
-		if ( ! $bew_is_pro_active ) {
+		if ( ! $bew_pro_installed ) {
 			bew_render_box( [
 				'title'        => __( 'Rate This Plugin', 'bosa-elementor-for-woocommerce' ),
 				'description'  => __( 'If you love BEW, please leave a 5-star rating to help other users discover it.', 'bosa-elementor-for-woocommerce' ),

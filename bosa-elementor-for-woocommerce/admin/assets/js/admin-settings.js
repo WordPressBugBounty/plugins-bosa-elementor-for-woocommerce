@@ -23,6 +23,39 @@
 		} );
 	}
 
+	// ── System Status: copy system info ────────────────────────────────────
+	function initSystemInfoCopy() {
+		var btn = document.getElementById( 'bew-copy-system-info' );
+		var box = document.getElementById( 'bew-system-info' );
+		if ( ! btn || ! box ) {
+			return;
+		}
+		var label = btn.textContent;
+
+		function done() {
+			btn.textContent = bewAdmin.copied || 'Copied!';
+			setTimeout( function () { btn.textContent = label; }, 2000 );
+		}
+
+		function fallback() {
+			box.focus();
+			box.select();
+			try {
+				if ( document.execCommand( 'copy' ) ) {
+					done();
+				}
+			} catch ( e ) {}
+		}
+
+		btn.addEventListener( 'click', function () {
+			if ( navigator.clipboard && navigator.clipboard.writeText ) {
+				navigator.clipboard.writeText( box.value ).then( done, fallback );
+			} else {
+				fallback();
+			}
+		} );
+	}
+
 	// ── Individual toggle AJAX ─────────────────────────────────────────────
 	function initToggles() {
 		document.querySelectorAll( '.bew-widget-toggle' ).forEach( function ( checkbox ) {
@@ -242,6 +275,7 @@
 	// ── Boot ───────────────────────────────────────────────────────────────
 	document.addEventListener( 'DOMContentLoaded', function () {
 		initTabs();
+		initSystemInfoCopy();
 		initToggles();
 		initSaveButtons();
 		initWidgetsSave();

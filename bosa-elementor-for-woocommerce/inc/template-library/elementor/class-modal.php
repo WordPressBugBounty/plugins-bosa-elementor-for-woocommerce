@@ -69,7 +69,10 @@ class Bosa_Ewc_Modal {
 
 		$category_lists = $this->get_category_lists_for_modal();
 		$pro_active     = bosa_ewc_has_pro_plugin();
-		$go_pro_banner  = $pro_active
+		// BEW Pro owners whose license is missing or expired get Activate or
+		// Renew instead of Go Pro on locked templates.
+		$pro_cta        = ( ! $pro_active && class_exists( 'BEW' ) && BEW::is_pro_installed() ) ? BEW::pro_cta() : null;
+		$go_pro_banner  = ( $pro_active || $pro_cta )
 			? 'admin/assets/images/bew-cta-sm-pro-banner.jpg'
 			: 'admin/assets/images/bew-cta-sm-banner.jpg';
 
@@ -126,7 +129,7 @@ class Bosa_Ewc_Modal {
 				'build'           => $this->asset_version( 'assets/js/modal/views/template-card-view.js' ),
 				'categoryLists'   => $category_lists,
 				'proPluginActive' => $pro_active,
-				'proUpgradeUrl'   => esc_url_raw( 'https://bew.bosathemes.com/pricing' ),
+				'proUpgradeUrl'   => esc_url_raw( $pro_cta ? $pro_cta['url'] : 'https://bew.bosathemes.com/pricing' ),
 				'goProBannerUrl'  => esc_url_raw( BEW_URL . $go_pro_banner ),
 				'endOfListIconUrl' => esc_url_raw( BEW_TL_URL . 'assets/images/template-info.svg' ),
 				'i18n'            => [
@@ -140,7 +143,7 @@ class Bosa_Ewc_Modal {
 						'sections' => __( 'Search Sections', 'bosa-elementor-for-woocommerce' ),
 					],
 					'insert'         => __( 'Insert', 'bosa-elementor-for-woocommerce' ),
-					'go_pro'         => __( 'Go Pro', 'bosa-elementor-for-woocommerce' ),
+					'go_pro'         => $pro_cta ? $pro_cta['text'] : __( 'Go Pro', 'bosa-elementor-for-woocommerce' ),
 					'preview'        => __( 'Preview', 'bosa-elementor-for-woocommerce' ),
 					'live_preview'   => __( 'Live Preview', 'bosa-elementor-for-woocommerce' ),
 					'close'          => __( 'Close', 'bosa-elementor-for-woocommerce' ),

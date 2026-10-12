@@ -3,7 +3,7 @@ Contributors: bosathemes
 Tags: elementor addons, woocommerce widgets, template library, ai builder, elementor widgets
 Requires at least: 6.9
 Tested up to: 7.1
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 Requires PHP: 7.4
 Requires Plugins: elementor
 License: GNU General Public License v2 or later
@@ -113,6 +113,31 @@ Shop-first Elementor addon with WooCommerce widgets, 3,000+ templates, site modu
 
 <p>Learn more about the BEW AI Builder workflow in the <a href="https://bew.bosathemes.com/docs-category/how-to-use-bew-ai-builder/">documentation</a>.</p>
 
+<h3>🤝 Compatibility</h3>
+
+<p>BEW works with any theme that supports Elementor. These are the ones we recommend.</p>
+
+<p><strong>Themes BEW works great with:</strong></p>
+
+<ul>
+<li><a href="https://wordpress.org/themes/bosa/">Bosa</a></li>
+<li><a href="https://wordpress.org/themes/author/bosathemes/">Bosa Family Themes</a></li>
+<li><a href="https://bosathemes.com/bosa-pro/">Bosa Pro</a> (premium)</li>
+<li><a href="https://wordpress.org/themes/hello-elementor/">Hello Elementor</a></li>
+<li><a href="https://wordpress.org/themes/hello-commerce/">Hello Commerce</a></li>
+<li><a href="https://wordpress.org/themes/hello-biz/">Hello Biz</a></li>
+</ul>
+
+<p><strong>Plugins BEW integrates with:</strong></p>
+
+<ul>
+<li><a href="https://wordpress.org/plugins/elementor/">Elementor</a></li>
+<li><a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a></li>
+<li><a href="https://wordpress.org/plugins/contact-form-7/">Contact Form 7</a></li>
+<li><a href="https://wordpress.org/plugins/yith-woocommerce-compare/">YITH WooCommerce Compare</a></li>
+<li><a href="https://wordpress.org/plugins/yith-woocommerce-wishlist/">YITH WooCommerce Wishlist</a></li>
+</ul>
+
 == Installation ==
 
 BEW - Elementor Addons, Templates & AI Builder plugin can be installed in two ways.
@@ -182,6 +207,19 @@ No. Elementor Pro is not required.
 3. AI-powered Content Generator
 
 == Changelog ==
+
+= 2.1.3 =
+= Added =
+* System Status tab in BEW > Settings: server and plugin checks plus a copyable report for support requests.
+* Changelog in BEW > Settings > Version Control, listing every release.
+* Bosa theme recommendation notice on Dashboard, Plugins and Themes when no Bosa theme is active. "Maybe later" hides it for 7 days, the X for 30.
+
+= Updated =
+* Settings now opens on the Widgets tab. The General tab is renamed Version Control and moved to the end.
+* With BEW Pro installed, the BEW Pro Info, Our Products and Settings pages show Activate License or Renew License to match the license, and the Upgrade menu is removed.
+
+= Fixed =
+* BEW is now reactivated after a WP Reset when "Reactivate all currently active plugins" is ticked.
 
 = 2.1.2 =
 = Added =

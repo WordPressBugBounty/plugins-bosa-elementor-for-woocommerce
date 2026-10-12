@@ -8,6 +8,22 @@
 	font-weight: 500;
 }
 
+/* Version eyebrow: a light chip above the title on every BEW page. The 60% white fill is
+   visible on WordPress's grey page background (a grey chip like .bew-box-tag would vanish). */
+.bew-version-eyebrow {
+	width: fit-content;
+	margin: 12px 0 0;
+	padding: 4px 12px;
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.6);
+	color: #624fe0;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
 /* Tab Navigation */
 .bew-tab-nav {
 	display: flex;
@@ -90,6 +106,36 @@
 
 .bew-subsection-title:first-of-type {
 	margin-top: 8px;
+}
+
+/* System Status tab */
+.bew-status {
+	margin: 12px 0 8px;
+}
+
+.bew-status .bew-status-col-icon {
+	width: 32px;
+}
+
+.bew-status-ok {
+	color: #00a32a;
+}
+
+.bew-status-warn {
+	color: #dba617;
+}
+
+.bew-status-info {
+	color: #787c82;
+}
+
+.bew-status-hint {
+	color: #646970;
+}
+
+#bew-system-info {
+	font-family: Consolas, Monaco, monospace;
+	font-size: 12px;
 }
 
 /* Cards grid — widgets / modules / templates */
@@ -199,6 +245,123 @@
 	color: #d63638;
 	font-size: 13px;
 	margin-top: 12px;
+}
+
+/* Changelog (Version Control tab): one collapsible block per release, newest open. */
+.bew-changelog {
+	margin-top: 30px;
+	padding-top: 24px;
+	border-top: 1px solid #e0e0e0;
+}
+
+.bew-changelog h3 {
+	margin-bottom: 14px;
+}
+
+.bew-changelog-release {
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+}
+
+.bew-changelog-release + .bew-changelog-release {
+	margin-top: 8px;
+}
+
+.bew-changelog-release > summary {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 14px;
+	border-radius: 4px;
+	color: #1d2327;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+	cursor: pointer;
+	list-style: none;
+}
+
+.bew-changelog-release > summary::-webkit-details-marker {
+	display: none;
+}
+
+.bew-changelog-release > summary:focus-visible {
+	outline: 2px solid #7968e4;
+	outline-offset: -2px;
+}
+
+/* Chevron: points right when closed, down when open. */
+.bew-changelog-release > summary::before {
+	content: "";
+	flex: none;
+	width: 6px;
+	height: 6px;
+	margin: 0 4px 2px 2px;
+	border: solid #646970;
+	border-width: 0 2px 2px 0;
+	transform: rotate(-45deg);
+}
+
+.bew-changelog-release[open] > summary::before {
+	margin: 0 4px 4px 2px;
+	transform: rotate(45deg);
+}
+
+.bew-changelog-current {
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: #7968e4;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.bew-changelog-body {
+	padding: 0 14px 10px 36px;
+}
+
+.bew-changelog-group {
+	display: inline-block;
+	margin: 4px 0 2px;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: #f0f0f1;
+	color: #50575e;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.bew-changelog-group-added {
+	background: #d1fae5;
+	color: #065f46;
+}
+
+.bew-changelog-group-updated {
+	background: #ece9fc;
+	color: #624fe0;
+}
+
+.bew-changelog-group-fixed {
+	background: #fef3c7;
+	color: #92400e;
+}
+
+.bew-changelog-body ul {
+	margin: 6px 0 10px 18px;
+	list-style: disc;
+}
+
+.bew-changelog-body li {
+	margin: 0 0 4px;
+	color: #3c434a;
+	font-size: 13px;
+	line-height: 1.5;
 }
 
 /* AI Integration: beta / default tags */

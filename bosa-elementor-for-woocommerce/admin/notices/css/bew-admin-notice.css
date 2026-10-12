@@ -375,3 +375,115 @@
         padding: 9px 18px 10px 18px;
     }
 }
+
+/*bew sale notice start*/
+.notice.bew-sale-notice {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* Right padding keeps the text clear of WordPress's dismiss X. */
+    padding: 14px 38px 14px 16px;
+    border-left: 4px solid #624fe0;
+    background: linear-gradient(90deg, #f4f2ff 0%, #ffffff 60%);
+}
+.notice.bew-sale-notice img {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+.notice.bew-sale-notice > div {
+    flex: 1;
+    min-width: 0;
+}
+.notice.bew-sale-notice p {
+    margin: 2px 0;
+}
+.notice.bew-sale-notice .bew-sale-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
+}
+.notice.bew-sale-notice .bew-sale-countdown {
+    color: #624fe0;
+    font-weight: 600;
+    /* Equal-width digits so the text doesn't jitter as it ticks. */
+    font-variant-numeric: tabular-nums;
+}
+.notice.bew-sale-notice .button-primary {
+    background: #624fe0;
+    border-color: #624fe0;
+}
+.notice.bew-sale-notice .button-primary:hover,
+.notice.bew-sale-notice .button-primary:focus,
+.notice.bew-sale-notice .button-primary:active {
+    background: #7968e4;
+    border-color: #7968e4;
+}
+.notice.bew-sale-notice .button-primary:focus {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 3px #624fe0;
+}
+/*bew sale notice end*/
+
+/*bew theme notice start*/
+.notice.bew-theme-notice h3 {
+    margin: .9em 0 .4em;
+    /* Keeps the title clear of the "Maybe later" button in the corner. */
+    padding-right: 140px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.notice.bew-theme-notice .bew-theme-notice-later {
+    position: absolute;
+    top: 12px;
+    right: 48px;
+}
+/* Gray, never underlined or recoloured (WordPress's .button-link goes blue on hover/focus). */
+.notice.bew-theme-notice .bew-theme-notice-later,
+.notice.bew-theme-notice .bew-theme-notice-later:hover,
+.notice.bew-theme-notice .bew-theme-notice-later:active,
+.notice.bew-theme-notice .bew-theme-notice-later:focus {
+    color: #50575e;
+    text-decoration: none;
+}
+.notice.bew-theme-notice .bew-theme-notice-actions {
+    margin: 14px 0 12px;
+}
+/* BEW button look (same as .bew-button-primary / .bew-button-secondary on BEW's own
+   pages, whose stylesheet isn't loaded on Dashboard, Plugins or Themes). */
+.notice.bew-theme-notice .bew-theme-notice-actions .button {
+    /* content-box like BEW's own buttons (WordPress's .button is border-box), so they are 42px tall too. */
+    box-sizing: content-box;
+    min-height: 40px;
+    margin: 0 4px 0 0;
+    padding: 0 16px;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    background: #f0f0f1;
+    color: #2c3338;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 2.92307692;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.notice.bew-theme-notice .bew-theme-notice-actions .button:hover,
+.notice.bew-theme-notice .bew-theme-notice-actions .button:focus {
+    border-color: #b4b4b4;
+    background: #dcdcde;
+    color: #1d2327;
+}
+.notice.bew-theme-notice .bew-theme-notice-actions .button-primary {
+    border-color: #7968e4;
+    background: #7968e4;
+    color: #fff;
+}
+.notice.bew-theme-notice .bew-theme-notice-actions .button-primary:hover,
+.notice.bew-theme-notice .bew-theme-notice-actions .button-primary:focus {
+    border-color: #624fe0;
+    background: #624fe0;
+    color: #fff;
+}
+.notice.bew-theme-notice .bew-theme-notice-actions .button:focus {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 3px #7968e4;
+}
+/*bew theme notice end*/

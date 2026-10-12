@@ -27,6 +27,11 @@ if (!class_exists('Bew_Upgrade_Notice')) {
 
         public function check_pro_install() {
 
+            // A running sale takes over this notice's slot (see sale-notice.php).
+            if ( class_exists( 'BEW_Sale_Notice' ) && BEW_Sale_Notice::is_active() ) {
+                return;
+            }
+
             if ( $this->current_date >= (int)get_option('bew_remind_me_later_time') ) {
                 $dismiss_until = get_option( 'bew_upgrade_notice_dismiss_' . BEW_VERSION );
                 if ( ! $dismiss_until || $this->current_date >= (int) $dismiss_until ) {

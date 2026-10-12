@@ -20,22 +20,62 @@
     // Elementor's promotion card reads event.detail (title, content, ctaText,
     // ctaUrl, hideProTag); wrapping dispatchEvent lets us set those before
     // Elementor's own listener runs, without touching its native card UI.
+    // Locked Pro tiles: "Activate License" / "Renew License" with BEW Pro
+    // installed, otherwise "Upgrade Now" (BEW::pro_cta(), localized as BEW_PANEL).
+    function proCtaText() {
+        return (window.BEW_PANEL && window.BEW_PANEL.proCtaText) || 'Upgrade Now';
+    }
+
+    function proCtaUrl() {
+        return (window.BEW_PANEL && window.BEW_PANEL.proCtaUrl) || BEW_PRICING_URL;
+    }
+
+    // Elementor renders the card with React and its button has no stable
+    // class, so tag the button that links to our CTA and style that tag only
+    // (panel.css: .bew-promo-cta) -- other plugins' cards are never touched.
+    function tagBewCtaButton(url) {
+        var tag = function () {
+            var links = document.querySelectorAll('.e-widget-promotion-wrapper a[href], .MuiButton-root[href]');
+            for (var i = 0; i < links.length; i++) {
+                if (links[i].getAttribute('href') === url) {
+                    links[i].classList.add('bew-promo-cta');
+                    return true;
+                }
+            }
+            return false;
+        };
+        if (tag()) return;
+        var observer = new MutationObserver(function () {
+            if (tag()) observer.disconnect();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+        setTimeout(function () { observer.disconnect(); }, 3000);
+    }
+
     var nativeDispatchEvent = document.dispatchEvent.bind(document);
     document.dispatchEvent = function (event) {
+        var bewCtaUrl = '';
         if (event && 'widget-promotion:open' === event.type && event.detail) {
             if (isBewWooLockedTile(event.detail.target)) {
-                if (window.BEW_PANEL) {
+                if (window.BEW_PANEL && window.BEW_PANEL.wooTitle) {
                     event.detail.title = window.BEW_PANEL.wooTitle;
                     event.detail.content = window.BEW_PANEL.wooContent;
                     event.detail.ctaText = window.BEW_PANEL.wooCtaText;
                     event.detail.ctaUrl = window.BEW_PANEL.wooCtaUrl;
                     event.detail.hideProTag = true;
+                    bewCtaUrl = event.detail.ctaUrl;
                 }
             } else if (isBewPromotionTile(event.detail.target)) {
-                event.detail.ctaUrl = BEW_PRICING_URL;
+                event.detail.ctaText = proCtaText();
+                event.detail.ctaUrl = proCtaUrl();
+                bewCtaUrl = event.detail.ctaUrl;
             }
         }
-        return nativeDispatchEvent(event);
+        var result = nativeDispatchEvent(event);
+        if (bewCtaUrl) {
+            tagBewCtaButton(bewCtaUrl);
+        }
+        return result;
     };
 
     // Swap the crown icon for a lock icon on BEW promotion tiles. Class
@@ -99,9 +139,9 @@
 
                 if ($dialog.find('.bew-go-pro-button-wrapper').length === 0) {
                     $dialog.append(
-                        '<div class="bew-go-pro-button-wrapper">' +
-                        '<a href="' + BEW_PRICING_URL + '" target="_blank" class="bew-pro-urls">Upgrade Now</a>' +
-                        '</div>'
+                        $('<div class="bew-go-pro-button-wrapper"></div>').append(
+                            $('<a target="_blank" class="bew-pro-urls"></a>').attr('href', proCtaUrl()).text(proCtaText())
+                        )
                     );
                 } else {
                     $dialog.find('.bew-go-pro-button-wrapper').show();

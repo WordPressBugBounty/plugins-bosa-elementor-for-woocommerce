@@ -203,7 +203,9 @@ function bosa_ewc_is_free_template( $post_id ) {
  * @return bool
  */
 function bosa_ewc_has_pro_plugin() {
-	return class_exists( 'BEW_Pro' );
+	// Pro templates need BEW Pro with an active, lifetime or trial license; an
+	// expired or missing license keeps the free templates only.
+	return class_exists( 'BEW' ) ? BEW::is_pro_unlocked() : class_exists( 'BEW_Pro' );
 }
 
 /**

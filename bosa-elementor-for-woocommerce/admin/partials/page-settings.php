@@ -2,9 +2,12 @@
 /**
  * BEW Settings Page
  *
- * Five tabs: General | Widgets | Templates | Modules | AI Integration
+ * Six tabs: Widgets | Templates | Modules | AI Integration | System Status | Version Control
+ * Widgets is the tab that opens by default.
  * The Templates tab controls only the Elementor editor Template Library modal.
  * The AI Integration tab manages user-supplied AI provider API keys.
+ * The System Status tab is read-only (server/plugin checks and a support report).
+ * The Version Control tab holds the rollback to the previous version and the changelog.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,11 +15,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once BEW_PATH . 'admin/partials/components/component-banner.php';
+require_once BEW_PATH . 'admin/partials/components/component-version-eyebrow.php';
 require_once BEW_PATH . 'admin/partials/components/component-card.php';
+require_once BEW_PATH . 'admin/partials/components/component-changelog.php';
 
-$bew_is_pro_active = class_exists( 'BEW_Pro' );
+$bew_pro_status    = BEW::pro_status();
+$bew_is_pro_active = '' !== $bew_pro_status; // BEW Pro installed: Pro banner.
+$bew_pro_cta       = BEW::pro_cta();
 ?>
 <div class="wrap bew-admin-page bew-admin-page-settings">
+
+	<?php bew_render_version_eyebrow(); ?>
 
 	<h1><?php esc_html_e( 'BEW Settings', 'bosa-elementor-for-woocommerce' ); ?></h1>
 
@@ -29,10 +38,7 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 	?>
 
 	<div class="bew-tab-nav">
-		<button class="bew-tab-button active" data-tab="general">
-			<?php esc_html_e( 'General', 'bosa-elementor-for-woocommerce' ); ?>
-		</button>
-		<button class="bew-tab-button" data-tab="widgets">
+		<button class="bew-tab-button active" data-tab="widgets">
 			<?php esc_html_e( 'Widgets', 'bosa-elementor-for-woocommerce' ); ?>
 		</button>
 		<button class="bew-tab-button" data-tab="templates">
@@ -48,15 +54,21 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 				<span class="bew-beta-tag"><?php esc_html_e( 'Beta', 'bosa-elementor-for-woocommerce' ); ?></span>
 			<?php endif; ?>
 		</button>
+		<button class="bew-tab-button" data-tab="system-status">
+			<?php esc_html_e( 'System Status', 'bosa-elementor-for-woocommerce' ); ?>
+		</button>
+		<button class="bew-tab-button" data-tab="version-control">
+			<?php esc_html_e( 'Version Control', 'bosa-elementor-for-woocommerce' ); ?>
+		</button>
 	</div>
 
-	<!-- Tab: Widgets -->
-	<div class="bew-tab-content" id="bew-tab-widgets" style="display:none;">
+	<!-- Tab: Widgets (default active) -->
+	<div class="bew-tab-content active" id="bew-tab-widgets">
 		<h3><?php esc_html_e( 'Widgets', 'bosa-elementor-for-woocommerce' ); ?></h3>
 		<p><?php esc_html_e( 'Enable or disable widgets. Disabled widgets will not appear in Elementor.', 'bosa-elementor-for-woocommerce' ); ?></p>
 
 		<?php
-		$is_pro_active  = class_exists( 'BEW_Pro' );
+		$is_pro_active  = BEW::is_pro_unlocked(); // Pro widgets, modules and AI features need an active license.
 		$widget_toggles = BEW_Plugin_Settings::get( 'widget_toggles', [] );
 
 		$general_widgets = [
@@ -529,9 +541,14 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 		</table>
 	</div>
 
-	<!-- Tab: General (default active) -->
-	<div class="bew-tab-content active" id="bew-tab-general">
-		<h3><?php esc_html_e( 'General', 'bosa-elementor-for-woocommerce' ); ?></h3>
+	<!-- Tab: System Status -->
+	<div class="bew-tab-content" id="bew-tab-system-status" style="display:none;">
+		<?php require BEW_PATH . 'admin/partials/tab-system-status.php'; ?>
+	</div>
+
+	<!-- Tab: Version Control -->
+	<div class="bew-tab-content" id="bew-tab-version-control" style="display:none;">
+		<h3><?php esc_html_e( 'Version Control', 'bosa-elementor-for-woocommerce' ); ?></h3>
 
 		<?php $rollback_version = BEW_Plugin_Settings::get_rollback_version(); ?>
 		<?php if ( $rollback_version ) : ?>
@@ -553,6 +570,8 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 			</p>
 		</div>
 		<?php endif; ?>
+
+		<?php bew_render_changelog(); ?>
 	</div>
 </div>
 
@@ -561,10 +580,18 @@ $bew_is_pro_active = class_exists( 'BEW_Pro' );
 	<div class="bew-pro-popup-overlay"></div>
 	<div class="bew-pro-popup-content">
 		<button type="button" class="bew-pro-popup-close">&times;</button>
-		<h3><?php esc_html_e( 'Upgrade to Pro', 'bosa-elementor-for-woocommerce' ); ?></h3>
-		<p><?php esc_html_e( 'This is available in the Pro version. Unlock all premium widgets, templates, and features for your store.', 'bosa-elementor-for-woocommerce' ); ?></p>
-		<a href="https://bew.bosathemes.com/pricing" target="_blank" rel="noopener noreferrer" class="bew-box-button bew-button-primary">
-			<?php esc_html_e( 'Upgrade Now', 'bosa-elementor-for-woocommerce' ); ?>
+		<?php if ( 'none' === $bew_pro_status ) : ?>
+			<h3><?php esc_html_e( 'Activate Your License', 'bosa-elementor-for-woocommerce' ); ?></h3>
+			<p><?php esc_html_e( 'Activate your BEW Pro license to use Pro widgets, modules, templates, and AI features.', 'bosa-elementor-for-woocommerce' ); ?></p>
+		<?php elseif ( 'expired' === $bew_pro_status ) : ?>
+			<h3><?php esc_html_e( 'Renew Your License', 'bosa-elementor-for-woocommerce' ); ?></h3>
+			<p><?php esc_html_e( 'Your BEW Pro license has expired. Renew it to turn Pro widgets, modules, and AI features on again.', 'bosa-elementor-for-woocommerce' ); ?></p>
+		<?php else : ?>
+			<h3><?php esc_html_e( 'Upgrade to Pro', 'bosa-elementor-for-woocommerce' ); ?></h3>
+			<p><?php esc_html_e( 'This is available in the Pro version. Unlock all premium widgets, templates, and features for your store.', 'bosa-elementor-for-woocommerce' ); ?></p>
+		<?php endif; ?>
+		<a href="<?php echo esc_url( $bew_pro_cta['url'] ); ?>"<?php echo $bew_pro_cta['new_tab'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?> class="bew-box-button bew-button-primary">
+			<?php echo esc_html( $bew_pro_cta['text'] ); ?>
 		</a>
 	</div>
 </div>

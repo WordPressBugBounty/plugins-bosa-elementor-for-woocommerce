@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Bosa Elementor for WooCommerce\n"
+"Project-Id-Version: BEW - Elementor Addons, Templates & AI Builder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-30 11:38+0000\n"
+"POT-Creation-Date: 2026-10-11 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.5; wp-7.0; php-8.3.28\n"
+"X-Loco-Version: 2.8.5; wp-7.1.3; php-8.5.0\n"
 "X-Domain: bosa-elementor-for-woocommerce"
 
 #: inc/bew-common.php:1244
@@ -33,7 +33,7 @@ msgid "% Comments"
 msgstr ""
 
 #. %1$s: opening <strong> tag, %2$s: closing </strong> tag
-#: bosa-elementor-for-woocommerce.php:320
+#: bosa-elementor-for-woocommerce.php:330
 #, php-format
 msgid ""
 "%1$sBEW%2$s requires %1$sElementor%2$s plugin to be active. Please activate "
@@ -41,7 +41,7 @@ msgid ""
 msgstr ""
 
 #. %1$s: opening <strong> tag, %2$s: closing </strong> tag
-#: bosa-elementor-for-woocommerce.php:327
+#: bosa-elementor-for-woocommerce.php:337
 #, php-format
 msgid ""
 "%1$sBEW%2$s requires %1$sElementor%2$s plugin to be installed and activated. "
@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 
 #. %d is replaced client-side with the model count.
-#: admin/class-bew-admin.php:207
+#: admin/class-bew-admin.php:212
 msgid "%d models loaded."
 msgstr ""
 
@@ -74,6 +74,12 @@ msgstr ""
 msgid "%s installed and activated successfully."
 msgstr ""
 
+#. %s: time left in the sale, e.g. "5d 14h 32m 10s".
+#: admin/notices/sale-notice.php:182
+#, php-format
+msgid "%s left"
+msgstr ""
+
 #: admin/ai-provider-models.php:273
 msgid "(Free)"
 msgstr ""
@@ -94,20 +100,56 @@ msgstr ""
 msgid "1 Comment"
 msgstr ""
 
+#: admin/class-bew-system-status.php:45
+msgid "6.9 or higher"
+msgstr ""
+
+#: admin/class-bew-system-status.php:44
+msgid "7.4 or higher"
+msgstr ""
+
 #: admin/class-bew-ai-presets.php:134
 msgid "A preset needs both a name and an instruction."
 msgstr ""
 
-#: admin/partials/page-settings.php:479
+#: admin/partials/page-settings.php:491
 msgid "Actions"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:322
+#: admin/notices/theme-notice.php:114
+msgid "Activate Bosa"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:332
 msgid "Activate Elementor"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:652
+#: bosa-elementor-for-woocommerce.php:565
+msgid "Activate License"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:737
 msgid "Activate WooCommerce"
+msgstr ""
+
+#: admin/partials/page-settings.php:585
+msgid ""
+"Activate your BEW Pro license to use Pro widgets, modules, templates, and AI "
+"features."
+msgstr ""
+
+#: admin/partials/page-info.php:89 admin/partials/page-settings.php:584
+msgid "Activate Your License"
+msgstr ""
+
+#: admin/class-bew-system-status.php:134
+msgid "Active"
+msgstr ""
+
+#. %s: plugin version, e.g. "4.3.3".
+#: admin/class-bew-system-status.php:138
+#, php-format
+msgid "Active (%s)"
 msgstr ""
 
 #: widgets/bew-elements-carousel-products.php:420
@@ -116,6 +158,10 @@ msgstr ""
 #: widgets/bew-elements-products-list.php:593
 #: widgets/bew-elements-products.php:600
 msgid "Active Color"
+msgstr ""
+
+#: admin/class-bew-system-status.php:69
+msgid "Active theme"
 msgstr ""
 
 #: widgets/bew-elements-site-logo.php:44
@@ -129,7 +175,7 @@ msgstr ""
 msgid "Add New %s"
 msgstr ""
 
-#: admin/partials/page-settings.php:468
+#: admin/partials/page-settings.php:480
 msgid "Add Provider"
 msgstr ""
 
@@ -137,7 +183,7 @@ msgstr ""
 msgid "Add to wishlist"
 msgstr ""
 
-#: admin/partials/page-products.php:49
+#: admin/partials/page-products.php:54
 msgid ""
 "Add variation swatches, Ajax add to cart, Ajax search, sale countdowns & "
 "more — powerful shop features that boost conversions."
@@ -147,7 +193,7 @@ msgstr ""
 msgid "Add your custom id WITHOUT the Pound key. e.g: my-id"
 msgstr ""
 
-#: admin/partials/page-settings.php:478
+#: admin/partials/page-settings.php:490
 msgid "Added"
 msgstr ""
 
@@ -162,7 +208,7 @@ msgstr ""
 msgid "After"
 msgstr ""
 
-#: admin/partials/page-settings.php:46 admin/partials/page-settings.php:347
+#: admin/partials/page-settings.php:52 admin/partials/page-settings.php:359
 msgid "AI Builder"
 msgstr ""
 
@@ -170,7 +216,7 @@ msgstr ""
 msgid "AI feature settings saved"
 msgstr ""
 
-#: admin/partials/page-settings.php:353
+#: admin/partials/page-settings.php:365
 msgid "AI Features"
 msgstr ""
 
@@ -178,7 +224,7 @@ msgstr ""
 msgid "AI provider added"
 msgstr ""
 
-#: admin/partials/page-settings.php:417
+#: admin/partials/page-settings.php:429
 msgid "AI Provider Integration"
 msgstr ""
 
@@ -211,7 +257,7 @@ msgstr ""
 #: widgets/bew-elements-dropdown-nav.php:62 widgets/bew-elements-search.php:51
 #: widgets/bew-elements-search.php:52 widgets/bew-elements-search.php:162
 #: widgets/bew-elements-search.php:377
-#: inc/template-library/elementor/class-modal.php:135
+#: inc/template-library/elementor/class-modal.php:138
 msgid "All Categories"
 msgstr ""
 
@@ -226,7 +272,7 @@ msgstr ""
 msgid "All Products"
 msgstr ""
 
-#: admin/partials/page-products.php:77
+#: admin/partials/page-products.php:95
 msgid "All-in-one Bundle"
 msgstr ""
 
@@ -238,7 +284,7 @@ msgstr ""
 msgid "Anthropic Account ↗"
 msgstr ""
 
-#: admin/partials/page-settings.php:443 admin/partials/page-settings.php:477
+#: admin/partials/page-settings.php:455 admin/partials/page-settings.php:489
 msgid "API Key"
 msgstr ""
 
@@ -265,6 +311,10 @@ msgstr ""
 msgid "ASC"
 msgstr ""
 
+#: admin/partials/tab-system-status.php:35
+msgid "Ask your hosting provider to update this setting."
+msgstr ""
+
 #: widgets/bew-elements-blog.php:208
 msgid "Author"
 msgstr ""
@@ -273,7 +323,7 @@ msgstr ""
 msgid "Auto Play"
 msgstr ""
 
-#: admin/class-bew-admin.php:209
+#: admin/class-bew-admin.php:214
 msgid ""
 "Automatic detection isn't available for this provider. Enter the model ID "
 "manually."
@@ -285,28 +335,32 @@ msgid ""
 "model ID manually."
 msgstr ""
 
+#: admin/class-bew-system-status.php:39
+msgid "Available"
+msgstr ""
+
 #: admin/class-bew-ai-editor.php:108
 msgid "Back"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:154
+#: inc/template-library/elementor/class-modal.php:157
 msgid "Back To Kit"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:150
+#: inc/template-library/elementor/class-modal.php:153
 msgid "Back To Pages"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:151
+#: inc/template-library/elementor/class-modal.php:154
 msgid "Back To Sections"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:149
-#: inc/template-library/elementor/class-modal.php:153
+#: inc/template-library/elementor/class-modal.php:152
+#: inc/template-library/elementor/class-modal.php:156
 msgid "Back To Templates"
 msgstr ""
 
-#: admin/partials/page-settings.php:305
+#: admin/partials/page-settings.php:317
 #: modules/back-to-top/class-site-settings.php:42
 #: modules/back-to-top/class-site-settings.php:65
 msgid "Back to Top"
@@ -384,8 +438,8 @@ msgstr ""
 msgid "Before"
 msgstr ""
 
-#: admin/class-bew-ai-editor.php:80 admin/partials/page-settings.php:48
-#: admin/partials/page-settings.php:349
+#: admin/class-bew-ai-editor.php:80 admin/partials/page-settings.php:54
+#: admin/partials/page-settings.php:361
 msgid "Beta"
 msgstr ""
 
@@ -397,6 +451,10 @@ msgstr ""
 msgid "BEW - Elementor Addons, Templates & AI Builder"
 msgstr ""
 
+#: admin/class-bew-system-status.php:74
+msgid "BEW adds its widgets and templates inside Elementor."
+msgstr ""
+
 #: admin/class-bew-ai-editor.php:79
 msgid "BEW AI"
 msgstr ""
@@ -405,19 +463,19 @@ msgstr ""
 msgid "BEW Back to Top"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:897
+#: bosa-elementor-for-woocommerce.php:982
 msgid "BEW Elements"
 msgstr ""
 
-#: admin/partials/page-info.php:58
+#: admin/partials/page-info.php:69
 msgid "BEW Free VS Pro"
 msgstr ""
 
-#: admin/class-bew-admin.php:60 admin/class-bew-admin.php:61
+#: admin/class-bew-admin.php:61
 msgid "BEW Info"
 msgstr ""
 
-#: admin/partials/page-info.php:43
+#: admin/partials/page-info.php:54
 msgid ""
 "BEW is now installed and ready to use. We hope the following information "
 "will help and you enjoy using it!"
@@ -427,11 +485,27 @@ msgstr ""
 msgid "BEW Preloader"
 msgstr ""
 
-#: admin/partials/page-products.php:59
+#: admin/partials/page-products.php:65 admin/partials/page-products.php:77
 msgid "BEW Pro"
 msgstr ""
 
-#: admin/partials/page-settings.php:21
+#: admin/class-bew-admin.php:60
+msgid "BEW Pro Info"
+msgstr ""
+
+#: admin/partials/page-products.php:67
+msgid ""
+"BEW Pro is installed. Activate your license to unlock Pro widgets, modules, "
+"3,000+ templates & AI-powered content generation."
+msgstr ""
+
+#: admin/partials/page-info.php:50
+msgid ""
+"BEW Pro is installed. Activate your license to unlock Pro widgets, modules, "
+"templates and AI content generation."
+msgstr ""
+
+#: admin/partials/page-settings.php:30
 msgid "BEW Settings"
 msgstr ""
 
@@ -439,8 +513,8 @@ msgstr ""
 msgid "BEW Template Library requires Elementor to be installed and activated."
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:114
-#: inc/template-library/elementor/class-modal.php:133
+#: inc/template-library/elementor/class-modal.php:117
+#: inc/template-library/elementor/class-modal.php:136
 #: inc/template-library/elementor/class-source.php:32
 msgid "BEW Templates"
 msgstr ""
@@ -453,15 +527,19 @@ msgstr ""
 msgid "BEW templates are read-only."
 msgstr ""
 
+#: admin/notices/sale-notice.php:129
+msgid "Black Friday Sale: 40% off BEW Pro"
+msgstr ""
+
 #: widgets/bew-elements-blog.php:16
 msgid "Blog"
 msgstr ""
 
-#: admin/partials/page-settings.php:385
+#: admin/partials/page-settings.php:397
 msgid "Blog Generator"
 msgstr ""
 
-#: admin/partials/page-settings.php:76
+#: admin/partials/page-settings.php:88
 msgid "Blog Grid"
 msgstr ""
 
@@ -548,15 +626,21 @@ msgstr ""
 msgid "Border Radius"
 msgstr ""
 
-#: admin/partials/page-products.php:37
+#: admin/notices/theme-notice.php:111
+msgid ""
+"Bosa is a free, fast Elementor and WooCommerce theme that pairs with BEW, so "
+"its widgets and templates look and work as designed."
+msgstr ""
+
+#: admin/partials/page-products.php:42
 msgid "Bosa Pro"
 msgstr ""
 
-#: admin/partials/page-products.php:72
+#: admin/partials/page-products.php:90
 msgid "Bosa Pro Extension"
 msgstr ""
 
-#: admin/partials/page-products.php:48
+#: admin/partials/page-products.php:53
 msgid "Bosa Shop Extension Pro"
 msgstr ""
 
@@ -582,7 +666,7 @@ msgstr ""
 msgid "Box Shadow"
 msgstr ""
 
-#: admin/partials/page-settings.php:419
+#: admin/partials/page-settings.php:431
 msgid ""
 "Bring the account you already use with your AI providers — no separate "
 "subscription, no markup. Pay the provider directly and choose the model that "
@@ -594,7 +678,7 @@ msgstr ""
 msgid "Built-in Preloader"
 msgstr ""
 
-#: admin/partials/page-settings.php:370
+#: admin/partials/page-settings.php:382
 msgid "Bulk Text & Image Generator"
 msgstr ""
 
@@ -659,7 +743,7 @@ msgstr ""
 msgid "Categories Separator"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:136
+#: inc/template-library/elementor/class-modal.php:139
 #: inc/template-library/inc/class-template-library.php:95
 msgid "Category"
 msgstr ""
@@ -678,6 +762,14 @@ msgstr ""
 #: widgets/bew-elements-products.php:57 widgets/bew-elements-products.php:92
 #: widgets/bew-elements-site-logo.php:74
 msgid "Center"
+msgstr ""
+
+#: admin/partials/components/component-changelog.php:28
+msgid "Changelog"
+msgstr ""
+
+#: admin/partials/tab-system-status.php:22
+msgid "Check"
 msgstr ""
 
 #: admin/class-bew-ai-editor.php:85
@@ -700,7 +792,7 @@ msgstr ""
 msgid "Click here"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:146
+#: inc/template-library/elementor/class-modal.php:149
 msgid "Close"
 msgstr ""
 
@@ -783,7 +875,7 @@ msgstr ""
 msgid "Compare Label Tooltip"
 msgstr ""
 
-#: admin/partials/page-settings.php:418
+#: admin/partials/page-settings.php:430
 msgid ""
 "Connect AI providers using your own API keys. Keys are stored encrypted and "
 "are only used by AI-powered features in this plugin."
@@ -797,12 +889,12 @@ msgstr ""
 msgid "Connect an AI provider in BEW Settings to use this feature."
 msgstr ""
 
-#: admin/partials/page-settings.php:471
+#: admin/partials/page-settings.php:483
 msgid "Connected Providers"
 msgstr ""
 
 #: widgets/bew-elements-contact-form-7.php:16
-#: admin/partials/page-settings.php:82
+#: admin/partials/page-settings.php:94
 msgid "Contact Form 7"
 msgstr ""
 
@@ -821,6 +913,14 @@ msgstr ""
 
 #: widgets/bew-elements-categories-list.php:314
 msgid "Content Alignment"
+msgstr ""
+
+#: admin/class-bew-admin.php:205
+msgid "Copied!"
+msgstr ""
+
+#: admin/partials/tab-system-status.php:65
+msgid "Copy system info"
 msgstr ""
 
 #: admin/ai-text-generator.php:33
@@ -849,6 +949,30 @@ msgstr ""
 msgid "Count Width"
 msgstr ""
 
+#. Abbreviation for "days" in the sale countdown, e.g. the "d" in "5d 14h".
+#: admin/notices/sale-notice.php:173
+msgctxt "countdown days"
+msgid "d"
+msgstr ""
+
+#. Abbreviation for "hours" in the sale countdown, e.g. the "h" in "5d 14h".
+#: admin/notices/sale-notice.php:175
+msgctxt "countdown hours"
+msgid "h"
+msgstr ""
+
+#. Abbreviation for "minutes" in the sale countdown, e.g. the "m" in "32m 10s".
+#: admin/notices/sale-notice.php:177
+msgctxt "countdown minutes"
+msgid "m"
+msgstr ""
+
+#. Abbreviation for "seconds" in the sale countdown, e.g. the "s" in "32m 10s".
+#: admin/notices/sale-notice.php:179
+msgctxt "countdown seconds"
+msgid "s"
+msgstr ""
+
 #: widgets/bew-elements-cart.php:220
 msgid "Counts"
 msgstr ""
@@ -859,6 +983,8 @@ msgstr ""
 
 #: widgets/bew-elements-blog.php:817 widgets/bew-elements-grid-products.php:810
 #: widgets/bew-elements-products.php:820
+#: admin/partials/tab-system-status.php:23
+#: admin/partials/components/component-changelog.php:35
 msgid "Current"
 msgstr ""
 
@@ -883,7 +1009,7 @@ msgstr ""
 msgid "Custom URL"
 msgstr ""
 
-#: admin/partials/page-info.php:85
+#: admin/partials/page-info.php:110
 msgid "Customization Request"
 msgstr ""
 
@@ -899,10 +1025,10 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/class-bew-admin.php:211 inc/bew-common.php:435
+#: admin/class-bew-admin.php:216 inc/bew-common.php:435
 #: widgets/bew-elements-blog.php:189 widgets/bew-elements-blog.php:203
 #: widgets/bew-elements-carousel-products.php:50
-#: widgets/bew-elements-site-logo.php:96 admin/partials/page-settings.php:499
+#: widgets/bew-elements-site-logo.php:96 admin/partials/page-settings.php:511
 msgid "Default"
 msgstr ""
 
@@ -917,7 +1043,7 @@ msgstr ""
 msgid "Del Price Color"
 msgstr ""
 
-#: admin/class-bew-admin.php:201 admin/partials/page-settings.php:521
+#: admin/class-bew-admin.php:206 admin/partials/page-settings.php:533
 msgid "Delete"
 msgstr ""
 
@@ -984,7 +1110,7 @@ msgstr ""
 msgid "Divider Color"
 msgstr ""
 
-#: admin/partials/page-info.php:67
+#: admin/partials/page-info.php:78
 msgid "Documentation"
 msgstr ""
 
@@ -1009,7 +1135,7 @@ msgstr ""
 msgid "Dropdown"
 msgstr ""
 
-#: widgets/bew-elements-dropdown-nav.php:16 admin/partials/page-settings.php:70
+#: widgets/bew-elements-dropdown-nav.php:16 admin/partials/page-settings.php:82
 msgid "Dropdown Nav"
 msgstr ""
 
@@ -1036,21 +1162,21 @@ msgstr ""
 msgid "Enable Button"
 msgstr ""
 
-#: admin/partials/page-settings.php:354
+#: admin/partials/page-settings.php:366
 msgid ""
 "Enable or disable individual AI features. Disabled features will not appear "
 "in the editor."
 msgstr ""
 
-#: admin/partials/page-settings.php:301
+#: admin/partials/page-settings.php:313
 msgid "Enable or disable modules."
 msgstr ""
 
-#: admin/partials/page-settings.php:262
+#: admin/partials/page-settings.php:274
 msgid "Enable or disable the BEW Template Library inside the Elementor editor."
 msgstr ""
 
-#: admin/partials/page-settings.php:56
+#: admin/partials/page-settings.php:68
 msgid ""
 "Enable or disable widgets. Disabled widgets will not appear in Elementor."
 msgstr ""
@@ -1062,7 +1188,7 @@ msgid ""
 "for seamless customization and improved workflow efficiency."
 msgstr ""
 
-#: admin/class-bew-admin.php:208
+#: admin/class-bew-admin.php:213
 msgid "Enter model ID, e.g. gpt-4o"
 msgstr ""
 
@@ -1070,10 +1196,16 @@ msgstr ""
 msgid "Enter the categories slugs seperated by a \"comma\""
 msgstr ""
 
-#: admin/partials/page-settings.php:463
+#: admin/partials/page-settings.php:475
 msgid ""
 "Enter your API key above, then load the models it can access and pick one as "
 "the default."
+msgstr ""
+
+#: admin/partials/page-info.php:92
+msgid ""
+"Enter your BEW Pro license key to unlock Pro widgets, modules, 3,000+ "
+"templates & AI-powered Content Generation."
 msgstr ""
 
 #: modules/back-to-top/class-site-settings.php:312
@@ -1086,7 +1218,7 @@ msgstr ""
 msgid "Equal Heights"
 msgstr ""
 
-#: admin/partials/page-products.php:73
+#: admin/partials/page-products.php:91
 msgid ""
 "Everything to launch your online store — or any website: Bosa Pro with 200+ "
 "pre-built websites, BEW with 3,000+ templates & AI content generation, and "
@@ -1130,17 +1262,17 @@ msgstr ""
 msgid "Exclude Tags"
 msgstr ""
 
-#: admin/partials/page-settings.php:540
+#: admin/partials/page-settings.php:557
 msgid ""
 "Experiencing an issue with this version? You can rollback the previous "
 "version."
 msgstr ""
 
-#: admin/partials/page-products.php:30
+#: admin/partials/page-products.php:35
 msgid "Explore our complete suite of premium WordPress products and solutions."
 msgstr ""
 
-#: admin/partials/page-info.php:59
+#: admin/partials/page-info.php:70
 msgid ""
 "Explore the difference between Free and Pro versions and choose what suits "
 "you best."
@@ -1166,7 +1298,7 @@ msgstr ""
 msgid "Fade Out Duration (ms)"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:166
+#: inc/template-library/elementor/class-modal.php:169
 msgid "Failed"
 msgstr ""
 
@@ -1210,7 +1342,7 @@ msgstr ""
 msgid "Form"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:155
+#: inc/template-library/elementor/class-modal.php:158
 msgid "Free"
 msgstr ""
 
@@ -1242,8 +1374,7 @@ msgstr ""
 msgid "Gap Between Icons"
 msgstr ""
 
-#: admin/partials/page-settings.php:33 admin/partials/page-settings.php:232
-#: admin/partials/page-settings.php:534
+#: admin/partials/page-settings.php:244
 msgid "General"
 msgstr ""
 
@@ -1259,21 +1390,29 @@ msgstr ""
 msgid "Get BEW Pro to access advanced AI features."
 msgstr ""
 
-#: admin/partials/page-info.php:94
+#: admin/partials/page-info.php:119
 msgid ""
 "Get community help, find solutions, & connect with the BEW community. BEW "
 "Pro users can submit a support ticket directly to our core support team."
 msgstr ""
 
-#: admin/partials/page-info.php:93
+#: admin/partials/page-info.php:118
 msgid "Get Priority Support Access"
 msgstr ""
 
-#: admin/partials/page-info.php:87
+#: admin/partials/page-info.php:112
 msgid "Get Service"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:665
+#: admin/notices/sale-notice.php:143
+msgid "Get the deal"
+msgstr ""
+
+#: admin/notices/theme-notice.php:110
+msgid "Get the most from BEW with the Bosa theme."
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:750
 msgid "Get WooCommerce"
 msgstr ""
 
@@ -1281,7 +1420,7 @@ msgstr ""
 msgid "Go Premium for More Features"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:143
+#: inc/template-library/elementor/class-modal.php:146
 msgid "Go Pro"
 msgstr ""
 
@@ -1484,7 +1623,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: admin/partials/page-info.php:103
+#: admin/partials/page-info.php:128
 msgid ""
 "If you love BEW, please leave a 5-star rating to help other users discover "
 "it."
@@ -1500,11 +1639,11 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:1009 admin/partials/page-settings.php:88
+#: bosa-elementor-for-woocommerce.php:1094 admin/partials/page-settings.php:100
 msgid "Image Carousel"
 msgstr ""
 
-#: admin/partials/page-settings.php:365
+#: admin/partials/page-settings.php:377
 msgid "Image Generator"
 msgstr ""
 
@@ -1562,21 +1701,25 @@ msgstr ""
 msgid "Inputs and Textareas"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:142
+#: inc/template-library/elementor/class-modal.php:145
 msgid "Insert"
 msgstr ""
 
 #: inc/template-library/admin/class-editor-prompt.php:71
 #: inc/template-library/admin/class-editor-prompt.php:135
-#: inc/template-library/elementor/class-modal.php:163
+#: inc/template-library/elementor/class-modal.php:166
 msgid "Install & Activate"
 msgstr ""
 
-#: admin/partials/page-settings.php:207
+#: admin/partials/page-settings.php:219
 msgid "Install and activate WooCommerce to use these widgets."
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:328
+#: admin/notices/theme-notice.php:116
+msgid "Install Bosa"
+msgstr ""
+
+#: bosa-elementor-for-woocommerce.php:338
 msgid "Install Elementor"
 msgstr ""
 
@@ -1584,17 +1727,21 @@ msgstr ""
 msgid "Install the plugin to display the full widget."
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:659
+#: bosa-elementor-for-woocommerce.php:744
 msgid "Install WooCommerce"
 msgstr ""
 
+#: admin/class-bew-system-status.php:156
+msgid "Installed but inactive"
+msgstr ""
+
 #: inc/template-library/admin/class-editor-prompt.php:70
-#: inc/template-library/elementor/class-modal.php:165
+#: inc/template-library/elementor/class-modal.php:168
 msgid "Installed ✓"
 msgstr ""
 
 #: inc/template-library/admin/class-editor-prompt.php:69
-#: inc/template-library/elementor/class-modal.php:164
+#: inc/template-library/elementor/class-modal.php:167
 msgid "Installing…"
 msgstr ""
 
@@ -1686,7 +1833,7 @@ msgstr ""
 msgid "Kit"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:169
+#: inc/template-library/elementor/class-modal.php:172
 #: inc/template-library/inc/class-template-library.php:68
 msgid "Kits"
 msgstr ""
@@ -1713,19 +1860,20 @@ msgstr ""
 msgid "Large"
 msgstr ""
 
-#: admin/partials/page-products.php:60
+#: admin/partials/page-products.php:78
 msgid ""
 "Launch and grow your online store — or any website — faster with Elementor "
 "widgets, 3,000+ templates & AI-powered content generation, right inside the "
 "editor."
 msgstr ""
 
-#: admin/partials/page-info.php:60 admin/partials/page-products.php:39
-#: admin/partials/page-products.php:50 admin/partials/page-products.php:74
+#: admin/notices/theme-notice.php:118 admin/partials/page-info.php:71
+#: admin/partials/page-products.php:44 admin/partials/page-products.php:55
+#: admin/partials/page-products.php:92
 msgid "Learn More"
 msgstr ""
 
-#: admin/partials/page-info.php:104
+#: admin/partials/page-info.php:129
 msgid "Leave Rating"
 msgstr ""
 
@@ -1749,7 +1897,7 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:145
+#: inc/template-library/elementor/class-modal.php:148
 msgid "Live Preview"
 msgstr ""
 
@@ -1757,11 +1905,11 @@ msgstr ""
 msgid "Load a saved preset"
 msgstr ""
 
-#: admin/partials/page-settings.php:459
+#: admin/partials/page-settings.php:471
 msgid "Load Models"
 msgstr ""
 
-#: admin/class-bew-admin.php:210
+#: admin/class-bew-admin.php:215
 msgid "Load models and choose one before adding this provider."
 msgstr ""
 
@@ -1773,8 +1921,8 @@ msgstr ""
 msgid "Loader Source"
 msgstr ""
 
-#: admin/class-bew-admin.php:205 admin/class-bew-ai-editor.php:123
-#: inc/template-library/elementor/class-modal.php:157
+#: admin/class-bew-admin.php:210 admin/class-bew-ai-editor.php:123
+#: inc/template-library/elementor/class-modal.php:160
 msgid "Loading…"
 msgstr ""
 
@@ -1817,8 +1965,28 @@ msgstr ""
 msgid "Match Tags"
 msgstr ""
 
+#: admin/class-bew-system-status.php:47
+msgid "Max execution time"
+msgstr ""
+
+#: admin/class-bew-system-status.php:49
+msgid "Max input vars"
+msgstr ""
+
+#: admin/class-bew-system-status.php:48
+msgid "Max upload size"
+msgstr ""
+
+#: admin/notices/theme-notice.php:109
+msgid "Maybe later"
+msgstr ""
+
 #: inc/bew-common.php:747
 msgid "Medium"
+msgstr ""
+
+#: admin/class-bew-system-status.php:46
+msgid "Memory limit"
 msgstr ""
 
 #: widgets/bew-elements-blog.php:212
@@ -1835,6 +2003,10 @@ msgstr ""
 
 #: widgets/bew-elements-blog.php:693
 msgid "Meta"
+msgstr ""
+
+#: admin/class-bew-system-status.php:40
+msgid "Missing"
 msgstr ""
 
 #: admin/class-bew-ai-history.php:206 admin/class-bew-ai-history.php:217
@@ -1857,7 +2029,7 @@ msgstr ""
 msgid "Mistral Console ↗"
 msgstr ""
 
-#: admin/class-bew-ai-editor.php:87 admin/partials/page-settings.php:456
+#: admin/class-bew-ai-editor.php:87 admin/partials/page-settings.php:468
 msgid "Model"
 msgstr ""
 
@@ -1869,7 +2041,7 @@ msgstr ""
 msgid "Module settings saved"
 msgstr ""
 
-#: admin/partials/page-settings.php:42 admin/partials/page-settings.php:300
+#: admin/partials/page-settings.php:48 admin/partials/page-settings.php:312
 msgid "Modules"
 msgstr ""
 
@@ -1879,19 +2051,23 @@ msgstr ""
 
 #: widgets/bew-elements-blog.php:206
 #: widgets/bew-elements-categories-list.php:140
-#: widgets/bew-elements-categories.php:169 admin/partials/page-settings.php:432
-#: admin/partials/page-settings.php:475
+#: widgets/bew-elements-categories.php:169 admin/partials/page-settings.php:444
+#: admin/partials/page-settings.php:487
 msgid "Name"
 msgstr ""
 
-#: admin/partials/page-info.php:86
+#: admin/partials/page-info.php:111
 msgid ""
 "Need custom modifications? Get in touch with our team for professional "
 "customization services."
 msgstr ""
 
-#: admin/partials/page-info.php:76
+#: admin/partials/page-info.php:101
 msgid "Need More Features?"
+msgstr ""
+
+#: admin/class-bew-system-status.php:80
+msgid "Needed only for the WooCommerce widgets."
 msgstr ""
 
 #. %s: singular label
@@ -1943,7 +2119,7 @@ msgstr ""
 msgid "No %s found."
 msgstr ""
 
-#: admin/class-bew-admin.php:204 admin/partials/page-settings.php:485
+#: admin/class-bew-admin.php:209 admin/partials/page-settings.php:497
 msgid "No AI providers connected yet."
 msgstr ""
 
@@ -1997,7 +2173,7 @@ msgstr ""
 msgid "No presets saved yet."
 msgstr ""
 
-#: widgets/bew-elements-carousel-products.php:1279
+#: widgets/bew-elements-carousel-products.php:1278
 #: widgets/bew-elements-grid-products.php:1445
 #: widgets/bew-elements-products-list.php:1244
 #: widgets/bew-elements-products.php:1354
@@ -2006,7 +2182,7 @@ msgid ""
 "there are products."
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:158
+#: inc/template-library/elementor/class-modal.php:161
 msgid "No templates found."
 msgstr ""
 
@@ -2052,6 +2228,14 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
+#: admin/class-bew-system-status.php:66
+msgid "Not active"
+msgstr ""
+
+#: admin/class-bew-system-status.php:157
+msgid "Not installed"
+msgstr ""
+
 #: widgets/bew-elements-contact-form-7.php:448
 msgid "Not Valid"
 msgstr ""
@@ -2070,7 +2254,7 @@ msgid "Nothing to show history for yet."
 msgstr ""
 
 #. 1: opening <strong><a> tags linking to the Store Hub demo, 2: closing </a></strong> tags, 3: opening <strong><a> tags linking to the Store Hub Pro demo, 4: closing </a></strong> tags, 5: opening <strong> tags linking to the Template Library, 6: closing </strong> tags
-#: admin/partials/page-settings.php:281
+#: admin/partials/page-settings.php:293
 #, php-format
 msgid ""
 "Notice: All existing Free & Pro templates previews have been moved to "
@@ -2099,11 +2283,23 @@ msgstr ""
 msgid "Number of Products"
 msgstr ""
 
+#: admin/class-bew-system-status.php:38
+msgid "Off"
+msgstr ""
+
 #: widgets/bew-elements-carousel-products.php:190
 #: widgets/bew-elements-grid-products.php:206
 #: widgets/bew-elements-products-list.php:191
 #: widgets/bew-elements-products.php:196
 msgid "Offset"
+msgstr ""
+
+#: admin/class-bew-system-status.php:119
+msgid "OK"
+msgstr ""
+
+#: admin/class-bew-system-status.php:37
+msgid "On"
 msgstr ""
 
 #: inc/bew-common.php:917 inc/bew-common.php:949
@@ -2112,7 +2308,7 @@ msgid ""
 "times."
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:96
+#: bosa-elementor-for-woocommerce.php:104
 msgid "Once Weekly"
 msgstr ""
 
@@ -2169,7 +2365,7 @@ msgstr ""
 msgid "OpenRouter Account ↗"
 msgstr ""
 
-#: admin/partials/page-settings.php:438
+#: admin/partials/page-settings.php:450
 msgid "Optional label, e.g. \"Main OpenAI Key\""
 msgstr ""
 
@@ -2193,8 +2389,8 @@ msgstr ""
 msgid "Order By"
 msgstr ""
 
-#: admin/class-bew-admin.php:97 admin/class-bew-admin.php:98
-#: admin/partials/page-products.php:19
+#: admin/class-bew-admin.php:101 admin/class-bew-admin.php:102
+#: admin/partials/page-products.php:24
 msgid "Our Products"
 msgstr ""
 
@@ -2208,7 +2404,7 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:170
+#: inc/template-library/elementor/class-modal.php:173
 #: inc/template-library/inc/class-template-library.php:66
 msgid "Pages"
 msgstr ""
@@ -2230,6 +2426,10 @@ msgstr ""
 msgid "Parent"
 msgstr ""
 
+#: admin/partials/tab-system-status.php:63
+msgid "Paste this into your support request so we can help faster."
+msgstr ""
+
 #: admin/ai-provider-types.php:88
 msgid "Perplexity"
 msgstr ""
@@ -2245,6 +2445,10 @@ msgid ""
 "Perplexity.ai is a paid service ($10 free credit on signup) -- beyond that, "
 "you will use the same balance you already pay for and BEW AI never adds an "
 "extra charge on top. You can get your API Keys in your %s."
+msgstr ""
+
+#: admin/class-bew-system-status.php:44
+msgid "PHP version"
 msgstr ""
 
 #: widgets/bew-elements-search.php:39
@@ -2273,7 +2477,8 @@ msgstr ""
 msgid "Please verify that Contact Form 7 plugin is active."
 msgstr ""
 
-#: admin/partials/page-products.php:53 admin/partials/page-products.php:64
+#: admin/partials/page-products.php:58 admin/partials/page-products.php:73
+#: admin/partials/page-products.php:82
 msgid "Plugin"
 msgstr ""
 
@@ -2319,7 +2524,7 @@ msgstr ""
 msgid "Preloader %d"
 msgstr ""
 
-#: admin/partials/page-products.php:38
+#: admin/partials/page-products.php:43
 msgid ""
 "Premium Elementor & WooCommerce theme with 200+ pre-built websites — launch "
 "any site or online store faster, no coding required."
@@ -2329,7 +2534,7 @@ msgstr ""
 msgid "Preset name"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:144
+#: inc/template-library/elementor/class-modal.php:147
 msgid "Preview"
 msgstr ""
 
@@ -2364,11 +2569,11 @@ msgid "PRO"
 msgstr ""
 
 #: admin/class-bew-ai-editor.php:133
-#: inc/template-library/elementor/class-modal.php:156
+#: inc/template-library/elementor/class-modal.php:159
 msgid "Pro"
 msgstr ""
 
-#: admin/partials/page-settings.php:380
+#: admin/partials/page-settings.php:392
 msgid "Products Generator"
 msgstr ""
 
@@ -2380,8 +2585,8 @@ msgstr ""
 msgid "Products to Scroll"
 msgstr ""
 
-#: admin/class-bew-ai-editor.php:86 admin/partials/page-settings.php:422
-#: admin/partials/page-settings.php:476
+#: admin/class-bew-ai-editor.php:86 admin/partials/page-settings.php:434
+#: admin/partials/page-settings.php:488
 msgid "Provider"
 msgstr ""
 
@@ -2423,7 +2628,7 @@ msgid ""
 "or check your usage on the provider's dashboard."
 msgstr ""
 
-#: admin/partials/page-info.php:102
+#: admin/partials/page-info.php:127
 msgid "Rate This Plugin"
 msgstr ""
 
@@ -2447,18 +2652,22 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
-#: admin/partials/page-info.php:69
+#: admin/partials/page-info.php:80
 msgid "Read Docs"
 msgstr ""
 
-#: admin/partials/page-info.php:68
+#: admin/partials/page-info.php:79
 msgid ""
 "Read our comprehensive documentation to learn how to use all features of the "
 "plugin."
 msgstr ""
 
-#: admin/partials/page-settings.php:315
+#: admin/partials/page-settings.php:327
 msgid "Reading Progressbar"
+msgstr ""
+
+#: admin/partials/tab-system-status.php:24
+msgid "Recommended"
 msgstr ""
 
 #: admin/class-bew-ai-editor.php:95
@@ -2466,7 +2675,7 @@ msgid "Regenerate"
 msgstr ""
 
 #. %s: version number
-#: admin/partials/page-settings.php:546
+#: admin/partials/page-settings.php:563
 #, php-format
 msgid "Reinstall v%s"
 msgstr ""
@@ -2481,7 +2690,7 @@ msgstr ""
 msgid "Remote service returned unexpected status code: %d"
 msgstr ""
 
-#: admin/class-bew-admin.php:202
+#: admin/class-bew-admin.php:207
 msgid "Remove this AI provider?"
 msgstr ""
 
@@ -2489,7 +2698,21 @@ msgstr ""
 msgid "Rename this preset"
 msgstr ""
 
-#: admin/partials/page-settings.php:375
+#: bosa-elementor-for-woocommerce.php:567
+msgid "Renew License"
+msgstr ""
+
+#: admin/partials/page-info.php:93
+msgid ""
+"Renew to add Pro widgets, modules, templates & AI content in the editor "
+"again, and to keep getting updates and priority support."
+msgstr ""
+
+#: admin/partials/page-info.php:90 admin/partials/page-settings.php:587
+msgid "Renew Your License"
+msgstr ""
+
+#: admin/partials/page-settings.php:387
 msgid "Repeater Generator"
 msgstr ""
 
@@ -2507,7 +2730,7 @@ msgstr ""
 msgid "Required by: %s"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:161
+#: inc/template-library/elementor/class-modal.php:164
 msgid "Required Plugins"
 msgstr ""
 
@@ -2555,7 +2778,7 @@ msgstr ""
 msgid "Rollback is only supported for version %s and above"
 msgstr ""
 
-#: admin/partials/page-settings.php:539
+#: admin/partials/page-settings.php:556
 msgid "Rollback to Previous Version"
 msgstr ""
 
@@ -2589,21 +2812,25 @@ msgstr ""
 msgid "Save as preset"
 msgstr ""
 
-#: admin/class-bew-admin.php:198 admin/partials/page-settings.php:255
-#: admin/partials/page-settings.php:294 admin/partials/page-settings.php:339
-#: admin/partials/page-settings.php:408
+#: admin/class-bew-admin.php:202 admin/partials/page-settings.php:267
+#: admin/partials/page-settings.php:306 admin/partials/page-settings.php:351
+#: admin/partials/page-settings.php:420
 msgid "Save Changes"
+msgstr ""
+
+#: admin/partials/page-products.php:96
+msgid "Save up to 55% vs buying separately."
 msgstr ""
 
 #: admin/class-bew-ai-editor.php:145
 msgid "Saved presets"
 msgstr ""
 
-#: admin/class-bew-admin.php:200
+#: admin/class-bew-admin.php:204
 msgid "Saved!"
 msgstr ""
 
-#: admin/class-bew-admin.php:199
+#: admin/class-bew-admin.php:203
 msgid "Saving…"
 msgstr ""
 
@@ -2629,19 +2856,19 @@ msgstr ""
 msgid "Search %s"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:138
+#: inc/template-library/elementor/class-modal.php:141
 msgid "Search Kits"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:139
+#: inc/template-library/elementor/class-modal.php:142
 msgid "Search Pages"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:140
+#: inc/template-library/elementor/class-modal.php:143
 msgid "Search Sections"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:134
+#: inc/template-library/elementor/class-modal.php:137
 msgid "Search templates…"
 msgstr ""
 
@@ -2649,7 +2876,7 @@ msgstr ""
 msgid "Section"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:171
+#: inc/template-library/elementor/class-modal.php:174
 #: inc/template-library/inc/class-template-library.php:67
 msgid "Sections"
 msgstr ""
@@ -2708,12 +2935,16 @@ msgstr ""
 msgid "Sent Success"
 msgstr ""
 
-#: admin/class-bew-admin.php:212 admin/partials/page-settings.php:513
+#: admin/partials/tab-system-status.php:17
+msgid "Server"
+msgstr ""
+
+#: admin/class-bew-admin.php:217 admin/partials/page-settings.php:525
 msgid "Set as Default"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:934 admin/class-bew-admin.php:70
-#: admin/class-bew-admin.php:71
+#: bosa-elementor-for-woocommerce.php:1019 admin/class-bew-admin.php:74
+#: admin/class-bew-admin.php:75
 msgid "Settings"
 msgstr ""
 
@@ -2761,11 +2992,11 @@ msgstr ""
 msgid "Show on Click"
 msgstr ""
 
-#: widgets/bew-elements-site-logo.php:15 admin/partials/page-settings.php:64
+#: widgets/bew-elements-site-logo.php:15 admin/partials/page-settings.php:76
 msgid "Site Logo"
 msgstr ""
 
-#: admin/partials/page-settings.php:310
+#: admin/partials/page-settings.php:322
 msgid "Site Preloader"
 msgstr ""
 
@@ -2773,7 +3004,7 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:167
+#: inc/template-library/elementor/class-modal.php:170
 msgid "Skip & Import Anyway"
 msgstr ""
 
@@ -2794,7 +3025,7 @@ msgstr ""
 msgid "Small"
 msgstr ""
 
-#: admin/class-bew-admin.php:203 admin/class-bew-ai-editor.php:97
+#: admin/class-bew-admin.php:208 admin/class-bew-ai-editor.php:97
 msgid "Something went wrong. Please try again."
 msgstr ""
 
@@ -2825,13 +3056,13 @@ msgstr ""
 msgid "Star Spacing"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:147
+#: inc/template-library/elementor/class-modal.php:150
 msgid ""
 "Start using this style on your WordPress sites and make your site more "
 "flexible."
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:160
+#: inc/template-library/elementor/class-modal.php:163
 msgid "Stay tuned! More awesome templates coming soon."
 msgstr ""
 
@@ -2858,8 +3089,16 @@ msgstr ""
 msgid "Successfully rolled back to version %s"
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:159
+#: inc/template-library/elementor/class-modal.php:162
 msgid "Sync templates"
+msgstr ""
+
+#: admin/partials/tab-system-status.php:62
+msgid "System info"
+msgstr ""
+
+#: admin/partials/page-settings.php:58 admin/partials/tab-system-status.php:14
+msgid "System Status"
 msgstr ""
 
 #: widgets/bew-elements-carousel-products.php:159
@@ -2874,7 +3113,7 @@ msgstr ""
 msgid "Template data is corrupted."
 msgstr ""
 
-#: admin/partials/page-settings.php:267
+#: admin/partials/page-settings.php:279
 msgid "Template Library"
 msgstr ""
 
@@ -2883,11 +3122,11 @@ msgstr ""
 msgid "Template not found."
 msgstr ""
 
-#: admin/partials/page-settings.php:39 admin/partials/page-settings.php:261
+#: admin/partials/page-settings.php:45 admin/partials/page-settings.php:273
 msgid "Templates"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:1016 admin/partials/page-settings.php:94
+#: bosa-elementor-for-woocommerce.php:1101 admin/partials/page-settings.php:106
 msgid "Testimonial Slider"
 msgstr ""
 
@@ -2926,11 +3165,11 @@ msgstr ""
 msgid "Text Color"
 msgstr ""
 
-#: admin/class-bew-ai-editor.php:81 admin/partials/page-settings.php:360
+#: admin/class-bew-ai-editor.php:81 admin/partials/page-settings.php:372
 msgid "Text Generator"
 msgstr ""
 
-#: admin/partials/page-info.php:39
+#: admin/partials/page-info.php:46
 msgid ""
 "Thanks for going Pro! <strong>BEW Pro is now installed and ready to use."
 "</strong> We hope the following information will help and you enjoy using it!"
@@ -2948,8 +3187,18 @@ msgstr ""
 msgid "The provider is having issues right now. Please try again shortly."
 msgstr ""
 
-#: admin/partials/page-products.php:42
+#: admin/partials/page-products.php:47
 msgid "Theme"
+msgstr ""
+
+#: admin/partials/tab-system-status.php:44
+msgid "Theme and plugins"
+msgstr ""
+
+#: admin/partials/tab-system-status.php:15
+msgid ""
+"These checks show whether your server is ready to run BEW and import its "
+"templates. Nothing here changes your settings."
 msgstr ""
 
 #: admin/ai-provider-types.php:161
@@ -2958,7 +3207,7 @@ msgid ""
 "provider's dashboard."
 msgstr ""
 
-#: admin/partials/page-settings.php:565
+#: admin/partials/page-settings.php:591
 msgid ""
 "This is available in the Pro version. Unlock all premium widgets, templates, "
 "and features for your store."
@@ -2988,7 +3237,7 @@ msgstr ""
 msgid "This template requires BEW Pro."
 msgstr ""
 
-#: inc/template-library/elementor/class-modal.php:162
+#: inc/template-library/elementor/class-modal.php:165
 msgid ""
 "This template uses widgets from third-party plugins. Install them for the "
 "full design, or skip to import with placeholders."
@@ -3011,7 +3260,7 @@ msgstr ""
 msgid "This widget requires a plugin that is not installed or active."
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:258
+#: bosa-elementor-for-woocommerce.php:268
 msgid ""
 "This widget requires WooCommerce. Install and activate WooCommerce to use it."
 msgstr ""
@@ -3094,6 +3343,18 @@ msgstr ""
 msgid "Unexpected response from provider."
 msgstr ""
 
+#: admin/class-bew-system-status.php:41
+msgid "Unlimited"
+msgstr ""
+
+#. %s: sale end date, e.g. "December 2".
+#: admin/notices/sale-notice.php:135
+#, php-format
+msgid ""
+"Unlock 3,000+ templates, Pro WooCommerce widgets, and AI content generation. "
+"Ends %s."
+msgstr ""
+
 #: inc/bew-common.php:1234
 msgid "Unlock More Possibilities"
 msgstr ""
@@ -3104,20 +3365,20 @@ msgstr ""
 msgid "Update %s"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:1027 admin/class-bew-ai-editor.php:104
-#: admin/partials/page-products.php:61 admin/partials/page-settings.php:567
+#: bosa-elementor-for-woocommerce.php:569 admin/class-bew-ai-editor.php:104
+#: admin/partials/page-products.php:79
 msgid "Upgrade Now"
 msgstr ""
 
-#: admin/class-bew-admin.php:85 admin/class-bew-admin.php:86
+#: admin/class-bew-admin.php:89 admin/class-bew-admin.php:90
 msgid "Upgrade to BEW Pro"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:939 admin/partials/page-settings.php:564
+#: bosa-elementor-for-woocommerce.php:1024 admin/partials/page-settings.php:590
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: admin/partials/page-info.php:77
+#: admin/partials/page-info.php:102
 msgid ""
 "Upgrade to Pro & unlock premium widgets, modules, 3,000+ templates, & AI-"
 "powered Content Generation."
@@ -3125,6 +3386,16 @@ msgstr ""
 
 #: admin/class-bew-ai-editor.php:91
 msgid "Using"
+msgstr ""
+
+#. %s: BEW version number, e.g. "2.1.3".
+#: admin/partials/components/component-version-eyebrow.php:17
+#, php-format
+msgid "Version %s"
+msgstr ""
+
+#: admin/partials/page-settings.php:61 admin/partials/page-settings.php:551
+msgid "Version Control"
 msgstr ""
 
 #: admin/class-bew-ajax.php:629
@@ -3157,11 +3428,11 @@ msgstr ""
 msgid "VIEW DEMO"
 msgstr ""
 
-#: admin/partials/page-settings.php:271
+#: admin/partials/page-settings.php:283
 msgid "VIEW DEMOS"
 msgstr ""
 
-#: admin/partials/page-info.php:50
+#: admin/partials/page-info.php:61
 msgid "View Details"
 msgstr ""
 
@@ -3169,7 +3440,7 @@ msgstr ""
 msgid "View history for this field"
 msgstr ""
 
-#: admin/partials/page-info.php:78
+#: admin/partials/page-info.php:103
 msgid "View Pricing"
 msgstr ""
 
@@ -3177,23 +3448,23 @@ msgstr ""
 msgid "Visit Author Page"
 msgstr ""
 
-#: admin/partials/page-info.php:95
+#: admin/partials/page-info.php:120
 msgid "Visit Support Center"
 msgstr ""
 
-#: inc/bew-common.php:438
+#: admin/class-bew-system-status.php:123 inc/bew-common.php:438
 msgid "Warning"
 msgstr ""
 
-#: admin/partials/page-settings.php:552
+#: admin/partials/page-settings.php:569
 msgid "Warning: Please backup your database before making the rollback."
 msgstr ""
 
-#: admin/partials/page-info.php:22
+#: admin/partials/page-info.php:29
 msgid "Welcome to BEW - Elementor Addons, Templates & AI Builder"
 msgstr ""
 
-#: admin/partials/page-info.php:20
+#: admin/partials/page-info.php:27
 msgid "Welcome to BEW Pro - Premium Elementor Addons, Templates & AI Builder"
 msgstr ""
 
@@ -3201,7 +3472,7 @@ msgstr ""
 msgid "Widget settings saved"
 msgstr ""
 
-#: admin/partials/page-settings.php:36 admin/partials/page-settings.php:55
+#: admin/partials/page-settings.php:42 admin/partials/page-settings.php:67
 msgid "Widgets"
 msgstr ""
 
@@ -3222,115 +3493,112 @@ msgstr ""
 msgid "Wishlist Label Tooltip"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:994
+#: bosa-elementor-for-woocommerce.php:1079
 msgid "Woo - Grid Carousel"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:973
+#: bosa-elementor-for-woocommerce.php:1058
 msgid "Woo - Hot Deals"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:980
+#: bosa-elementor-for-woocommerce.php:1065
 msgid "Woo - Product Slider"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:987
+#: bosa-elementor-for-woocommerce.php:1072
 msgid "Woo - Product Tabs"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:1001
+#: bosa-elementor-for-woocommerce.php:1086
 msgid "Woo - Products Accordion"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:519
+#: bosa-elementor-for-woocommerce.php:604
 #: widgets/bew-elements-carousel-products.php:16
-#: admin/partials/page-settings.php:116
+#: admin/partials/page-settings.php:128
 msgid "Woo Archive Carousel"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:512 widgets/bew-elements-products.php:16
-#: admin/partials/page-settings.php:110
+#: bosa-elementor-for-woocommerce.php:597 widgets/bew-elements-products.php:16
+#: admin/partials/page-settings.php:122
 msgid "Woo Archive Products"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:554 widgets/bew-elements-cart.php:46
-#: admin/partials/page-settings.php:146
+#: bosa-elementor-for-woocommerce.php:639 widgets/bew-elements-cart.php:46
+#: admin/partials/page-settings.php:158
 msgid "Woo Cart"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:533
-#: widgets/bew-elements-categories.php:16 admin/partials/page-settings.php:128
+#: bosa-elementor-for-woocommerce.php:618
+#: widgets/bew-elements-categories.php:16 admin/partials/page-settings.php:140
 msgid "Woo Categories"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:540
+#: bosa-elementor-for-woocommerce.php:625
 #: widgets/bew-elements-categories-list.php:16
-#: admin/partials/page-settings.php:134
+#: admin/partials/page-settings.php:146
 msgid "Woo Categories List"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:604 admin/partials/page-settings.php:189
+#: bosa-elementor-for-woocommerce.php:689 admin/partials/page-settings.php:201
 msgid "Woo Grid Carousel"
 msgstr ""
 
-#: admin/partials/page-settings.php:104
-msgid "Woo Grid Product"
-msgstr ""
-
-#: bosa-elementor-for-woocommerce.php:505
+#: bosa-elementor-for-woocommerce.php:590
 #: widgets/bew-elements-grid-products.php:16
+#: admin/partials/page-settings.php:116
 msgid "Woo Grid Products"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:583 admin/partials/page-settings.php:171
+#: bosa-elementor-for-woocommerce.php:668 admin/partials/page-settings.php:183
 msgid "Woo Hot Deals"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:561
-#: widgets/bew-elements-my-account.php:16 admin/partials/page-settings.php:152
+#: bosa-elementor-for-woocommerce.php:646
+#: widgets/bew-elements-my-account.php:16 admin/partials/page-settings.php:164
 msgid "Woo My Account"
 msgstr ""
 
-#: admin/partials/page-settings.php:195
+#: admin/partials/page-settings.php:207
 msgid "Woo Product Accordion"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:590 admin/partials/page-settings.php:177
+#: bosa-elementor-for-woocommerce.php:675 admin/partials/page-settings.php:189
 msgid "Woo Product Slider"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:597 admin/partials/page-settings.php:183
+#: bosa-elementor-for-woocommerce.php:682 admin/partials/page-settings.php:195
 msgid "Woo Product Tabs"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:611
+#: bosa-elementor-for-woocommerce.php:696
 msgid "Woo Products Accordion"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:526
+#: bosa-elementor-for-woocommerce.php:611
 #: widgets/bew-elements-products-list.php:16
-#: admin/partials/page-settings.php:122
+#: admin/partials/page-settings.php:134
 msgid "Woo Products List"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:547 widgets/bew-elements-search.php:16
-#: admin/partials/page-settings.php:140
+#: bosa-elementor-for-woocommerce.php:632 widgets/bew-elements-search.php:16
+#: admin/partials/page-settings.php:152
 msgid "Woo Search"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:575
+#: bosa-elementor-for-woocommerce.php:660
 #: widgets/bew-elements-yith-compare.php:16
-#: admin/partials/page-settings.php:164
+#: admin/partials/page-settings.php:176
 msgid "Woo YITH Compare"
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:568
+#: bosa-elementor-for-woocommerce.php:653
 #: widgets/bew-elements-yith-wishlist.php:16
-#: admin/partials/page-settings.php:158
+#: admin/partials/page-settings.php:170
 msgid "Woo YITH Wishlist"
 msgstr ""
 
-#: admin/partials/page-settings.php:204
+#: admin/partials/page-settings.php:216
 msgid "WooCommerce"
 msgstr ""
 
@@ -3338,7 +3606,7 @@ msgstr ""
 msgid "WooCommerce plugin not installed. Please verify plugins are active."
 msgstr ""
 
-#: bosa-elementor-for-woocommerce.php:257
+#: bosa-elementor-for-woocommerce.php:267
 msgid "WooCommerce Required"
 msgstr ""
 
@@ -3348,6 +3616,10 @@ msgstr ""
 msgid ""
 "WordPress REST is reachable, but the template list could not be read from "
 "%1$s: %2$s"
+msgstr ""
+
+#: admin/class-bew-system-status.php:45
+msgid "WordPress version"
 msgstr ""
 
 #: admin/class-bew-ai-editor.php:144
@@ -3421,8 +3693,8 @@ msgstr ""
 msgid "YITH Wishlist plugin not installed. Please verify plugin is active."
 msgstr ""
 
-#: admin/class-bew-admin.php:224 admin/class-bew-admin.php:231
-#: admin/class-bew-admin.php:238
+#: admin/class-bew-admin.php:229 admin/class-bew-admin.php:236
+#: admin/class-bew-admin.php:243
 msgid "You do not have permission to access this page."
 msgstr ""
 
@@ -3433,6 +3705,25 @@ msgstr ""
 #: inc/template-library/frontend/class-plugin-installer.php:33
 #: inc/template-library/frontend/class-plugin-installer.php:70
 msgid "You do not have permission to install plugins."
+msgstr ""
+
+#: admin/partials/page-info.php:52
+msgid ""
+"Your BEW Pro license has expired. Pages you already built keep working; "
+"renew to add Pro widgets, templates and AI content again and to keep getting "
+"updates."
+msgstr ""
+
+#: admin/partials/page-settings.php:588
+msgid ""
+"Your BEW Pro license has expired. Renew it to turn Pro widgets, modules, and "
+"AI features on again."
+msgstr ""
+
+#: admin/partials/page-products.php:68
+msgid ""
+"Your BEW Pro license has expired. Renew to add Pro widgets, templates & AI "
+"content again and to keep getting updates."
 msgstr ""
 
 #: modules/back-to-top/class-site-settings.php:327
